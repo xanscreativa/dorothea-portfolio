@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://xansstudio.com/sitemap.xml
+Host: xansstudio.com
