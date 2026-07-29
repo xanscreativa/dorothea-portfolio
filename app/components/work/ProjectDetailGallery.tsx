@@ -25,7 +25,7 @@ const fadeRise = {
 export default function ProjectDetailGallery({ project }: Props) {
   // Semua gambar dijadikan satu flat array untuk Lightbox
   const allImages = useMemo(
-    () => project.items.flatMap((item) => item.images),
+    () => project.items.flatMap((item: PortfolioCollection["items"][number]) => item.images),
     [project]
   );
 
@@ -66,11 +66,11 @@ export default function ProjectDetailGallery({ project }: Props) {
           </h2>
 
           <div className="mt-14 space-y-16">
-            {project.items.map((collectionProject, collectionIndex) => {
+            {project.items.map((collectionProject: PortfolioCollection["items"][number], collectionIndex: number) => {
               // Menghitung offset index global secara murni tanpa mutasi render
               const previousImagesCount = project.items
                 .slice(0, collectionIndex)
-                .reduce((acc, item) => acc + item.images.length, 0);
+                .reduce((acc: number, item: PortfolioCollection["items"][number]) => acc + item.images.length, 0);
 
               return (
                 <motion.div
@@ -92,7 +92,7 @@ export default function ProjectDetailGallery({ project }: Props) {
                   </div>
 
                   <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    {collectionProject.images.map((image, imageIndex) => {
+                    {collectionProject.images.map((image: string, imageIndex: number) => {
                       const absoluteIndex = previousImagesCount + imageIndex;
 
                       return (

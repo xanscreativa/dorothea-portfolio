@@ -1,11 +1,11 @@
 import Footer from "./components/layout/Footer";
 
 import Hero from "./components/sections/Hero";
-import PortfolioGallery from "./components/sections/PortfolioGallery";
-import CreativeFilms from "./components/sections/CreativeFilms";
+import PortfolioGallery from "./components/portfolio/PortfolioGallery";
+import CreativeFilms from "./components/video/CreativeFilms";
 import Skills from "./components/sections/Skills";
-import About from "./components/sections/About";
-import Contact from "./components/sections/Contact";
+import About from "./components/about/About";
+import Contact from "./components/contact/Contact";
 
 export default function Home() {
   return (

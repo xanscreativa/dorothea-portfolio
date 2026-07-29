@@ -4,6 +4,35 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { Film } from "@/data/film";
 
+interface ModalProjectData {
+  industry?: string;
+  year?: string;
+  platform?: string;
+  format?: string;
+  challenge?: string;
+  summary?: string;
+  tagline?: string;
+  creativeDirection?: {
+    visualStyle?: string;
+    editingStyle?: string;
+    colorMood?: string;
+    pacing?: string;
+    typography?: string;
+    motionLanguage?: string;
+  };
+  editingBreakdown?: Array<{ title: string; desc: string }>;
+  softwareUsed?: string[];
+  deliverables?: string[];
+  outcome?: string;
+  reflection?: string;
+  process?: {
+    delivery?: string;
+    preProduction?: string;
+    production?: string;
+    postProduction?: string;
+  };
+}
+
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -39,7 +68,7 @@ export default function ProjectDetailModal({
   if (!isOpen || !project) return null;
 
   const isPortrait = project.orientation === "portrait";
-  const p = project as any;
+  const p = project as Film & ModalProjectData;
 
   // Metadata fallbacks for recruiter-focused case study
   const client = project.client || "Personal Production";
@@ -321,7 +350,7 @@ export default function ProjectDetailModal({
               Editing Breakdown
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {editingBreakdown.map((item: any, idx: number) => (
+              {editingBreakdown.map((item: { title: string; desc: string }, idx: number) => (
                 <div key={idx} className="rounded-2xl border border-pink-100/80 bg-[#FFFDFC] p-6 shadow-xs">
                   <h4 className="text-sm font-black text-[#2D2433] mb-2 flex items-center gap-2">
                     <span className="h-2 w-2 rounded-full bg-pink-500" />

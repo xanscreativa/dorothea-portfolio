@@ -1,8 +1,17 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { portfolioCollections, PortfolioCollection } from "@/data/portfolio";
+import { portfolioCollections, type PortfolioCollection } from "@/data/portfolio";
 import FadeUp from "@/components/animation/FadeUp";
+
+interface PortfolioPageData {
+  overview?: string;
+  challenge?: string;
+  roles?: string[];
+  toolsList?: string[];
+  results?: Array<{ label: string; value: string; desc: string }>;
+  reflection?: string;
+}
 
 interface PageProps {
   params: Promise<{
@@ -37,7 +46,7 @@ export default async function PortfolioDetailPage({ params }: PageProps) {
   }
 
   const nextProject = getNextPortfolio(slug);
-  const c = collection as any;
+  const c = collection as PortfolioCollection & PortfolioPageData;
 
   // Fallback data for recruiter-friendly case study sections
   const overviewText = c.overview || collection.description || "This project was developed through rigorous strategic planning, iterative visual design, and meticulous execution to address core user experience and branding goals.";
@@ -367,7 +376,7 @@ export default async function PortfolioDetailPage({ params }: PageProps) {
               </h2>
               
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                {resultsStats.map((stat: any, idx: number) => (
+                {resultsStats.map((stat: { label: string; value: string; desc: string }, idx: number) => (
                   <div key={idx} className="rounded-3xl border border-pink-100 bg-gradient-to-b from-pink-50/50 to-white p-6 sm:p-8 text-center shadow-xs">
                     <span className="text-3xl sm:text-4xl font-black text-[#E96A98] block mb-2">
                       {stat.value}

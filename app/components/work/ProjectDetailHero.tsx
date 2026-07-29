@@ -21,7 +21,7 @@ const fadeUp = {
 
 export default function ProjectDetailHero({ project }: Props) {
   const totalImages = project.items.reduce(
-    (count, item) => count + item.images.length,
+    (count: number, item: PortfolioCollection["items"][number]) => count + item.images.length,
     0
   );
 
