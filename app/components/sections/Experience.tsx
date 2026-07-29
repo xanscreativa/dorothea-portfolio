@@ -1,4 +1,6 @@
-import FadeUp from "../animation/FadeUp";
+"use client";
+
+import FadeUp from "@/components/animation/FadeUp";
 
 const experiences = [
   {

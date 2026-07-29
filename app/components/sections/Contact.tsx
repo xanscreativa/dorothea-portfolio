@@ -2,11 +2,11 @@
 
 import React, { useState } from "react";
 import { Mail, ArrowUpRight, Copy, Check } from "lucide-react";
-import FadeUp from "@/app/components/animation/FadeUp";
+import FadeUp from "../animation/FadeUp"; // Menggunakan impor relatif
 
 export default function ContactCTA() {
   const [copied, setCopied] = useState(false);
-  const email = "dorotheaalexandra@gmail.com"; // Ganti dengan email studio kamu
+  const email = "dorotheaalexandra@gmail.com";
 
   const handleCopy = () => {
     navigator.clipboard.writeText(email);

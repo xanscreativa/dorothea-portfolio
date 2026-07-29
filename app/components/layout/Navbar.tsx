@@ -3,13 +3,13 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { Menu, X, Download } from "lucide-react";
 
-const navLinks = [
-  { name: "Work", href: "/#portfolio" },
-  { name: "Films", href: "/#films" },
-  { name: "Services", href: "/#services" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/#contact" },
+const navItems = [
+  { label: "Projects", href: "/#portfolio", isAnchor: true },
+  { label: "About", href: "/about", isAnchor: false },
+  { label: "Resume", href: "/resume.pdf", isExternal: true },
+  { label: "Contact", href: "/#contact", isAnchor: true },
 ];
 
 export default function Navbar() {
@@ -26,166 +26,150 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [mobileMenuOpen]);
-
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
-  ) => {
+  const handleAnchorClick = (href: string) => {
     setMobileMenuOpen(false);
-
-    if (href.startsWith("/#")) {
-      const targetId = href.replace("/#", "");
-
-      if (pathname === "/") {
-        e.preventDefault();
-        window.history.pushState(null, "", `/#${targetId}`);
-
-        const element = document.getElementById(targetId);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      } else {
-        e.preventDefault();
-        router.push(`/#${targetId}`);
+    const sectionId = href.replace("/#", "");
+    if (pathname !== "/") {
+      router.push(href);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
       }
     }
   };
 
   return (
     <header
-      className={`fixed left-0 right-0 top-0 z-50 w-full max-w-full transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-pink-100/60 bg-white/90 py-2.5 shadow-[0_4px_20px_rgba(229,135,176,0.08)] backdrop-blur-md"
-          : "bg-white/90 py-2.5 backdrop-blur-md lg:bg-transparent lg:py-3.5"
+          ? "bg-[#FFFDFC]/90 backdrop-blur-md border-b border-pink-100/60 py-4 shadow-xs"
+          : "bg-transparent py-6"
       }`}
     >
-      <div className="mx-auto flex w-full max-w-full min-w-0 flex-row items-center justify-between px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-        {/* Logo */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        {/* Brand Logo */}
         <Link
           href="/"
-          className="group flex items-center gap-1.5 z-10"
-          onClick={() => setMobileMenuOpen(false)}
+          className="text-base font-black tracking-tight text-[#2D2433] sm:text-lg hover:text-pink-600 transition-colors"
         >
-          <span className="text-xl sm:text-2xl font-black tracking-widest text-[#2D2433] transition-colors group-hover:text-pink-500">
-            XANS
-          </span>
-          <span className="h-2 w-2 rounded-full bg-pink-500 inline-block" />
+          Dorothea Alexandra
         </Link>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden items-center gap-1 rounded-full border border-pink-100/80 bg-white/70 px-4 py-1.5 shadow-xs backdrop-blur-md lg:flex">
-          {navLinks.map((link) => {
-            const isActive = pathname === link.href;
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-8">
+          {navItems.map((item) => {
+            if (item.isExternal) {
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-semibold text-[#6B6570] hover:text-[#2D2433] transition-colors cursor-pointer"
+                >
+                  {item.label}
+                </a>
+              );
+            }
+            if (item.isAnchor) {
+              return (
+                <button
+                  key={item.label}
+                  onClick={() => handleAnchorClick(item.href)}
+                  className="text-sm font-semibold text-[#6B6570] hover:text-[#2D2433] transition-colors cursor-pointer"
+                >
+                  {item.label}
+                </button>
+              );
+            }
             return (
               <Link
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className={`relative px-4 py-1.5 text-xs font-bold uppercase tracking-wider transition-colors duration-200 ${
-                  isActive
-                    ? "text-pink-500"
-                    : "text-[#6B6570] hover:text-[#2D2433]"
-                }`}
+                key={item.label}
+                href={item.href}
+                className="text-sm font-semibold text-[#6B6570] hover:text-[#2D2433] transition-colors cursor-pointer"
               >
-                {link.name}
-                {isActive && (
-                  <span className="absolute bottom-0 left-1/2 h-0.5 w-4 -translate-x-1/2 rounded-full bg-pink-500" />
-                )}
+                {item.label}
               </Link>
             );
           })}
         </nav>
 
         {/* Desktop CTA Button */}
-        <div className="hidden lg:block">
-          <Link
-            href="/#contact"
-            onClick={(e) => handleNavClick(e, "/#contact")}
-            className="inline-flex items-center justify-center rounded-full bg-[#ec4899] px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-[0_10px_20px_rgba(236,72,153,0.25)] transition-all duration-300 hover:bg-[#db2777] hover:shadow-[0_12px_25px_rgba(236,72,153,0.35)] hover:-translate-y-0.5"
+        <div className="hidden md:flex items-center">
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Download professional resume PDF"
+            className="inline-flex items-center gap-2 rounded-full bg-[#2D2433] px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-pink-500/10 hover:bg-pink-600 transition-all duration-300 cursor-pointer"
           >
-            Connect
-          </Link>
+            <Download className="w-3.5 h-3.5" />
+            <span>Download Resume</span>
+          </a>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Toggle Button */}
         <button
-          type="button"
-          onClick={(e) => {
-            e.stopPropagation();
-            setMobileMenuOpen((prev) => !prev);
-          }}
-          className="relative z-50 flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full bg-pink-50 text-pink-600 shadow-xs transition-transform active:scale-95 lg:hidden"
-          aria-label="Toggle Menu"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          className="md:hidden text-[#2D2433] p-2 focus:outline-none focus:ring-2 focus:ring-pink-500 rounded-lg cursor-pointer"
         >
-          <svg
-            className="h-5 w-5 pointer-events-none"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            {mobileMenuOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2.5"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2.5"
-                d="M4 7h16M4 12h16M4 17h16"
-              />
-            )}
-          </svg>
+          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
-      {/* Mobile Drawer Overlay */}
+      {/* Mobile Dropdown Menu */}
       {mobileMenuOpen && (
-        <div className="absolute inset-x-0 top-full z-40 flex h-[calc(100vh-100%)] min-h-[calc(100vh-60px)] flex-col justify-between overflow-y-auto border-t border-pink-100/50 bg-white/95 p-6 backdrop-blur-2xl shadow-xl lg:hidden">
-          <div className="my-auto flex w-full flex-col items-stretch gap-3">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+        <div className="absolute top-full left-0 right-0 bg-[#FFFDFC]/95 backdrop-blur-xl border-b border-pink-100/80 shadow-lg px-6 py-6 md:hidden flex flex-col space-y-4">
+          {navItems.map((item) => {
+            if (item.isExternal) {
               return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
-                  className={`flex items-center justify-center gap-2 rounded-2xl px-6 py-4 text-base font-bold uppercase tracking-wider transition-all ${
-                    isActive
-                      ? "bg-pink-50/80 text-pink-600"
-                      : "text-[#2D2433] hover:bg-gray-50 active:bg-pink-50/50"
-                  }`}
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-left text-base font-semibold text-[#6B6570] hover:text-[#2D2433] transition-colors py-1 cursor-pointer"
                 >
-                  <span>{link.name}</span>
-                  {isActive && (
-                    <span className="h-2 w-2 rounded-full bg-pink-500" />
-                  )}
-                </Link>
+                  {item.label}
+                </a>
               );
-            })}
-          </div>
-
-          <div className="w-full pt-4 pb-16">
-            <Link
-              href="/#contact"
-              onClick={(e) => handleNavClick(e, "/#contact")}
-              className="flex w-full items-center justify-center rounded-full bg-[#ec4899] hover:bg-[#db2777] py-4 text-center text-sm font-bold uppercase tracking-widest text-white shadow-[0_12px_30px_rgba(236,72,153,0.25)] active:scale-[0.98] transition-all"
+            }
+            if (item.isAnchor) {
+              return (
+                <button
+                  key={item.label}
+                  onClick={() => handleAnchorClick(item.href)}
+                  className="text-left text-base font-semibold text-[#6B6570] hover:text-[#2D2433] transition-colors py-1 cursor-pointer"
+                >
+                  {item.label}
+                </button>
+              );
+            }
+            return (
+              <Link
+                key={item.label}
+                href={item.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-left text-base font-semibold text-[#6B6570] hover:text-[#2D2433] transition-colors py-1 cursor-pointer"
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+          <div className="pt-2">
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Download professional resume PDF"
+              className="inline-flex items-center justify-center gap-2 w-full rounded-full bg-[#2D2433] px-5 py-3 text-xs font-bold text-white shadow-md hover:bg-pink-600 transition-all duration-300 cursor-pointer"
             >
-              Connect
-            </Link>
+              <Download className="w-4 h-4" />
+              <span>Download Resume</span>
+            </a>
           </div>
         </div>
       )}

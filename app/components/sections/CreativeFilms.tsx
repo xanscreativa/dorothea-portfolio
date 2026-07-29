@@ -4,7 +4,7 @@ import { useState } from "react";
 import FadeUp from "../animation/FadeUp";
 import VideoCard from "../work/VideoCard";
 import ProjectDetailModal from "../ui/ProjectDetailModal";
-import { films, Film } from "@/app/data/film";
+import { films, Film } from "@/data/film";
 
 function VideoCardWrapper({
   project,
@@ -115,7 +115,7 @@ export default function CreativeFilms() {
           {/* Cards Grid with Increased Breathing Room & Balanced Heights */}
           <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 xl:grid-cols-4 items-stretch">
             {films && films.length > 0 ? (
-              films.map((film, index) => {
+              films.map((film: Film, index: number) => {
                 const isGPIB =
                   film.title?.toLowerCase().includes("gpib") ||
                   film.title?.toLowerCase().includes("immanuel");

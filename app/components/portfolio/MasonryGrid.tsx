@@ -1,6 +1,6 @@
 "use client";
 
-import type { PortfolioCollection } from "@/app/data/portfolio";
+import type { PortfolioCollection } from "@/data/portfolio";
 import PortfolioCard from "./PortfolioCard";
 
 interface MasonryGridProps {

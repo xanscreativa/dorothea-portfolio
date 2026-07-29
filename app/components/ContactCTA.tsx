@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Mail, ArrowUpRight, Copy, Check } from "lucide-react";
-import FadeUp from "@/app/components/animation/FadeUp";
+import FadeUp from "@/components/animation/FadeUp";
 
 export default function ContactCTA() {
   const [copied, setCopied] = useState(false);

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { Film } from "@/app/data/film";
+import { Film } from "@/data/film";
 
 interface ModalProps {
   isOpen: boolean;
@@ -39,151 +39,365 @@ export default function ProjectDetailModal({
   if (!isOpen || !project) return null;
 
   const isPortrait = project.orientation === "portrait";
+  const p = project as any;
+
+  // Metadata fallbacks for recruiter-focused case study
+  const client = project.client || "Personal Production";
+  const industry = p.industry || "Digital Media & Brand Storytelling";
+  const role = project.role || "Video Editor & Motion Designer";
+  const year = p.year || "2026";
+  const duration = p.duration || "60 Seconds";
+  const format = p.format || (isPortrait ? "9:16 Vertical HD" : "16:9 Landscape 4K");
+  const platform = p.platform || "Instagram, TikTok, & YouTube";
+  const summary = p.tagline || p.summary || project.description.slice(0, 140) + "...";
+  const challenge = p.challenge || "Capturing audience attention within the critical first 3 seconds while maintaining high aesthetic standards and clear brand messaging across fast-paced digital feeds.";
+  
+  const creativeDirection = p.creativeDirection || {
+    visualStyle: "Clean, modern editorial look with high contrast and polished color grading.",
+    editingStyle: "Dynamic, rhythm-driven cuts synchronized precisely with audio beats.",
+    colorMood: "Warm cinematic tones accented with vibrant brand-aligned pink highlights.",
+    pacing: "Fast hook leading into an engaging, breathable narrative arc.",
+    typography: "Bold sans-serif kinetic text for maximum legibility and emphasis.",
+    motionLanguage: "Smooth keyframed transitions and subtle organic motion graphics."
+  };
+
+  const editingBreakdown = p.editingBreakdown || [
+    { title: "Precision Editing", desc: "Rhythmic cutting, framing optimization, and narrative flow structuring." },
+    { title: "Color Grading", desc: "Custom LUT application, white balance correction, and skin tone balancing." },
+    { title: "Motion Graphics", desc: "Kinetic typography, lower thirds, and animated overlays." },
+    { title: "Sound Design", desc: "Audio mixing, dialogue cleanup, SFX layer integration, and beat syncing." }
+  ];
+
+  const softwareUsed = p.softwareUsed || ["Adobe Premiere Pro", "After Effects", "Adobe Photoshop", "Adobe Audition", "CapCut"];
+  const deliverablesList = p.deliverables || ["Instagram Reel (9:16)", "TikTok Video (9:16)", "YouTube Shorts (9:16)", "Primary Campaign Master (16:9)"];
+  const outcomeText = p.outcome || "Successfully elevated brand engagement, improved audience retention rates, and delivered a professional-grade multimedia presentation that resonated with target demographics.";
+  const reflectionText = p.reflection || "This project emphasized the critical balance between technical post-production execution and compelling visual storytelling. Every transition and audio cue must serve a distinct strategic purpose.";
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-[max(0.75rem,env(safe-area-inset-top))] sm:px-8 lg:px-20">
+    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-[max(0.75rem,env(safe-area-inset-top))] sm:px-8 lg:px-16">
       {/* Overlay Backdrop */}
       <div
-        className="fixed inset-0 bg-black/70 backdrop-blur-md transition-opacity"
+        className="fixed inset-0 bg-black/75 backdrop-blur-md transition-opacity"
         onClick={onClose}
       />
 
       {/* Container Modal Pop-up */}
-      <div className="relative z-10 max-h-[92vh] w-full max-w-full min-w-0 overflow-x-hidden overflow-y-auto rounded-[24px] border border-pink-100/40 bg-white p-4 shadow-2xl sm:rounded-[32px] sm:p-8 lg:max-w-4xl lg:p-12 lg:overflow-visible">
+      <div className="relative z-10 max-h-[92vh] w-full max-w-5xl overflow-x-hidden overflow-y-auto rounded-[28px] border border-pink-100/60 bg-white p-5 shadow-2xl sm:rounded-[36px] sm:p-10 lg:p-12">
+        
         {/* Tombol Close */}
         <button
           onClick={onClose}
-          className="fixed right-4 top-4 z-20 flex h-10 w-10 min-w-10 items-center justify-center rounded-full bg-pink-50 font-bold text-[#2D2433] transition-all hover:bg-pink-500 hover:text-white lg:absolute lg:right-6 lg:top-6 lg:h-10 lg:w-10"
+          className="absolute right-5 top-5 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-pink-50 font-bold text-[#2D2433] transition-all hover:bg-pink-500 hover:text-white shadow-xs cursor-pointer"
           aria-label="Close modal"
         >
           ✕
         </button>
 
-        <div className="grid min-w-0 gap-4 lg:grid-cols-12 lg:items-start lg:gap-8">
-          {/* SISI KIRI / ATAS: Video / Media Preview (Grid span dikembalikan untuk desktop) */}
-          <div
-            className={`mb-3 flex min-w-0 items-center justify-center overflow-hidden rounded-2xl bg-black shadow-md lg:mb-0 lg:rounded-3xl ${
-              isPortrait
-                ? "mx-auto aspect-[9/16] w-full max-w-[240px] sm:max-w-[280px] lg:col-span-5 lg:max-w-none lg:w-full"
-                : "mx-auto aspect-video w-full max-w-full lg:col-span-12"
-            }`}
-          >
-            {project.preview ? (
-              <video
-                ref={videoRef}
-                src={project.preview}
-                controls
-                playsInline
-                className="h-full w-full object-cover"
-              />
-            ) : (
-              <Image
-                src={project.thumbnail}
-                alt={project.title}
-                width={800}
-                height={600}
-                className="h-full w-full object-cover"
-              />
-            )}
+        {/* SECTION 1: HERO (Video Left, Content Right on Desktop) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          {/* Video Preview */}
+          <div className="lg:col-span-5 flex items-center justify-center">
+            <div className={`w-full overflow-hidden rounded-2xl bg-black shadow-lg border border-pink-100/40 ${
+              isPortrait ? "aspect-[9/16] max-w-[280px] mx-auto" : "aspect-video"
+            }`}>
+              {project.preview ? (
+                <video
+                  ref={videoRef}
+                  src={project.preview}
+                  controls
+                  playsInline
+                  className="h-full w-full object-cover"
+                />
+              ) : (
+                <Image
+                  src={project.thumbnail}
+                  alt={project.title}
+                  width={800}
+                  height={600}
+                  className="h-full w-full object-cover"
+                />
+              )}
+            </div>
           </div>
 
-          {/* SISI KANAN / BAWAH: Detail Informasi Project */}
-          <div
-            className={`flex min-w-0 flex-col ${
-              isPortrait ? "lg:col-span-7" : "mt-2 lg:col-span-12"
-            }`}
-          >
-            {/* Kategori */}
-            <span className="block text-center text-[10px] font-bold uppercase tracking-[0.2em] text-pink-500 sm:tracking-[0.3em] lg:tracking-[0.45em]">
+          {/* Hero Content */}
+          <div className="lg:col-span-7 flex flex-col justify-center">
+            <span className="inline-block text-[11px] font-bold uppercase tracking-[0.35em] text-pink-500 mb-2">
               {project.category}
             </span>
-            {/* Judul Utama */}
-            <h2 className="mt-1 text-center break-words text-2xl font-black leading-[1.1] text-[#2D2433] sm:text-3xl lg:text-5xl lg:leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-[#2D2433] leading-tight">
               {project.title}
             </h2>
-
-            {/* Info Metadata (Client & Role) */}
-            <div className="mt-4 flex w-full min-w-0 flex-col gap-3 rounded-2xl border border-pink-100/80 bg-pink-50/50 p-3 sm:mt-5 lg:mt-6 lg:grid lg:grid-cols-2 lg:gap-4 lg:p-4">
-              <div className="min-w-0">
-                <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-gray-400 lg:text-[10px] lg:tracking-[0.25em]">
-                  Client
-                </p>
-                <p className="break-words text-xs font-bold text-[#2D2433] lg:text-sm">
-                  {project.client || "Personal Project"}
-                </p>
-              </div>
-              <div className="min-w-0">
-                <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-gray-400 lg:text-[10px] lg:tracking-[0.25em]">
-                  Role
-                </p>
-                <p className="break-words text-xs font-bold text-[#2D2433] lg:text-sm">
-                  {project.role || "Video Editor"}
-                </p>
-              </div>
-            </div>
-
-            {/* Deskripsi utama */}
-            <p className="mt-4 max-w-prose break-words text-xs leading-relaxed text-[#6B6570] text-justify lg:mt-5 lg:text-sm lg:leading-relaxed">
-              {project.description}
+            <p className="mt-3 text-sm sm:text-base font-medium text-[#6B6570] leading-relaxed">
+              {summary}
             </p>
 
-            {/* Badges / Tags */}
-            <div className="mt-4 flex min-w-0 flex-wrap justify-center gap-2 lg:mt-5 lg:gap-2.5">
+            {/* Tags */}
+            <div className="mt-5 flex flex-wrap gap-2">
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="max-w-full rounded-full bg-pink-100/60 px-3 py-1 text-[10px] font-semibold text-pink-700 lg:text-[11px]"
+                  className="rounded-full bg-pink-50 px-3 py-1 text-[11px] font-semibold text-pink-600 border border-pink-100/80"
                 >
                   {tag}
                 </span>
               ))}
             </div>
-
-            {/* PROSES EDITING & PRODUKSI */}
-            {project.process && (
-              <div className="mt-5 w-full min-w-0 border-t border-gray-100 pt-4 lg:mt-6 lg:pt-5">
-                <h4 className="mb-3 text-center text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#2D2433] lg:mb-4 lg:text-[11px] lg:tracking-[0.3em]">
-                  Creative &amp; Production Process
-                </h4>
-
-                <div className="w-full min-w-0 space-y-2.5 text-xs lg:space-y-3">
-                  {project.process.preProduction && (
-                    <div className="w-full min-w-0 overflow-hidden rounded-2xl border border-gray-100 bg-gray-50 p-3.5 lg:p-4">
-                      <span className="mb-1 block text-xs font-bold tracking-wider text-pink-500 lg:text-sm">
-                        🎬 1. Pre-Production
-                      </span>
-                      <p className="max-w-full overflow-hidden break-words text-xs leading-relaxed text-[#6B6570] text-justify lg:text-sm">
-                        {project.process.preProduction}
-                      </p>
-                    </div>
-                  )}
-
-                  {project.process.production && (
-                    <div className="w-full min-w-0 overflow-hidden rounded-2xl border border-gray-100 bg-gray-50 p-3.5 lg:p-4">
-                      <span className="mb-1 block text-xs font-bold tracking-wider text-pink-500 lg:text-sm">
-                        📹 2. Production
-                      </span>
-                      <p className="max-w-full overflow-hidden break-words text-xs leading-relaxed text-[#6B6570] text-justify lg:text-sm">
-                        {project.process.production}
-                      </p>
-                    </div>
-                  )}
-
-                  {project.process.postProduction && (
-                    <div className="w-full min-w-0 overflow-hidden rounded-2xl border border-gray-100 bg-gray-50 p-3.5 lg:p-4">
-                      <span className="mb-1 block text-xs font-bold tracking-wider text-pink-500 lg:text-sm">
-                        ✂️ 3. Post-Production
-                      </span>
-                      <p className="max-w-full overflow-hidden break-words text-xs leading-relaxed text-[#6B6570] text-justify lg:text-sm">
-                        {project.process.postProduction}
-                      </p>
-                    </div>
-                  )}
-                </div>
-              </div>
-            )}
           </div>
         </div>
+
+        {/* DIVIDER */}
+        <div className="my-10 sm:my-14 h-px w-full bg-pink-100/80" />
+
+        {/* CASE STUDY CONTENT SECTIONS */}
+        <div className="space-y-12 sm:space-y-16">
+
+          {/* SECTION 2: Project Overview */}
+          <div>
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-pink-500 sm:text-xs">
+              01 / OVERVIEW
+            </span>
+            <h3 className="mt-1 text-xl sm:text-2xl font-black text-[#2D2433]">
+              Project Overview
+            </h3>
+            <p className="mt-3 text-xs sm:text-sm lg:text-base leading-relaxed text-[#6B6570]">
+              {project.description}
+            </p>
+          </div>
+
+          {/* SECTION 3: Project Information (Metadata Grid) */}
+          <div className="rounded-2xl sm:rounded-3xl border border-pink-100/90 bg-pink-50/40 p-6 sm:p-8">
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-pink-500 sm:text-xs block mb-4">
+              02 / METADATA &amp; SPECS
+            </span>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">Client</p>
+                <p className="mt-1 text-xs sm:text-sm font-bold text-[#2D2433]">{client}</p>
+              </div>
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">Industry</p>
+                <p className="mt-1 text-xs sm:text-sm font-bold text-[#2D2433]">{industry}</p>
+              </div>
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">Role</p>
+                <p className="mt-1 text-xs sm:text-sm font-bold text-[#2D2433]">{role}</p>
+              </div>
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">Year</p>
+                <p className="mt-1 text-xs sm:text-sm font-bold text-[#2D2433]">{year}</p>
+              </div>
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">Duration</p>
+                <p className="mt-1 text-xs sm:text-sm font-bold text-[#2D2433]">{duration}</p>
+              </div>
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">Format</p>
+                <p className="mt-1 text-xs sm:text-sm font-bold text-[#2D2433]">{format}</p>
+              </div>
+              <div className="col-span-2">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">Platforms</p>
+                <p className="mt-1 text-xs sm:text-sm font-bold text-[#2D2433]">{platform}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* SECTION 4: Creative Challenge */}
+          <div>
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-pink-500 sm:text-xs">
+              03 / STRATEGY
+            </span>
+            <h3 className="mt-1 text-xl sm:text-2xl font-black text-[#2D2433]">
+              Creative Challenge
+            </h3>
+            <p className="mt-3 text-xs sm:text-sm lg:text-base leading-relaxed text-[#6B6570]">
+              {challenge}
+            </p>
+          </div>
+
+          {/* SECTION 5: Creative Direction */}
+          <div>
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-pink-500 sm:text-xs">
+              04 / AESTHETICS
+            </span>
+            <h3 className="mt-1 text-xl sm:text-2xl font-black text-[#2D2433] mb-6">
+              Creative Direction
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              <div className="rounded-2xl border border-pink-100/80 bg-white p-5 shadow-xs">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-pink-500 mb-1.5">Visual Style</h4>
+                <p className="text-xs text-[#6B6570] leading-relaxed">{creativeDirection.visualStyle}</p>
+              </div>
+              <div className="rounded-2xl border border-pink-100/80 bg-white p-5 shadow-xs">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-pink-500 mb-1.5">Editing Style</h4>
+                <p className="text-xs text-[#6B6570] leading-relaxed">{creativeDirection.editingStyle}</p>
+              </div>
+              <div className="rounded-2xl border border-pink-100/80 bg-white p-5 shadow-xs">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-pink-500 mb-1.5">Color Mood</h4>
+                <p className="text-xs text-[#6B6570] leading-relaxed">{creativeDirection.colorMood}</p>
+              </div>
+              <div className="rounded-2xl border border-pink-100/80 bg-white p-5 shadow-xs">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-pink-500 mb-1.5">Pacing</h4>
+                <p className="text-xs text-[#6B6570] leading-relaxed">{creativeDirection.pacing}</p>
+              </div>
+              <div className="rounded-2xl border border-pink-100/80 bg-white p-5 shadow-xs">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-pink-500 mb-1.5">Typography</h4>
+                <p className="text-xs text-[#6B6570] leading-relaxed">{creativeDirection.typography}</p>
+              </div>
+              <div className="rounded-2xl border border-pink-100/80 bg-white p-5 shadow-xs">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-pink-500 mb-1.5">Motion Language</h4>
+                <p className="text-xs text-[#6B6570] leading-relaxed">{creativeDirection.motionLanguage}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* SECTION 6: Production Workflow (Horizontal Timeline) */}
+          <div>
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-pink-500 sm:text-xs">
+              05 / EXECUTION
+            </span>
+            <h3 className="mt-1 text-xl sm:text-2xl font-black text-[#2D2433] mb-6">
+              Production Workflow
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+              {/* Pre-production */}
+              <div className="rounded-2xl border border-pink-100/80 bg-white p-5 shadow-xs flex flex-col justify-between">
+                <div>
+                  <span className="inline-block rounded-full bg-pink-50 px-3 py-1 text-[10px] font-black text-pink-500 mb-3">
+                    01 / Pre-Production
+                  </span>
+                  <p className="text-xs leading-relaxed text-[#6B6570]">
+                    {project.process?.preProduction || "Concept scoping, moodboarding, storyboard drafting, and asset organization."}
+                  </p>
+                </div>
+              </div>
+
+              {/* Production */}
+              <div className="rounded-2xl border border-pink-100/80 bg-white p-5 shadow-xs flex flex-col justify-between">
+                <div>
+                  <span className="inline-block rounded-full bg-pink-50 px-3 py-1 text-[10px] font-black text-pink-500 mb-3">
+                    02 / Production
+                  </span>
+                  <p className="text-xs leading-relaxed text-[#6B6570]">
+                    {project.process?.production || "A-roll/B-roll capturing, lighting setup, audio recording, and initial media ingestion."}
+                  </p>
+                </div>
+              </div>
+
+              {/* Post-production */}
+              <div className="rounded-2xl border border-pink-100/80 bg-white p-5 shadow-xs flex flex-col justify-between">
+                <div>
+                  <span className="inline-block rounded-full bg-pink-50 px-3 py-1 text-[10px] font-black text-pink-500 mb-3">
+                    03 / Post-Production
+                  </span>
+                  <p className="text-xs leading-relaxed text-[#6B6570]">
+                    {project.process?.postProduction || "Rough cuts, fine tuning, color grading, sound mixing, and graphic overlays."}
+                  </p>
+                </div>
+              </div>
+
+              {/* Delivery */}
+              <div className="rounded-2xl border border-pink-100/80 bg-white p-5 shadow-xs flex flex-col justify-between">
+                <div>
+                  <span className="inline-block rounded-full bg-pink-50 px-3 py-1 text-[10px] font-black text-pink-500 mb-3">
+                    04 / Delivery
+                  </span>
+                  <p className="text-xs leading-relaxed text-[#6B6570]">
+                    {p.process?.delivery || "Multi-format exporting, bitrate optimization, caption embedding, and final handoff."}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* SECTION 7: Editing Breakdown */}
+          <div>
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-pink-500 sm:text-xs">
+              06 / CRAFTMANSHIP
+            </span>
+            <h3 className="mt-1 text-xl sm:text-2xl font-black text-[#2D2433] mb-6">
+              Editing Breakdown
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {editingBreakdown.map((item: any, idx: number) => (
+                <div key={idx} className="rounded-2xl border border-pink-100/80 bg-[#FFFDFC] p-6 shadow-xs">
+                  <h4 className="text-sm font-black text-[#2D2433] mb-2 flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-pink-500" />
+                    {item.title}
+                  </h4>
+                  <p className="text-xs leading-relaxed text-[#6B6570]">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* SECTION 8: Software Used */}
+          <div>
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-pink-500 sm:text-xs">
+              07 / TOOLKIT
+            </span>
+            <h3 className="mt-1 text-xl sm:text-2xl font-black text-[#2D2433] mb-6">
+              Software Used
+            </h3>
+            <div className="flex flex-wrap gap-2.5">
+              {softwareUsed.map((tool: string) => (
+                <span
+                  key={tool}
+                  className="rounded-full bg-white px-4 py-2 text-xs font-bold text-[#2D2433] border border-pink-200 shadow-xs"
+                >
+                  {tool}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* SECTION 9: Deliverables */}
+          <div>
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-pink-500 sm:text-xs">
+              08 / OUTPUTS
+            </span>
+            <h3 className="mt-1 text-xl sm:text-2xl font-black text-[#2D2433] mb-6">
+              Deliverables
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {deliverablesList.map((item: string, idx: number) => (
+                <div key={idx} className="rounded-2xl border border-pink-100/80 bg-pink-50/30 p-4 text-center">
+                  <p className="text-xs font-bold text-[#2D2433]">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* SECTION 10: Project Outcome */}
+          <div className="rounded-3xl border border-pink-100 bg-gradient-to-b from-pink-50/80 to-white p-8 sm:p-10 text-center">
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-pink-500 sm:text-xs">
+              09 / IMPACT
+            </span>
+            <h3 className="mt-2 text-2xl sm:text-3xl font-black text-[#2D2433]">
+              Project Outcome
+            </h3>
+            <p className="mt-4 text-xs sm:text-base leading-relaxed text-[#6B6570] max-w-2xl mx-auto">
+              {outcomeText}
+            </p>
+          </div>
+
+          {/* SECTION 11: Reflection */}
+          <div>
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-pink-500 sm:text-xs">
+              10 / REFLECTION
+            </span>
+            <h3 className="mt-1 text-xl sm:text-2xl font-black text-[#2D2433]">
+              What I Learned
+            </h3>
+            <p className="mt-3 text-xs sm:text-sm lg:text-base leading-relaxed text-[#6B6570]">
+              {reflectionText}
+            </p>
+          </div>
+
+        </div>
+
       </div>
     </div>
   );

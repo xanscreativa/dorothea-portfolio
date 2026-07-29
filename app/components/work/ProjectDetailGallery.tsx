@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useMemo, useState } from "react";
 
-import type { PortfolioCollection } from "@/app/data/portfolio";
+import type { PortfolioCollection } from "@/data/portfolio";
 import Lightbox from "./Lightbox";
 
 interface Props {

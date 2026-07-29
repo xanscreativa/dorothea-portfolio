@@ -2,10 +2,11 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Button from "../ui/Button";
-import FadeUp from "../animation/FadeUp";
-import Counter from "../ui/Counter";
-import useParallax from "../animation/useParallax";
+import Button from "@/components/ui/Button";
+import FadeUp from "@/components/animation/FadeUp";
+import Counter from "@/components/ui/Counter";
+import useParallax from "@/components/animation/useParallax";
+import { MapPin, Briefcase, Globe, Download } from "lucide-react";
 
 export default function Hero() {
   const bgOffset = useParallax(0.12);
@@ -44,7 +45,7 @@ export default function Hero() {
         {/* Main Grid Layout */}
         <div className="flex flex-col items-center text-center lg:grid lg:grid-cols-12 lg:items-center lg:gap-10 lg:text-left">
           
-          {/* ================= VISUAL PROFILE (Sequence #1 - Entrance First) ================= */}
+          {/* ================= VISUAL PROFILE ================= */}
           <div className="relative w-full max-w-[290px] xs:max-w-[320px] sm:max-w-md lg:max-w-none lg:order-2 lg:col-span-5 pt-4 sm:pt-8 lg:pt-0 mb-6 lg:mb-0">
             <div className="relative mx-auto">
               
@@ -100,7 +101,7 @@ export default function Hero() {
                 >
                   <Image
                     src="/hero/profile.png"
-                    alt="XANS - Graphic Designer"
+                    alt="Dorothea Alexandra Manuputty — Graphic Designer & Video Editor"
                     width={1000}
                     height={1300}
                     priority
@@ -135,79 +136,83 @@ export default function Hero() {
           {/* ================= MAIN CONTENT AREA ================= */}
           <div className="w-full mt-2 lg:mt-0 lg:order-1 lg:col-span-7 flex flex-col items-center lg:items-start">
             
-            {/* Sub-heading & Main Title (Sequence #2) */}
+            {/* Heading & Role */}
             <FadeUp delay={0.25}>
-              <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-pink-500 sm:text-xs sm:tracking-[0.4em]">
-                ALEXANDRA
+              <h1 className="mt-1 text-3xl font-black leading-[1.08] tracking-tight text-[#2D2433] xs:text-4xl sm:mt-2.5 sm:text-5xl lg:text-6xl xl:text-[4.25rem]">
+                Dorothea Alexandra Manuputty, <br />
+                <span className="bg-gradient-to-r from-pink-600 via-pink-500 to-rose-400 bg-clip-text text-transparent">S.Ds</span>
+              </h1>
+              <p className="mt-2 text-base font-bold tracking-wide text-pink-600 sm:text-lg lg:text-xl">
+                Graphic Designer &amp; Video Editor
               </p>
             </FadeUp>
 
+            {/* Availability Status Badge */}
             <FadeUp delay={0.32}>
-              <h1 className="mt-1 text-3xl font-black leading-[1.08] tracking-tight text-[#2D2433] xs:text-4xl sm:mt-2.5 sm:text-5xl lg:text-6xl xl:text-[4.25rem]">
-                Graphic Designer <br />
-                <span className="bg-gradient-to-r from-pink-600 via-pink-500 to-rose-400 bg-clip-text text-transparent">&amp;</span>&nbsp;Video Editor
-              </h1>
-            </FadeUp>
-
-            {/* Availability Status Badge (Sequence #3) */}
-            <FadeUp delay={0.38}>
               <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-pink-200/80 bg-white/90 px-3.5 py-1 shadow-2xs backdrop-blur-md sm:mt-4 sm:px-4 sm:py-1.5">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-pink-400 opacity-75" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-pink-500" />
                 </span>
                 <p className="text-[11px] font-bold tracking-wide text-pink-600 sm:text-xs">
-                  Available for Full-Time &amp; Freelance
+                  Open to Full-Time Opportunities
                 </p>
               </div>
             </FadeUp>
 
-            {/* Description Text with Optimal Readability Width */}
-            <FadeUp delay={0.44}>
-              <p className="mx-auto lg:mx-0 mt-3 sm:mt-4 max-w-md text-xs leading-relaxed text-[#6B6570] sm:text-base sm:leading-relaxed">
-                Crafting thoughtful visual experiences through branding, motion design, editorial storytelling, and digital content.
+            {/* Value Proposition */}
+            <FadeUp delay={0.38}>
+              <p className="mx-auto lg:mx-0 mt-3 sm:mt-4 max-w-xl text-xs leading-relaxed text-[#6B6570] sm:text-base sm:leading-relaxed">
+                Creating thoughtful visual solutions through branding, digital design, and engaging video storytelling.
               </p>
             </FadeUp>
 
-            {/* Enlarged Skill Tags with Improved Spacing (Sequence #4) */}
-            <FadeUp delay={0.5}>
-              <div className="mt-4 flex flex-wrap justify-center gap-2 sm:mt-5 sm:justify-start sm:gap-2.5">
-                {["Brand Identity", "Graphic Design", "Video Editing"].map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-pink-100/90 bg-pink-50/70 px-3.5 py-1.5 text-xs font-semibold text-pink-600 shadow-2xs transition-all duration-300 hover:border-pink-300 hover:bg-pink-100/60 hover:scale-[1.02]"
-                  >
-                    {tag}
-                  </span>
-                ))}
+            {/* Compact Information Rows */}
+            <FadeUp delay={0.44}>
+              <div className="mt-3.5 flex flex-wrap justify-center lg:justify-start gap-y-2 gap-x-5 text-xs font-semibold text-[#6B6570] sm:text-sm">
+                <div className="inline-flex items-center gap-1.5">
+                  <MapPin className="w-4 h-4 text-pink-500 shrink-0" />
+                  <span>Based in Pekanbaru, Indonesia</span>
+                </div>
+                <div className="inline-flex items-center gap-1.5">
+                  <Briefcase className="w-4 h-4 text-pink-500 shrink-0" />
+                  <span>Available for Remote &amp; Hybrid</span>
+                </div>
+                <div className="inline-flex items-center gap-1.5">
+                  <Globe className="w-4 h-4 text-pink-500 shrink-0" />
+                  <span>Open to Relocation</span>
+                </div>
               </div>
             </FadeUp>
 
-            {/* CTA Buttons with Controlled Margins (Sequence #5) */}
-            <FadeUp delay={0.56}>
+            {/* CTA Buttons */}
+            <FadeUp delay={0.5}>
               <div className="mt-6 flex w-full items-center justify-center gap-3 sm:w-auto sm:mt-7 sm:justify-start sm:gap-4">
                 <div className="flex-1 sm:flex-initial">
                   <Button 
                     href="#portfolio" 
                     className="!py-2.5 !px-6 sm:!py-3.5 sm:!px-8 !text-xs sm:!text-sm flex items-center justify-center w-full shadow-md shadow-pink-500/10 transition-transform active:scale-98"
                   >
-                    View Portfolio
+                    View Projects
                   </Button>
                 </div>
                 <div className="flex-1 sm:flex-initial">
-                  <Button 
-                    href="#films" 
-                    variant="secondary" 
-                    className="!py-2.5 !px-6 sm:!py-3.5 sm:!px-8 !text-xs sm:!text-sm flex items-center justify-center w-full transition-transform active:scale-98"
+                  <a
+                    href="/resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Download professional resume PDF"
+                    className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-full border border-pink-200/80 bg-white/90 px-6 py-2.5 sm:px-8 sm:py-3.5 text-xs sm:text-sm font-bold text-[#2D2433] shadow-xs backdrop-blur-md hover:border-pink-400 hover:bg-pink-50/40 transition-all duration-300 cursor-pointer"
                   >
-                    Watch Showreel
-                  </Button>
+                    <Download className="w-4 h-4 text-pink-600" />
+                    <span>Download Resume</span>
+                  </a>
                 </div>
               </div>
             </FadeUp>
 
-            {/* Statistics Grid with Increased Mobile Height (Sequence #6) */}
-            <FadeUp delay={0.62}>
+            {/* Statistics Grid */}
+            <FadeUp delay={0.58}>
               <div className="mt-8 sm:mt-10 w-full grid grid-cols-4 gap-2 sm:gap-3.5 px-0.5 sm:px-0">
                 {[
                   { n: 50, l: "Projects" },
@@ -236,7 +241,7 @@ export default function Hero() {
       </div>
 
       {/* Minimal Scroll Cue */}
-      <FadeUp delay={0.72}>
+      <FadeUp delay={0.68}>
         <div className="mt-6 flex flex-col items-center justify-center">
           <button
             onClick={() => scrollToSection("portfolio")}

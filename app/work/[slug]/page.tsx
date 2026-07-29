@@ -1,12 +1,12 @@
 ﻿import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { portfolioCollections } from "@/app/data/portfolio";
-import ProjectDetailHero from "@/app/components/work/ProjectDetailHero";
-import ProjectDetailGallery from "@/app/components/work/ProjectDetailGallery";
-import ProjectDetailNext from "@/app/components/work/ProjectDetailNext";
-import ProjectDetailSection from "@/app/components/work/ProjectDetailSection";
-import ProjectVideo from "@/app/components/work/ProjectVideo";
+import { portfolioCollections } from "@/data/portfolio";
+import ProjectDetailHero from "@/components/work/ProjectDetailHero";
+import ProjectDetailGallery from "@/components/work/ProjectDetailGallery";
+import ProjectDetailNext from "@/components/work/ProjectDetailNext";
+import ProjectDetailSection from "@/components/work/ProjectDetailSection";
+import ProjectVideo from "@/components/work/ProjectVideo";
 
 // Optional Case Study Extensions for Type Safety
 interface CreativeProcessStep {

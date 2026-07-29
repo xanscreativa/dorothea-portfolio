@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { PortfolioCollection } from "@/app/data/portfolio";
+import type { PortfolioCollection } from "@/data/portfolio";
 
 interface Props {
   nextProject: PortfolioCollection;

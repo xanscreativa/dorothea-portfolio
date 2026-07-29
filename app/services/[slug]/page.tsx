@@ -1,5 +1,5 @@
 import Link from "next/link";
-import FadeUp from "@/app/components/animation/FadeUp";
+import FadeUp from "@/components/animation/FadeUp";
 
 interface Props {
   params: Promise<{

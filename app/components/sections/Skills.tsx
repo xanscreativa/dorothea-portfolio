@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import FadeUp from "../animation/FadeUp";
+import FadeUp from "@/components/animation/FadeUp";
 
 interface ToolItem {
   name: string;
@@ -165,7 +165,6 @@ export default function Skills() {
         {/* HEADER SECTION */}
         <FadeUp>
           <div className="mx-auto max-w-3xl text-center mb-14 sm:mb-20 lg:mb-24">
-            {/* Live Indicator Pill */}
             <div className="inline-flex items-center gap-2.5 rounded-full bg-white/90 px-4 py-1.5 border border-pink-200/70 shadow-[0_4px_20px_rgba(244,114,182,0.08)] backdrop-blur-md mb-4">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
@@ -209,7 +208,6 @@ export default function Skills() {
                       skillCategory.isFullWidth ? "sm:p-8" : "sm:p-7"
                     }`}
                   >
-                    {/* Subtle Top Inner Glow Overlay */}
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-pink-100/30 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 rounded-[24px] sm:rounded-[32px]" />
 
                     {/* CARD HEADER */}
@@ -243,7 +241,7 @@ export default function Skills() {
                       </div>
                     )}
 
-                    {/* SOFTWARE ITEMS WITH THIN PROGRESS BARS */}
+                    {/* SOFTWARE ITEMS */}
                     {skillCategory.tools.length > 0 && (
                       <div className="relative z-10 mt-6 space-y-3.5 sm:mt-7 sm:space-y-4">
                         {skillCategory.tools.map((tool, toolIdx) => (
@@ -252,7 +250,6 @@ export default function Skills() {
                             className="group/tool rounded-2xl border border-pink-100/80 bg-pink-50/30 p-3 transition-all duration-300 hover:border-pink-300/80 hover:bg-pink-50/60 sm:p-4"
                           >
                             <div className="flex items-center justify-between">
-                              {/* Tool Icon + Readable Name */}
                               <div className="flex items-center gap-3">
                                 <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-pink-200/70 bg-white shadow-2xs transition-transform duration-300 sm:h-9 sm:w-9">
                                   {tool.icon}
@@ -262,13 +259,11 @@ export default function Skills() {
                                 </span>
                               </div>
 
-                              {/* Premium Badge Pill for Proficiency */}
                               <span className="rounded-full bg-pink-50/90 px-3 py-1 text-[10px] font-mono font-extrabold uppercase tracking-widest text-pink-600 border border-pink-200/80 shadow-2xs">
                                 {tool.levelText}
                               </span>
                             </div>
 
-                            {/* Thin Elegant Progress Bar with Glow */}
                             <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-pink-100/80 p-0.5 sm:mt-3.5">
                               <motion.div
                                 initial={{ width: 0 }}

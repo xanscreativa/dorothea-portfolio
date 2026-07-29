@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-import Button from "@/app/components/ui/Button";
-import FadeUp from "@/app/components/animation/FadeUp";
-import ContactCTA from "@/app/components/ContactCTA";
+import Button from "@/components/ui/Button";
+import FadeUp from "@/components/animation/FadeUp";
+import ContactCTA from "@/components/ContactCTA";
 
 export const metadata: Metadata = {
   title: "Services | XANS Studio",

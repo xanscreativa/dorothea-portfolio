@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import FadeUp from "@/app/components/animation/FadeUp";
+import FadeUp from "@/components/animation/FadeUp";
 
 const socialLinks = [
   { name: "LinkedIn", href: "https://linkedin.com", handle: "Inquire Profile" },

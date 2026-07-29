@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import FadeUp from "@/app/components/animation/FadeUp";
+import FadeUp from "@/components/animation/FadeUp";
 import {
   Palette,
   LayoutGrid,

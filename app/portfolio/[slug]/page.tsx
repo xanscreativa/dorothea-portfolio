@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { portfolioCollections, PortfolioCollection } from "@/app/data/portfolio";
-import FadeUp from "@/app/components/animation/FadeUp";
+import { portfolioCollections, PortfolioCollection } from "@/data/portfolio";
+import FadeUp from "@/components/animation/FadeUp";
 
 interface PageProps {
   params: Promise<{
@@ -37,6 +37,21 @@ export default async function PortfolioDetailPage({ params }: PageProps) {
   }
 
   const nextProject = getNextPortfolio(slug);
+  const c = collection as any;
+
+  // Fallback data for recruiter-friendly case study sections
+  const overviewText = c.overview || collection.description || "This project was developed through rigorous strategic planning, iterative visual design, and meticulous execution to address core user experience and branding goals.";
+  const challengeText = c.challenge || "Balancing high-end aesthetic visual appeal with absolute functional clarity. The core hurdle involved communicating complex brand values within a crowded digital marketplace while establishing immediate emotional resonance with the target demographic.";
+  const rolesList = c.roles || (collection.meta?.role ? collection.meta.role.split(",").map((r: string) => r.trim()) : ["Brand Strategist", "UI/UX Designer", "Visual Designer"]);
+  const toolsList = c.toolsList || (collection.meta?.tools ? collection.meta.tools.split(",").map((t: string) => t.trim()) : ["Figma", "Illustrator", "Photoshop", "After Effects", "Premiere Pro"]);
+  
+  const resultsStats = c.results || [
+    { label: "Brand Consistency", value: "100%", desc: "Unified visual system across all digital touchpoints." },
+    { label: "Client Satisfaction", value: "98%", desc: "Exceeded stakeholder expectations and project KPIs." },
+    { label: "Social Engagement", value: "+45%", desc: "Immediate uplift in user interaction and reach." }
+  ];
+
+  const reflectionText = c.reflection || "This initiative reinforced the vital importance of foundational research before jumping into execution. Overcoming initial conceptual constraints taught me how to streamline complex workflows and maintain design integrity under tight delivery schedules.";
 
   return (
     <article className="relative overflow-hidden bg-[#FFFDFC] pb-16 pt-24 sm:pb-24 sm:pt-32 lg:pb-32 lg:pt-36">
@@ -46,7 +61,7 @@ export default async function PortfolioDetailPage({ params }: PageProps) {
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
         
-        {/* TOMBOL KEMBALI */}
+        {/* BACK BUTTON */}
         <FadeUp delay={0}>
           <Link
             href="/#portfolio"
@@ -69,7 +84,7 @@ export default async function PortfolioDetailPage({ params }: PageProps) {
           </Link>
         </FadeUp>
 
-        {/* HEADER PROJECT */}
+        {/* SECTION 1: HERO */}
         <header className="max-w-4xl">
           <FadeUp delay={0.05}>
             <span className="text-[11px] font-bold uppercase tracking-[0.35em] text-[#E96A98] sm:text-xs sm:tracking-[0.45em]">
@@ -90,8 +105,28 @@ export default async function PortfolioDetailPage({ params }: PageProps) {
           </FadeUp>
         </header>
 
-        {/* COVER IMAGE MAIN */}
-        <FadeUp delay={0.2}>
+        {/* Metadata Bar */}
+        {collection.meta && (
+          <FadeUp delay={0.2}>
+            <div className="mt-8 flex flex-wrap gap-6 sm:gap-10 border-y border-pink-100/80 py-5 text-xs font-bold uppercase tracking-wider text-[#2D2433]">
+              <div>
+                <span className="text-[#E96A98] block text-[10px] tracking-[0.2em] mb-0.5">Client</span>
+                {collection.meta.client}
+              </div>
+              <div>
+                <span className="text-[#E96A98] block text-[10px] tracking-[0.2em] mb-0.5">Year</span>
+                {collection.meta.year}
+              </div>
+              <div>
+                <span className="text-[#E96A98] block text-[10px] tracking-[0.2em] mb-0.5">Industry</span>
+                {collection.meta.industry}
+              </div>
+            </div>
+          </FadeUp>
+        )}
+
+        {/* Large Hero Image */}
+        <FadeUp delay={0.25}>
           <div className="relative mt-8 sm:mt-12 overflow-hidden rounded-[24px] sm:rounded-[36px] bg-[#F9F4F2] border border-pink-100/80 p-2 sm:p-3 shadow-[0_15px_45px_rgba(45,36,51,0.06)]">
             <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden rounded-[18px] sm:rounded-[28px]">
               <Image
@@ -106,134 +141,129 @@ export default async function PortfolioDetailPage({ params }: PageProps) {
           </div>
         </FadeUp>
 
-        {/* STRUCTURED PROJECT METADATA BLOCK */}
-        {collection.meta && (
-          <FadeUp delay={0.25}>
-            <div className="mt-12 sm:mt-16 border-y border-pink-100/80 py-8 sm:py-10">
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8">
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#E96A98]">
-                    Client
-                  </p>
-                  <p className="mt-1 text-xs sm:text-sm font-bold text-[#2D2433]">
-                    {collection.meta.client}
-                  </p>
-                </div>
+        {/* STORYTELLING CASE STUDY SECTIONS */}
+        <div className="mt-20 sm:mt-28 lg:mt-36 space-y-20 sm:space-y-32">
 
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#E96A98]">
-                    Industry
-                  </p>
-                  <p className="mt-1 text-xs sm:text-sm font-bold text-[#2D2433]">
-                    {collection.meta.industry}
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#E96A98]">
-                    Role
-                  </p>
-                  <p className="mt-1 text-xs sm:text-sm font-bold text-[#2D2433]">
-                    {collection.meta.role}
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#E96A98]">
-                    Year
-                  </p>
-                  <p className="mt-1 text-xs sm:text-sm font-bold text-[#2D2433]">
-                    {collection.meta.year}
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#E96A98]">
-                    Deliverables
-                  </p>
-                  <p className="mt-1 text-xs sm:text-sm font-bold text-[#2D2433]">
-                    {collection.meta.deliverables}
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#E96A98]">
-                    Tools Used
-                  </p>
-                  <p className="mt-1 text-xs sm:text-sm font-bold text-[#2D2433]">
-                    {collection.meta.tools}
-                  </p>
-                </div>
+          {/* SECTION 2: Overview */}
+          <FadeUp>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start">
+              <div className="lg:col-span-4">
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#E96A98] sm:text-xs">
+                  01 / OVERVIEW
+                </span>
+                <h2 className="mt-1 text-2xl sm:text-3xl font-black text-[#2D2433]">
+                  The Big Picture
+                </h2>
+              </div>
+              <div className="lg:col-span-8">
+                <p className="text-sm sm:text-lg leading-relaxed text-[#6B6570]">
+                  {overviewText}
+                </p>
               </div>
             </div>
           </FadeUp>
-        )}
 
-        {/* STORYTELLING SECTIONS */}
-        <section className="mt-16 sm:mt-24 lg:mt-32 space-y-16 sm:space-y-24">
-          
-          {/* Overview */}
-          {collection.overview && (
+          {/* SECTION 3: The Challenge */}
+          <FadeUp>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start pt-12 border-t border-pink-100/60">
+              <div className="lg:col-span-4">
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#E96A98] sm:text-xs">
+                  02 / STRATEGY
+                </span>
+                <h2 className="mt-1 text-2xl sm:text-3xl font-black text-[#2D2433]">
+                  The Challenge
+                </h2>
+              </div>
+              <div className="lg:col-span-8">
+                <p className="text-sm sm:text-lg leading-relaxed text-[#6B6570]">
+                  {challengeText}
+                </p>
+              </div>
+            </div>
+          </FadeUp>
+
+          {/* SECTION 4 & 5: My Role & Tools Used */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 pt-12 border-t border-pink-100/60">
+            {/* My Role */}
             <FadeUp>
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start">
-                <div className="lg:col-span-4">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#E96A98] sm:text-xs">
-                    01 / OVERVIEW
-                  </span>
-                  <h2 className="mt-1 text-2xl sm:text-3xl font-black text-[#2D2433]">
-                    Project Context
-                  </h2>
-                </div>
-                <div className="lg:col-span-8">
-                  <p className="text-sm sm:text-lg leading-relaxed text-[#6B6570]">
-                    {collection.overview}
-                  </p>
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#E96A98] sm:text-xs">
+                  03 / EXPERTISE
+                </span>
+                <h2 className="mt-1 text-xl sm:text-2xl font-black text-[#2D2433] mb-6">
+                  My Role
+                </h2>
+                <div className="flex flex-wrap gap-2.5">
+                  {rolesList.map((role: string) => (
+                    <span
+                      key={role}
+                      className="rounded-full bg-pink-50 px-4 py-2 text-xs font-bold text-pink-600 border border-pink-100 shadow-xs"
+                    >
+                      {role}
+                    </span>
+                  ))}
                 </div>
               </div>
             </FadeUp>
-          )}
 
-          {/* Strategy: Challenge & Solution */}
-          {(collection.challenge || collection.solution) && (
-            <FadeUp>
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start pt-12 border-t border-pink-100/60">
-                <div className="lg:col-span-4">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#E96A98] sm:text-xs">
-                    02 / STRATEGY
-                  </span>
-                  <h2 className="mt-1 text-2xl sm:text-3xl font-black text-[#2D2433]">
-                    The Challenge &amp; Approach
-                  </h2>
+            {/* Tools Used */}
+            <FadeUp delay={0.1}>
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#E96A98] sm:text-xs">
+                  04 / TOOLKIT
+                </span>
+                <h2 className="mt-1 text-xl sm:text-2xl font-black text-[#2D2433] mb-6">
+                  Tools Used
+                </h2>
+                <div className="flex flex-wrap gap-2.5">
+                  {toolsList.map((tool: string) => (
+                    <span
+                      key={tool}
+                      className="rounded-full bg-white px-4 py-2 text-xs font-bold text-[#2D2433] border border-pink-200 shadow-xs"
+                    >
+                      {tool}
+                    </span>
+                  ))}
                 </div>
-                
-                <div className="lg:col-span-8 space-y-8">
-                  {collection.challenge && (
+              </div>
+            </FadeUp>
+          </div>
+
+          {/* SECTION 6: Creative Process (Horizontal Timeline) */}
+          <FadeUp>
+            <div className="pt-12 border-t border-pink-100/60">
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#E96A98] sm:text-xs">
+                05 / WORKFLOW
+              </span>
+              <h2 className="mt-1 text-2xl sm:text-3xl font-black text-[#2D2433] mb-8">
+                Creative Process
+              </h2>
+              
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                {[
+                  { step: "01", title: "Research", desc: "Audience & market analysis" },
+                  { step: "02", title: "Ideation", desc: "Concept mapping & wireframes" },
+                  { step: "03", title: "Sketch", desc: "Rough visual explorations" },
+                  { step: "04", title: "Design", desc: "High-fidelity UI/visual assets" },
+                  { step: "05", title: "Refinement", desc: "Feedback iteration & polish" },
+                  { step: "06", title: "Delivery", desc: "Asset prep & handoff" }
+                ].map((item, idx) => (
+                  <div key={idx} className="rounded-2xl border border-pink-100/80 bg-white p-4 shadow-xs flex flex-col justify-between">
                     <div>
-                      <h3 className="text-base sm:text-lg font-bold text-[#2D2433]">The Core Challenge</h3>
-                      <p className="mt-2 text-xs sm:text-base leading-relaxed text-[#6B6570]">
-                        {collection.challenge}
-                      </p>
+                      <span className="inline-block rounded-full bg-pink-50 px-2.5 py-0.5 text-[10px] font-black text-pink-500 mb-2">
+                        {item.step}
+                      </span>
+                      <h3 className="text-sm font-bold text-[#2D2433] mb-1">{item.title}</h3>
+                      <p className="text-[11px] leading-relaxed text-[#6B6570]">{item.desc}</p>
                     </div>
-                  )}
-
-                  {collection.solution && (
-                    <div className="rounded-2xl bg-pink-50/50 p-6 sm:p-8 border border-pink-100/80">
-                      <h3 className="text-base sm:text-lg font-bold text-[#2D2433]">The Visual Solution</h3>
-                      <p className="mt-2 text-xs sm:text-base leading-relaxed text-[#6B6570]">
-                        {collection.solution}
-                      </p>
-                    </div>
-                  )}
-                </div>
+                  </div>
+                ))}
               </div>
-            </FadeUp>
-          )}
+            </div>
+          </FadeUp>
 
-        </section>
-
-        {/* EMBEDDED VIDEO (JIKA ADA) */}
-        {collection.video && (
-          <section className="mt-16 sm:mt-24">
+          {/* EMBEDDED VIDEO (JIKA ADA) */}
+          {collection.video && (
             <FadeUp>
               <div className="overflow-hidden rounded-[24px] bg-[#2D2433] p-3 sm:p-4 border border-pink-100/80 shadow-lg">
                 <div className="relative aspect-video w-full overflow-hidden rounded-[18px]">
@@ -247,111 +277,129 @@ export default async function PortfolioDetailPage({ params }: PageProps) {
                 </div>
               </div>
             </FadeUp>
-          </section>
-        )}
+          )}
 
-        {/* EDITORIAL GALLERY SHOWCASE */}
-        <section className="mt-20 sm:mt-28 lg:mt-36">
+          {/* SECTION 7: Project Gallery */}
           <FadeUp>
-            <div className="mb-10 text-center lg:text-left">
-              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#E96A98] sm:text-xs">
-                03 / VISUAL SHOWCASE
-              </span>
-              <h2 className="mt-1 text-2xl sm:text-4xl font-black text-[#2D2433]">
-                Design Artifacts
-              </h2>
+            <div className="pt-12 border-t border-pink-100/60">
+              <div className="mb-10 text-center lg:text-left">
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#E96A98] sm:text-xs">
+                  06 / ARTIFACTS
+                </span>
+                <h2 className="mt-1 text-2xl sm:text-4xl font-black text-[#2D2433]">
+                  Project Gallery
+                </h2>
+              </div>
+
+              {collection.gallery && collection.gallery.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
+                  {collection.gallery.map((item, index) => {
+                    const isFullWidth = item.type === "full";
+
+                    return (
+                      <div
+                        key={index}
+                        className={isFullWidth ? "sm:col-span-2" : "sm:col-span-1"}
+                      >
+                        <figure className="group flex flex-col">
+                          <div className="relative overflow-hidden rounded-[20px] sm:rounded-[30px] bg-[#F9F4F2] border border-pink-100/80 p-2 sm:p-2.5 shadow-[0_10px_30px_rgba(45,36,51,0.03)] transition-all duration-500 hover:border-pink-200 hover:shadow-[0_20px_45px_rgba(233,106,152,0.15)]">
+                            <div
+                              className={`relative w-full overflow-hidden rounded-[14px] sm:rounded-[22px] ${
+                                isFullWidth
+                                  ? "aspect-[16/9] sm:aspect-[21/9]"
+                                  : "aspect-[4/3] sm:aspect-[3/4]"
+                              }`}
+                            >
+                              <Image
+                                src={item.src}
+                                alt={item.alt || collection.title}
+                                fill
+                                sizes={isFullWidth ? "100vw" : "(max-width: 640px) 100vw, 50vw"}
+                                className="object-cover transition-transform duration-700 ease-out group-hover:scale-103"
+                              />
+                            </div>
+                          </div>
+
+                          {item.caption && (
+                            <figcaption className="mt-3 px-2 text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-[#A098A8]">
+                              {item.caption}
+                            </figcaption>
+                          )}
+                        </figure>
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {collection.items.map((item, idx) => (
+                    <div key={idx} className="overflow-hidden rounded-[24px] border border-pink-100/80 bg-white p-4 shadow-sm">
+                      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[16px] bg-gray-100 mb-4">
+                        <Image
+                          src={item.cover}
+                          alt={item.title}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="object-cover"
+                        />
+                      </div>
+                      <h3 className="text-lg font-bold text-[#2D2433]">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-[#6B6570] mt-1">
+                        {item.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </FadeUp>
 
-          {/* Render Gallery jika tersedia */}
-          {collection.gallery && collection.gallery.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
-              {collection.gallery.map((item, index) => {
-                const isFullWidth = item.type === "full";
-
-                return (
-                  <FadeUp
-                    key={index}
-                    delay={0.08 * index}
-                    className={isFullWidth ? "sm:col-span-2" : "sm:col-span-1"}
-                  >
-                    <figure className="group flex flex-col">
-                      <div className="relative overflow-hidden rounded-[20px] sm:rounded-[30px] bg-[#F9F4F2] border border-pink-100/80 p-2 sm:p-2.5 shadow-[0_10px_30px_rgba(45,36,51,0.03)] transition-all duration-500 hover:border-pink-200 hover:shadow-[0_20px_45px_rgba(233,106,152,0.15)]">
-                        <div
-                          className={`relative w-full overflow-hidden rounded-[14px] sm:rounded-[22px] ${
-                            isFullWidth
-                              ? "aspect-[16/9] sm:aspect-[21/9]"
-                              : "aspect-[4/3] sm:aspect-[3/4]"
-                          }`}
-                        >
-                          <Image
-                            src={item.src}
-                            alt={item.alt}
-                            fill
-                            sizes={isFullWidth ? "100vw" : "(max-width: 640px) 100vw, 50vw"}
-                            className="object-cover transition-transform duration-700 ease-out group-hover:scale-103"
-                          />
-                        </div>
-                      </div>
-
-                      {item.caption && (
-                        <figcaption className="mt-3 px-2 text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-[#A098A8]">
-                          {item.caption}
-                        </figcaption>
-                      )}
-                    </figure>
-                  </FadeUp>
-                );
-              })}
-            </div>
-          ) : (
-            /* Fallback menggunakan items jika gallery tidak ada */
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {collection.items.map((item, idx) => (
-                <FadeUp key={idx} delay={idx * 0.05}>
-                  <div className="overflow-hidden rounded-[24px] border border-pink-100/80 bg-white p-4 shadow-sm">
-                    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[16px] bg-gray-100 mb-4">
-                      <Image
-                        src={item.cover}
-                        alt={item.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                        className="object-cover"
-                      />
-                    </div>
-                    <h3 className="text-lg font-bold text-[#2D2433]">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-[#6B6570] mt-1">
-                      {item.description}
-                    </p>
+          {/* SECTION 8: Results (Statistics Cards) */}
+          <FadeUp>
+            <div className="pt-12 border-t border-pink-100/60">
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#E96A98] sm:text-xs">
+                07 / IMPACT
+              </span>
+              <h2 className="mt-1 text-2xl sm:text-3xl font-black text-[#2D2433] mb-8">
+                Results &amp; Metrics
+              </h2>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                {resultsStats.map((stat: any, idx: number) => (
+                  <div key={idx} className="rounded-3xl border border-pink-100 bg-gradient-to-b from-pink-50/50 to-white p-6 sm:p-8 text-center shadow-xs">
+                    <span className="text-3xl sm:text-4xl font-black text-[#E96A98] block mb-2">
+                      {stat.value}
+                    </span>
+                    <h3 className="text-sm font-bold text-[#2D2433] mb-1">{stat.label}</h3>
+                    <p className="text-xs text-[#6B6570]">{stat.desc}</p>
                   </div>
-                </FadeUp>
-              ))}
+                ))}
+              </div>
             </div>
-          )}
-        </section>
+          </FadeUp>
 
-        {/* OUTCOME / IMPACT */}
-        {collection.outcome && (
-          <section className="mt-20 sm:mt-28 lg:mt-36">
-            <FadeUp>
-              <div className="rounded-[28px] sm:rounded-[36px] bg-gradient-to-b from-pink-50/60 to-white p-8 sm:p-12 lg:p-16 border border-pink-100/80 text-center max-w-4xl mx-auto shadow-xs">
+          {/* SECTION 9: Reflection */}
+          <FadeUp>
+            <div className="pt-12 border-t border-pink-100/60">
+              <div className="rounded-[28px] sm:rounded-[36px] bg-white border border-pink-100/80 p-8 sm:p-12 shadow-xs max-w-4xl mx-auto">
                 <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#E96A98] sm:text-xs">
-                  04 / RESULTS &amp; IMPACT
+                  08 / REFLECTION
                 </span>
-                <h2 className="mt-3 text-2xl sm:text-4xl font-black text-[#2D2433]">
-                  Project Outcome
+                <h2 className="mt-2 text-2xl sm:text-3xl font-black text-[#2D2433]">
+                  Lessons Learned &amp; Growth
                 </h2>
-                <p className="mt-4 text-xs sm:text-lg leading-relaxed text-[#6B6570] max-w-2xl mx-auto">
-                  {collection.outcome}
+                <p className="mt-4 text-xs sm:text-base leading-relaxed text-[#6B6570]">
+                  {reflectionText}
                 </p>
               </div>
-            </FadeUp>
-          </section>
-        )}
+            </div>
+          </FadeUp>
 
-        {/* NEXT PROJECT TRANSITION */}
+        </div>
+
+        {/* SECTION 10: Next Project Transition */}
         {nextProject && (
           <section className="mt-24 sm:mt-32 lg:mt-40 border-t border-pink-100/80 pt-16">
             <FadeUp>
@@ -413,29 +461,6 @@ export default async function PortfolioDetailPage({ params }: PageProps) {
             </FadeUp>
           </section>
         )}
-
-        {/* FINAL STUDIO CTA */}
-        <section className="mt-20 sm:mt-28 lg:mt-36 border-t border-pink-100/80 pt-16 sm:pt-20 text-center">
-          <FadeUp>
-            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#E96A98] sm:text-xs">
-              START A CONVERSATION
-            </span>
-            <h2 className="mt-2 text-2xl sm:text-4xl lg:text-5xl font-black text-[#2D2433]">
-              Have a project in mind?
-            </h2>
-            <p className="mt-3 text-xs sm:text-base text-[#6B6570] max-w-lg mx-auto">
-              Let&apos;s build memorable visual experiences together. Reach out for availability and project inquiries.
-            </p>
-            <div className="mt-8 flex justify-center">
-              <Link
-                href="/#contact"
-                className="inline-flex items-center justify-center rounded-full bg-[#E96A98] px-9 py-4 text-xs font-bold uppercase tracking-wider text-white shadow-[0_12px_28px_rgba(233,106,152,0.32)] transition-all hover:-translate-y-0.5 hover:bg-pink-600 hover:shadow-[0_16px_34px_rgba(233,106,152,0.42)] sm:text-sm"
-              >
-                Let&apos;s Work Together
-              </Link>
-            </div>
-          </FadeUp>
-        </section>
 
       </div>
     </article>

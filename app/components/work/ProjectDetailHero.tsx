@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import type { PortfolioCollection } from "@/app/data/portfolio";
+import type { PortfolioCollection } from "@/data/portfolio";
 
 interface Props {
   project: PortfolioCollection;

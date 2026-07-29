@@ -1,6 +1,6 @@
 "use client";
 
-import { Project } from "@/app/types/project";
+import { Project } from "@/types/project";
 import useScrollSpy from "./useScrollSpy";
 
 interface Props {
