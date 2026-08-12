@@ -1,8 +1,9 @@
 // app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
+import MouseGlow from "@/components/ui/MouseGlow";
 
-const siteUrl = "https://yourdomain.com"; // Replace with your actual domain
+const siteUrl = "https://yourdomain.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -66,7 +67,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="bg-[#FFFDFC] text-[#2D2433] antialiased selection:bg-pink-500 selection:text-white">
+      <body className="bg-[#FFFDFC] text-[#2D2433] antialiased selection:bg-pink-500 selection:text-white relative">
+        {/* Global Mouse Glow Effect */}
+        <MouseGlow />
+
         {/* Structured Data (Person Schema) */}
         <script
           type="application/ld+json"

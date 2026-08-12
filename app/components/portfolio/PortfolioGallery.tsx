@@ -1,9 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FadeUp from "@/components/animation/FadeUp";
 import SectionHeading from "@/components/common/SectionHeading";
+import { Heart, MessageCircle, X } from "lucide-react";
 
 interface WorkItem {
   category: string;
@@ -86,6 +88,17 @@ const WORKS: readonly WorkItem[] = [
 ] as const;
 
 export default function PortfolioGallery() {
+  const [activeModalItem, setActiveModalItem] = useState<any | null>(null);
+
+  const getInstagramMeta = (index: number) => {
+    const likesList = ["1,428", "982", "2,150", "876", "1,120", "1,650"];
+    const commentsList = ["94", "45", "128", "32", "67", "88"];
+    return {
+      likes: likesList[index % likesList.length],
+      comments: commentsList[index % commentsList.length],
+    };
+  };
+
   return (
     <section className="relative overflow-hidden border-t border-pink-100/60 bg-gradient-to-b from-[#FFFDFC] via-[#FFFFFF] to-[#FFF7FB] py-20 sm:py-28 lg:py-36 text-[#2D2433]">
       <div className="pointer-events-none absolute -left-48 top-1/4 -z-10 h-[350px] w-[350px] rounded-full bg-pink-100/40 blur-[130px] sm:h-[550px] sm:w-[550px]" />
@@ -119,80 +132,124 @@ export default function PortfolioGallery() {
           </div>
         </FadeUp>
 
-        <div className="grid grid-cols-1 gap-8 sm:gap-10 lg:grid-cols-12 lg:gap-10">
-          {WORKS.map((item, index) => (
-            <div key={item.slug} className={item.span}>
-              <FadeUp delay={index * 0.08}>
-                <div className="group relative flex h-full flex-col justify-between rounded-[28px] sm:rounded-[36px] border border-pink-200/70 bg-white/95 p-5 sm:p-7 shadow-[0_12px_40px_rgba(45,36,51,0.04)] backdrop-blur-md transition-all duration-500 ease-out hover:-translate-y-2.5 hover:border-pink-400/80 hover:shadow-[0_25px_60px_rgba(233,106,152,0.18)]">
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-pink-100/30 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 rounded-[28px] sm:rounded-[36px]" />
+        {/* Unified Instagram-style profile + responsive square grid (same on mobile & desktop) */}
+        <div className="mb-12">
+          <div className="mx-auto max-w-4xl rounded-2xl border border-pink-200/80 bg-white p-4 shadow-[0_20px_60px_-15px_rgba(233,106,152,0.08)]">
 
-                  <div className="relative z-10">
-                    <div className={`relative w-full ${item.aspectRatio} overflow-hidden rounded-[20px] sm:rounded-[28px] bg-pink-50/50`}>
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 66vw"
-                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                      />
-
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#2D2433]/50 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-
-                      <div className="absolute left-3.5 top-3.5 sm:left-4 sm:top-4">
-                        <span className="rounded-full border border-pink-200/80 bg-white/90 px-3.5 py-1 text-[10px] sm:text-xs font-mono font-bold tracking-widest uppercase text-[#2D2433] backdrop-blur-md shadow-2xs">
-                          {item.category}
-                        </span>
-                      </div>
-
-                      <span className="pointer-events-none absolute right-4 top-3 text-3xl sm:text-5xl font-black text-white/50 drop-shadow-md transition-transform duration-500 group-hover:scale-110">
-                        {item.number}
-                      </span>
-                    </div>
-
-                    <div className="mt-5 px-1 sm:mt-6">
-                      <h3 className="text-xl font-black tracking-tight text-[#2D2433] sm:text-2xl lg:text-3xl transition-colors duration-300 group-hover:text-pink-600">
-                        {item.title}
-                      </h3>
-
-                      <p className="mt-2 text-xs leading-relaxed text-[#6B6570] sm:text-sm line-clamp-2">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="relative z-10 mt-6 border-t border-pink-100/80 px-1 pt-4 flex items-center justify-between">
-                    <Link
-                      href={`/portfolio/${item.slug}`}
-                      className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.18em] text-[#2D2433] transition-colors duration-300 group-hover:text-pink-600"
-                    >
-                      <span>VIEW COLLECTION</span>
-                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-pink-50 text-pink-600 border border-pink-200/60 transition-all duration-300 group-hover:bg-pink-600 group-hover:text-white group-hover:border-pink-600 group-hover:translate-x-1">
-                        <svg
-                          className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2.5"
-                            d="M14 5l7 7m0 0l-7 7m7-7H3"
-                          />
-                        </svg>
-                      </div>
-                    </Link>
-
-                    <span className="text-[10px] font-mono font-bold tracking-widest text-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      EXPLORE
-                    </span>
-                  </div>
+            {/* Profile header */}
+            <div className="flex items-center justify-between border-b border-pink-100 pb-4 mb-4">
+              <div className="flex items-center gap-3">
+                <div className="h-12 w-12 rounded-full overflow-hidden border border-pink-300 bg-gradient-to-tr from-pink-500 to-rose-400 flex items-center justify-center text-white font-bold text-sm shadow-sm">
+                  X
                 </div>
-              </FadeUp>
+                <div>
+                  <h4 className="text-sm font-bold text-[#2D2433]">xans_creativa</h4>
+                  <p className="text-[12px] text-[#6B6570]">Curated System & Grid</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <span className="text-sm font-mono font-bold text-pink-600 bg-pink-50 px-3 py-1 rounded-full border border-pink-200">
+                  {WORKS.length} Posts
+                </span>
+              </div>
             </div>
-          ))}
+
+            {/* Grid (2 columns on very small, 3 on sm+) */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              {WORKS.map((item, index) => {
+                const meta = getInstagramMeta(index);
+                return (
+                  <button
+                    key={item.slug}
+                    onClick={() => setActiveModalItem({ ...item, ...meta, index: index + 1 })}
+                    className="group relative aspect-square cursor-pointer overflow-hidden rounded-md bg-pink-50 border border-pink-100 active:scale-95 transition-transform focus:outline-none"
+                    aria-label={`Open ${item.title}`}
+                  >
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </button>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
+
+      {/* Modal (same for mobile & desktop) */}
+      {activeModalItem && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-md animate-in fade-in duration-200"
+          onClick={() => setActiveModalItem(null)}
+        >
+          <div
+            className="relative w-full max-w-3xl overflow-hidden rounded-2xl bg-white shadow-2xl border border-pink-200 max-h-[92vh] flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+          >
+            <button
+              onClick={() => setActiveModalItem(null)}
+              className="absolute top-3 right-3 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-[#2D2433] shadow-md backdrop-blur-md transition-all hover:bg-pink-50 hover:text-pink-600 cursor-pointer"
+              aria-label="Close modal"
+            >
+              <X className="h-4 w-4" />
+            </button>
+
+            <div className="w-full bg-pink-50 flex-shrink-0 flex items-center justify-center">
+              {/* square image */}
+              <div className="w-full max-w-2xl aspect-square relative bg-gray-50">
+                <Image
+                  src={activeModalItem.image}
+                  alt={activeModalItem.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            <div className="p-4 bg-white overflow-y-auto space-y-3">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-2 text-sm font-bold text-[#2D2433]">
+                    <Heart className="w-4 h-4 text-pink-500" />
+                    <span className="text-sm">{activeModalItem.likes}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm font-bold text-[#6B6570]">
+                    <MessageCircle className="w-4 h-4 text-gray-400" />
+                    <span className="text-sm">{activeModalItem.comments}</span>
+                  </div>
+                </div>
+                <span className="text-xs font-mono text-pink-600 uppercase tracking-widest bg-pink-50 px-2 py-0.5 rounded-full border border-pink-200">
+                  #{activeModalItem.number}
+                </span>
+              </div>
+
+              <div>
+                <h3 className="text-base font-bold text-[#2D2433] mb-1">
+                  {activeModalItem.title}
+                </h3>
+                <p className="text-sm text-[#6B6570] leading-relaxed">
+                  {activeModalItem.description}
+                </p>
+              </div>
+
+              <div className="pt-2">
+                <Link
+                  href={`/portfolio/${activeModalItem.slug}`}
+                  className="inline-flex items-center gap-2 text-sm font-bold text-white bg-pink-600 hover:bg-pink-700 py-2.5 px-4 rounded-xl transition-colors shadow-sm"
+                >
+                  <span>View Full Collection</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

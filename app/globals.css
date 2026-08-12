@@ -69,7 +69,7 @@ img {
 
 a,
 button {
-  cursor: auto;
+  cursor: pointer;
 }
 
 /* =========================
@@ -109,13 +109,4 @@ button {
 
 .animate-pulse-slow {
   animation: pulse-slow 2.5s ease-in-out infinite;
-}
-
-@media (min-width: 1024px) {
-  html,
-  body,
-  a,
-  button {
-    cursor: none;
-  }
 }

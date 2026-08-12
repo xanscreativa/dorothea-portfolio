@@ -3,7 +3,7 @@ import type { PortfolioCollection } from "@/types/portfolio";
 export type { PortfolioCollection } from "@/types/portfolio";
 
 export const portfolioCollections: PortfolioCollection[] = [
-  // 1. Social Media Design
+  // 1. Social Media Design (Diperbarui dengan 6 Grid Instagram & Detail Postingan)
   {
     id: 1,
     slug: "social-media-design",
@@ -25,16 +25,56 @@ export const portfolioCollections: PortfolioCollection[] = [
       tools: "Figma, Photoshop, Illustrator",
     },
     gallery: [
-      { type: "full", src: "/portfolio/uksw.jpg", alt: "UKSW Social Media Campaign", caption: "UKSW — Editorial Social Feed Layout" },
-      { type: "half", src: "/portfolio/jendela-finansial.jpg", alt: "Jendela Finansial Visuals", caption: "Jendela Finansial — Educational Carousel" },
-      { type: "half", src: "/portfolio/pelkatpa.jpg", alt: "GPIB Immanuel Assets", caption: "GPIB Immanuel — Community Assets" },
-      { type: "full", src: "/portfolio/emily.jpg", alt: "Emily Creative Story Assets", caption: "Emily Creative — Event Story Suite" },
+      { type: "full", src: "/portfolio/uksw.jpg", alt: "UKSW Mendunia - Feed Post", caption: "UKSW Mendunia — Editorial Feed Layout & Typography" },
+      { type: "half", src: "/portfolio/jendela-finansial.jpg", alt: "Kampus Tour & Fasilitas", caption: "Kampus Tour — Architectural & Visual Overlay" },
+      { type: "half", src: "/portfolio/pelkatpa.jpg", alt: "PMB 2026 Opening", caption: "PMB 2026 — High-Impact Announcement Grid" },
+      { type: "full", src: "/portfolio/emily.jpg", alt: "Akreditasi Unggul", caption: "Akreditasi Unggul — Institutional Pride Layout" },
+      { type: "half", src: "/portfolio/reno.jpg", alt: "UKSW Menyapa Event", caption: "UKSW Menyapa — Dynamic Event Coverage" },
+      { type: "half", src: "/portfolio/wakatom.jpg", alt: "Creative Minority Series", caption: "Creative Minority — Student Talent Storytelling" },
     ],
     items: [
-      { title: "UKSW", subtitle: "UKSW", description: "Social feed visuals with a calm editorial rhythm and polished hierarchy.", cover: "/portfolio/uksw.jpg", images: ["/portfolio/uksw.jpg"] },
-      { title: "Jendela Finansial", subtitle: "Jendela Finansial", description: "Crisp social visuals for educational and branded communication.", cover: "/portfolio/jendela-finansial.jpg", images: ["/portfolio/jendela-finansial.jpg"] },
-      { title: "GPIB Immanuel Pekanbaru", subtitle: "GPIB Immanuel Pekanbaru", description: "Community-focused social media assets shaped with warmth and structure.", cover: "/portfolio/pelkatpa.jpg", images: ["/portfolio/pelkatpa.jpg"] },
-      { title: "Emily Creative", subtitle: "Emily", description: "A polished visual system combining event messaging and premium digital storytelling.", cover: "/portfolio/emily.jpg", images: ["/portfolio/emily.jpg"] },
+      { 
+        title: "UKSW Mendunia", 
+        subtitle: "Feed Post", 
+        description: "Editorial social media system crafted for UKSW admissions and campus life with a calm editorial rhythm.", 
+        cover: "/portfolio/uksw.jpg", 
+        images: ["/portfolio/uksw.jpg"] 
+      },
+      { 
+        title: "Kampus Tour & Fasilitas", 
+        subtitle: "Carousel Design", 
+        description: "Highlighting campus spaces with immersive architectural photography and clean graphic overlays.", 
+        cover: "/portfolio/jendela-finansial.jpg", 
+        images: ["/portfolio/jendela-finansial.jpg"] 
+      },
+      { 
+        title: "PMB 2026 Opening", 
+        subtitle: "Announcement", 
+        description: "High-impact announcement grid layout designed to drive student engagement and registration.", 
+        cover: "/portfolio/pelkatpa.jpg", 
+        images: ["/portfolio/pelkatpa.jpg"] 
+      },
+      { 
+        title: "Akreditasi Unggul", 
+        subtitle: "Institutional Post", 
+        description: "Institutional pride delivered through structured editorial design systems and sharp typography.", 
+        cover: "/portfolio/emily.jpg", 
+        images: ["/portfolio/emily.jpg"] 
+      },
+      { 
+        title: "UKSW Menyapa Event", 
+        subtitle: "Event Coverage", 
+        description: "Dynamic event coverage assets designed for multi-platform social engagement and visibility.", 
+        cover: "/portfolio/reno.jpg", 
+        images: ["/portfolio/reno.jpg"] 
+      },
+      { 
+        title: "Creative Minority Series", 
+        subtitle: "Community Showcase", 
+        description: "Showcasing student creativity and diverse talents through curated visual storytelling.", 
+        cover: "/portfolio/wakatom.jpg", 
+        images: ["/portfolio/wakatom.jpg"] 
+      },
     ],
   },
 
