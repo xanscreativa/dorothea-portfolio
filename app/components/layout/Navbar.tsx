@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Menu, X, Download } from "lucide-react";
+import LanguageToggle from "@/components/ui/LanguageToggle"; // <-- Import LanguageToggle
 
 const navItems = [
   { label: "Projects", href: "/#portfolio", isAnchor: true },
@@ -95,8 +96,9 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Desktop CTA Button */}
-        <div className="hidden md:flex items-center">
+        {/* Desktop CTA Button & Language Toggle */}
+        <div className="hidden md:flex items-center space-x-4">
+          <LanguageToggle />
           <a
             href="/resume.pdf"
             target="_blank"
@@ -159,6 +161,13 @@ export default function Navbar() {
               </Link>
             );
           })}
+
+          {/* Mobile Language Toggle & Resume Download */}
+          <div className="pt-4 border-t border-pink-100/60 flex items-center justify-between">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#6B6570]">Language</span>
+            <LanguageToggle />
+          </div>
+
           <div className="pt-2">
             <a
               href="/resume.pdf"

@@ -1,0 +1,155 @@
+// data/translations.ts
+export const translations = {
+  en: {
+    // Navigasi & Umum
+    projects: "Projects",
+    about: "About",
+    contact: "Contact",
+    downloadResume: "Download Resume",
+    language: "Language",
+
+    // Hero Section
+    roleSubtitle: "Graphic Designer & Video Editor",
+    availableStatus: "Open to Full-Time Opportunities",
+    heroDescription: "Creating thoughtful visual solutions through branding, digital design, and engaging video storytelling.",
+    location: "Based in Pekanbaru, Indonesia",
+    remoteWork: "Available for Remote & Hybrid",
+    relocation: "Open to Relocation",
+    viewProjects: "View Projects",
+    quote1: "Thoughtfully Crafted.",
+    quote2: "Beautifully Remembered.",
+    scroll: "Scroll",
+    statProjects: "Projects",
+    statBrands: "Brands",
+    statYears: "Years Exp.",
+    statAssets: "Assets",
+
+    // About Section
+    aboutBadge: "GET TO KNOW ME",
+    aboutExpTitle: "EXPERIENCE",
+    aboutExpSubtitle: "Years Crafting Visual Stories",
+    aboutDesc1: "I’m a Graphic Designer and Video Editor with hands-on experience creating visual content across brand identity, social media design, motion graphics, and video production.",
+    aboutDesc2: "I specialize in transforming complex ideas into clear, engaging, and visually compelling stories that communicate effectively and leave a lasting impression.",
+    basedIn: "Based In",
+    aboutLocation: "Pekanbaru, Indonesia",
+    availability: "Availability",
+    availabilityStatus: "Full-Time & Freelance",
+    specialtiesTitle: "Specialties",
+    spec1: "Brand Identity",
+    spec2: "Social Media Design",
+    spec3: "Motion Graphics",
+    spec4: "Video Editing",
+    letsConnect: "Let's Connect",
+    downloadCv: "Download CV / Resume",
+
+    // Portfolio / Projects Section
+    portfolioHeading: "Selected Works",
+    portfolioSubtitle: "A curation of my best projects in graphic design, branding, and video editing.",
+    filterAll: "All",
+    filterBranding: "Branding",
+    filterDesign: "Graphic Design",
+    filterVideo: "Video Editing",
+
+    // Contact Section
+    contactHeading: "Let's Create Together",
+    contactSubtitle: "Have a project in mind or want to discuss opportunities? Feel free to reach out.",
+    formName: "Your Name",
+    formEmail: "Your Email",
+    formMessage: "Your Message",
+    formSend: "Send Message",
+    formSending: "Sending...",
+    formSuccess: "Message sent successfully!",
+
+    // Detail / Tombol Portfolio
+    back: "BACK TO SELECTED WORKS",
+    nextProject: "NEXT PROJECT",
+    overview: "Overview",
+    challenge: "The Challenge",
+    client: "CLIENT",
+    industry: "INDUSTRY",
+    role: "ROLE",
+    year: "YEAR",
+    deliverables: "DELIVERABLES",
+    tools: "TOOLS USED",
+    info: "Info",
+    close: "Close",
+    showDetails: "Show Details",
+    hideDetails: "Hide Details"
+  },
+  id: {
+    // Navigasi & Umum
+    projects: "Proyek",
+    about: "Tentang",
+    contact: "Kontak",
+    downloadResume: "Unduh Resume",
+    language: "Bahasa",
+
+    // Hero Section
+    roleSubtitle: "Desainer Grafis & Penyunting Video",
+    availableStatus: "Terbuka untuk Peluang Penuh Waktu",
+    heroDescription: "Menciptakan solusi visual yang mendalam melalui branding, desain digital, dan penceritaan video yang menarik.",
+    location: "Berbasis di Pekanbaru, Indonesia",
+    remoteWork: "Tersedia untuk Remote & Hybrid",
+    relocation: "Terbuka untuk Relokasi",
+    viewProjects: "Lihat Proyek",
+    quote1: "Dibuat dengan Penuh Perhatian.",
+    quote2: "Diingat dengan Indah.",
+    scroll: "Gulir",
+    statProjects: "Proyek",
+    statBrands: "Merek",
+    statYears: "Tahun Pengalaman",
+    statAssets: "Aset",
+
+    // About Section
+    aboutBadge: "KENALI SAYA",
+    aboutExpTitle: "PENGALAMAN",
+    aboutExpSubtitle: "Tahun Merangkai Cerita Visual",
+    aboutDesc1: "Saya seorang Desainer Grafis dan Penyunting Video dengan pengalaman langsung dalam menciptakan konten visual lintas identitas merek, desain media sosial, motion graphics, dan produksi video.",
+    aboutDesc2: "Saya berspesialisasi dalam mengubah ide kompleks menjadi cerita yang jelas, menarik, dan memikat secara visual yang berkomunikasi secara efektif dan meninggalkan kesan mendalam.",
+    basedIn: "Berbasis Di",
+    aboutLocation: "Pekanbaru, Indonesia",
+    availability: "Ketersediaan",
+    availabilityStatus: "Penuh Waktu & Lepas",
+    specialtiesTitle: "Spesialisasi",
+    spec1: "Brand Identity",
+    spec2: "Social Media Design",
+    spec3: "Motion Graphics",
+    spec4: "Video Editing",
+    letsConnect: "Mari Terhubung",
+    downloadCv: "Unduh CV / Resume",
+
+    // Portfolio / Projects Section
+    portfolioHeading: "Karya Pilihan",
+    portfolioSubtitle: "Kurasi proyek terbaik saya dalam desain grafis, branding, dan penyuntingan video.",
+    filterAll: "Semua",
+    filterBranding: "Branding",
+    filterDesign: "Desain Grafis",
+    filterVideo: "Penyuntingan Video",
+
+    // Contact Section
+    contactHeading: "Mari Berkolaborasi",
+    contactSubtitle: "Punya proyek atau ingin mendiskusikan peluang? Jangan ragu untuk menghubungi saya.",
+    formName: "Nama Anda",
+    formEmail: "Email Anda",
+    formMessage: "Pesan Anda",
+    formSend: "Kirim Pesan",
+    formSending: "Mengirim...",
+    formSuccess: "Pesan berhasil dikirim!",
+
+    // Detail / Tombol Portfolio
+    back: "KEMBALI KE KARYA PILIHAN",
+    nextProject: "PROYEK SELANJUTNYA",
+    overview: "Gambaran Umum",
+    challenge: "Tantangan",
+    client: "KLIEN",
+    industry: "INDUSTRI",
+    role: "PERAN",
+    year: "TAHUN",
+    deliverables: "DELIVERABLES",
+    tools: "TOOLS",
+    info: "Info",
+    close: "Tutup",
+    showDetails: "Tampilkan Detail",
+    hideDetails: "Sembunyikan Detail"
+  }
+};

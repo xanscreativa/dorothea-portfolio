@@ -2,15 +2,18 @@
 
 import Image from "next/image";
 import FadeUp from "../animation/FadeUp";
-
-const specialties = [
-  "Brand Identity",
-  "Social Media Design",
-  "Motion Graphics",
-  "Video Editing",
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function About() {
+  const { t } = useLanguage();
+
+  const specialties = [
+    t("spec1"),
+    t("spec2"),
+    t("spec3"),
+    t("spec4"),
+  ];
+
   return (
     <section
       id="about"
@@ -60,10 +63,10 @@ export default function About() {
                   </div>
                   <div className="pr-1 text-left">
                     <p className="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-pink-600 sm:text-xs">
-                      EXPERIENCE
+                      {t("aboutExpTitle")}
                     </p>
                     <p className="text-xs font-bold text-[#2D2433] sm:text-sm">
-                      Years Crafting <br className="hidden sm:block" /> Visual Stories
+                      {t("aboutExpSubtitle")}
                     </p>
                   </div>
                 </div>
@@ -82,7 +85,7 @@ export default function About() {
               <div className="inline-flex items-center gap-2 rounded-full border border-pink-200/80 bg-white/90 px-3.5 py-1.5 backdrop-blur-md shadow-2xs mb-3">
                 <span className="h-1.5 w-1.5 rounded-full bg-pink-500 animate-pulse" />
                 <span className="text-[10px] font-mono font-extrabold uppercase tracking-[0.3em] text-pink-600 sm:text-xs">
-                  GET TO KNOW ME
+                  {t("aboutBadge")}
                 </span>
               </div>
             </FadeUp>
@@ -98,12 +101,8 @@ export default function About() {
             {/* Reveal #5: Rewritten Paragraphs */}
             <FadeUp delay={0.4}>
               <div className="mt-4 sm:mt-6 space-y-3.5 max-w-2xl text-xs sm:text-base leading-relaxed sm:leading-relaxed text-[#6B6570]">
-                <p>
-                  I’m a Graphic Designer and Video Editor with hands-on experience creating visual content across brand identity, social media design, motion graphics, and video production.
-                </p>
-                <p>
-                  I specialize in transforming complex ideas into clear, engaging, and visually compelling stories that communicate effectively and leave a lasting impression.
-                </p>
+                <p>{t("aboutDesc1")}</p>
+                <p>{t("aboutDesc2")}</p>
               </div>
             </FadeUp>
 
@@ -121,10 +120,10 @@ export default function About() {
                   </div>
                   <div>
                     <p className="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-pink-400 sm:text-xs">
-                      Based In
+                      {t("basedIn")}
                     </p>
                     <h4 className="mt-0.5 text-sm font-bold text-[#2D2433] sm:text-lg">
-                      Pekanbaru, Indonesia
+                      {t("aboutLocation")}
                     </h4>
                   </div>
                 </div>
@@ -139,10 +138,10 @@ export default function About() {
                   </div>
                   <div>
                     <p className="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-pink-400 sm:text-xs">
-                      Availability
+                      {t("availability")}
                     </p>
                     <h4 className="mt-0.5 text-sm font-bold text-[#2D2433] sm:text-lg">
-                      Full-Time &amp; Freelance
+                      {t("availabilityStatus")}
                     </h4>
                   </div>
                 </div>
@@ -154,7 +153,7 @@ export default function About() {
             <FadeUp delay={0.56}>
               <div className="mt-6 sm:mt-7">
                 <p className="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-pink-400 sm:text-xs">
-                  Specialties
+                  {t("specialtiesTitle")}
                 </p>
                 <div className="mt-2.5 flex flex-wrap gap-2.5 sm:gap-3">
                   {specialties.map((item) => (
@@ -176,7 +175,7 @@ export default function About() {
                   href="#contact"
                   className="inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r from-pink-600 to-rose-500 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wide text-white shadow-md shadow-pink-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-pink-500/30 sm:w-auto active:scale-98"
                 >
-                  Let&apos;s Connect
+                  {t("letsConnect")}
                 </a>
                 <a
                   href="/resume.pdf"
@@ -184,7 +183,7 @@ export default function About() {
                   rel="noopener noreferrer"
                   className="inline-flex w-full items-center justify-center rounded-full border border-pink-200/80 bg-white px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wide text-[#2D2433] shadow-2xs transition-all duration-300 hover:-translate-y-0.5 hover:border-pink-300 hover:bg-pink-50/50 hover:text-pink-600 sm:w-auto active:scale-98"
                 >
-                  Download CV / Resume
+                  {t("downloadCv")}
                 </a>
               </div>
             </FadeUp>

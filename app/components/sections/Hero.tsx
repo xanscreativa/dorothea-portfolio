@@ -7,9 +7,11 @@ import FadeUp from "@/components/animation/FadeUp";
 import Counter from "@/components/ui/Counter";
 import useParallax from "@/components/animation/useParallax";
 import { MapPin, Briefcase, Globe, Download } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext"; // <-- Import useLanguage
 
 export default function Hero() {
   const bgOffset = useParallax(0.12);
+  const { t } = useLanguage(); // <-- Panggil fungsi terjemahan
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -123,8 +125,8 @@ export default function Hero() {
                 >
                   <p className="text-[11px] font-medium leading-relaxed text-[#6B6570] sm:text-xs sm:leading-relaxed">
                     <span className="text-xs font-bold text-pink-500 sm:text-base">“</span>
-                    Thoughtfully Crafted.<br />
-                    Beautifully Remembered.
+                    {t("quote1")}<br />
+                    {t("quote2")}
                     <span className="text-xs font-bold text-pink-500 sm:text-base">”</span>
                   </p>
                 </motion.div>
@@ -143,7 +145,7 @@ export default function Hero() {
                 <span className="bg-gradient-to-r from-pink-600 via-pink-500 to-rose-400 bg-clip-text text-transparent">S.Ds</span>
               </h1>
               <p className="mt-2 text-base font-bold tracking-wide text-pink-600 sm:text-lg lg:text-xl">
-                Graphic Designer &amp; Video Editor
+                {t("roleSubtitle")}
               </p>
             </FadeUp>
 
@@ -155,7 +157,7 @@ export default function Hero() {
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-pink-500" />
                 </span>
                 <p className="text-[11px] font-bold tracking-wide text-pink-600 sm:text-xs">
-                  Open to Full-Time Opportunities
+                  {t("availableStatus")}
                 </p>
               </div>
             </FadeUp>
@@ -163,7 +165,7 @@ export default function Hero() {
             {/* Value Proposition */}
             <FadeUp delay={0.38}>
               <p className="mx-auto lg:mx-0 mt-3 sm:mt-4 max-w-xl text-xs leading-relaxed text-[#6B6570] sm:text-base sm:leading-relaxed">
-                Creating thoughtful visual solutions through branding, digital design, and engaging video storytelling.
+                {t("heroDescription")}
               </p>
             </FadeUp>
 
@@ -172,15 +174,15 @@ export default function Hero() {
               <div className="mt-3.5 flex flex-wrap justify-center lg:justify-start gap-y-2 gap-x-5 text-xs font-semibold text-[#6B6570] sm:text-sm">
                 <div className="inline-flex items-center gap-1.5">
                   <MapPin className="w-4 h-4 text-pink-500 shrink-0" />
-                  <span>Based in Pekanbaru, Indonesia</span>
+                  <span>{t("location")}</span>
                 </div>
                 <div className="inline-flex items-center gap-1.5">
                   <Briefcase className="w-4 h-4 text-pink-500 shrink-0" />
-                  <span>Available for Remote &amp; Hybrid</span>
+                  <span>{t("remoteWork")}</span>
                 </div>
                 <div className="inline-flex items-center gap-1.5">
                   <Globe className="w-4 h-4 text-pink-500 shrink-0" />
-                  <span>Open to Relocation</span>
+                  <span>{t("relocation")}</span>
                 </div>
               </div>
             </FadeUp>
@@ -193,7 +195,7 @@ export default function Hero() {
                     href="#portfolio" 
                     className="!py-2.5 !px-6 sm:!py-3.5 sm:!px-8 !text-xs sm:!text-sm flex items-center justify-center w-full shadow-md shadow-pink-500/10 transition-transform active:scale-98"
                   >
-                    View Projects
+                    {t("viewProjects")}
                   </Button>
                 </div>
                 <div className="flex-1 sm:flex-initial">
@@ -205,7 +207,7 @@ export default function Hero() {
                     className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-full border border-pink-200/80 bg-white/90 px-6 py-2.5 sm:px-8 sm:py-3.5 text-xs sm:text-sm font-bold text-[#2D2433] shadow-xs backdrop-blur-md hover:border-pink-400 hover:bg-pink-50/40 transition-all duration-300 cursor-pointer"
                   >
                     <Download className="w-4 h-4 text-pink-600" />
-                    <span>Download Resume</span>
+                    <span>{t("downloadResume")}</span>
                   </a>
                 </div>
               </div>
@@ -215,10 +217,10 @@ export default function Hero() {
             <FadeUp delay={0.58}>
               <div className="mt-8 sm:mt-10 w-full grid grid-cols-4 gap-2 sm:gap-3.5 px-0.5 sm:px-0">
                 {[
-                  { n: 50, l: "Projects" },
-                  { n: 8, l: "Brands" },
-                  { n: 4, l: "Years Exp." },
-                  { n: 200, l: "Assets" },
+                  { n: 50, l: t("statProjects") },
+                  { n: 8, l: t("statBrands") },
+                  { n: 4, l: t("statYears") },
+                  { n: 200, l: t("statAssets") },
                 ].map((s) => (
                   <div 
                     key={s.l} 
@@ -248,7 +250,7 @@ export default function Hero() {
             className="group flex flex-col items-center gap-1.5 text-[10px] font-bold tracking-[0.25em] uppercase text-[#8B8590] transition-colors hover:text-pink-600 cursor-pointer"
             aria-label="Scroll to portfolio section"
           >
-            <span>Scroll</span>
+            <span>{t("scroll")}</span>
             <div className="flex h-7 w-4.5 items-start justify-center rounded-full border border-pink-200/90 bg-white/80 p-1 shadow-2xs backdrop-blur-xs">
               <motion.div
                 animate={{ y: [0, 8, 0] }}

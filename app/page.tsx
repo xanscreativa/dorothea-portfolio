@@ -1,13 +1,12 @@
-import Footer from "./components/layout/Footer";
-
-import Hero from "./components/sections/Hero";
-import PortfolioGallery from "./components/sections/PortfolioGallery";
-import About from "./components/sections/About";
-import Skills from "./components/sections/Skills";
-import Services from "./content/Services";
-import CreativeProcess from "./components/sections/CreativeProcess";
-import CreativeFilms from "./components/sections/CreativeFilms";
-import Contact from "./components/sections/Contact";
+import Footer from "@/components/layout/Footer";
+import Hero from "@/components/sections/Hero";
+import PortfolioGallery from "@/components/sections/PortfolioGallery";
+import About from "@/components/sections/About";
+import Skills from "@/components/sections/Skills";
+import Services from "@/content/Services";
+import CreativeProcess from "@/components/sections/CreativeProcess";
+import CreativeFilms from "@/components/sections/CreativeFilms";
+import Contact from "@/components/sections/Contact";
 
 export default function Home() {
   return (

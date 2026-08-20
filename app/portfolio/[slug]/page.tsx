@@ -6,8 +6,10 @@ import Link from "next/link";
 import { notFound, useParams } from "next/navigation";
 import { getPortfolioBySlug, getNextPortfolio } from "@/data/portfolio";
 import { X, ArrowLeft, ArrowRight, ChevronDown } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function PortfolioDetailPage() {
+  const { t, lang, toggleLang } = useLanguage();
   const params = useParams();
   const slug = params?.slug as string;
   const collection = getPortfolioBySlug(slug);
@@ -208,12 +210,23 @@ export default function PortfolioDetailPage() {
     <main className="min-h-screen bg-white text-[#2D2433] selection:bg-pink-100 selection:text-pink-900 overflow-x-hidden">
       {/* Header / Navigation */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-8 sm:pt-12 pb-6 sm:pb-8">
-        <Link 
-          href="/#portfolio" 
-          className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-wider text-[#6B6570] hover:text-pink-600 transition-colors mb-6 sm:mb-8 cursor-pointer py-1"
-        >
-          <ArrowLeft className="w-4 h-4" /> BACK TO SELECTED WORKS
-        </Link>
+        
+        {/* Tombol Back & Switcher Bahasa */}
+        <div className="flex items-center justify-between mb-6 sm:mb-8">
+          <Link 
+            href="/#portfolio" 
+            className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-wider text-[#6B6570] hover:text-pink-600 transition-colors cursor-pointer py-1"
+          >
+            <ArrowLeft className="w-4 h-4" /> {t('back')}
+          </Link>
+
+          <button 
+            onClick={toggleLang}
+            className="bg-pink-50 hover:bg-pink-100 text-pink-600 px-3 py-1.5 rounded-full border border-pink-200 text-xs font-mono font-bold transition-all cursor-pointer shadow-sm flex items-center gap-1.5"
+          >
+            <span>🌐</span> {lang.toUpperCase()}
+          </button>
+        </div>
 
         <div className="space-y-3 sm:space-y-4">
           <span className="inline-block text-[11px] sm:text-xs font-mono font-bold text-pink-600 tracking-widest uppercase bg-pink-50 px-3 py-1 rounded-full border border-pink-200">
@@ -241,7 +254,7 @@ export default function PortfolioDetailPage() {
                   className="relative rounded-xl border border-pink-200/80 bg-white px-2 py-3 sm:p-4 shadow-sm flex flex-col justify-between"
                 >
                   <div>
-                    {/* Header Profile - Username & Nama Lengkap di Bawahnya */}
+                    {/* Header Profile */}
                     <div className="flex items-center gap-1.5 px-0.5 border-b border-pink-100 pb-1.5 mb-2">
                       <div className={`relative h-6 w-6 sm:h-7 sm:w-7 rounded-full overflow-hidden border border-pink-300 ${!section.avatarImage ? `bg-gradient-to-tr ${section.avatarBg}` : 'bg-white'} flex items-center justify-center text-white font-bold text-[8px] sm:text-[9px] flex-shrink-0`}>
                         {section.avatarImage ? (
@@ -256,7 +269,7 @@ export default function PortfolioDetailPage() {
                       </div>
                     </div>
 
-                    {/* Foto - Memenuhi lebar frame tipis */}
+                    {/* Foto */}
                     <div className="w-full px-0.5 mb-2">
                       {section.posts.map((item: any, itemIndex: number) => (
                         <div
@@ -280,7 +293,7 @@ export default function PortfolioDetailPage() {
                     onClick={() => toggleSection(sIndex)}
                     className="w-full py-1 text-[9px] sm:text-[10px] font-mono font-bold text-pink-600 bg-pink-50 hover:bg-pink-100 rounded-md border border-pink-200 transition-all active:scale-95 cursor-pointer"
                   >
-                    {isExpanded ? "Close" : "Info"}
+                    {isExpanded ? t('close') : t('info')}
                   </button>
 
                   {isExpanded && (
@@ -344,7 +357,7 @@ export default function PortfolioDetailPage() {
                       onClick={() => toggleSection(sIndex)}
                       className="w-full py-2.5 px-4 text-xs font-mono font-bold text-pink-600 bg-pink-50 hover:bg-pink-100 rounded-xl border border-pink-200 flex items-center justify-center gap-1.5 transition-all active:scale-95 cursor-pointer"
                     >
-                      <span>{isExpanded ? "Hide Details" : "Show Details"}</span>
+                      <span>{isExpanded ? t('hideDetails') : t('showDetails')}</span>
                       <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`} />
                     </button>
                   </div>
@@ -352,38 +365,38 @@ export default function PortfolioDetailPage() {
                   <div className={`space-y-6 pt-2 ${isExpanded ? "block" : "hidden sm:block"}`}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-pink-100/60">
                       <div>
-                        <h3 className="text-xs font-mono font-bold text-pink-600 tracking-widest uppercase mb-1.5">Overview</h3>
+                        <h3 className="text-xs font-mono font-bold text-pink-600 tracking-widest uppercase mb-1.5">{t('overview')}</h3>
                         <p className="text-xs sm:text-sm text-[#6B6570] leading-relaxed">{section.overview}</p>
                       </div>
                       <div>
-                        <h3 className="text-xs font-mono font-bold text-pink-600 tracking-widest uppercase mb-1.5">The Challenge</h3>
+                        <h3 className="text-xs font-mono font-bold text-pink-600 tracking-widest uppercase mb-1.5">{t('challenge')}</h3>
                         <p className="text-xs sm:text-sm text-[#6B6570] leading-relaxed">{section.challenge}</p>
                       </div>
                     </div>
 
                     <div className="bg-pink-50/40 p-4 sm:p-5 rounded-2xl border border-pink-100 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
                       <div>
-                        <span className="text-[10px] font-mono font-bold text-[#6B6570] block mb-0.5">CLIENT</span>
+                        <span className="text-[10px] font-mono font-bold text-[#6B6570] block mb-0.5">{t('client')}</span>
                         <span className="text-xs sm:text-sm font-bold text-[#2D2433]">{section.details.client}</span>
                       </div>
                       <div>
-                        <span className="text-[10px] font-mono font-bold text-[#6B6570] block mb-0.5">INDUSTRY</span>
+                        <span className="text-[10px] font-mono font-bold text-[#6B6570] block mb-0.5">{t('industry')}</span>
                         <span className="text-xs sm:text-sm font-bold text-[#2D2433]">{section.details.industry}</span>
                       </div>
                       <div>
-                        <span className="text-[10px] font-mono font-bold text-[#6B6570] block mb-0.5">ROLE</span>
+                        <span className="text-[10px] font-mono font-bold text-[#6B6570] block mb-0.5">{t('role')}</span>
                         <span className="text-xs sm:text-sm font-bold text-[#2D2433]">{section.details.role}</span>
                       </div>
                       <div>
-                        <span className="text-[10px] font-mono font-bold text-[#6B6570] block mb-0.5">YEAR</span>
+                        <span className="text-[10px] font-mono font-bold text-[#6B6570] block mb-0.5">{t('year')}</span>
                         <span className="text-xs sm:text-sm font-bold text-[#2D2433]">{section.details.year}</span>
                       </div>
                       <div>
-                        <span className="text-[10px] font-mono font-bold text-[#6B6570] block mb-0.5">DELIVERABLES</span>
+                        <span className="text-[10px] font-mono font-bold text-[#6B6570] block mb-0.5">{t('deliverables')}</span>
                         <span className="text-xs sm:text-sm font-bold text-[#2D2433]">{section.details.deliverables}</span>
                       </div>
                       <div>
-                        <span className="text-[10px] font-mono font-bold text-[#6B6570] block mb-0.5">TOOLS USED</span>
+                        <span className="text-[10px] font-mono font-bold text-[#6B6570] block mb-0.5">{t('tools')}</span>
                         <span className="text-xs sm:text-sm font-bold text-[#2D2433]">{section.details.tools}</span>
                       </div>
                     </div>
@@ -424,7 +437,7 @@ export default function PortfolioDetailPage() {
       {/* Next Project Navigation */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 pb-16 sm:pb-20">
         <div className="border-t border-pink-100 pt-6 sm:pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <span className="text-xs font-mono font-bold text-[#6B6570]">NEXT PROJECT</span>
+          <span className="text-xs font-mono font-bold text-[#6B6570]">{t('nextProject')}</span>
           <Link 
             href={`/portfolio/${nextCollection.slug}`}
             className="group inline-flex items-center gap-3 text-base sm:text-lg font-bold text-[#2D2433] hover:text-pink-600 transition-colors cursor-pointer"

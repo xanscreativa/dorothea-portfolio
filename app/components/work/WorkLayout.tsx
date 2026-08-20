@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import WorkSidebar from "./WorkSidebar";
-import { Project } from "@/types/project";
+import { Project } from "../../../types/project";
 
 interface Props {
   project: Project;
