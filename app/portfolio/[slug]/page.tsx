@@ -8,6 +8,39 @@ import { getPortfolioBySlug, getNextPortfolio } from "@/data/portfolio";
 import { X, ArrowLeft, ArrowRight, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
+interface GalleryItem {
+  src: string;
+  alt?: string;
+  caption?: string;
+}
+
+interface SectionDetails {
+  client: string;
+  industry: string;
+  role: string;
+  year: string;
+  deliverables: string;
+  tools: string;
+}
+
+interface SectionData {
+  title: string;
+  username: string;
+  bio: string;
+  avatarImage: string;
+  avatarText: string;
+  avatarBg: string;
+  posts: GalleryItem[];
+  details: SectionDetails;
+  overview: string;
+  challenge: string;
+}
+
+interface ActiveModalItem extends GalleryItem {
+  index: number;
+  brandName?: string;
+}
+
 export default function PortfolioDetailPage() {
   const { t, lang, toggleLang } = useLanguage();
   const params = useParams();
@@ -19,7 +52,7 @@ export default function PortfolioDetailPage() {
   }
 
   const nextCollection = getNextPortfolio(slug);
-  const [activeModalItem, setActiveModalItem] = useState<any | null>(null);
+  const [activeModalItem, setActiveModalItem] = useState<ActiveModalItem | null>(null);
   
   // State untuk mengontrol show/hide detail per card
   const [expandedSections, setExpandedSections] = useState<{ [key: number]: boolean }>({});
@@ -31,10 +64,10 @@ export default function PortfolioDetailPage() {
   const isSocialMedia = collection.slug === "social-media-design";
   const isBrandIdentity = collection.slug === "brand-identity";
 
-  const gallery = collection.gallery || [];
+  const gallery: GalleryItem[] = collection.gallery || [];
 
   // Helper untuk mengambil slice foto dengan aman
-  const getSafePosts = (start: number, end: number) => {
+  const getSafePosts = (start: number, end: number): GalleryItem[] => {
     if (gallery.length === 0) return [];
     const sliced = gallery.slice(start, end);
     if (sliced.length > 0) return sliced;
@@ -42,13 +75,13 @@ export default function PortfolioDetailPage() {
   };
 
   // Helper aman untuk 1 foto per brand identity card
-  const getSafeBrandPost = (index: number) => {
+  const getSafeBrandPost = (index: number): GalleryItem[] => {
     if (gallery.length === 0) return [];
     const item = gallery[index] || gallery[index % gallery.length];
     return [item];
   };
 
-  const socialSections = isSocialMedia ? [
+  const socialSections: SectionData[] = isSocialMedia ? [
     {
       title: "UKSW",
       username: "uksw_salatiga",
@@ -108,7 +141,7 @@ export default function PortfolioDetailPage() {
     }
   ] : [];
 
-  const brandSections = isBrandIdentity ? [
+  const brandSections: SectionData[] = isBrandIdentity ? [
     {
       title: "Jendela Finansial",
       username: "jendela_finansial",
@@ -209,10 +242,10 @@ export default function PortfolioDetailPage() {
   return (
     <main className="min-h-screen bg-white text-[#2D2433] selection:bg-pink-100 selection:text-pink-900 overflow-x-hidden">
       {/* Header / Navigation */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-8 sm:pt-12 pb-6 sm:pb-8">
+      <div className="mx-auto max-w-5xl px-4 pt-24 pb-6 sm:px-6 sm:pt-28 sm:pb-8 lg:pt-32">
         
         {/* Tombol Back & Switcher Bahasa */}
-        <div className="flex items-center justify-between mb-6 sm:mb-8">
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-4 sm:mb-8">
           <Link 
             href="/#portfolio" 
             className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-wider text-[#6B6570] hover:text-pink-600 transition-colors cursor-pointer py-1"
@@ -271,7 +304,7 @@ export default function PortfolioDetailPage() {
 
                     {/* Foto */}
                     <div className="w-full px-0.5 mb-2">
-                      {section.posts.map((item: any, itemIndex: number) => (
+                      {section.posts.map((item, itemIndex) => (
                         <div
                           key={itemIndex}
                           onClick={() => setActiveModalItem({ ...item, index: sIndex + 1, brandName: section.title })}
@@ -335,7 +368,7 @@ export default function PortfolioDetailPage() {
                   </div>
 
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-4">
-                    {section.posts.map((item: any, itemIndex: number) => {
+                    {section.posts.map((item, itemIndex) => {
                       const globalIndex = sIndex * 6 + itemIndex;
                       return (
                         <div
@@ -410,7 +443,7 @@ export default function PortfolioDetailPage() {
           <div className="relative mx-auto rounded-2xl sm:rounded-[36px] border border-pink-200/80 bg-white p-3 sm:p-8 shadow-[0_20px_60px_-15px_rgba(233,106,152,0.1)]">
             {gallery.length > 0 ? (
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-4">
-                {gallery.map((item: any, index: number) => {
+                {gallery.map((item, index) => {
                   return (
                     <div
                       key={index}

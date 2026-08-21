@@ -65,7 +65,8 @@ export default function ProjectGallery({ items }: ProjectGalleryProps) {
   };
 
   return (
-    <section className="mt-20 border-b border-white/10 pb-20">
+    /* Ditambahkan padding-top (pt-) agar aman dari navbar fixed */
+    <section className="pt-32 sm:pt-36 lg:pt-40 border-b border-white/10 pb-20">
       <FadeUp>
         <div className="mb-10">
           <p className="text-xs uppercase tracking-[0.3em] text-pink-500 font-bold">

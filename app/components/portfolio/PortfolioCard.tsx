@@ -6,7 +6,10 @@ import Link from "next/link";
 import type { PortfolioCollection } from "@/data/portfolio";
 
 interface PortfolioCardProps {
-  project: PortfolioCollection;
+  project: PortfolioCollection & {
+    aspectRatio?: string;
+    span?: string;
+  };
   onOpen?: (project: PortfolioCollection) => void;
 }
 
@@ -26,12 +29,12 @@ export default function PortfolioCard({ project, onOpen }: PortfolioCardProps) {
         onClick={() => onOpen?.(project)}
         className="flex h-full w-full cursor-pointer flex-col text-left"
       >
-        <div className="relative aspect-[4/5] overflow-hidden rounded-[20px]">
+        {/* Menggunakan aspect ratio dinamis dari data proyek agar layout bento desktop tetap terjaga */}
+        <div className={`relative w-full overflow-hidden rounded-[20px] bg-pink-50 ${project.aspectRatio || "aspect-[4/5]"}`}>
           <Image
             src={project.cover}
             alt={project.title}
-            width={900}
-            height={1200}
+            fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="h-full w-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.03]"
           />
@@ -41,7 +44,8 @@ export default function PortfolioCard({ project, onOpen }: PortfolioCardProps) {
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.32em] text-[#2D2433]/60">
             {project.category}
           </p>
-          <h3 className="mt-3 text-[1.45rem] font-medium leading-[1.05] tracking-[-0.02em] text-[#2D2433] transition-colors duration-500 group-hover:text-[#D86C98] sm:text-[1.55rem]">
+          {/* Menggunakan ukuran font desktop secara konsisten tanpa perubahan responsif yang mengecil di mobile */}
+          <h3 className="mt-3 text-[1.55rem] font-medium leading-[1.05] tracking-[-0.02em] text-[#2D2433] transition-colors duration-500 group-hover:text-[#D86C98]">
             {project.title}
           </h3>
           <p className="mt-4 max-w-xl text-sm leading-7 text-[#6B6570] line-clamp-2">

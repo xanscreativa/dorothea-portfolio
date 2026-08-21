@@ -26,7 +26,8 @@ export default function ProjectDetailHero({ project }: Props) {
   );
 
   return (
-    <section className="relative overflow-hidden bg-white pt-28 pb-24">
+    /* Ditambahkan padding atas yang lebih besar agar aman dari navbar fixed */
+    <section className="relative overflow-hidden bg-white pt-32 sm:pt-36 lg:pt-40 pb-24">
       {/* Background Glow */}
       <div className="pointer-events-none absolute left-1/2 top-0 h-80 w-80 -translate-x-1/2 rounded-full bg-pink-100 blur-3xl" />
       <div className="pointer-events-none absolute right-0 top-20 h-72 w-72 rounded-full bg-rose-100 blur-3xl" />

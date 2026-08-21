@@ -18,7 +18,8 @@ function VideoCardWrapper({
   index?: number;
 }) {
   return (
-    <FadeUp delay={index * 0.08} className="h-full">
+    /* className (col-span-2) dipasang di sini agar grid membacanya */
+    <FadeUp delay={index * 0.08} className={`h-full ${className}`}>
       <div
         onClick={onOpenModal}
         onKeyDown={(e) => {
@@ -30,7 +31,7 @@ function VideoCardWrapper({
         tabIndex={0}
         role="button"
         aria-label={`View details for ${project.title || "project"}`}
-        className={`group relative flex flex-col h-full cursor-pointer outline-none transition-all duration-500 ease-out hover:-translate-y-2 focus-visible:ring-2 focus-visible:ring-pink-400 focus-visible:ring-offset-4 focus-visible:ring-offset-[#FFFDFC] rounded-3xl ${className}`}
+        className="group relative flex flex-col h-full cursor-pointer outline-none transition-all duration-500 ease-out hover:-translate-y-2 focus-visible:ring-2 focus-visible:ring-pink-400 focus-visible:ring-offset-4 focus-visible:ring-offset-[#FFFDFC] rounded-3xl"
       >
         <VideoCard project={project} />
       </div>
@@ -48,7 +49,7 @@ export default function CreativeFilms() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-[#FFFDFC] py-16 sm:py-24 lg:py-32 selection:bg-pink-500 selection:text-white">
+    <section className="relative overflow-hidden bg-[#FFFDFC] py-10 sm:py-16 lg:py-20 selection:bg-pink-500 selection:text-white">
       {/* LUXURY AMBIENT BACKGROUND GLOWS & ACCENTS */}
       <div className="pointer-events-none absolute -left-32 top-1/4 -z-10 h-80 w-80 rounded-full bg-gradient-to-tr from-pink-300/30 to-rose-200/20 blur-[140px] sm:h-[480px] sm:w-[480px]" />
       <div className="pointer-events-none absolute -right-32 bottom-10 -z-10 h-96 w-96 rounded-full bg-gradient-to-bl from-pink-200/25 via-rose-100/30 to-transparent blur-[160px] sm:h-[550px] sm:w-[550px]" />
@@ -90,10 +91,20 @@ export default function CreativeFilms() {
           </div>
         </FadeUp>
 
+        {/* Minimal cinematic divider */}
+        <div className="mx-auto my-8 flex max-w-2xl items-center gap-3 sm:my-10">
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-pink-200 to-pink-300/70" />
+          <span className="inline-flex shrink-0 items-center gap-2 rounded-full border border-pink-200/70 bg-white/80 px-3 py-1 text-[9px] font-mono font-bold tracking-[0.2em] text-pink-500 shadow-[0_4px_16px_rgba(233,106,152,0.08)] backdrop-blur-sm sm:px-4 sm:text-[10px]">
+            <span aria-hidden="true">✨</span>
+            CINEMATIC HIGHLIGHT
+          </span>
+          <div className="h-px flex-1 bg-gradient-to-l from-transparent via-pink-200 to-pink-300/70" />
+        </div>
+
         {/* SELECTED VIDEO WORKS GRID SECTION */}
-        <div className="mt-12 sm:mt-16 lg:mt-20">
+        <div className="mt-8 sm:mt-12 lg:mt-14">
           {/* Subheader with Premium Counter Badge */}
-          <div className="mb-6 sm:mb-10 flex items-center justify-between border-b border-pink-100/80 pb-4">
+          <div className="mb-5 sm:mb-8 flex items-center justify-between border-b border-pink-100/80 pb-3 sm:pb-4">
             <div className="flex items-center gap-3">
               <h3 className="text-lg sm:text-2xl font-black tracking-tight text-[#2D2433]">
                 Selected Video Works
@@ -112,8 +123,8 @@ export default function CreativeFilms() {
             </div>
           </div>
 
-          {/* Cards Grid with Increased Breathing Room & Balanced Heights */}
-          <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 xl:grid-cols-4 items-stretch">
+          {/* Cards Grid: 2 columns on mobile, 2 columns on medium, 4 columns on xl */}
+          <div className="grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-2 xl:grid-cols-4 items-stretch">
             {films && films.length > 0 ? (
               films.map((film: Film, index: number) => {
                 const isGPIB =
@@ -128,8 +139,8 @@ export default function CreativeFilms() {
                     onOpenModal={() => handleOpenModal(film)}
                     className={
                       isGPIB
-                        ? "md:col-span-2 xl:col-span-2 xl:col-start-2"
-                        : ""
+                        ? "col-span-2 md:col-span-2 xl:col-span-2 xl:col-start-2"
+                        : "col-span-1"
                     }
                   />
                 );

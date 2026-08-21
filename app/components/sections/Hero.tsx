@@ -7,11 +7,11 @@ import FadeUp from "@/components/animation/FadeUp";
 import Counter from "@/components/ui/Counter";
 import useParallax from "@/components/animation/useParallax";
 import { MapPin, Briefcase, Globe, Download } from "lucide-react";
-import { useLanguage } from "@/context/LanguageContext"; // <-- Import useLanguage
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Hero() {
   const bgOffset = useParallax(0.12);
-  const { t } = useLanguage(); // <-- Panggil fungsi terjemahan
+  const { t } = useLanguage();
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -23,7 +23,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-[92vh] flex-col justify-between overflow-hidden bg-gradient-to-b from-[#FFFDFC] via-[#FFF8FB] to-[#FFFFFF] pt-16 sm:pt-28 lg:pt-36 pb-16 sm:pb-24 lg:pb-28"
+      className="relative flex min-h-[92vh] flex-col justify-between overflow-hidden bg-gradient-to-b from-[#FFFDFC] via-[#FFF8FB] to-[#FFFFFF] pt-16 sm:pt-28 lg:min-h-[calc(100vh-4.5rem)] lg:pt-24 lg:pb-16 xl:min-h-[calc(100vh-5rem)] xl:pt-28 xl:pb-20"
     >
       {/* Background Texture & Concentrated Ambient Glows */}
       <div
@@ -45,10 +45,10 @@ export default function Hero() {
       <div className="relative z-10 mx-auto my-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Main Grid Layout */}
-        <div className="flex flex-col items-center text-center lg:grid lg:grid-cols-12 lg:items-center lg:gap-10 lg:text-left">
+        <div className="flex flex-col items-center text-center lg:grid lg:grid-cols-12 lg:items-center lg:gap-8 lg:text-left xl:gap-10">
           
           {/* ================= VISUAL PROFILE ================= */}
-          <div className="relative w-full max-w-[290px] xs:max-w-[320px] sm:max-w-md lg:max-w-none lg:order-2 lg:col-span-5 pt-4 sm:pt-8 lg:pt-0 mb-6 lg:mb-0">
+          <div className="relative w-full max-w-[290px] xs:max-w-[320px] sm:max-w-md lg:max-w-none lg:order-2 lg:col-span-5 pt-4 sm:pt-8 lg:pt-0 lg:mb-0 mb-6">
             <div className="relative mx-auto">
               
               {/* Focused Ambient Glow Directly Behind Portrait */}
@@ -56,7 +56,7 @@ export default function Hero() {
 
               {/* Brush Graphic Layer */}
               <FadeUp delay={0.05}>
-                <div className="pointer-events-none absolute -right-4 top-1 -z-10 w-full max-w-[440px] select-none opacity-20 blur-[0.5px] sm:-right-8 sm:-top-2 sm:max-w-[600px]">
+                <div className="pointer-events-none absolute -right-4 top-1 -z-10 w-full max-w-[440px] select-none opacity-20 blur-[0.5px] sm:-right-8 sm:-top-2 sm:max-w-[600px] lg:max-w-[520px]">
                   <Image
                     src="/hero/brush.png"
                     alt=""
@@ -70,7 +70,7 @@ export default function Hero() {
 
               {/* Flowers Layer with Gentle Motion */}
               <FadeUp delay={0.1}>
-                <div className="pointer-events-none absolute -right-4 top-2 -z-10 w-[110%] max-w-[460px] select-none sm:-right-10 sm:-top-2 sm:max-w-[630px]">
+                <div className="pointer-events-none absolute -right-4 top-2 -z-10 w-[110%] max-w-[460px] select-none sm:-right-10 sm:-top-2 sm:max-w-[630px] lg:max-w-[550px]">
                   <motion.div
                     animate={{ rotate: [-0.6, 0.6, -0.6] }}
                     transition={{
@@ -99,7 +99,7 @@ export default function Hero() {
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
-                  className="relative z-10 mx-auto w-[106%] sm:w-[102%]"
+                  className="relative z-10 mx-auto w-[106%] sm:w-[102%] lg:w-[88%] xl:w-[92%]"
                 >
                   <Image
                     src="/hero/profile.png"
@@ -121,7 +121,7 @@ export default function Hero() {
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
-                  className="absolute bottom-0 left-[-8px] z-25 w-[88%] max-w-[190px] rounded-2xl border border-white/85 bg-white/80 p-3 shadow-[0_12px_32px_rgba(229,135,176,0.15)] backdrop-blur-xl sm:bottom-8 sm:left-[-20px] sm:max-w-[250px] sm:p-4.5"
+                  className="absolute bottom-0 left-[-8px] z-25 w-[88%] max-w-[190px] rounded-2xl border border-white/85 bg-white/80 p-3 shadow-[0_12px_32px_rgba(229,135,176,0.15)] backdrop-blur-xl sm:bottom-8 sm:left-[-20px] sm:max-w-[250px] sm:p-4.5 lg:bottom-4 lg:max-w-[220px] lg:p-3 xl:max-w-[235px]"
                 >
                   <p className="text-[11px] font-medium leading-relaxed text-[#6B6570] sm:text-xs sm:leading-relaxed">
                     <span className="text-xs font-bold text-pink-500 sm:text-base">“</span>
@@ -140,23 +140,28 @@ export default function Hero() {
             
             {/* Heading & Role */}
             <FadeUp delay={0.25}>
-              <h1 className="mt-1 text-3xl font-black leading-[1.08] tracking-tight text-[#2D2433] xs:text-4xl sm:mt-2.5 sm:text-5xl lg:text-6xl xl:text-[4.25rem]">
-                Dorothea Alexandra Manuputty, <br />
-                <span className="bg-gradient-to-r from-pink-600 via-pink-500 to-rose-400 bg-clip-text text-transparent">S.Ds</span>
+              <h1 className="mt-1 text-3xl font-black leading-[1.08] tracking-tight text-[#2D2433] xs:text-4xl sm:mt-2.5 sm:text-5xl lg:text-5xl xl:text-[3.75rem] 2xl:text-[4rem]">
+                Dorothea Alexandra{" "}
+                <span className="whitespace-nowrap">
+                  Manuputty,{" "}
+                  <span className="bg-gradient-to-r from-pink-600 via-pink-500 to-rose-400 bg-clip-text text-transparent">
+                    S.Ds
+                  </span>
+                </span>
               </h1>
-              <p className="mt-2 text-base font-bold tracking-wide text-pink-600 sm:text-lg lg:text-xl">
+              <p className="mt-2 text-base font-bold tracking-wide text-pink-600 sm:text-lg lg:text-lg xl:text-xl">
                 {t("roleSubtitle")}
               </p>
             </FadeUp>
 
             {/* Availability Status Badge */}
             <FadeUp delay={0.32}>
-              <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-pink-200/80 bg-white/90 px-3.5 py-1 shadow-2xs backdrop-blur-md sm:mt-4 sm:px-4 sm:py-1.5">
+              <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-pink-200/80 bg-white/90 px-3.5 py-1 shadow-2xs backdrop-blur-md sm:mt-4 sm:px-4 sm:py-1.5 lg:mt-3 lg:px-3.5 lg:py-1">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-pink-400 opacity-75" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-pink-500" />
                 </span>
-                <p className="text-[11px] font-bold tracking-wide text-pink-600 sm:text-xs">
+                <p className="text-[11px] font-bold tracking-wide text-pink-600 sm:text-xs lg:text-[11px]">
                   {t("availableStatus")}
                 </p>
               </div>
@@ -164,24 +169,24 @@ export default function Hero() {
 
             {/* Value Proposition */}
             <FadeUp delay={0.38}>
-              <p className="mx-auto lg:mx-0 mt-3 sm:mt-4 max-w-xl text-xs leading-relaxed text-[#6B6570] sm:text-base sm:leading-relaxed">
+              <p className="mx-auto lg:mx-0 mt-3 sm:mt-4 max-w-xl lg:max-w-lg text-xs leading-relaxed text-[#6B6570] sm:text-base sm:leading-relaxed lg:text-sm xl:text-base">
                 {t("heroDescription")}
               </p>
             </FadeUp>
 
             {/* Compact Information Rows */}
             <FadeUp delay={0.44}>
-              <div className="mt-3.5 flex flex-wrap justify-center lg:justify-start gap-y-2 gap-x-5 text-xs font-semibold text-[#6B6570] sm:text-sm">
+              <div className="mt-3.5 flex flex-wrap justify-center lg:justify-start gap-y-2 gap-x-5 text-xs font-semibold text-[#6B6570] sm:text-sm lg:mt-3 lg:gap-x-4 lg:gap-y-1 lg:text-xs">
                 <div className="inline-flex items-center gap-1.5">
-                  <MapPin className="w-4 h-4 text-pink-500 shrink-0" />
+                  <MapPin className="w-4 h-4 text-pink-500 shrink-0 lg:h-3.5 lg:w-3.5" />
                   <span>{t("location")}</span>
                 </div>
                 <div className="inline-flex items-center gap-1.5">
-                  <Briefcase className="w-4 h-4 text-pink-500 shrink-0" />
+                  <Briefcase className="w-4 h-4 text-pink-500 shrink-0 lg:h-3.5 lg:w-3.5" />
                   <span>{t("remoteWork")}</span>
                 </div>
                 <div className="inline-flex items-center gap-1.5">
-                  <Globe className="w-4 h-4 text-pink-500 shrink-0" />
+                  <Globe className="w-4 h-4 text-pink-500 shrink-0 lg:h-3.5 lg:w-3.5" />
                   <span>{t("relocation")}</span>
                 </div>
               </div>
@@ -189,11 +194,11 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <FadeUp delay={0.5}>
-              <div className="mt-6 flex w-full items-center justify-center gap-3 sm:w-auto sm:mt-7 sm:justify-start sm:gap-4">
+              <div className="mt-6 flex w-full items-center justify-center gap-3 sm:w-auto sm:mt-7 sm:justify-start sm:gap-4 lg:mt-5 lg:gap-3">
                 <div className="flex-1 sm:flex-initial">
                   <Button 
                     href="#portfolio" 
-                    className="!py-2.5 !px-6 sm:!py-3.5 sm:!px-8 !text-xs sm:!text-sm flex items-center justify-center w-full shadow-md shadow-pink-500/10 transition-transform active:scale-98"
+                    className="!py-2.5 !px-6 sm:!py-3.5 sm:!px-8 !text-xs sm:!text-sm lg:!py-3 lg:!px-7 lg:!text-xs xl:!px-8 xl:!text-sm flex items-center justify-center w-full shadow-md shadow-pink-500/10 transition-transform active:scale-98"
                   >
                     {t("viewProjects")}
                   </Button>
@@ -204,7 +209,7 @@ export default function Hero() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Download professional resume PDF"
-                    className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-full border border-pink-200/80 bg-white/90 px-6 py-2.5 sm:px-8 sm:py-3.5 text-xs sm:text-sm font-bold text-[#2D2433] shadow-xs backdrop-blur-md hover:border-pink-400 hover:bg-pink-50/40 transition-all duration-300 cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-full border border-pink-200/80 bg-white/90 px-6 py-2.5 sm:px-8 sm:py-3.5 lg:px-7 lg:py-3 lg:text-xs xl:px-8 xl:py-3.5 xl:text-sm text-xs sm:text-sm font-bold text-[#2D2433] shadow-xs backdrop-blur-md hover:border-pink-400 hover:bg-pink-50/40 transition-all duration-300 cursor-pointer"
                   >
                     <Download className="w-4 h-4 text-pink-600" />
                     <span>{t("downloadResume")}</span>
@@ -215,7 +220,7 @@ export default function Hero() {
 
             {/* Statistics Grid */}
             <FadeUp delay={0.58}>
-              <div className="mt-8 sm:mt-10 w-full grid grid-cols-4 gap-2 sm:gap-3.5 px-0.5 sm:px-0">
+              <div className="mt-8 sm:mt-10 w-full grid grid-cols-4 gap-2 sm:gap-3.5 px-0.5 sm:px-0 lg:mt-6 lg:gap-2.5">
                 {[
                   { n: 50, l: t("statProjects") },
                   { n: 8, l: t("statBrands") },
@@ -224,9 +229,9 @@ export default function Hero() {
                 ].map((s) => (
                   <div 
                     key={s.l} 
-                    className="flex flex-col items-center justify-center min-h-[76px] sm:min-h-[96px] bg-white/80 backdrop-blur-md border border-pink-100/90 rounded-2xl py-3 px-1 sm:py-4 sm:px-2 shadow-[0_4px_16px_rgba(229,135,176,0.06)] transition-all duration-300 hover:border-pink-300 hover:bg-white hover:shadow-[0_8px_24px_rgba(229,135,176,0.14)]"
+                    className="flex flex-col items-center justify-center min-h-[76px] sm:min-h-[96px] bg-white/80 backdrop-blur-md border border-pink-100/90 rounded-2xl py-3 px-1 sm:py-4 sm:px-2 lg:min-h-[82px] lg:py-3 shadow-[0_4px_16px_rgba(229,135,176,0.06)] transition-all duration-300 hover:border-pink-300 hover:bg-white hover:shadow-[0_8px_24px_rgba(229,135,176,0.14)]"
                   >
-                    <h3 className="text-base font-black text-[#2D2433] sm:text-2xl lg:text-3xl tracking-tight">
+                    <h3 className="text-base font-black text-[#2D2433] sm:text-2xl lg:text-2xl xl:text-3xl tracking-tight">
                       <Counter end={s.n} suffix="+" />
                     </h3>
                     <p className="mt-0.5 text-[9px] font-bold uppercase tracking-tight text-[#6B6570] sm:text-xs">
@@ -244,7 +249,7 @@ export default function Hero() {
 
       {/* Minimal Scroll Cue */}
       <FadeUp delay={0.68}>
-        <div className="mt-6 flex flex-col items-center justify-center">
+        <div className="mt-6 flex flex-col items-center justify-center lg:mt-2">
           <button
             onClick={() => scrollToSection("portfolio")}
             className="group flex flex-col items-center gap-1.5 text-[10px] font-bold tracking-[0.25em] uppercase text-[#8B8590] transition-colors hover:text-pink-600 cursor-pointer"

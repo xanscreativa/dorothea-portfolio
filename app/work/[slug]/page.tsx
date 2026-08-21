@@ -96,7 +96,8 @@ export default async function WorkPage({
   );
 
   return (
-    <main className="bg-white text-[#2D2433]">
+    /* Diperbesar menjadi pt-32 sm:pt-36 lg:pt-40 agar konten aman dari navbar fixed */
+    <main className="bg-white text-[#2D2433] pt-32 sm:pt-36 lg:pt-40">
       {/* 1. HERO SECTION */}
       <ProjectDetailHero project={project} />
 

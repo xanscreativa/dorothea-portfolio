@@ -42,7 +42,7 @@ export const translations = {
     letsConnect: "Let's Connect",
     downloadCv: "Download CV / Resume",
 
-    // Portfolio / Projects Section
+    // Portfolio / Projects Section (Filter)
     portfolioHeading: "Selected Works",
     portfolioSubtitle: "A curation of my best projects in graphic design, branding, and video editing.",
     filterAll: "All",
@@ -50,7 +50,27 @@ export const translations = {
     filterDesign: "Graphic Design",
     filterVideo: "Video Editing",
 
-    // Contact Section
+    // Portfolio Gallery Section
+    portfolioBadge: "SELECTED WORK",
+    portfolioTitleMain: "Creative work across",
+    portfolioTitleHighlight: "multiple disciplines.",
+    portfolioHeaderDesc: "A curated portfolio showcasing experience in social media design, brand identity, logo design, character creation, and high-converting visual graphics.",
+    work1Title: "Social Media Design",
+    work1Desc: "Editorial social media systems with clean layouts and consistent branding.",
+    work2Title: "Brand Identity",
+    work2Desc: "Building cohesive brand experiences through strategic visual identity and storytelling.",
+    work3Title: "Logo Design",
+    work3Desc: "Timeless logo systems designed for brands, churches, and communities.",
+    work4Title: "Thumbnail Design",
+    work4Desc: "High-converting and eye-catching YouTube thumbnail designs.",
+    work5Title: "Character Design",
+    work5Desc: "Custom mascot and character designs tailored for brand identity.",
+    work6Title: "Poster & Overlay",
+    work6Desc: "Creative graphics for live streaming overlays, events, and posters.",
+    viewCollection: "VIEW COLLECTION",
+    explore: "EXPLORE",
+
+    // Contact Section (Form)
     contactHeading: "Let's Create Together",
     contactSubtitle: "Have a project in mind or want to discuss opportunities? Feel free to reach out.",
     formName: "Your Name",
@@ -59,6 +79,15 @@ export const translations = {
     formSend: "Send Message",
     formSending: "Sending...",
     formSuccess: "Message sent successfully!",
+
+    // Contact CTA Section (Banner)
+    availableProjects: "Available for Selected Projects",
+    contactTitle1: "Have a visual story in mind?",
+    contactTitle2: "Let’s create something iconic.",
+    contactDesc: "Whether you need strategic graphic design, cinematic video editing, or end-to-end visual identity—let’s build something that resonates.",
+    startProject: "Start a Project",
+    emailCopied: "Email Copied to Clipboard",
+    copyEmail: "Copy Email Address",
 
     // Detail / Tombol Portfolio
     back: "BACK TO SELECTED WORKS",
@@ -118,7 +147,7 @@ export const translations = {
     letsConnect: "Mari Terhubung",
     downloadCv: "Unduh CV / Resume",
 
-    // Portfolio / Projects Section
+    // Portfolio / Projects Section (Filter)
     portfolioHeading: "Karya Pilihan",
     portfolioSubtitle: "Kurasi proyek terbaik saya dalam desain grafis, branding, dan penyuntingan video.",
     filterAll: "Semua",
@@ -126,7 +155,27 @@ export const translations = {
     filterDesign: "Desain Grafis",
     filterVideo: "Penyuntingan Video",
 
-    // Contact Section
+    // Portfolio Gallery Section
+    portfolioBadge: "KARYA PILIHAN",
+    portfolioTitleMain: "Karya kreatif lintas",
+    portfolioTitleHighlight: "berbagai disiplin.",
+    portfolioHeaderDesc: "Kurasi portofolio yang menampilkan pengalaman dalam desain media sosial, identitas merek, desain logo, pembuatan karakter, dan grafis visual bernilai konversi tinggi.",
+    work1Title: "Desain Media Sosial",
+    work1Desc: "Sistem media sosial editorial dengan tata letak bersih dan branding yang konsisten.",
+    work2Title: "Identitas Merek",
+    work2Desc: "Membangun pengalaman merek yang kohesif melalui identitas visual strategis dan penceritaan.",
+    work3Title: "Desain Logo",
+    work3Desc: "Sistem logo abadi yang dirancang untuk merek, gereja, dan komunitas.",
+    work4Title: "Desain Thumbnail",
+    work4Desc: "Desain thumbnail YouTube yang menarik dan berkonversi tinggi.",
+    work5Title: "Desain Karakter",
+    work5Desc: "Desain maskot dan karakter kustom yang disesuaikan untuk identitas merek.",
+    work6Title: "Poster & Overlay",
+    work6Desc: "Grafis kreatif untuk overlay live streaming, acara, dan poster.",
+    viewCollection: "LIHAT KOLEKSI",
+    explore: "JELAJAHI",
+
+    // Contact Section (Form)
     contactHeading: "Mari Berkolaborasi",
     contactSubtitle: "Punya proyek atau ingin mendiskusikan peluang? Jangan ragu untuk menghubungi saya.",
     formName: "Nama Anda",
@@ -135,6 +184,15 @@ export const translations = {
     formSend: "Kirim Pesan",
     formSending: "Mengirim...",
     formSuccess: "Pesan berhasil dikirim!",
+
+    // Contact CTA Section (Banner)
+    availableProjects: "Tersedia untuk Proyek Pilihan",
+    contactTitle1: "Punya cerita visual dalam pikiran?",
+    contactTitle2: "Mari ciptakan sesuatu yang ikonik.",
+    contactDesc: "Baik Anda membutuhkan desain grafis strategis, penyuntingan video sinematik, atau identitas visual menyeluruh—mari bangun sesuatu yang beresonansi.",
+    startProject: "Mulai Proyek",
+    emailCopied: "Email Disalin ke Papan Klip",
+    copyEmail: "Salin Alamat Email",
 
     // Detail / Tombol Portfolio
     back: "KEMBALI KE KARYA PILIHAN",

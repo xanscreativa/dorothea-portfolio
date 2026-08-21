@@ -1,10 +1,8 @@
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
-import PortfolioGallery from "@/components/sections/PortfolioGallery";
 import About from "@/components/sections/About";
 import Skills from "@/components/sections/Skills";
-import Services from "@/content/Services";
-import CreativeProcess from "@/components/sections/CreativeProcess";
+import PortfolioGallery from "@/components/sections/PortfolioGallery";
 import CreativeFilms from "@/components/sections/CreativeFilms";
 import Contact from "@/components/sections/Contact";
 
@@ -12,30 +10,26 @@ export default function Home() {
   return (
     <>
       <main className="min-h-screen">
+        {/* 1. Hero Section */}
         <Hero />
 
-        {/* Section Work / Portfolio */}
+        {/* 2. About / Get to Know Me */}
+        <About />
+
+        {/* 3. Expertise & Toolkit */}
+        <Skills />
+
+        {/* 4. Selected Work / Portfolio */}
         <section id="portfolio" className="scroll-mt-24">
           <PortfolioGallery />
         </section>
 
-        <About />
-
-        <Skills />
-
-        {/* Section Services */}
-        <section id="services" className="scroll-mt-24">
-          <Services />
-        </section>
-
-        <CreativeProcess />
-
-        {/* Section Films */}
+        {/* 5. Video / Creative Films */}
         <section id="films" className="scroll-mt-24">
           <CreativeFilms />
         </section>
 
-        {/* Section Contact */}
+        {/* 6. Contact */}
         <section id="contact" className="scroll-mt-24">
           <Contact />
         </section>
