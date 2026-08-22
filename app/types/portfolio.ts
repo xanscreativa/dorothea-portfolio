@@ -1,5 +1,5 @@
 export interface GalleryItem {
-  type: "full" | "half";
+  type: "full" | "half" | "portrait-4-5" | "portrait-9-16";
   src: string;
   alt: string;
   caption?: string;

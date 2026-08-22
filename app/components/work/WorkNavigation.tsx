@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Project } from "../../../types/project";
+import type { Project } from "../../types/project";
 
 interface Props {
   current: Project;

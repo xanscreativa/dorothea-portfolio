@@ -7,57 +7,71 @@ import { useLanguage } from "@/context/LanguageContext";
 
 const services = [
   {
-    titleKey: "serviceBrandTitle", descriptionKey: "serviceBrandDescription",
+    titleKey: "serviceBrandTitle" as const,
+    descriptionKey: "serviceBrandDescription" as const,
   },
   {
-    titleKey: "serviceCampaignTitle", descriptionKey: "serviceCampaignDescription",
+    titleKey: "serviceCampaignTitle" as const,
+    descriptionKey: "serviceCampaignDescription" as const,
   },
   {
-    titleKey: "serviceVideoTitle", descriptionKey: "serviceVideoDescription",
+    titleKey: "serviceVideoTitle" as const,
+    descriptionKey: "serviceVideoDescription" as const,
   },
-];
+] as const;
 
 const process = [
   {
-    titleKey: "processListen", descriptionKey: "processListenDescription",
+    titleKey: "processListen" as const,
+    descriptionKey: "processListenDescription" as const,
   },
   {
-    titleKey: "processCurate", descriptionKey: "processCurateDescription",
+    titleKey: "processCurate" as const,
+    descriptionKey: "processCurateDescription" as const,
   },
   {
-    titleKey: "processCraft", descriptionKey: "processCraftDescription",
+    titleKey: "processCraft" as const,
+    descriptionKey: "processCraftDescription" as const,
   },
   {
-    titleKey: "processRefine", descriptionKey: "processRefineDescription",
+    titleKey: "processRefine" as const,
+    descriptionKey: "processRefineDescription" as const,
   },
-];
+] as const;
 
 const reasons = [
   {
-    titleKey: "reasonRhythm", descriptionKey: "reasonRhythmDescription",
+    titleKey: "reasonRhythm" as const,
+    descriptionKey: "reasonRhythmDescription" as const,
   },
   {
-    titleKey: "reasonClarity", descriptionKey: "reasonClarityDescription",
+    titleKey: "reasonClarity" as const,
+    descriptionKey: "reasonClarityDescription" as const,
   },
   {
-    titleKey: "reasonAttention", descriptionKey: "reasonAttentionDescription",
+    titleKey: "reasonAttention" as const,
+    descriptionKey: "reasonAttentionDescription" as const,
   },
   {
-    titleKey: "reasonImpact", descriptionKey: "reasonImpactDescription",
+    titleKey: "reasonImpact" as const,
+    descriptionKey: "reasonImpactDescription" as const,
   },
-];
+] as const;
 
 const faq = [
   {
-    questionKey: "faqStart", answerKey: "faqStartAnswer",
+    questionKey: "faqStart" as const,
+    answerKey: "faqStartAnswer" as const,
   },
   {
-    questionKey: "faqBrands", answerKey: "faqBrandsAnswer",
+    questionKey: "faqBrands" as const,
+    answerKey: "faqBrandsAnswer" as const,
   },
   {
-    questionKey: "faqMotion", answerKey: "faqMotionAnswer",
+    questionKey: "faqMotion" as const,
+    answerKey: "faqMotionAnswer" as const,
   },
-];
+] as const;
 
 export default function ServicesPage() {
   const { t } = useLanguage();
@@ -110,7 +124,7 @@ export default function ServicesPage() {
 
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {services.map((item, index) => (
-              <FadeUp key={item.title} delay={index * 0.06}>
+              <FadeUp key={`${item.titleKey}-${index}`} delay={index * 0.06}>
                 <article className="rounded-4xl border border-[#F3E6EB] bg-white p-10 shadow-[0_24px_70px_rgba(229,135,176,.1)] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
                   <h3 className="text-2xl font-black text-[#2D2433]">
                     {t(item.titleKey)}
@@ -145,7 +159,7 @@ export default function ServicesPage() {
 
           <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {process.map((item, index) => (
-              <FadeUp key={item.title} delay={index * 0.06}>
+              <FadeUp key={`${item.titleKey}-${index}`} delay={index * 0.06}>
                 <div className="rounded-4xl bg-white p-9 shadow-[0_24px_60px_rgba(229,135,176,.08)]">
                   <h3 className="text-2xl font-black text-[#2D2433]">
                     {t(item.titleKey)}
@@ -180,7 +194,7 @@ export default function ServicesPage() {
 
           <div className="mt-14 grid gap-6 md:grid-cols-2">
             {reasons.map((item, index) => (
-              <FadeUp key={item.title} delay={index * 0.06}>
+              <FadeUp key={`${item.titleKey}-${index}`} delay={index * 0.06}>
                 <article className="rounded-4xl border border-[#F3E6EB] bg-white p-10 shadow-[0_24px_60px_rgba(229,135,176,.08)] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
                   <h3 className="text-2xl font-black text-[#2D2433]">
                     {t(item.titleKey)}
@@ -215,7 +229,7 @@ export default function ServicesPage() {
 
           <div className="mt-14 grid gap-6">
             {faq.map((item, index) => (
-              <FadeUp key={item.questionKey} delay={index * 0.06}>
+              <FadeUp key={`${item.questionKey}-${index}`} delay={index * 0.06}>
                 <details className="group rounded-4xl border border-[#EDE1E6] bg-white p-10 transition-all duration-300 hover:border-pink-200">
                   <summary className="cursor-pointer text-xl font-semibold text-[#2D2433] list-none marker:hidden">
                     {t(item.questionKey)}

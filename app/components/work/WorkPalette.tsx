@@ -1,6 +1,6 @@
 "use client";
 
-import { Project } from "../../../types/project";
+import type { Project } from "../../types/project";
 
 interface Props {
   project: Project;

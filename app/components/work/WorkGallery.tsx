@@ -5,7 +5,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 import Lightbox from "./Lightbox";
-import { Project } from "../../../types/project";
+import type { Project } from "../../types/project";
 
 interface Props {
   project: Project;

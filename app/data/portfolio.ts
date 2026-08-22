@@ -303,8 +303,7 @@ export const portfolioCollections: PortfolioCollection[] = [
   },
 
   // =========================================================
-  // 4. THUMBNAIL DESIGN
-  // FORMAT 1080x1920 / 9:16
+  // 4. THUMBNAIL DESIGN (FORMAT 1080x1920 - PORTRAIT/VERTICAL)
   // =========================================================
   {
     id: 4,
@@ -341,60 +340,15 @@ export const portfolioCollections: PortfolioCollection[] = [
     },
 
     gallery: [
-      {
-        type: "half",
-        src: "/portfolio/thumbnail-1.jpg",
-        alt: "Thumbnail 1 (1080x1920)",
-        caption: "Thumbnail 1 — Vertical 1080x1920",
-      },
-      {
-        type: "half",
-        src: "/portfolio/thumbnail-2.jpg",
-        alt: "Thumbnail 2 (1080x1920)",
-        caption: "Thumbnail 2 — Vertical 1080x1920",
-      },
-      {
-        type: "half",
-        src: "/portfolio/thumbnail-3.jpg",
-        alt: "Thumbnail 3 (1080x1920)",
-        caption: "Thumbnail 3 — Vertical 1080x1920",
-      },
-      {
-        type: "half",
-        src: "/portfolio/thumbnail-4.jpg",
-        alt: "Thumbnail 4 (1080x1920)",
-        caption: "Thumbnail 4 — Vertical 1080x1920",
-      },
-      {
-        type: "half",
-        src: "/portfolio/thumbnail-5.jpg",
-        alt: "Thumbnail 5 (1080x1920)",
-        caption: "Thumbnail 5 — Vertical 1080x1920",
-      },
-      {
-        type: "half",
-        src: "/portfolio/thumbnail-6.jpg",
-        alt: "Thumbnail 6 (1080x1920)",
-        caption: "Thumbnail 6 — Vertical 1080x1920",
-      },
-      {
-        type: "half",
-        src: "/portfolio/thumbnail-7.jpg",
-        alt: "Thumbnail 7 (1080x1920)",
-        caption: "Thumbnail 7 — Vertical 1080x1920",
-      },
-      {
-        type: "half",
-        src: "/portfolio/thumbnail-8.jpg",
-        alt: "Thumbnail 8 (1080x1920)",
-        caption: "Thumbnail 8 — Vertical 1080x1920",
-      },
-      {
-        type: "half",
-        src: "/portfolio/thumbnail-9.jpg",
-        alt: "Thumbnail 9 (1080x1920)",
-        caption: "Thumbnail 9 — Vertical 1080x1920",
-      },
+      { type: "half", src: "/portfolio/thumbnail-1.jpg", alt: "Thumbnail 1 (1080x1920)", caption: "Thumbnail 1 — Vertical 1080x1920" },
+      { type: "half", src: "/portfolio/thumbnail-2.jpg", alt: "Thumbnail 2 (1080x1920)", caption: "Thumbnail 2 — Vertical 1080x1920" },
+      { type: "half", src: "/portfolio/thumbnail-3.jpg", alt: "Thumbnail 3 (1080x1920)", caption: "Thumbnail 3 — Vertical 1080x1920" },
+      { type: "half", src: "/portfolio/thumbnail-4.jpg", alt: "Thumbnail 4 (1080x1920)", caption: "Thumbnail 4 — Vertical 1080x1920" },
+      { type: "half", src: "/portfolio/thumbnail-5.jpg", alt: "Thumbnail 5 (1080x1920)", caption: "Thumbnail 5 — Vertical 1080x1920" },
+      { type: "half", src: "/portfolio/thumbnail-6.jpg", alt: "Thumbnail 6 (1080x1920)", caption: "Thumbnail 6 — Vertical 1080x1920" },
+      { type: "half", src: "/portfolio/thumbnail-7.jpg", alt: "Thumbnail 7 (1080x1920)", caption: "Thumbnail 7 — Vertical 1080x1920" },
+      { type: "half", src: "/portfolio/thumbnail-8.jpg", alt: "Thumbnail 8 (1080x1920)", caption: "Thumbnail 8 — Vertical 1080x1920" },
+      { type: "half", src: "/portfolio/thumbnail-9.jpg", alt: "Thumbnail 9 (1080x1920)", caption: "Thumbnail 9 — Vertical 1080x1920" },
     ],
 
     items: [
@@ -410,49 +364,38 @@ export const portfolioCollections: PortfolioCollection[] = [
   },
 
   // =========================================================
-  // 5. CHARACTER DESIGN
+  // 5. CHARACTER DESIGN (Rasio 4:5 - Tanpa Deskripsi)
   // =========================================================
   {
     id: 5,
     slug: "character-design",
     title: "Character Design",
     category: "ILLUSTRATION",
-    tagline:
-      "Custom character design and mascot illustrations tailored for brand personality.",
-    description:
-      "Custom character design and mascot illustrations tailored for brands, creators, and visual storytelling.",
+    tagline: "",
+    description: "",
 
     cover: "/portfolio/character.jpg",
 
-    overview:
-      "Expressive character designs and digital mascot assets crafted to give brands and creators a unique personality.",
-
-    challenge:
-      "Creating a friendly, recognizable mascot that represents brand values while remaining flexible for various animated and static content uses.",
-
-    solution:
-      "Designed a vector-based character with versatile poses, expressive emotional states, and clean color blocks easily recognizable at any scale.",
-
-    outcome:
-      "Enhanced brand memorability and provided the marketing team with a versatile brand ambassador for campaign media.",
+    overview: "",
+    challenge: "",
+    solution: "",
+    outcome: "",
 
     meta: {
       client: "Jendela Finansial",
       industry: "EdTech & Brand Mascot",
       role: "Character Artist & Illustrator",
       year: "2024",
-      deliverables:
-        "Character Sheet, Pose Library, Digital Assets",
-      tools: "Illustrator, Photoshop, Clip Studio",
+      deliverables: "Character Sheet",
+      tools: "Illustrator, Photoshop",
     },
 
     gallery: [
       {
-        type: "half",
+        type: "portrait-4-5",
         src: "/portfolio/character.jpg",
         alt: "Character Model Sheet",
-        caption:
-          "Jendela Finansial Mascot — Full Model & Pose Suite",
+        caption: "Jendela Finansial Mascot",
       },
     ],
 
@@ -460,8 +403,7 @@ export const portfolioCollections: PortfolioCollection[] = [
       {
         title: "Jendela Finansial Mascot",
         subtitle: "Character Illustration",
-        description:
-          "A friendly and expressive mascot designed to strengthen brand personality across digital content and visual campaigns.",
+        description: "",
         cover: "/portfolio/character.jpg",
         images: ["/portfolio/character.jpg"],
       },

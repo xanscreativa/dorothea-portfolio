@@ -97,94 +97,6 @@ export default function PortfolioDetailPage() {
   const isThumbnailDesign = collection.slug === "thumbnail-design";
   const isCharacterDesign = collection.slug === "character-design";
 
-  // Data default untuk Character Design (Elof, Jeni & Jeno, Teddy, Emily)
-  const characterSections: SectionData[] = [
-    {
-      title: "Elof",
-      username: "elof_character",
-      bio: "Friendly mascot character design tailored for engaging storytelling 🌟",
-      avatarImage: "/portfolio/elof.jpg",
-      avatarText: "E",
-      avatarBg: "from-amber-400 to-orange-500",
-      posts: [
-        { src: "/portfolio/elof.jpg", alt: "Elof Character Design", caption: "Elof Character Design" }
-      ],
-      details: {
-        client: "Internal / Client Project",
-        industry: "Character & Mascot Design",
-        role: "Character Designer",
-        year: "2024",
-        deliverables: "Character Sheet, Mascot Illustration",
-        tools: "Clip Studio Paint, Photoshop, Illustrator",
-      },
-      overview: "Elof is a warm, approachable character crafted to deliver friendly guidance and engage young audiences effectively.",
-      challenge: "Capturing a gentle expression and iconic costume details while maintaining a clean vector-style aesthetic.",
-    },
-    {
-      title: "Jeni & Jeno",
-      username: "jeni_jeno",
-      bio: "Dynamic duo mascot illustrations featuring energetic dual personalities 👫",
-      avatarImage: "/portfolio/jeni-jeno.jpg",
-      avatarText: "JJ",
-      avatarBg: "from-pink-400 to-purple-500",
-      posts: [
-        { src: "/portfolio/jeni-jeno.jpg", alt: "Jeni & Jeno Character Design", caption: "Jeni & Jeno Character Design" }
-      ],
-      details: {
-        client: "Brand Campaign",
-        industry: "Youth & Lifestyle",
-        role: "Character Designer",
-        year: "2024",
-        deliverables: "Character Duo, Turnaround, Expressions",
-        tools: "Photoshop, Illustrator",
-      },
-      overview: "A vibrant pair of characters designed to show complementary personalities for interactive media and brand campaigns.",
-      challenge: "Balancing individual character traits so they feel cohesive both together and as standalone figures.",
-    },
-    {
-      title: "Teddy",
-      username: "teddy_bear",
-      bio: "Cute, comforting bear mascot designed for emotional connection 🧸",
-      avatarImage: "/portfolio/teddy.jpg",
-      avatarText: "T",
-      avatarBg: "from-yellow-600 to-amber-700",
-      posts: [
-        { src: "/portfolio/teddy.jpg", alt: "Teddy Character Design", caption: "Teddy Character Design" }
-      ],
-      details: {
-        client: "Kidware & Merchandising",
-        industry: "Children & Merchandise",
-        role: "Character Designer",
-        year: "2024",
-        deliverables: "Mascot Illustration, Merchandising Assets",
-        tools: "Illustrator, Photoshop",
-      },
-      overview: "Teddy is a classic, huggable mascot illustration designed to bring warmth and playfulness to merchandise.",
-      challenge: "Creating soft visual silhouettes and appealing textures suitable for embroidery and print production.",
-    },
-    {
-      title: "Emily",
-      username: "emily_character",
-      bio: "Charming & expressive character illustration for modern digital storytelling ✨",
-      avatarImage: "/portfolio/emily.jpg",
-      avatarText: "E",
-      avatarBg: "from-rose-400 to-pink-600",
-      posts: [
-        { src: "/portfolio/emily.jpg", alt: "Emily Character Design", caption: "Emily Character Design" }
-      ],
-      details: {
-        client: "Digital Publishing",
-        industry: "Publishing & Media",
-        role: "Character Designer",
-        year: "2024",
-        deliverables: "Concept Art, Full Body Illustration",
-        tools: "Photoshop, Procreate",
-      },
-      overview: "Emily features a modern, expressive look tailored for digital media, storyboards, and editorial features.",
-      challenge: "Infusing subtle emotional expressions while maintaining consistent line art across multiple poses.",
-    },
-  ];
-
   // Grid default thumbnail 1-9
   const defaultThumbnailGrid: GalleryItem[] = Array.from({ length: 9 }, (_, index) => {
     const num = index + 1;
@@ -857,46 +769,70 @@ export default function PortfolioDetailPage() {
         {isBrandIdentity || isLogoDesign || isCharacterDesign ? (
           /* GRID BRAND IDENTITY, LOGO DESIGN & CHARACTER DESIGN */
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-            {(isCharacterDesign ? characterSections : isBrandIdentity ? brandSections : logoSections).map((section, sIndex) => {
-              const post = section.posts[0];
-              return (
-                <div
-                  key={sIndex}
-                  onClick={() => openPostModal(section.title, post, false)}
-                  className="group cursor-pointer overflow-hidden rounded-2xl border border-pink-200/80 bg-white p-3.5 shadow-[0_10px_30px_-10px_rgba(233,106,152,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(233,106,152,0.18)] active:scale-98 sm:p-5"
-                >
-                  <div className="relative aspect-square w-full overflow-hidden rounded-xl border border-pink-100 bg-pink-50/50">
-                    <Image
-                      src={post.src}
-                      alt={section.title}
-                      fill
-                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-[#2D2433]/20 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 group-hover:opacity-100" />
-                  </div>
-
-                  <div className="mt-3.5 space-y-1 sm:mt-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-pink-600">
-                        {section.details.industry}
-                      </span>
-                      <span className="text-[10px] font-mono text-[#6B6570]">
-                        {section.details.year}
-                      </span>
+            {isCharacterDesign
+              ? collection.items.map((item) => (
+                  <div
+                    key={item.title}
+                    className="group overflow-hidden rounded-2xl border border-pink-200/80 bg-white p-3.5 shadow-[0_10px_30px_-10px_rgba(233,106,152,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(233,106,152,0.18)] active:scale-98 sm:p-5"
+                  >
+                    <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-[#E9DCE4] bg-pink-50/50">
+                      <Image
+                        src={item.cover}
+                        alt={item.title}
+                        fill
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-[#2D2433]/20 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 group-hover:opacity-100" />
                     </div>
 
-                    <h3 className="text-sm font-bold text-[#2D2433] transition-colors group-hover:text-pink-600 sm:text-base">
-                      {section.title}
-                    </h3>
-
-                    <p className="line-clamp-2 text-xs leading-relaxed text-[#6B6570]">
-                      {section.overview}
-                    </p>
+                    <div className="mt-3.5 space-y-1 sm:mt-4">
+                      <h3 className="text-sm font-bold text-[#2D2433] transition-colors group-hover:text-pink-600 sm:text-base">
+                        {item.title}
+                      </h3>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                ))
+              : (isBrandIdentity ? brandSections : logoSections).map((section, sIndex) => {
+                  const post = section.posts[0];
+                  return (
+                    <div
+                      key={sIndex}
+                      onClick={() => openPostModal(section.title, post, false)}
+                      className="group cursor-pointer overflow-hidden rounded-2xl border border-pink-200/80 bg-white p-3.5 shadow-[0_10px_30px_-10px_rgba(233,106,152,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(233,106,152,0.18)] active:scale-98 sm:p-5"
+                    >
+                      <div className="relative aspect-square w-full overflow-hidden rounded-xl border border-pink-100 bg-pink-50/50">
+                        <Image
+                          src={post.src}
+                          alt={section.title}
+                          fill
+                          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-[#2D2433]/20 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 group-hover:opacity-100" />
+                      </div>
+
+                      <div className="mt-3.5 space-y-1 sm:mt-4">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-pink-600">
+                            {section.details.industry}
+                          </span>
+                          <span className="text-[10px] font-mono text-[#6B6570]">
+                            {section.details.year}
+                          </span>
+                        </div>
+
+                        <h3 className="text-sm font-bold text-[#2D2433] transition-colors group-hover:text-pink-600 sm:text-base">
+                          {section.title}
+                        </h3>
+
+                        <p className="line-clamp-2 text-xs leading-relaxed text-[#6B6570]">
+                          {section.overview}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
           </div>
 
         ) : isSocialMedia ? (
