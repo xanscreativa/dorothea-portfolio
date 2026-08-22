@@ -75,7 +75,7 @@ const software = [
   "Adobe Illustrator (Ai)",
   "Adobe Photoshop (Ps)",
   "Adobe Premiere Pro (Pr)",
-  "Adobe InDesign (Id)",
+  "CapCut",
 ];
 
 export default function ResumePage() {

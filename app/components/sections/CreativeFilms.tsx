@@ -5,6 +5,7 @@ import FadeUp from "../animation/FadeUp";
 import VideoCard from "../work/VideoCard";
 import ProjectDetailModal from "../ui/ProjectDetailModal";
 import { films, Film } from "@/data/film";
+import { useLanguage } from "@/context/LanguageContext";
 
 function VideoCardWrapper({
   project,
@@ -17,6 +18,8 @@ function VideoCardWrapper({
   className?: string;
   index?: number;
 }) {
+  const { t } = useLanguage();
+
   return (
     /* className (col-span-2) dipasang di sini agar grid membacanya */
     <FadeUp delay={index * 0.08} className={`h-full ${className}`}>
@@ -30,7 +33,7 @@ function VideoCardWrapper({
         }}
         tabIndex={0}
         role="button"
-        aria-label={`View details for ${project.title || "project"}`}
+        aria-label={`${t("viewDetailsForProject")}: ${project.title || t("portfolioItem")}`}
         className="group relative flex flex-col h-full cursor-pointer outline-none transition-all duration-500 ease-out hover:-translate-y-2 focus-visible:ring-2 focus-visible:ring-pink-400 focus-visible:ring-offset-4 focus-visible:ring-offset-[#FFFDFC] rounded-3xl"
       >
         <VideoCard project={project} />
@@ -42,6 +45,7 @@ function VideoCardWrapper({
 export default function CreativeFilms() {
   const [selectedProject, setSelectedProject] = useState<Film | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { t } = useLanguage();
 
   const handleOpenModal = (project: Film) => {
     setSelectedProject(project);
@@ -74,19 +78,19 @@ export default function CreativeFilms() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-500"></span>
               </span>
               <span className="text-[10px] font-mono font-extrabold uppercase tracking-[0.3em] text-pink-600 sm:text-xs">
-                CURATED SHOWREEL
+                {t("filmsBadge")}
               </span>
             </div>
 
             <h2 className="text-3xl font-black leading-[1.15] tracking-tight text-[#2D2433] sm:text-5xl lg:text-6xl">
-              Every frame is crafted <br className="hidden sm:inline" />
+              {t("filmsTitlePrefix")} <br className="hidden sm:inline" />
               <span className="bg-gradient-to-r from-pink-500 via-rose-500 to-pink-600 bg-clip-text text-transparent">
-                to tell a story.
+                {t("filmsTitleHighlight")}
               </span>
             </h2>
 
             <p className="mx-auto mt-4 max-w-xl text-sm sm:text-base leading-relaxed text-[#6B6570] font-normal">
-              A masterclass collection of advanced video editing, motion systems, AI-augmented visuals, and high-impact cinematic storytelling.
+              {t("filmsDescription")}
             </p>
           </div>
         </FadeUp>
@@ -96,7 +100,7 @@ export default function CreativeFilms() {
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-pink-200 to-pink-300/70" />
           <span className="inline-flex shrink-0 items-center gap-2 rounded-full border border-pink-200/70 bg-white/80 px-3 py-1 text-[9px] font-mono font-bold tracking-[0.2em] text-pink-500 shadow-[0_4px_16px_rgba(233,106,152,0.08)] backdrop-blur-sm sm:px-4 sm:text-[10px]">
             <span aria-hidden="true">✨</span>
-            CINEMATIC HIGHLIGHT
+            {t("cinematicHighlight")}
           </span>
           <div className="h-px flex-1 bg-gradient-to-l from-transparent via-pink-200 to-pink-300/70" />
         </div>
@@ -107,7 +111,7 @@ export default function CreativeFilms() {
           <div className="mb-5 sm:mb-8 flex items-center justify-between border-b border-pink-100/80 pb-3 sm:pb-4">
             <div className="flex items-center gap-3">
               <h3 className="text-lg sm:text-2xl font-black tracking-tight text-[#2D2433]">
-                Selected Video Works
+                {t("selectedVideoWorks")}
               </h3>
               {films && films.length > 0 && (
                 <span className="rounded-full bg-gradient-to-r from-pink-50 to-rose-50 px-3 py-1 text-xs font-mono font-extrabold text-pink-600 border border-pink-200/60 shadow-xs">
@@ -117,9 +121,9 @@ export default function CreativeFilms() {
             </div>
             
             <div className="hidden sm:flex items-center gap-2 text-xs font-mono font-medium text-[#9D94A5]">
-              <span>HOVER TO PREVIEW</span>
+              <span>{t("hoverToPreview")}</span>
               <span className="h-1 w-1 rounded-full bg-pink-400"></span>
-              <span>CLICK FOR CASE STUDY</span>
+              <span>{t("clickForCaseStudy")}</span>
             </div>
           </div>
 
@@ -147,7 +151,7 @@ export default function CreativeFilms() {
               })
             ) : (
               <p className="col-span-full py-16 text-center text-xs font-medium text-[#6B6570]">
-                No cinematic projects found at the moment.
+                {t("noProjectsFound")}
               </p>
             )}
           </div>

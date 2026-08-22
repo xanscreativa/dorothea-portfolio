@@ -3,12 +3,12 @@
 import React, { useState } from "react";
 import { Mail, ArrowUpRight, Copy, Check } from "lucide-react";
 import FadeUp from "../animation/FadeUp";
-import { useLanguage } from "@/context/LanguageContext"; // <-- Import useLanguage
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ContactCTA() {
-  const { t } = useLanguage(); // <-- Panggil hook terjemahan
+  const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
-  const email = "dorotheaalexandra@gmail.com";
+  const email = "xans.creativa@gmail.com";
 
   const handleCopy = () => {
     navigator.clipboard.writeText(email);
@@ -18,64 +18,175 @@ export default function ContactCTA() {
 
   return (
     <section className="py-24 sm:py-28 lg:py-32">
-      <div className="mx-auto w-[92%] max-w-7xl">
+      <div className="mx-auto w-[88%] max-w-7xl sm:w-[92%]">
         <FadeUp>
           <div
             id="contact"
-            className="relative z-10 mx-auto max-w-5xl overflow-hidden rounded-[28px] xs:rounded-[36px] sm:rounded-[48px] border border-pink-200/80 bg-gradient-to-b from-white/95 via-white/80 to-pink-50/50 p-8 sm:p-14 lg:p-16 text-center shadow-[0_32px_80px_-16px_rgba(233,106,152,0.12)] backdrop-blur-xl"
+            className="
+              relative z-10 mx-auto max-w-5xl overflow-hidden
+              rounded-[28px] xs:rounded-[36px] sm:rounded-[48px]
+              border border-pink-200/80
+              bg-gradient-to-b from-white/95 via-white/80 to-pink-50/50
+              px-7 py-10
+              sm:px-14 sm:py-14
+              lg:px-16 lg:py-16
+              text-center
+              shadow-[0_32px_80px_-16px_rgba(233,106,152,0.12)]
+              backdrop-blur-xl
+            "
           >
             {/* Ambient Background Glows */}
             <div className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-gradient-to-br from-pink-300/20 to-pink-400/10 blur-3xl" />
+
             <div className="pointer-events-none absolute -left-16 -bottom-16 h-64 w-64 rounded-full bg-gradient-to-tr from-pink-200/30 to-transparent blur-3xl" />
 
             <div className="relative z-10 flex flex-col items-center">
+              
               {/* Availability Badge */}
               <div className="inline-flex items-center gap-2 rounded-full border border-pink-200/80 bg-white/90 px-3.5 py-1.5 shadow-xs backdrop-blur-md">
                 <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
                 </span>
-                <span className="text-[10px] sm:text-xs font-bold tracking-widest uppercase text-[#2D2433]">
+
+                <span className="text-[10px] font-bold uppercase tracking-widest text-[#2D2433] sm:text-xs">
                   {t("availableProjects")}
                 </span>
               </div>
 
               {/* Title */}
-              <h2 className="mt-6 sm:mt-8 max-w-3xl text-2xl xs:text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-[#2D2433]">
-                {t("contactTitle1")} <br />
+              <h2
+                className="
+                  mt-7
+                  max-w-[680px]
+                  text-2xl
+                  font-black
+                  leading-[1.15]
+                  tracking-tight
+                  text-[#2D2433]
+                  xs:text-3xl
+                  sm:mt-8
+                  sm:text-5xl
+                  lg:text-6xl
+                "
+              >
+                {t("contactTitle1")}{" "}
+                <br />
+
                 <span className="bg-gradient-to-r from-pink-600 via-pink-500 to-pink-400 bg-clip-text text-transparent">
                   {t("contactTitle2")}
                 </span>
               </h2>
 
               {/* Description */}
-              <p className="mt-4 sm:mt-6 max-w-xl text-xs xs:text-sm sm:text-base leading-relaxed text-[#6B6570]">
+              <p
+                className="
+                  mt-5
+                  max-w-[560px]
+                  text-xs
+                  leading-[1.8]
+                  text-[#6B6570]
+                  xs:text-sm
+                  sm:mt-6
+                  sm:text-base
+                  sm:leading-relaxed
+                "
+              >
                 {t("contactDesc")}
               </p>
 
               {/* Action Buttons */}
-              <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full sm:w-auto">
+              <div
+                className="
+                  mt-9
+                  flex
+                  w-full
+                  flex-col
+                  items-center
+                  justify-center
+                  gap-3.5
+                  sm:mt-10
+                  sm:w-auto
+                  sm:flex-row
+                "
+              >
+                {/* Start Project */}
                 <a
                   href={`mailto:${email}`}
-                  className="group relative inline-flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-full bg-[#2D2433] px-7 py-3.5 text-xs font-bold uppercase tracking-widest text-white shadow-lg shadow-[#2D2433]/15 transition-all duration-300 hover:bg-pink-600 hover:shadow-pink-500/25 active:scale-95"
+                  className="
+                    group relative
+                    inline-flex
+                    w-full
+                    items-center
+                    justify-center
+                    gap-2.5
+                    rounded-full
+                    bg-[#2D2433]
+                    px-7
+                    py-3.5
+                    text-xs
+                    font-bold
+                    uppercase
+                    tracking-widest
+                    text-white
+                    shadow-lg
+                    shadow-[#2D2433]/15
+                    transition-all
+                    duration-300
+                    hover:bg-pink-600
+                    hover:shadow-pink-500/25
+                    active:scale-95
+                    sm:w-auto
+                  "
                 >
                   <Mail className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
+
                   <span>{t("startProject")}</span>
+
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
 
+                {/* Copy Email */}
                 <button
                   onClick={handleCopy}
-                  className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-pink-200 bg-white px-6 py-3.5 text-xs font-bold text-[#2D2433] shadow-xs transition-all duration-300 hover:border-pink-300 hover:bg-pink-50/60 active:scale-95 cursor-pointer"
+                  className="
+                    group
+                    inline-flex
+                    w-full
+                    cursor-pointer
+                    items-center
+                    justify-center
+                    gap-2
+                    rounded-full
+                    border
+                    border-pink-200
+                    bg-white
+                    px-6
+                    py-3.5
+                    text-xs
+                    font-bold
+                    text-[#2D2433]
+                    shadow-xs
+                    transition-all
+                    duration-300
+                    hover:border-pink-300
+                    hover:bg-pink-50/60
+                    active:scale-95
+                    sm:w-auto
+                  "
                 >
                   {copied ? (
                     <>
-                      <Check className="h-4 w-4 text-emerald-600 animate-in zoom-in-50" />
-                      <span className="text-emerald-700">{t("emailCopied")}</span>
+                      <Check className="h-4 w-4 animate-in zoom-in-50 text-emerald-600" />
+
+                      <span className="text-emerald-700">
+                        {t("emailCopied")}
+                      </span>
                     </>
                   ) : (
                     <>
                       <Copy className="h-4 w-4 text-pink-500 transition-transform group-hover:scale-110" />
+
                       <span>{t("copyEmail")}</span>
                     </>
                   )}

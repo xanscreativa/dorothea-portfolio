@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { Film } from "@/data/film";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface ModalProjectData {
   industry?: string;
@@ -45,6 +46,7 @@ export default function ProjectDetailModal({
   project,
 }: ModalProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const { t } = useLanguage();
 
   // Auto pause video saat modal ditutup
   useEffect(() => {
@@ -117,7 +119,7 @@ export default function ProjectDetailModal({
         <button
           onClick={onClose}
           className="absolute right-5 top-5 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-pink-50 font-bold text-[#2D2433] transition-all hover:bg-pink-500 hover:text-white shadow-xs cursor-pointer"
-          aria-label="Close modal"
+          aria-label={t("closeModalAria")}
         >
           ✕
         </button>
@@ -188,7 +190,7 @@ export default function ProjectDetailModal({
               01 / OVERVIEW
             </span>
             <h3 className="mt-1 text-xl sm:text-2xl font-black text-[#2D2433]">
-              Project Overview
+              {t("projectOverview")}
             </h3>
             <p className="mt-3 text-xs sm:text-sm lg:text-base leading-relaxed text-[#6B6570]">
               {project.description}
@@ -198,35 +200,35 @@ export default function ProjectDetailModal({
           {/* SECTION 3: Project Information (Metadata Grid) */}
           <div className="rounded-2xl sm:rounded-3xl border border-pink-100/90 bg-pink-50/40 p-6 sm:p-8">
             <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-pink-500 sm:text-xs block mb-4">
-              02 / METADATA &amp; SPECS
+              02 / {t("metadataSpecs")}
             </span>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">Client</p>
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">{t("client")}</p>
                 <p className="mt-1 text-xs sm:text-sm font-bold text-[#2D2433]">{client}</p>
               </div>
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">Industry</p>
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">{t("industry")}</p>
                 <p className="mt-1 text-xs sm:text-sm font-bold text-[#2D2433]">{industry}</p>
               </div>
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">Role</p>
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">{t("role")}</p>
                 <p className="mt-1 text-xs sm:text-sm font-bold text-[#2D2433]">{role}</p>
               </div>
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">Year</p>
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">{t("year")}</p>
                 <p className="mt-1 text-xs sm:text-sm font-bold text-[#2D2433]">{year}</p>
               </div>
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">Duration</p>
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">{t("duration")}</p>
                 <p className="mt-1 text-xs sm:text-sm font-bold text-[#2D2433]">{duration}</p>
               </div>
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">Format</p>
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">{t("format")}</p>
                 <p className="mt-1 text-xs sm:text-sm font-bold text-[#2D2433]">{format}</p>
               </div>
               <div className="col-span-2">
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">Platforms</p>
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">{t("platforms")}</p>
                 <p className="mt-1 text-xs sm:text-sm font-bold text-[#2D2433]">{platform}</p>
               </div>
             </div>
@@ -238,7 +240,7 @@ export default function ProjectDetailModal({
               03 / STRATEGY
             </span>
             <h3 className="mt-1 text-xl sm:text-2xl font-black text-[#2D2433]">
-              Creative Challenge
+              {t("creativeChallenge")}
             </h3>
             <p className="mt-3 text-xs sm:text-sm lg:text-base leading-relaxed text-[#6B6570]">
               {challenge}
@@ -251,31 +253,31 @@ export default function ProjectDetailModal({
               04 / AESTHETICS
             </span>
             <h3 className="mt-1 text-xl sm:text-2xl font-black text-[#2D2433] mb-6">
-              Creative Direction
+              {t("creativeDirection")}
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               <div className="rounded-2xl border border-pink-100/80 bg-white p-5 shadow-xs">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-pink-500 mb-1.5">Visual Style</h4>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-pink-500 mb-1.5">{t("visualStyle")}</h4>
                 <p className="text-xs text-[#6B6570] leading-relaxed">{creativeDirection.visualStyle}</p>
               </div>
               <div className="rounded-2xl border border-pink-100/80 bg-white p-5 shadow-xs">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-pink-500 mb-1.5">Editing Style</h4>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-pink-500 mb-1.5">{t("editingStyle")}</h4>
                 <p className="text-xs text-[#6B6570] leading-relaxed">{creativeDirection.editingStyle}</p>
               </div>
               <div className="rounded-2xl border border-pink-100/80 bg-white p-5 shadow-xs">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-pink-500 mb-1.5">Color Mood</h4>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-pink-500 mb-1.5">{t("colorMood")}</h4>
                 <p className="text-xs text-[#6B6570] leading-relaxed">{creativeDirection.colorMood}</p>
               </div>
               <div className="rounded-2xl border border-pink-100/80 bg-white p-5 shadow-xs">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-pink-500 mb-1.5">Pacing</h4>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-pink-500 mb-1.5">{t("pacing")}</h4>
                 <p className="text-xs text-[#6B6570] leading-relaxed">{creativeDirection.pacing}</p>
               </div>
               <div className="rounded-2xl border border-pink-100/80 bg-white p-5 shadow-xs">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-pink-500 mb-1.5">Typography</h4>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-pink-500 mb-1.5">{t("typography")}</h4>
                 <p className="text-xs text-[#6B6570] leading-relaxed">{creativeDirection.typography}</p>
               </div>
               <div className="rounded-2xl border border-pink-100/80 bg-white p-5 shadow-xs">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-pink-500 mb-1.5">Motion Language</h4>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-pink-500 mb-1.5">{t("motionLanguage")}</h4>
                 <p className="text-xs text-[#6B6570] leading-relaxed">{creativeDirection.motionLanguage}</p>
               </div>
             </div>
@@ -287,7 +289,7 @@ export default function ProjectDetailModal({
               05 / EXECUTION
             </span>
             <h3 className="mt-1 text-xl sm:text-2xl font-black text-[#2D2433] mb-6">
-              Production Workflow
+              {t("productionWorkflow")}
             </h3>
             
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
@@ -295,7 +297,7 @@ export default function ProjectDetailModal({
               <div className="rounded-2xl border border-pink-100/80 bg-white p-5 shadow-xs flex flex-col justify-between">
                 <div>
                   <span className="inline-block rounded-full bg-pink-50 px-3 py-1 text-[10px] font-black text-pink-500 mb-3">
-                    01 / Pre-Production
+                    01 / {t("preProduction")}
                   </span>
                   <p className="text-xs leading-relaxed text-[#6B6570]">
                     {project.process?.preProduction || "Concept scoping, moodboarding, storyboard drafting, and asset organization."}
@@ -307,7 +309,7 @@ export default function ProjectDetailModal({
               <div className="rounded-2xl border border-pink-100/80 bg-white p-5 shadow-xs flex flex-col justify-between">
                 <div>
                   <span className="inline-block rounded-full bg-pink-50 px-3 py-1 text-[10px] font-black text-pink-500 mb-3">
-                    02 / Production
+                    02 / {t("production")}
                   </span>
                   <p className="text-xs leading-relaxed text-[#6B6570]">
                     {project.process?.production || "A-roll/B-roll capturing, lighting setup, audio recording, and initial media ingestion."}
@@ -319,7 +321,7 @@ export default function ProjectDetailModal({
               <div className="rounded-2xl border border-pink-100/80 bg-white p-5 shadow-xs flex flex-col justify-between">
                 <div>
                   <span className="inline-block rounded-full bg-pink-50 px-3 py-1 text-[10px] font-black text-pink-500 mb-3">
-                    03 / Post-Production
+                    03 / {t("postProduction")}
                   </span>
                   <p className="text-xs leading-relaxed text-[#6B6570]">
                     {project.process?.postProduction || "Rough cuts, fine tuning, color grading, sound mixing, and graphic overlays."}
@@ -331,7 +333,7 @@ export default function ProjectDetailModal({
               <div className="rounded-2xl border border-pink-100/80 bg-white p-5 shadow-xs flex flex-col justify-between">
                 <div>
                   <span className="inline-block rounded-full bg-pink-50 px-3 py-1 text-[10px] font-black text-pink-500 mb-3">
-                    04 / Delivery
+                    04 / {t("delivery")}
                   </span>
                   <p className="text-xs leading-relaxed text-[#6B6570]">
                     {p.process?.delivery || "Multi-format exporting, bitrate optimization, caption embedding, and final handoff."}
@@ -347,7 +349,7 @@ export default function ProjectDetailModal({
               06 / CRAFTMANSHIP
             </span>
             <h3 className="mt-1 text-xl sm:text-2xl font-black text-[#2D2433] mb-6">
-              Editing Breakdown
+              {t("editingBreakdown")}
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {editingBreakdown.map((item: { title: string; desc: string }, idx: number) => (
@@ -368,7 +370,7 @@ export default function ProjectDetailModal({
               07 / TOOLKIT
             </span>
             <h3 className="mt-1 text-xl sm:text-2xl font-black text-[#2D2433] mb-6">
-              Software Used
+              {t("softwareUsed")}
             </h3>
             <div className="flex flex-wrap gap-2.5">
               {softwareUsed.map((tool: string) => (
@@ -405,7 +407,7 @@ export default function ProjectDetailModal({
               09 / IMPACT
             </span>
             <h3 className="mt-2 text-2xl sm:text-3xl font-black text-[#2D2433]">
-              Project Outcome
+              {t("projectOutcome")}
             </h3>
             <p className="mt-4 text-xs sm:text-base leading-relaxed text-[#6B6570] max-w-2xl mx-auto">
               {outcomeText}
@@ -418,7 +420,7 @@ export default function ProjectDetailModal({
               10 / REFLECTION
             </span>
             <h3 className="mt-1 text-xl sm:text-2xl font-black text-[#2D2433]">
-              What I Learned
+              {t("whatILearned")}
             </h3>
             <p className="mt-3 text-xs sm:text-sm lg:text-base leading-relaxed text-[#6B6570]">
               {reflectionText}

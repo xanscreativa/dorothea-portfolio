@@ -3,6 +3,9 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowUpRight, Sparkles, ArrowUp, Globe, Clock } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
+
+type TranslationKey = keyof typeof import("@/data/translations").translations.en;
 
 // Inline Brand Icons
 const InstagramIcon = ({ className = "h-3 w-3" }: { className?: string }) => (
@@ -25,22 +28,23 @@ const socials = [
   { label: "YouTube", href: "https://youtube.com/@xans.creativa", icon: YoutubeIcon },
 ];
 
-const navLinks = [
-  { label: "Work", href: "/#portfolio" },
-  { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Contact", href: "/#contact" },
+const navLinks: { labelKey: TranslationKey; href: string }[] = [
+  { labelKey: "navWork", href: "/#portfolio" },
+  { labelKey: "about", href: "/about" },
+  { labelKey: "services", href: "/services" },
+  { labelKey: "contact", href: "/#contact" },
 ];
 
 export default function Footer() {
   const [time, setTime] = useState<string>("");
+  const { t, lang } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
       setTime(
-        new Intl.DateTimeFormat("en-US", {
+        new Intl.DateTimeFormat(lang === "id" ? "id-ID" : "en-US", {
           timeZone: "Asia/Jakarta",
           hour: "2-digit",
           minute: "2-digit",
@@ -78,27 +82,27 @@ export default function Footer() {
 
             <div className="space-y-2">
               <p className="text-xs font-bold text-[#E85D8E] tracking-wider uppercase">
-                Graphic Designer & Video Editor
+                {t("roleSubtitle")}
               </p>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[#2D2433] leading-[1.15]">
-                Turning ideas into <br className="hidden sm:block" />
-                <span className="text-[#E85D8E]">visuals that leave a mark.</span>
+                {t("footerHeadline1")} <br className="hidden sm:block" />
+                <span className="text-[#E85D8E]">{t("footerHeadline2")}</span>
               </h2>
             </div>
 
             <p className="max-w-md text-xs sm:text-sm leading-relaxed text-[#2D2433]/70">
-              Elevating brands through clean editorial design, strategic motion, and high-impact visual storytelling.
+              {t("footerDescription")}
             </p>
 
             <div className="inline-flex items-center gap-3 rounded-full border border-[#E85D8E]/20 bg-[#E85D8E]/5 px-3.5 py-1.5 text-xs font-mono text-[#2D2433]/80 shadow-2xs backdrop-blur-xs">
               <span className="flex items-center gap-1.5">
                 <Globe className="h-3.5 w-3.5 text-[#E85D8E]" />
-                <span>Jakarta, ID</span>
+                <span>{t("footerLocation")}</span>
               </span>
               <span className="text-[#E85D8E]/30">|</span>
               <span className="flex items-center gap-1.5">
                 <Clock className="h-3.5 w-3.5 text-[#E85D8E]" />
-                <span>{time || "WIB"}</span>
+                <span>{time || t("timezoneFallback")}</span>
               </span>
             </div>
           </div>
@@ -109,16 +113,16 @@ export default function Footer() {
             {/* EXPLORE PANEL */}
             <div className="flex items-center justify-between px-4 sm:px-5 py-3 rounded-2xl bg-[#E85D8E]/[0.035] border border-[#E85D8E]/[0.12]">
               <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#E85D8E] shrink-0">
-                Explore
+                {t("footerExplore")}
               </h4>
               <div className="flex flex-nowrap items-center gap-x-2 sm:gap-x-3 text-[11px] sm:text-xs font-bold text-[#2D2433]">
                 {navLinks.map((link, idx) => (
-                  <React.Fragment key={link.label}>
+                  <React.Fragment key={`${link.labelKey}-${link.href}-${idx}`}>
                     <Link
                       href={link.href}
                       className="group inline-flex items-center hover:text-[#E85D8E] transition-colors tracking-wide whitespace-nowrap"
                     >
-                      <span>{link.label}</span>
+                      <span>{t(link.labelKey)}</span>
                     </Link>
                     {idx < navLinks.length - 1 && (
                       <span className="text-[#E85D8E]/50 text-[10px] select-none">·</span>
@@ -130,8 +134,8 @@ export default function Footer() {
 
             {/* CONNECT PANEL (Optimized 1-Row with compact sizing) */}
             <div className="flex items-center justify-between px-4 sm:px-5 py-3 rounded-2xl bg-[#E85D8E]/[0.06] border border-[#E85D8E]/[0.18]">
-              <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#E85D8E] shrink-0">
-                Connect
+              <h4 className="text-[8px] font-bold uppercase tracking-[0.15em] text-[#E85D8E] shrink-0">
+                {t("footerConnect")}
               </h4>
               <div className="flex flex-nowrap items-center gap-x-1.5 sm:gap-x-2.5 text-[10px] sm:text-[11px] font-bold text-[#2D2433]">
                 {socials.map((item) => {
@@ -162,19 +166,19 @@ export default function Footer() {
 
         {/* BOTTOM UTILITY BAR */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#2D2433]/60 text-center sm:text-left">
-          <p>© {currentYear} Xans Studio. All rights reserved.</p>
+          <p>© {currentYear} Xans Studio. {t("allRightsReserved")}</p>
           
           <p className="flex items-center gap-1.5">
-            <span>Built with</span>
+            <span>{t("builtWith")}</span>
             <span className="text-[#E85D8E] animate-pulse">❤️</span>
-            <span>by <strong className="text-[#2D2433]">XANS</strong></span>
+            <span>{t("by")} <strong className="text-[#2D2433]">XANS</strong></span>
           </p>
 
           <button
             onClick={scrollToTop}
             className="group inline-flex items-center gap-1.5 rounded-full border border-[#E85D8E]/25 bg-white px-3.5 py-1.5 text-xs font-bold text-[#2D2433] transition-all hover:border-[#E85D8E] hover:bg-[#E85D8E]/10 hover:text-[#E85D8E] shadow-2xs cursor-pointer"
           >
-            <span>Back to top</span>
+            <span>{t("backToTop")}</span>
             <ArrowUp className="h-3.5 w-3.5 text-[#E85D8E] transition-transform group-hover:-translate-y-0.5" />
           </button>
         </div>
