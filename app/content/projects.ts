@@ -61,7 +61,7 @@ export const projects: Project[] = [
       "/portfolio/uksw.jpg",
       "/portfolio/jendela-finansial.jpg",
       "/portfolio/pelkatpa.jpg",
-      "/portfolio/reno.jpg",
+      "/portfolio/ezsquad.jpg",
     ],
   },
 
@@ -123,8 +123,8 @@ export const projects: Project[] = [
 
     gallery: [
       "/portfolio/mark.jpg",
-      "/portfolio/wakatom.jpg",
-      "/portfolio/raka.jpg",
+      "/portfolio/character.jpg",
+      "/portfolio/jendela-finansial.jpg",
     ],
   },
 ];

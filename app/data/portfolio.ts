@@ -42,42 +42,42 @@ export const portfolioCollections: PortfolioCollection[] = [
     gallery: [
       {
         type: "full",
-        src: "/images/portfolio/uksw-1.jpg",
+        src: "/portfolio/uksw-1.jpg",
         alt: "UKSW Mendunia - Feed Post",
         caption:
           "UKSW Mendunia — Editorial Feed Layout & Typography",
       },
       {
         type: "half",
-        src: "/images/portfolio/uksw-2.jpg",
+        src: "/portfolio/uksw-2.jpg",
         alt: "Kampus Tour & Fasilitas",
         caption:
           "Kampus Tour — Architectural & Visual Overlay",
       },
       {
         type: "half",
-        src: "/images/portfolio/uksw-3.jpg",
+        src: "/portfolio/uksw-3.jpg",
         alt: "PMB 2026 Opening",
         caption:
           "PMB 2026 — High-Impact Announcement Grid",
       },
       {
         type: "full",
-        src: "/images/portfolio/uksw-4.jpg",
+        src: "/portfolio/uksw-4.jpg",
         alt: "Akreditasi Unggul",
         caption:
           "Akreditasi Unggul — Institutional Pride Layout",
       },
       {
         type: "half",
-        src: "/images/portfolio/uksw-5.jpg",
+        src: "/portfolio/uksw-5.jpg",
         alt: "UKSW Menyapa Event",
         caption:
           "UKSW Menyapa — Dynamic Event Coverage",
       },
       {
         type: "half",
-        src: "/images/portfolio/uksw-6.jpg",
+        src: "/portfolio/uksw-6.jpg",
         alt: "Creative Minority Series",
         caption:
           "Creative Minority — Student Talent Storytelling",
@@ -90,48 +90,48 @@ export const portfolioCollections: PortfolioCollection[] = [
         subtitle: "Feed Post",
         description:
           "Editorial social media system crafted for UKSW admissions and campus life with a calm editorial rhythm.",
-        cover: "/images/portfolio/uksw-1.jpg",
-        images: ["/images/portfolio/uksw-1.jpg"],
+        cover: "/portfolio/uksw-1.jpg",
+        images: ["/portfolio/uksw-1.jpg"],
       },
       {
         title: "Kampus Tour & Fasilitas",
         subtitle: "Carousel Design",
         description:
           "Highlighting campus spaces with immersive architectural photography and clean graphic overlays.",
-        cover: "/images/portfolio/uksw-2.jpg",
-        images: ["/images/portfolio/uksw-2.jpg"],
+        cover: "/portfolio/uksw-2.jpg",
+        images: ["/portfolio/uksw-2.jpg"],
       },
       {
         title: "PMB 2026 Opening",
         subtitle: "Announcement",
         description:
           "High-impact announcement grid layout designed to drive student engagement and registration.",
-        cover: "/images/portfolio/uksw-3.jpg",
-        images: ["/images/portfolio/uksw-3.jpg"],
+        cover: "/portfolio/uksw-3.jpg",
+        images: ["/portfolio/uksw-3.jpg"],
       },
       {
         title: "Akreditasi Unggul",
         subtitle: "Institutional Post",
         description:
           "Institutional pride delivered through structured editorial design systems and sharp typography.",
-        cover: "/images/portfolio/uksw-4.jpg",
-        images: ["/images/portfolio/uksw-4.jpg"],
+        cover: "/portfolio/uksw-4.jpg",
+        images: ["/portfolio/uksw-4.jpg"],
       },
       {
         title: "UKSW Menyapa Event",
         subtitle: "Event Coverage",
         description:
           "Dynamic event coverage assets designed for multi-platform social engagement and visibility.",
-        cover: "/images/portfolio/uksw-5.jpg",
-        images: ["/images/portfolio/uksw-5.jpg"],
+        cover: "/portfolio/uksw-5.jpg",
+        images: ["/portfolio/uksw-5.jpg"],
       },
       {
         title: "Creative Minority Series",
         subtitle: "Community Showcase",
         description:
           "Showcasing student creativity and diverse talents through curated visual storytelling.",
-        cover: "/images/portfolio/uksw-6.jpg",
-        images: ["/images/portfolio/uksw-6.jpg"],
+        cover: "/portfolio/uksw-6.jpg",
+        images: ["/portfolio/uksw-6.jpg"],
       },
     ],
   },
@@ -194,6 +194,24 @@ export const portfolioCollections: PortfolioCollection[] = [
         alt: "Brand Character Integration",
         caption: "Mascot & Character Brand Asset",
       },
+      {
+        type: "full",
+        src: "/portfolio/hut63.jpg",
+        alt: "HUT 63 Pelkat PA",
+        caption: "HUT 63 — Brand Identity & Campaign Visuals",
+      },
+      {
+        type: "full",
+        src: "/portfolio/hut67.jpg",
+        alt: "HUT 67 Pelkat PA",
+        caption: "HUT 67 — Brand Identity & Campaign Visuals",
+      },
+      {
+        type: "full",
+        src: "/portfolio/soleste.jpg",
+        alt: "Soleste Brand Identity",
+        caption: "Soleste — Brand Identity & Visual Communication",
+      },
     ],
 
     items: [
@@ -212,6 +230,30 @@ export const portfolioCollections: PortfolioCollection[] = [
           "Created engaging Instagram feeds, carousel posts, stories, promotional graphics, and educational content.",
         cover: "/portfolio/mark.jpg",
         images: ["/portfolio/mark.jpg"],
+      },
+      {
+        title: "HUT 63",
+        subtitle: "Brand Identity",
+        description:
+          "Visual identity and campaign design created for HUT 63 Pelkat PA.",
+        cover: "/portfolio/hut63.jpg",
+        images: ["/portfolio/hut63.jpg"],
+      },
+      {
+        title: "HUT 67",
+        subtitle: "Brand Identity",
+        description:
+          "Visual identity and campaign design created for HUT 67 Pelkat PA.",
+        cover: "/portfolio/hut67.jpg",
+        images: ["/portfolio/hut67.jpg"],
+      },
+      {
+        title: "Soleste",
+        subtitle: "Brand Identity",
+        description:
+          "Brand identity and visual communication design developed for Soleste.",
+        cover: "/portfolio/soleste.jpg",
+        images: ["/portfolio/soleste.jpg"],
       },
     ],
   },
@@ -262,7 +304,7 @@ export const portfolioCollections: PortfolioCollection[] = [
       },
       {
         type: "half",
-        src: "/portfolio/reno.jpg",
+        src: "/portfolio/sinyalordal.jpg",
         alt: "Sinyal Ordal Symbol",
         caption: "Sinyal Ordal — Brand Symbol Concept",
       },
@@ -296,8 +338,8 @@ export const portfolioCollections: PortfolioCollection[] = [
         subtitle: "Sinyal Ordal",
         description:
           "Logo application and brand symbol direction for a recognizable visual presence.",
-        cover: "/portfolio/reno.jpg",
-        images: ["/portfolio/reno.jpg"],
+        cover: "/portfolio/sinyalordal.jpg",
+        images: ["/portfolio/sinyalordal.jpg"],
       },
     ],
   },
@@ -401,11 +443,32 @@ export const portfolioCollections: PortfolioCollection[] = [
 
     items: [
       {
-        title: "Jendela Finansial Mascot",
+        title: "Elof",
         subtitle: "Character Illustration",
         description: "",
-        cover: "/portfolio/character.jpg",
-        images: ["/portfolio/character.jpg"],
+        cover: "/portfolio/elof.jpg",
+        images: ["/portfolio/elof.jpg"],
+      },
+      {
+        title: "Jeni & Jeno",
+        subtitle: "Character Illustration",
+        description: "",
+        cover: "/portfolio/jeni-jeno.jpg",
+        images: ["/portfolio/jeni-jeno.jpg"],
+      },
+      {
+        title: "Teddy",
+        subtitle: "Character Illustration",
+        description: "",
+        cover: "/portfolio/teddy.jpg",
+        images: ["/portfolio/teddy.jpg"],
+      },
+      {
+        title: "Emily",
+        subtitle: "Character Illustration",
+        description: "",
+        cover: "/portfolio/emily.jpg",
+        images: ["/portfolio/emily.jpg"],
       },
     ],
   },
@@ -470,7 +533,7 @@ export const portfolioCollections: PortfolioCollection[] = [
       },
       {
         type: "half",
-        src: "/portfolio/reno.jpg",
+        src: "/portfolio/sinyalordal.jpg",
         alt: "Sinyal Ordal Live Graphic",
         caption:
           "Sinyal Ordal — Trading Stream Graphics",
@@ -493,6 +556,84 @@ export const portfolioCollections: PortfolioCollection[] = [
           "Premium motion-forward assets for a live community and trading campaign identity.",
         cover: "/portfolio/ezsquad.jpg",
         images: ["/portfolio/ezsquad.jpg"],
+      },
+    ],
+  },
+
+  // =========================================================
+  // 7. DESAIN LAIN
+  // =========================================================
+  {
+    id: 7,
+    slug: "desain-lain",
+    title: "Desain Lain",
+    category: "MISCELLANEOUS DESIGN",
+    tagline:
+      "A gallery showcasing various creative visual assets, print media, and promotional design experiments.",
+    description:
+      "A collection of various graphic design projects including banners, posters, and visual experiments.",
+
+    cover: "/portfolio/mark.jpg",
+
+    overview:
+      "A flexible collection of promotional materials, posters, and miscellaneous visual design projects crafted across different client requests.",
+
+    challenge:
+      "Adapting quickly to diverse visual styles and print/digital technical requirements across non-standard formats.",
+
+    solution:
+      "Applied core graphic design fundamentals to deliver eye-catching visual communication regardless of media constraint.",
+
+    outcome:
+      "A rich visual gallery demonstrating adaptability and creative exploration across multiple mediums.",
+
+    meta: {
+      client: "Various Clients",
+      industry: "Creative Services",
+      role: "Graphic Designer",
+      year: "2023 - 2024",
+      deliverables: "Print Assets, Banners, Digital Graphics",
+      tools: "Photoshop, Illustrator",
+    },
+
+    gallery: [
+      {
+        type: "half",
+        src: "/portfolio/desain-lain-1.jpg",
+        alt: "Desain Lain 1",
+        caption: "Creative Visual Work 1",
+      },
+      {
+        type: "half",
+        src: "/portfolio/desain-lain-2.jpg",
+        alt: "Desain Lain 2",
+        caption: "Creative Visual Work 2",
+      },
+      {
+        type: "half",
+        src: "/portfolio/desain-lain-3.jpg",
+        alt: "Desain Lain 3",
+        caption: "Creative Visual Work 3",
+      },
+      {
+        type: "half",
+        src: "/portfolio/desain-lain-4.jpg",
+        alt: "Desain Lain 4",
+        caption: "Creative Visual Work 4",
+      },
+    ],
+
+    items: [
+      {
+        title: "Miscellaneous Graphics",
+        subtitle: "Gallery Collection",
+        description:
+          "Various promotional and graphic design experiments.",
+        cover: "/portfolio/mark.jpg",
+        images: [
+          "/portfolio/desain-lain-1.jpg",
+          "/portfolio/desain-lain-2.jpg",
+        ],
       },
     ],
   },

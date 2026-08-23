@@ -24,6 +24,7 @@ interface GalleryItem {
   alt?: string;
   caption?: string;
   subSlides?: GalleryItem[];
+  isVideo?: boolean;
 }
 
 interface SectionDetails {
@@ -96,6 +97,41 @@ export default function PortfolioDetailPage() {
   const isLogoDesign = collection.slug === "logo-design";
   const isThumbnailDesign = collection.slug === "thumbnail-design";
   const isCharacterDesign = collection.slug === "character-design";
+  const isLiveStreamDesign = collection.slug === "live-stream-design";
+
+  // Data 5 Live Stream Design (Video 1080x1920)
+  const liveStreamItems: GalleryItem[] = [
+    {
+      src: "/portfolio/livestream-anya-zona-layer.mp4",
+      alt: "Anya Zona Layer",
+      caption: "Anya Zona Layer Live Stream Design",
+      isVideo: true,
+    },
+    {
+      src: "/portfolio/livestream-data-wak-atom.mp4",
+      alt: "Data Wak Atom",
+      caption: "Data Wak Atom Live Stream Design",
+      isVideo: true,
+    },
+    {
+      src: "/portfolio/livestream-raka-trabas.mp4",
+      alt: "Raka Trabas",
+      caption: "Raka Trabas Live Stream Design",
+      isVideo: true,
+    },
+    {
+      src: "/portfolio/livestream-sinyal-ordal.mp4",
+      alt: "Sinyal Ordal",
+      caption: "Sinyal Ordal Live Stream Design",
+      isVideo: true,
+    },
+    {
+      src: "/portfolio/livestream-ez-squad.mp4",
+      alt: "EZ Squad",
+      caption: "EZ Squad Live Stream Design",
+      isVideo: true,
+    },
+  ];
 
   // Grid default thumbnail 1-9
   const defaultThumbnailGrid: GalleryItem[] = Array.from({ length: 9 }, (_, index) => {
@@ -107,10 +143,11 @@ export default function PortfolioDetailPage() {
     };
   });
 
-  const gallery: GalleryItem[] =
-    collection.gallery && collection.gallery.length > 0
-      ? collection.gallery
-      : defaultThumbnailGrid;
+  const gallery: GalleryItem[] = isLiveStreamDesign
+    ? liveStreamItems
+    : collection.gallery && collection.gallery.length > 0
+    ? collection.gallery
+    : defaultThumbnailGrid;
 
   const handleNextModal = useCallback(() => {
     if (!activeModalState || isAnimating) return;
@@ -286,7 +323,7 @@ export default function PortfolioDetailPage() {
           },
           {
             title: "Jendela Finansial",
-            username: "jendela_finansial",
+            username: "jendelafinansial",
             bio: "Smart financial tips & wealth education made simple 💡 Grow your future with us.",
             avatarImage: "/portfolio/jendela-finansial-logo.jpg",
             avatarText: "JF",
@@ -414,12 +451,12 @@ export default function PortfolioDetailPage() {
       ? [
           {
             title: "Jendela Finansial",
-            username: "jendela_finansial",
+            username: "jendelafinansial",
             bio: "Smart financial tips & wealth education brand identity 💡",
-            avatarImage: "/portfolio/jendela-finansial-logo.jpg",
+            avatarImage: "/portfolio/jendela-finansial.jpg",
             avatarText: "JF",
             avatarBg: "from-emerald-500 to-teal-400",
-            posts: [{ src: "/portfolio/jendela-finansial-logo.jpg", alt: "Jendela Finansial Logo", caption: "Jendela Finansial Logo" }],
+            posts: [{ src: "/portfolio/jendela-finansial.jpg", alt: "Jendela Finansial Logo", caption: "Jendela Finansial Logo" }],
             details: {
               client: "Jendela Finansial",
               industry: "Financial Education",
@@ -435,10 +472,10 @@ export default function PortfolioDetailPage() {
             title: "HUT 63 Pelkat PA GPIB",
             username: "pelkatpa.pku",
             bio: "Winning logo design for the 63rd Anniversary of Pelkat PA GPIB 🏆",
-            avatarImage: "/portfolio/pa-logo.jpg",
+            avatarImage: "/portfolio/hut63.jpg",
             avatarText: "PA",
             avatarBg: "from-rose-500 to-pink-500",
-            posts: [{ src: "/portfolio/pa-logo.jpg", alt: "PA Logo HUT 63", caption: "PA Logo HUT 63" }],
+            posts: [{ src: "/portfolio/hut63.jpg", alt: "PA Logo HUT 63", caption: "PA Logo HUT 63" }],
             details: {
               client: "Dewan Pelayanan Anak",
               industry: "Ministry",
@@ -454,10 +491,10 @@ export default function PortfolioDetailPage() {
             title: "HUT 67 Pelkat PA GPIB",
             username: "pelkatpa.pku",
             bio: "Official visual identity for the 67th Pelkat PA GPIB Anniversary 🕊️",
-            avatarImage: "/portfolio/pa-logo.jpg",
+            avatarImage: "/portfolio/hut67.jpg",
             avatarText: "PA",
             avatarBg: "from-blue-500 to-indigo-500",
-            posts: [{ src: "/portfolio/pa-logo.jpg", alt: "Logo HUT Pelkat PA ke-67", caption: "Logo HUT Pelkat PA ke-67" }],
+            posts: [{ src: "/portfolio/hut67.jpg", alt: "Logo HUT Pelkat PA ke-67", caption: "Logo HUT Pelkat PA ke-67" }],
             details: {
               client: "Logo HUT Pelkat PA ke-67",
               industry: "Ministry",
@@ -511,10 +548,10 @@ export default function PortfolioDetailPage() {
             title: "Soleste",
             username: "soleste_official",
             bio: "Elegance and modern lifestyle brand identity design ✨",
-            avatarImage: "/portfolio/soleste-logo.jpg",
+            avatarImage: "/portfolio/soleste.jpg",
             avatarText: "S",
             avatarBg: "from-amber-400 to-yellow-600",
-            posts: [{ src: "/portfolio/soleste-logo.jpg", alt: "Soleste Brand", caption: "Soleste Brand Identity" }],
+            posts: [{ src: "/portfolio/soleste.jpg", alt: "Soleste Brand", caption: "Soleste Brand Identity" }],
             details: {
               client: "Soleste",
               industry: "Lifestyle & Fashion",
@@ -533,108 +570,13 @@ export default function PortfolioDetailPage() {
     isLogoDesign
       ? [
           {
-            title: "Soleste",
-            username: "soleste_official",
-            bio: "Modern & elegant lifestyle brand mark ✨",
-            avatarImage: "/portfolio/soleste-logo.jpg",
-            avatarText: "S",
-            avatarBg: "from-amber-400 to-yellow-600",
-            posts: [{ src: "/portfolio/soleste-logo.jpg", alt: "Soleste Logo", caption: "Soleste Logo Design" }],
-            details: {
-              client: "Soleste",
-              industry: "Lifestyle & Fashion",
-              role: "Logo Designer",
-              year: "2024",
-              deliverables: "Logo Mark, Identity System",
-              tools: "Illustrator, Vector",
-            },
-            overview: "A refined and luxury-feeling brand mark tailored for modern lifestyle products.",
-            challenge: "Creating a simple yet memorable emblem that conveys elegance and durability.",
-          },
-          {
-            title: "Raka Trabas",
-            username: "rakatrabas",
-            bio: "Dynamic & energetic adventure community logo 🚵‍♂️",
-            avatarImage: "/portfolio/raka-trabas-logo.jpg",
-            avatarText: "RT",
-            avatarBg: "from-orange-500 to-red-500",
-            posts: [{ src: "/portfolio/raka-trabas-logo.jpg", alt: "Raka Trabas Logo", caption: "Raka Trabas Logo Design" }],
-            details: {
-              client: "Raka Trabas",
-              industry: "Outdoor & Sports",
-              role: "Logo Designer",
-              year: "2024",
-              deliverables: "Community Logo, Apparel Badge",
-              tools: "Illustrator, Photoshop",
-            },
-            overview: "Bold and high-energy logo mark created for off-road & adventure sports enthusiasts.",
-            challenge: "Blending ruggedness with clean, modern vector lines for print on merchandise.",
-          },
-          {
-            title: "Sinyal Ordal",
-            username: "sinyalordal",
-            bio: "Tech & insider signals community mark 📡",
-            avatarImage: "/portfolio/sinyal-ordal-logo.jpg",
-            avatarText: "SO",
-            avatarBg: "from-cyan-500 to-blue-600",
-            posts: [{ src: "/portfolio/sinyal-ordal-logo.jpg", alt: "Sinyal Ordal Logo", caption: "Sinyal Ordal Logo Design" }],
-            details: {
-              client: "Sinyal Ordal",
-              industry: "Technology & Community",
-              role: "Logo Designer",
-              year: "2024",
-              deliverables: "Digital Logo Suite",
-              tools: "Illustrator, Figma",
-            },
-            overview: "A sharp, futuristic logo design symbolising signal flow and exclusive networking.",
-            challenge: "Crafting an abstract signal icon that feels both tech-forward and trustworthy.",
-          },
-          {
-            title: "Minci",
-            username: "minci_brand",
-            bio: "Playful & friendly mascot-driven brand logo 🐱",
-            avatarImage: "/portfolio/minci-logo.jpg",
-            avatarText: "M",
-            avatarBg: "from-pink-400 to-rose-400",
-            posts: [{ src: "/portfolio/minci-logo.jpg", alt: "Minci Logo", caption: "Minci Logo Design" }],
-            details: {
-              client: "Minci",
-              industry: "Consumer Goods",
-              role: "Logo Designer",
-              year: "2024",
-              deliverables: "Character Logo & Packaging Badge",
-              tools: "Illustrator",
-            },
-            overview: "Warm and inviting character-based logo design built for high brand recall.",
-            challenge: "Balancing cute mascot elements with scalable graphic typography.",
-          },
-          {
-            title: "Nona Kirana",
-            username: "nonakirana",
-            bio: "Charming & feminine aesthetic visual identity 🌸",
-            avatarImage: "/portfolio/nona-kirana-logo.jpg",
-            avatarText: "NK",
-            avatarBg: "from-pink-300 to-purple-400",
-            posts: [{ src: "/portfolio/nona-kirana-logo.jpg", alt: "Nona Kirana Logo", caption: "Nona Kirana Logo Design" }],
-            details: {
-              client: "Nona Kirana",
-              industry: "Beauty & Beauty Care",
-              role: "Logo Designer",
-              year: "2024",
-              deliverables: "Wordmark & Monogram",
-              tools: "Illustrator, Font Self",
-            },
-            overview: "Elegant typographic and monogram design crafted for personal branding and beauty.",
-            challenge: "Designing delicate line work that maintains clarity across small digital icons.",
-          },
-          {
             title: "Consistrade",
             username: "consistrade",
             bio: "Sleek & authoritative corporate trading mark 📈",
-            avatarImage: "/portfolio/consistrade-logo.png",
+            avatarImage: "/portfolio/consistrade.jpg",
             avatarText: "C",
             avatarBg: "from-indigo-600 to-blue-500",
-            posts: [{ src: "/portfolio/consistrade-logo.png", alt: "Consistrade Logo", caption: "Consistrade Logo Design" }],
+            posts: [{ src: "/portfolio/consistrade.jpg", alt: "Consistrade Logo", caption: "Consistrade Logo Design" }],
             details: {
               client: "Consistrade",
               industry: "Corporate Trading",
@@ -647,13 +589,32 @@ export default function PortfolioDetailPage() {
             challenge: "Integrating abstract arrow and trade symbols without cluttering the silhouette.",
           },
           {
+            title: "GPIB Immanuel Pekanbaru",
+            username: "gpib_immanuel_pku",
+            bio: "Official church emblem and logo mark 🙏🕊️",
+            avatarImage: "/portfolio/gpib.jpg",
+            avatarText: "G",
+            avatarBg: "from-amber-500 to-orange-400",
+            posts: [{ src: "/portfolio/gpib.jpg", alt: "GPIB Immanuel Pekanbaru Logo", caption: "GPIB Immanuel Pekanbaru Logo Design" }],
+            details: {
+              client: "GPIB Immanuel Pekanbaru",
+              industry: "Religious Organization",
+              role: "Logo Designer",
+              year: "2024",
+              deliverables: "Church Logo & Visual Mark",
+              tools: "Illustrator",
+            },
+            overview: "Establishing a dignified and welcoming brand presence for the congregation.",
+            challenge: "Reflecting traditional ecclesiastical values through modern, clean graphic standards.",
+          },
+          {
             title: "HUT 63 Pelkat PA GPIB",
             username: "pelkatpa.pku",
             bio: "Winning anniversary emblem for Pelkat PA GPIB 🏆",
-            avatarImage: "/portfolio/pa-logo.jpg",
+            avatarImage: "/portfolio/hut63.jpg",
             avatarText: "PA",
             avatarBg: "from-rose-500 to-pink-500",
-            posts: [{ src: "/portfolio/pa-logo.jpg", alt: "PA Logo HUT 63", caption: "HUT 63 Pelkat PA Logo" }],
+            posts: [{ src: "/portfolio/hut63.jpg", alt: "PA Logo HUT 63", caption: "HUT 63 Pelkat PA Logo" }],
             details: {
               client: "Dewan Pelayanan Anak",
               industry: "Religious & Youth",
@@ -669,10 +630,10 @@ export default function PortfolioDetailPage() {
             title: "HUT 67 Pelkat PA GPIB",
             username: "pelkatpa.pku",
             bio: "Official 67th anniversary visual mark 🕊️",
-            avatarImage: "/portfolio/pa-logo.jpg",
+            avatarImage: "/portfolio/hut67.jpg",
             avatarText: "PA",
             avatarBg: "from-blue-500 to-indigo-500",
-            posts: [{ src: "/portfolio/pa-logo.jpg", alt: "Logo HUT Pelkat PA ke-67", caption: "HUT 67 Pelkat PA Logo" }],
+            posts: [{ src: "/portfolio/hut67.jpg", alt: "Logo HUT Pelkat PA ke-67", caption: "HUT 67 Pelkat PA Logo" }],
             details: {
               client: "Pelkat PA GPIB",
               industry: "Religious & Youth",
@@ -688,10 +649,10 @@ export default function PortfolioDetailPage() {
             title: "Joko Tuo",
             username: "jokotuo_heritage",
             bio: "Traditional heritage & authentic culinary mark 🌿",
-            avatarImage: "/portfolio/joko-tuo-logo.jpg",
+            avatarImage: "/portfolio/jokotuo.jpg",
             avatarText: "JT",
             avatarBg: "from-emerald-700 to-green-600",
-            posts: [{ src: "/portfolio/joko-tuo-logo.jpg", alt: "Joko Tuo Logo", caption: "Joko Tuo Logo Design" }],
+            posts: [{ src: "/portfolio/jokotuo.jpg", alt: "Joko Tuo Logo", caption: "Joko Tuo Logo Design" }],
             details: {
               client: "Joko Tuo",
               industry: "Culinary & Heritage",
@@ -704,13 +665,89 @@ export default function PortfolioDetailPage() {
             challenge: "Infusing traditional retro artwork while keeping the logo modern and scalable.",
           },
           {
+            title: "Nona Kirana",
+            username: "nonakirana",
+            bio: "Charming & feminine aesthetic visual identity 🌸",
+            avatarImage: "/portfolio/kirana.jpg",
+            avatarText: "NK",
+            avatarBg: "from-pink-300 to-purple-400",
+            posts: [{ src: "/portfolio/kirana.jpg", alt: "Nona Kirana Logo", caption: "Nona Kirana Logo Design" }],
+            details: {
+              client: "Nona Kirana",
+              industry: "Beauty & Beauty Care",
+              role: "Logo Designer",
+              year: "2024",
+              deliverables: "Wordmark & Monogram",
+              tools: "Illustrator, Font Self",
+            },
+            overview: "Elegant typographic and monogram design crafted for personal branding and beauty.",
+            challenge: "Designing delicate line work that maintains clarity across small digital icons.",
+          },
+          {
+            title: "Minci",
+            username: "minci_brand",
+            bio: "Playful & friendly mascot-driven brand logo 🐱",
+            avatarImage: "/portfolio/minci.jpg",
+            avatarText: "M",
+            avatarBg: "from-pink-400 to-rose-400",
+            posts: [{ src: "/portfolio/minci.jpg", alt: "Minci Logo", caption: "Minci Logo Design" }],
+            details: {
+              client: "Minci",
+              industry: "Consumer Goods",
+              role: "Logo Designer",
+              year: "2024",
+              deliverables: "Character Logo & Packaging Badge",
+              tools: "Illustrator",
+            },
+            overview: "Warm and inviting character-based logo design built for high brand recall.",
+            challenge: "Balancing cute mascot elements with scalable graphic typography.",
+          },
+          {
+            title: "Sinyal Ordal",
+            username: "sinyalordal",
+            bio: "Tech & insider signals community mark 📡",
+            avatarImage: "/portfolio/sinyalordal.jpg",
+            avatarText: "SO",
+            avatarBg: "from-cyan-500 to-blue-600",
+            posts: [{ src: "/portfolio/sinyalordal.jpg", alt: "Sinyal Ordal Logo", caption: "Sinyal Ordal Logo Design" }],
+            details: {
+              client: "Sinyal Ordal",
+              industry: "Technology & Community",
+              role: "Logo Designer",
+              year: "2024",
+              deliverables: "Digital Logo Suite",
+              tools: "Illustrator, Figma",
+            },
+            overview: "A sharp, futuristic logo design symbolising signal flow and exclusive networking.",
+            challenge: "Crafting an abstract signal icon that feels both tech-forward and trustworthy.",
+          },
+          {
+            title: "Soleste",
+            username: "soleste_official",
+            bio: "Modern & elegant lifestyle brand mark ✨",
+            avatarImage: "/portfolio/soleste.jpg",
+            avatarText: "S",
+            avatarBg: "from-amber-400 to-yellow-600",
+            posts: [{ src: "/portfolio/soleste.jpg", alt: "Soleste Logo", caption: "Soleste Logo Design" }],
+            details: {
+              client: "Soleste",
+              industry: "Lifestyle & Fashion",
+              role: "Logo Designer",
+              year: "2024",
+              deliverables: "Logo Mark, Identity System",
+              tools: "Illustrator, Vector",
+            },
+            overview: "A refined and luxury-feeling brand mark tailored for modern lifestyle products.",
+            challenge: "Creating a simple yet memorable emblem that conveys elegance and durability.",
+          },
+          {
             title: "Pivot Point by Mark Liem",
             username: "pivotpoint_markliem",
             bio: "Executive coaching & strategic consulting logo 🎯",
-            avatarImage: "/portfolio/pivot-point-logo.jpg",
+            avatarImage: "/portfolio/pivot.jpg",
             avatarText: "PP",
             avatarBg: "from-slate-700 to-zinc-900",
-            posts: [{ src: "/portfolio/pivot-point-logo.jpg", alt: "Pivot Point Logo", caption: "Pivot Point Logo Design" }],
+            posts: [{ src: "/portfolio/pivot.jpg", alt: "Pivot Point Logo", caption: "Pivot Point Logo Design" }],
             details: {
               client: "Mark Liem",
               industry: "Consulting & Executive Coaching",
@@ -721,6 +758,25 @@ export default function PortfolioDetailPage() {
             },
             overview: "Minimalist monogram emblem designed for high-level personal executive branding.",
             challenge: "Distilling strategic transformation and direction into a sleek geometric monogram.",
+          },
+          {
+            title: "Raka Trabas",
+            username: "rakatrabas",
+            bio: "Dynamic & energetic adventure community logo 🚵‍♂️",
+            avatarImage: "/portfolio/raka.jpg",
+            avatarText: "RT",
+            avatarBg: "from-orange-500 to-red-500",
+            posts: [{ src: "/portfolio/raka.jpg", alt: "Raka Trabas Logo", caption: "Raka Trabas Logo Design" }],
+            details: {
+              client: "Raka Trabas",
+              industry: "Outdoor & Sports",
+              role: "Logo Designer",
+              year: "2024",
+              deliverables: "Community Logo, Apparel Badge",
+              tools: "Illustrator, Photoshop",
+            },
+            overview: "Bold and high-energy logo mark created for off-road & adventure sports enthusiasts.",
+            challenge: "Blending ruggedness with clean, modern vector lines for print on merchandise.",
           },
         ]
       : [];
@@ -768,25 +824,24 @@ export default function PortfolioDetailPage() {
 
         {isBrandIdentity || isLogoDesign || isCharacterDesign ? (
           /* GRID BRAND IDENTITY, LOGO DESIGN & CHARACTER DESIGN */
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+          <div className={isCharacterDesign ? "grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6" : "grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6"}>
             {isCharacterDesign
               ? collection.items.map((item) => (
                   <div
                     key={item.title}
-                    className="group overflow-hidden rounded-2xl border border-pink-200/80 bg-white p-3.5 shadow-[0_10px_30px_-10px_rgba(233,106,152,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(233,106,152,0.18)] active:scale-98 sm:p-5"
+                    className="group overflow-hidden rounded-2xl border border-[#E9DCE4] bg-white p-3.5 shadow-[0_10px_30px_-10px_rgba(233,106,152,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(233,106,152,0.18)] active:scale-98 sm:p-5"
                   >
                     <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-[#E9DCE4] bg-pink-50/50">
                       <Image
                         src={item.cover}
                         alt={item.title}
                         fill
-                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-[#2D2433]/20 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 group-hover:opacity-100" />
                     </div>
 
-                    <div className="mt-3.5 space-y-1 sm:mt-4">
+                    <div className="mt-3.5 sm:mt-4">
                       <h3 className="text-sm font-bold text-[#2D2433] transition-colors group-hover:text-pink-600 sm:text-base">
                         {item.title}
                       </h3>
@@ -801,7 +856,7 @@ export default function PortfolioDetailPage() {
                       onClick={() => openPostModal(section.title, post, false)}
                       className="group cursor-pointer overflow-hidden rounded-2xl border border-pink-200/80 bg-white p-3.5 shadow-[0_10px_30px_-10px_rgba(233,106,152,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(233,106,152,0.18)] active:scale-98 sm:p-5"
                     >
-                      <div className="relative aspect-square w-full overflow-hidden rounded-xl border border-pink-100 bg-pink-50/50">
+                      <div className={`relative w-full overflow-hidden rounded-xl border border-pink-100 bg-pink-50/50 ${isBrandIdentity ? "aspect-[4/5]" : "aspect-square"}`}>
                         <Image
                           src={post.src}
                           alt={section.title}
@@ -825,10 +880,6 @@ export default function PortfolioDetailPage() {
                         <h3 className="text-sm font-bold text-[#2D2433] transition-colors group-hover:text-pink-600 sm:text-base">
                           {section.title}
                         </h3>
-
-                        <p className="line-clamp-2 text-xs leading-relaxed text-[#6B6570]">
-                          {section.overview}
-                        </p>
                       </div>
                     </div>
                   );
@@ -898,7 +949,9 @@ export default function PortfolioDetailPage() {
                         <div
                           key={itemIndex}
                           onClick={() => openPostModal(section.title, item, isSquare)}
-                          className="group relative aspect-[4/5] cursor-pointer overflow-hidden rounded-lg border border-pink-100 bg-pink-50 transition-all duration-300 hover:shadow-lg active:scale-95 sm:rounded-2xl"
+                          className={`group relative cursor-pointer overflow-hidden rounded-lg border border-pink-100 bg-pink-50 transition-all duration-300 hover:shadow-lg active:scale-95 sm:rounded-2xl ${
+                            isSquare ? "aspect-square" : "aspect-[4/5]"
+                          }`}
                         >
                           <Image
                             src={item.src}
@@ -1023,28 +1076,39 @@ export default function PortfolioDetailPage() {
 
         ) : (
 
-          /* THUMBNAIL DESIGN & CATEGORY LAINNYA: KHUSUS THUMBNAIL DESIGN MENGGUNAKAN RASIO 9:16 (1080x1920) */
+          /* THUMBNAIL DESIGN & LIVE STREAM DESIGN (AUTO-PLAY VIDEO LOOPING TIKTOK 1080x1920 / 9:16) */
           <div className="relative mx-auto rounded-2xl border border-pink-200/80 bg-white p-3 shadow-[0_20px_60px_-15px_rgba(233,106,152,0.1)] sm:rounded-[36px] sm:p-8">
-            <div className="grid grid-cols-3 gap-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 sm:gap-4">
+            <div className={`grid gap-2 sm:gap-4 ${isLiveStreamDesign ? "grid-cols-2 sm:grid-cols-3 md:grid-cols-5" : "grid-cols-3"}`}>
               {gallery.map((item, index) => (
                 <div
                   key={index}
-                  onClick={() => openPostModal(collection.title, item, false, isThumbnailDesign)}
+                  onClick={() => openPostModal(collection.title, item, false, isThumbnailDesign || isLiveStreamDesign)}
                   className={`group relative cursor-pointer overflow-hidden rounded-lg border border-pink-100 bg-pink-50 transition-all duration-300 hover:shadow-lg active:scale-95 sm:rounded-2xl ${
-                    isThumbnailDesign ? "aspect-[9/16]" : "aspect-[4/5]"
+                    isThumbnailDesign || isLiveStreamDesign ? "aspect-[9/16]" : "aspect-[4/5]"
                   }`}
                 >
-                  <Image
-                    src={item.src}
-                    alt={item.alt || `Thumbnail ${index + 1}`}
-                    fill
-                    sizes="(max-width: 640px) 33vw, (max-width: 1024px) 33vw, 33vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+                  {item.isVideo ? (
+                    <video
+                      src={item.src}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  ) : (
+                    <Image
+                      src={item.src}
+                      alt={item.alt || `Thumbnail ${index + 1}`}
+                      fill
+                      sizes="(max-width: 640px) 33vw, (max-width: 1024px) 33vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  )}
 
                   <div className="absolute inset-0 flex items-center justify-center bg-[#2D2433]/50 font-mono text-[10px] font-bold text-white opacity-0 backdrop-blur-[2px] transition-opacity duration-300 sm:text-base sm:group-hover:opacity-100">
                     <span>
-                      {t("projectNumber")} {index + 1}
+                      {item.alt || `${t("projectNumber")} ${index + 1}`}
                     </span>
                   </div>
                 </div>
@@ -1135,14 +1199,25 @@ export default function PortfolioDetailPage() {
                                 : "aspect-[4/5]"
                             } ${isActive ? "opacity-100 scale-100 shadow-2xl" : "opacity-40 scale-90"}`}
                           >
-                            <Image
-                              src={post.src}
-                              alt={post.alt || t("portfolioItem")}
-                              fill
-                              sizes="(max-width: 640px) 75vw, 450px"
-                              className="object-cover pointer-events-none select-none"
-                              priority={isActive}
-                            />
+                            {post.isVideo ? (
+                              <video
+                                src={post.src}
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                className="h-full w-full object-cover"
+                              />
+                            ) : (
+                              <Image
+                                src={post.src}
+                                alt={post.alt || t("portfolioItem")}
+                                fill
+                                sizes="(max-width: 640px) 75vw, 450px"
+                                className="object-cover pointer-events-none select-none"
+                                priority={isActive}
+                              />
+                            )}
                           </div>
                         </div>
                       );
@@ -1185,14 +1260,25 @@ export default function PortfolioDetailPage() {
                       : "aspect-[4/5]"
                   }`}
                 >
-                  <Image
-                    src={activeModalState.posts[0].src}
-                    alt={activeModalState.posts[0].alt || t("portfolioItem")}
-                    fill
-                    sizes="(max-width: 640px) 90vw, 450px"
-                    className="object-cover"
-                    priority
-                  />
+                  {activeModalState.posts[0].isVideo ? (
+                    <video
+                      src={activeModalState.posts[0].src}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="h-full w-full object-cover"
+                    />
+                  ) : (
+                    <Image
+                      src={activeModalState.posts[0].src}
+                      alt={activeModalState.posts[0].alt || t("portfolioItem")}
+                      fill
+                      sizes="(max-width: 640px) 90vw, 450px"
+                      className="object-cover"
+                      priority
+                    />
+                  )}
                 </div>
               </div>
             )}
