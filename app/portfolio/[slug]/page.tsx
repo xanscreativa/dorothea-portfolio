@@ -55,6 +55,7 @@ interface ActiveModalState {
   currentIndex: number;
   isSquare: boolean;
   isPortrait1080x1920?: boolean;
+  isCoverFB?: boolean;
 }
 
 export default function PortfolioDetailPage() {
@@ -98,6 +99,31 @@ export default function PortfolioDetailPage() {
   const isThumbnailDesign = collection.slug === "thumbnail-design";
   const isCharacterDesign = collection.slug === "character-design";
   const isLiveStreamDesign = collection.slug === "live-stream-design";
+  const isDesainLain = collection.slug === "desain-lain";
+
+  // Data Desain Lain (Sampul Facebook 820 x 312 piksel)
+  const desainLainItems: GalleryItem[] = [
+    {
+      src: "/portfolio/backdrop-fa.jpg",
+      alt: "Backdrop Forum Anak",
+      caption: "Backdrop Forum Anak",
+    },
+    {
+      src: "/portfolio/billboard-uksw.jpg",
+      alt: "Billboard UKSW",
+      caption: "Billboard UKSW",
+    },
+    {
+      src: "/portfolio/spanduk-pelkatpa.jpg",
+      alt: "Spanduk Pelkat PA",
+      caption: "Spanduk Pelkat PA",
+    },
+    {
+      src: "/portfolio/campaign.jpg",
+      alt: "Campaign Design",
+      caption: "Campaign Design",
+    },
+  ];
 
   // Data 5 Live Stream Design (Video 1080x1920)
   const liveStreamItems: GalleryItem[] = [
@@ -143,7 +169,9 @@ export default function PortfolioDetailPage() {
     };
   });
 
-  const gallery: GalleryItem[] = isLiveStreamDesign
+  const gallery: GalleryItem[] = isDesainLain
+    ? desainLainItems
+    : isLiveStreamDesign
     ? liveStreamItems
     : collection.gallery && collection.gallery.length > 0
     ? collection.gallery
@@ -222,7 +250,13 @@ export default function PortfolioDetailPage() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [activeModalState, handleNextModal, handlePrevModal]);
 
-  const openPostModal = (sectionTitle: string, postItem: GalleryItem, isSquare: boolean, isPortrait1080x1920?: boolean) => {
+  const openPostModal = (
+    sectionTitle: string,
+    postItem: GalleryItem,
+    isSquare: boolean,
+    isPortrait1080x1920?: boolean,
+    isCoverFB?: boolean
+  ) => {
     if (postItem.subSlides && postItem.subSlides.length > 0) {
       setActiveModalState({
         sectionTitle,
@@ -230,6 +264,7 @@ export default function PortfolioDetailPage() {
         currentIndex: 0,
         isSquare,
         isPortrait1080x1920,
+        isCoverFB,
       });
       return;
     }
@@ -240,6 +275,7 @@ export default function PortfolioDetailPage() {
       currentIndex: 0,
       isSquare,
       isPortrait1080x1920,
+      isCoverFB,
     });
   };
 
@@ -1074,9 +1110,46 @@ export default function PortfolioDetailPage() {
             })}
           </div>
 
+        ) : isDesainLain ? (
+
+          /* GALERI DESAIN LAIN: RASIO SAMPUL FACEBOOK 820 x 312 PIKSEL */
+          <div className="flex flex-col gap-6">
+            {gallery.map((item, index) => (
+              <div
+                key={index}
+                onClick={() =>
+                  openPostModal(collection.title, item, false, false, true)
+                }
+                className="group relative cursor-pointer overflow-hidden rounded-2xl border border-pink-200/80 bg-white p-3 shadow-sm transition-all duration-300 hover:border-pink-300 hover:shadow-md active:scale-98"
+              >
+                <div
+                  style={{ aspectRatio: "820 / 312" }}
+                  className="relative w-full overflow-hidden rounded-xl bg-pink-50"
+                >
+                  <Image
+                    src={item.src}
+                    alt={item.alt || item.caption || `Desain Lain ${index + 1}`}
+                    fill
+                    sizes="(max-width: 1152px) 100vw, 1152px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-[#2D2433]/40 font-mono text-sm font-bold text-white opacity-0 backdrop-blur-[2px] transition-opacity duration-300 group-hover:opacity-100">
+                    <span>{item.caption || item.alt}</span>
+                  </div>
+                </div>
+
+                <div className="mt-3 px-2 pb-1">
+                  <h3 className="text-sm font-bold text-[#2D2433] sm:text-base">
+                    {item.caption || item.alt}
+                  </h3>
+                </div>
+              </div>
+            ))}
+          </div>
+
         ) : (
 
-          /* THUMBNAIL DESIGN & LIVE STREAM DESIGN (AUTO-PLAY VIDEO LOOPING TIKTOK 1080x1920 / 9:16) */
+          /* THUMBNAIL DESIGN & LIVE STREAM DESIGN */
           <div className="relative mx-auto rounded-2xl border border-pink-200/80 bg-white p-3 shadow-[0_20px_60px_-15px_rgba(233,106,152,0.1)] sm:rounded-[36px] sm:p-8">
             <div className={`grid gap-2 sm:gap-4 ${isLiveStreamDesign ? "grid-cols-2 sm:grid-cols-3 md:grid-cols-5" : "grid-cols-3"}`}>
               {gallery.map((item, index) => (
@@ -1162,7 +1235,9 @@ export default function PortfolioDetailPage() {
           </div>
 
           <div
-            className="relative flex w-full max-w-xl flex-col items-center gap-4 sm:gap-6"
+            className={`relative flex w-full flex-col items-center gap-4 sm:gap-6 ${
+              activeModalState.isCoverFB ? "max-w-3xl" : "max-w-xl"
+            }`}
             onClick={(e) => e.stopPropagation()}
           >
             {activeModalState.posts.length > 1 ? (
@@ -1192,7 +1267,9 @@ export default function PortfolioDetailPage() {
                         >
                           <div
                             className={`relative w-full overflow-hidden rounded-2xl bg-black/40 transition-all duration-500 ${
-                              activeModalState.isPortrait1080x1920
+                              activeModalState.isCoverFB
+                                ? "aspect-[820/312]"
+                                : activeModalState.isPortrait1080x1920
                                 ? "aspect-[9/16]"
                                 : activeModalState.isSquare
                                 ? "aspect-square"
@@ -1213,7 +1290,7 @@ export default function PortfolioDetailPage() {
                                 src={post.src}
                                 alt={post.alt || t("portfolioItem")}
                                 fill
-                                sizes="(max-width: 640px) 75vw, 450px"
+                                sizes="(max-width: 640px) 75vw, 600px"
                                 className="object-cover pointer-events-none select-none"
                                 priority={isActive}
                               />
@@ -1250,10 +1327,16 @@ export default function PortfolioDetailPage() {
                 </button>
               </div>
             ) : (
-              <div className="relative w-full max-w-sm overflow-hidden rounded-2xl bg-black/40 shadow-2xl">
+              <div
+                className={`relative w-full overflow-hidden rounded-2xl bg-black/40 shadow-2xl ${
+                  activeModalState.isCoverFB ? "max-w-2xl" : "max-w-sm"
+                }`}
+              >
                 <div
                   className={`relative w-full ${
-                    activeModalState.isPortrait1080x1920
+                    activeModalState.isCoverFB
+                      ? "aspect-[820/312]"
+                      : activeModalState.isPortrait1080x1920
                       ? "aspect-[9/16]"
                       : activeModalState.isSquare
                       ? "aspect-square"
@@ -1274,7 +1357,7 @@ export default function PortfolioDetailPage() {
                       src={activeModalState.posts[0].src}
                       alt={activeModalState.posts[0].alt || t("portfolioItem")}
                       fill
-                      sizes="(max-width: 640px) 90vw, 450px"
+                      sizes="(max-width: 640px) 90vw, 600px"
                       className="object-cover"
                       priority
                     />
