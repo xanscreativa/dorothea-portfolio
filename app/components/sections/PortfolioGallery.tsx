@@ -89,7 +89,7 @@ const WORKS: WorkItem[] = [
     category: "MISCELLANEOUS DESIGN",
     title: "Desain Lain",
     titleKey: "work7Title",
-    image: "/portfolio/backdrop-fa.jpg",
+    image: "/portfolio/desain-lain.jpg",
     slug: "desain-lain",
     span: "col-span-12", // Full-width
     aspectRatio: "16/9", // Rasio landscape 1920x1080
@@ -152,7 +152,11 @@ export default function PortfolioGallery() {
           {WORKS.map((item, index) => (
             <div key={item.id} className={item.span}>
               <FadeUp delay={index * 0.05}>
-                <div className="group relative flex flex-col justify-between rounded-xl border border-pink-200/40 bg-white/80 p-2 shadow-xs backdrop-blur-xs transition-all duration-300 ease-out hover:-translate-y-1 hover:border-pink-300 hover:shadow-md sm:rounded-2xl sm:p-3.5">
+                {/* Seluruh card dibungkus komponen Link */}
+                <Link
+                  href={`/portfolio/${item.slug}`}
+                  className="group relative flex cursor-pointer flex-col justify-between rounded-xl border border-pink-200/40 bg-white/80 p-2 shadow-xs backdrop-blur-xs transition-all duration-300 ease-out hover:-translate-y-1 hover:border-pink-300 hover:shadow-md sm:rounded-2xl sm:p-3.5"
+                >
                   <div className="relative z-10">
                     <div
                       style={{ aspectRatio: item.aspectRatio }}
@@ -186,11 +190,9 @@ export default function PortfolioGallery() {
                     </div>
                   </div>
 
+                  {/* Footer Card diganti menggunakan <div> agar tidak bentrok dengan <Link> induk */}
                   <div className="relative z-10 mt-2 flex items-center justify-between border-t border-pink-100/60 pt-2 sm:mt-2.5 sm:pt-2.5">
-                    <Link
-                      href={`/portfolio/${item.slug}`}
-                      className="inline-flex w-full items-center justify-between text-[8px] font-bold uppercase tracking-[0.1em] text-[#2D2433] transition-colors duration-300 group-hover:text-pink-600 sm:text-[11px]"
-                    >
+                    <div className="inline-flex w-full items-center justify-between text-[8px] font-bold uppercase tracking-[0.1em] text-[#2D2433] transition-colors duration-300 group-hover:text-pink-600 sm:text-[11px]">
                       <span>
                         {getTranslation("viewCollection", "VIEW COLLECTION")}
                       </span>
@@ -210,9 +212,9 @@ export default function PortfolioGallery() {
                           />
                         </svg>
                       </div>
-                    </Link>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </FadeUp>
             </div>
           ))}
