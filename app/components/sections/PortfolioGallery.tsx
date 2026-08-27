@@ -15,6 +15,7 @@ export interface WorkItem {
   span: string;
   aspectRatio: string;
   number: string;
+  isLiveStream?: boolean;
 }
 
 const WORKS: WorkItem[] = [
@@ -23,7 +24,7 @@ const WORKS: WorkItem[] = [
     category: "CREATIVE",
     title: "Social Media Design",
     titleKey: "work1Title",
-    image: "/portfolio/uksw-1.jpg",
+    image: "/portfolio/sosmed.jpg",
     slug: "social-media-design",
     span: "col-span-6",
     aspectRatio: "1/1",
@@ -45,7 +46,7 @@ const WORKS: WorkItem[] = [
     category: "CREATIVE",
     title: "Logo Design",
     titleKey: "work3Title",
-    image: "/portfolio/pelkatpa.jpg",
+    image: "/portfolio/hut63.jpg",
     slug: "logo-design",
     span: "col-span-6",
     aspectRatio: "4/5",
@@ -56,7 +57,7 @@ const WORKS: WorkItem[] = [
     category: "CREATIVE",
     title: "Thumbnail Design",
     titleKey: "work4Title",
-    image: "/portfolio/thumbnail-1.jpg",
+    image: "/portfolio/thumbthumb.jpg",
     slug: "thumbnail-design",
     span: "col-span-6",
     aspectRatio: "1/1",
@@ -67,7 +68,7 @@ const WORKS: WorkItem[] = [
     category: "CREATIVE",
     title: "Character Design",
     titleKey: "work5Title",
-    image: "/portfolio/character.jpg",
+    image: "/portfolio/emily.jpg",
     slug: "character-design",
     span: "col-span-6",
     aspectRatio: "1/1",
@@ -83,6 +84,7 @@ const WORKS: WorkItem[] = [
     span: "col-span-6",
     aspectRatio: "4/5",
     number: "06",
+    isLiveStream: true, // Flag khusus tampilan TikTok Live
   },
   {
     id: "work-7",
@@ -152,7 +154,6 @@ export default function PortfolioGallery() {
           {WORKS.map((item, index) => (
             <div key={item.id} className={item.span}>
               <FadeUp delay={index * 0.05}>
-                {/* Seluruh card dibungkus komponen Link */}
                 <Link
                   href={`/portfolio/${item.slug}`}
                   className="group relative flex cursor-pointer flex-col justify-between rounded-xl border border-pink-200/40 bg-white/80 p-2 shadow-xs backdrop-blur-xs transition-all duration-300 ease-out hover:-translate-y-1 hover:border-pink-300 hover:shadow-md sm:rounded-2xl sm:p-3.5"
@@ -170,13 +171,42 @@ export default function PortfolioGallery() {
                         className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                       />
 
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#2D2433]/30 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                      {/* TIKTOK LIVE OVERLAY UNTUK ITEM LIVE STREAM */}
+                      {item.isLiveStream ? (
+                        <>
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40" />
+                          
+                          {/* Top Left: Live Badge ala TikTok */}
+                          <div className="absolute left-2 top-2 z-10 flex items-center gap-1 sm:left-3 sm:top-3">
+                            <span className="inline-flex items-center gap-1 rounded-full bg-rose-600/90 px-2 py-0.5 text-[7px] font-bold text-white shadow-sm backdrop-blur-md sm:px-2.5 sm:text-[9px]">
+                              <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+                              LIVE
+                            </span>
+                          </div>
 
-                      <div className="absolute left-2 top-2 sm:left-3 sm:top-3">
-                        <span className="rounded-full border border-pink-200/60 bg-white/90 px-2 py-0.5 text-[7px] font-mono font-bold uppercase tracking-wider text-[#2D2433] backdrop-blur-md sm:px-2.5 sm:text-[9px]">
-                          {item.category}
-                        </span>
-                      </div>
+                          {/* Right side: Floating TikTok UI Elements */}
+                          <div className="absolute right-2 top-1/2 z-10 flex -translate-y-1/2 flex-col items-center gap-2 sm:right-3">
+                            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-black/40 text-pink-400 backdrop-blur-md transition-transform group-hover:scale-110 sm:h-8 sm:w-8">
+                              ❤️
+                            </div>
+                            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-md transition-transform group-hover:scale-110 sm:h-8 sm:w-8">
+                              💬
+                            </div>
+                            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-md transition-transform group-hover:scale-110 sm:h-8 sm:w-8">
+                              🎁
+                            </div>
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#2D2433]/30 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                          <div className="absolute left-2 top-2 sm:left-3 sm:top-3">
+                            <span className="rounded-full border border-pink-200/60 bg-white/90 px-2 py-0.5 text-[7px] font-mono font-bold uppercase tracking-wider text-[#2D2433] backdrop-blur-md sm:px-2.5 sm:text-[9px]">
+                              {item.category}
+                            </span>
+                          </div>
+                        </>
+                      )}
 
                       <span className="pointer-events-none absolute right-2 top-1.5 text-lg font-black text-white/50 drop-shadow-xs transition-transform duration-300 group-hover:scale-105 sm:right-3 sm:top-2 sm:text-2xl">
                         {item.number}
@@ -190,7 +220,6 @@ export default function PortfolioGallery() {
                     </div>
                   </div>
 
-                  {/* Footer Card diganti menggunakan <div> agar tidak bentrok dengan <Link> induk */}
                   <div className="relative z-10 mt-2 flex items-center justify-between border-t border-pink-100/60 pt-2 sm:mt-2.5 sm:pt-2.5">
                     <div className="inline-flex w-full items-center justify-between text-[8px] font-bold uppercase tracking-[0.1em] text-[#2D2433] transition-colors duration-300 group-hover:text-pink-600 sm:text-[11px]">
                       <span>
