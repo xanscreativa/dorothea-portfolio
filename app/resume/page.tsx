@@ -172,15 +172,6 @@ export default function ResumePage() {
                     </span>
                   </a>
 
-                  {/* Phone */}
-                  <div className="flex items-center gap-2.5">
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-pink-50 text-pink-500">
-                      <Phone className="h-3.5 w-3.5" />
-                    </span>
-
-                    +62 851 8000 1184
-                  </div>
-
                   {/* Location */}
                   <div className="flex items-center gap-2.5">
                     <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-pink-50 text-pink-500">
