@@ -60,7 +60,6 @@ export default function PortfolioDetailPage() {
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [dragOffset, setDragOffset] = useState<number>(0);
   const [startPos, setStartPos] = useState<number>(0);
-  const [isAnimating, setIsAnimating] = useState<boolean>(false);
 
   const carouselRef = useRef<HTMLDivElement | null>(null);
 
@@ -87,58 +86,40 @@ export default function PortfolioDetailPage() {
     ? collection.gallery
     : defaultThumbnailGrid;
 
+  // Navigasi carousel dibuat langsung tanpa lock 500ms.
+  // Sebelumnya klik berikutnya/prev tertahan oleh isAnimating + setTimeout,
+  // sehingga terasa seperti tombol mengalami delay.
   const handleNextModal = useCallback(() => {
-    if (!activeModalState || isAnimating) return;
-
-    setIsAnimating(true);
-
     setActiveModalState((prev) => {
-      if (!prev) return null;
-
-      const newIndex = (prev.currentIndex + 1) % prev.posts.length;
+      if (!prev || prev.posts.length <= 1) return prev;
 
       return {
         ...prev,
-        currentIndex: newIndex,
+        currentIndex: (prev.currentIndex + 1) % prev.posts.length,
       };
     });
 
     setDragOffset(0);
-
-    setTimeout(() => {
-      setIsAnimating(false);
-    }, 500);
-  }, [activeModalState, isAnimating]);
+  }, []);
 
   const handlePrevModal = useCallback(() => {
-    if (!activeModalState || isAnimating) return;
-
-    setIsAnimating(true);
-
     setActiveModalState((prev) => {
-      if (!prev) return null;
-
-      const newIndex =
-        prev.currentIndex === 0
-          ? prev.posts.length - 1
-          : prev.currentIndex - 1;
+      if (!prev || prev.posts.length <= 1) return prev;
 
       return {
         ...prev,
-        currentIndex: newIndex,
+        currentIndex:
+          prev.currentIndex === 0
+            ? prev.posts.length - 1
+            : prev.currentIndex - 1,
       };
     });
 
     setDragOffset(0);
-
-    setTimeout(() => {
-      setIsAnimating(false);
-    }, 500);
-  }, [activeModalState, isAnimating]);
+  }, []);
 
   const handlePointerDown = (e: React.PointerEvent) => {
     if (
-      isAnimating ||
       !activeModalState ||
       activeModalState.posts.length <= 1
     ) {
@@ -168,12 +149,8 @@ export default function PortfolioDetailPage() {
     } else if (dragOffset > threshold) {
       handlePrevModal();
     } else {
-      setIsAnimating(true);
+      // Tap/click tanpa swipe: reset posisi langsung, tanpa menunggu timeout.
       setDragOffset(0);
-
-      setTimeout(() => {
-        setIsAnimating(false);
-      }, 500);
     }
   };
 
@@ -978,7 +955,7 @@ export default function PortfolioDetailPage() {
 
                 <div
                   ref={carouselRef}
-                  className="w-full overflow-hidden touch-pan-y cursor-grab active:cursor-grabbing"
+                  className="w-full overflow-hidden touch-pan-y cursor-grab active:cursor-grabbing select-none"
                   onPointerDown={handlePointerDown}
                   onPointerMove={handlePointerMove}
                   onPointerUp={handlePointerUp}
@@ -991,7 +968,7 @@ export default function PortfolioDetailPage() {
                       transform: `translate3d(calc(var(--peek-offset) - ${activeModalState.currentIndex} * (var(--slide-w) + var(--slide-gap)) + ${dragOffset}px), 0, 0)`,
                       transition: isDragging
                         ? "none"
-                        : "transform 500ms cubic-bezier(0.16, 1, 0.3, 1)",
+                        : "transform 280ms cubic-bezier(0.22, 1, 0.36, 1)",
                       willChange: "transform",
                     }}
                   >
