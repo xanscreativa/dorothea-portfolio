@@ -3,7 +3,6 @@ import {
   Download,
   ArrowLeft,
   Mail,
-  Phone,
   MapPin,
   Globe,
   Award,
@@ -86,7 +85,7 @@ export default function ResumePage() {
         {/* =========================================
             TOP NAVIGATION
         ========================================== */}
-        <div className="mb-6 flex items-center justify-start sm:mb-8 sm:justify-between">
+        <div className="mb-6 flex items-center justify-between sm:mb-8">
 
           {/* Back to Home */}
           <Link
@@ -97,15 +96,15 @@ export default function ResumePage() {
             Back to Home
           </Link>
 
-          {/* Desktop Download */}
+          {/* Download Button (Top Right for Mobile & Desktop) */}
           <a
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center justify-center gap-2 rounded-full bg-pink-500 px-5 py-2.5 text-[11px] font-bold text-white shadow-lg shadow-pink-200 transition-all hover:-translate-y-0.5 hover:bg-pink-600 hover:shadow-xl sm:inline-flex sm:px-6 sm:py-3 sm:text-xs"
+            className="inline-flex items-center justify-center gap-1.5 rounded-full bg-pink-500 px-3.5 py-2 text-[10px] font-bold text-white shadow-lg shadow-pink-200 transition-all hover:-translate-y-0.5 hover:bg-pink-600 hover:shadow-xl sm:px-6 sm:py-3 sm:text-xs sm:gap-2"
           >
-            <Download className="h-4 w-4" />
-            Download PDF Resume
+            <Download className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+            <span>Download PDF</span>
           </a>
 
         </div>
@@ -516,29 +515,12 @@ export default function ResumePage() {
 
       </div>
 
-      {/* =========================================
-          MOBILE FLOATING DOWNLOAD BUTTON
-      ========================================== */}
-      <div className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 sm:hidden">
-
-        <a
-          href="/resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 rounded-full border border-white/70 bg-pink-500 px-4 py-2.5 text-[10px] font-bold text-white shadow-[0_8px_30px_rgba(236,72,153,0.35)] backdrop-blur-md transition-all active:scale-95"
-        >
-          <Download className="h-3.5 w-3.5" />
-          <span>Download Resume</span>
-        </a>
-
-      </div>
-
     </main>
   );
 }
 
 /* =========================================
-   SECTION TITLE
+    SECTION TITLE
 ========================================= */
 
 function SectionTitle({
@@ -570,7 +552,7 @@ function SectionTitle({
 }
 
 /* =========================================
-   ACHIEVEMENT CARD
+    ACHIEVEMENT CARD
 ========================================= */
 
 function AchievementCard({

@@ -7,7 +7,7 @@ const socialLinks = [
   { name: "LinkedIn", href: "https://linkedin.com", handle: "Inquire Profile" },
   { name: "YouTube", href: "https://youtube.com", handle: "Showreel & Edits" },
   { name: "Instagram", href: "https://instagram.com", handle: "Daily Visuals" },
-  { name: "Behance", href: "https://behance.net", handle: "Case Studies" },
+  { name: "Behance", href: "https://behance.com", handle: "Case Studies" },
 ];
 
 export default function ContactSection() {

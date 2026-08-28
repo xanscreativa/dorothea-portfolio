@@ -18,7 +18,7 @@ export function TikTokLiveMockup({
   title: string;
 }) {
   return (
-    <div className="group relative aspect-[9/16] w-full overflow-hidden rounded-[18px] bg-black shadow-[0_18px_45px_-15px_rgba(45,36,51,0.28)] sm:rounded-[22px]">
+    <div className="group relative aspect-[9/16] w-full overflow-hidden rounded-[18px] bg-black shadow-[0_18px_45px_-15px_rgba(45,36,51,0.28)] sm:rounded-[22px] transform-gpu">
       {/* VIDEO / IMAGE */}
       {item.isVideo ? (
         <video
@@ -28,7 +28,7 @@ export function TikTokLiveMockup({
           muted
           playsInline
           preload="metadata"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover transform-gpu will-change-transform"
         />
       ) : (
         <Image

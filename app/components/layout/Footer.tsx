@@ -24,7 +24,7 @@ const BehanceIcon = ({ className = "h-3 w-3" }: { className?: string }) => (
 const socials = [
   { label: "Instagram", href: "https://instagram.com/xansstudio", icon: InstagramIcon },
   { label: "LinkedIn", href: "https://linkedin.com/in/dorotheaalexandra/", icon: LinkedinIcon },
-  { label: "Behance", href: "https://behance.net/dorothealexand", icon: BehanceIcon },
+  { label: "Behance", href: "https://behance.com/dorothealexand", icon: BehanceIcon },
   { label: "YouTube", href: "https://youtube.com/@xans.creativa", icon: YoutubeIcon },
 ];
 

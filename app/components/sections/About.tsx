@@ -43,9 +43,10 @@ export default function About() {
 
         {/* =========================
             LEFT COLUMN
-        ========================== */}
+        ========================= */}
         <div className="mb-4 lg:col-span-5 sm:mb-8 lg:mb-0">
-          <div className="relative mx-auto w-full max-w-[300px] sm:max-w-md lg:max-w-none">
+          {/* Diperkecil ukurannya melalui max-w */}
+          <div className="relative mx-auto w-full max-w-[220px] sm:max-w-[280px] lg:max-w-[340px]">
 
             <FadeUp delay={0.1}>
               <div className="relative rounded-[24px] bg-gradient-to-b from-white via-pink-50/60 to-pink-100/30 p-2.5 border border-pink-200/80 shadow-[0_20px_50px_rgba(233,106,152,0.1)] sm:rounded-[44px] sm:p-3">
@@ -60,7 +61,7 @@ export default function About() {
                   <div className="pointer-events-none absolute right-3 top-3 z-10 h-3.5 w-3.5 border-r-2 border-t-2 border-pink-300/70 sm:h-5 sm:w-5" />
 
                   <Image
-                    src="/hero/profile.png"
+                    src="/hero/sandra.png"
                     alt={t("profileImageAlt")}
                     width={900}
                     height={1200}
@@ -101,7 +102,7 @@ export default function About() {
 
         {/* =========================
             RIGHT COLUMN
-        ========================== */}
+        ========================= */}
         <div className="lg:col-span-7">
           <div className="mx-auto w-full">
 

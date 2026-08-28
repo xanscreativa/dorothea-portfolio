@@ -13,7 +13,10 @@ interface PortfolioCardProps {
   onOpen?: (project: PortfolioCollection) => void;
 }
 
-export default function PortfolioCard({ project, onOpen }: PortfolioCardProps) {
+export default function PortfolioCard({
+  project,
+  onOpen,
+}: PortfolioCardProps) {
   return (
     <motion.article
       layout
@@ -29,8 +32,11 @@ export default function PortfolioCard({ project, onOpen }: PortfolioCardProps) {
         onClick={() => onOpen?.(project)}
         className="flex h-full w-full cursor-pointer flex-col text-left"
       >
-        {/* Menggunakan aspect ratio dinamis dari data proyek agar layout bento desktop tetap terjaga */}
-        <div className={`relative w-full overflow-hidden rounded-[20px] bg-pink-50 ${project.aspectRatio || "aspect-[4/5]"}`}>
+        <div
+          className={`relative w-full overflow-hidden rounded-[20px] bg-pink-50 ${
+            project.aspectRatio || "aspect-[4/5]"
+          }`}
+        >
           <Image
             src={project.cover}
             alt={project.title}
@@ -44,16 +50,21 @@ export default function PortfolioCard({ project, onOpen }: PortfolioCardProps) {
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.32em] text-[#2D2433]/60">
             {project.category}
           </p>
-          {/* Menggunakan ukuran font desktop secara konsisten tanpa perubahan responsif yang mengecil di mobile */}
+
           <h3 className="mt-3 text-[1.55rem] font-medium leading-[1.05] tracking-[-0.02em] text-[#2D2433] transition-colors duration-500 group-hover:text-[#D86C98]">
             {project.title}
           </h3>
-          <p className="mt-4 max-w-xl text-sm leading-7 text-[#6B6570] line-clamp-2">
+
+          {/* Description */}
+          <p className="mt-4 max-w-xl text-xs font-normal not-italic leading-6 text-justify text-[#6B6570] line-clamp-3">
             {project.description}
           </p>
+
           <div className="mt-5 flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.26em] text-[#2D2433]/75 transition-all duration-500 group-hover:text-[#D86C98]">
             <span>View Collection</span>
-            <span className="inline-block transition-transform duration-500 group-hover:translate-x-1">→</span>
+            <span className="inline-block transition-transform duration-500 group-hover:translate-x-1">
+              →
+            </span>
           </div>
         </div>
       </Link>
