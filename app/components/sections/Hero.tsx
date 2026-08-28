@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
-import FadeUp from "@/components/animation/FadeUp";
 import Counter from "@/components/ui/Counter";
 import useParallax from "@/components/animation/useParallax";
 import { MapPin, Briefcase, Globe } from "lucide-react";
@@ -55,21 +54,21 @@ export default function Hero() {
               <div className="pointer-events-none absolute left-1/2 top-1/2 -z-20 h-[250px] w-[250px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-pink-300/40 via-pink-200/30 to-pink-100/20 blur-[55px] sm:h-[400px] sm:w-[400px] sm:blur-[80px]" />
 
               {/* Brush Graphic */}
-              <FadeUp delay={0.05}>
+              <div>
                 <div className="pointer-events-none absolute -right-3 top-1 -z-10 w-full max-w-[420px] select-none opacity-20 blur-[0.5px] sm:-right-8 sm:-top-2 sm:max-w-[600px] lg:max-w-[520px]">
                   <Image
                     src="/hero/brush.png"
                     alt=""
                     width={900}
                     height={900}
-                    priority
+                    loading="lazy"
                     className="w-full object-contain"
                   />
                 </div>
-              </FadeUp>
+              </div>
 
               {/* Flowers */}
-              <FadeUp delay={0.1}>
+              <div>
                 <div className="pointer-events-none absolute -right-3 top-2 -z-10 w-[108%] max-w-[440px] select-none sm:-right-10 sm:-top-2 sm:max-w-[630px] lg:max-w-[550px]">
                   <motion.div
                     animate={{ rotate: [-0.6, 0.6, -0.6] }}
@@ -84,14 +83,15 @@ export default function Hero() {
                       alt=""
                       width={2048}
                       height={2048}
+                      loading="lazy"
                       className="w-full object-contain opacity-95"
                     />
                   </motion.div>
                 </div>
-              </FadeUp>
+              </div>
 
               {/* Main Portrait */}
-              <FadeUp delay={0.15}>
+              <div>
                 <motion.div
                   animate={{ y: [0, -5, 0] }}
                   transition={{
@@ -110,10 +110,10 @@ export default function Hero() {
                     className="h-auto w-full object-contain drop-shadow-[0_16px_28px_rgba(229,135,176,0.2)] transition-transform duration-500 hover:scale-[1.01]"
                   />
                 </motion.div>
-              </FadeUp>
+              </div>
 
               {/* Quote Card */}
-              <FadeUp delay={0.22}>
+              <div>
                 <motion.div
                   animate={{ y: [0, -4, 0] }}
                   transition={{
@@ -135,7 +135,7 @@ export default function Hero() {
                     </span>
                   </p>
                 </motion.div>
-              </FadeUp>
+              </div>
             </div>
           </div>
 
@@ -143,7 +143,7 @@ export default function Hero() {
           <div className="mt-2 flex w-full max-w-[360px] flex-col items-center lg:order-1 lg:col-span-7 lg:mt-0 lg:max-w-none lg:items-start">
 
             {/* Heading & Role */}
-            <FadeUp delay={0.25}>
+            <div>
               <h1 className="mt-1 text-3xl font-black leading-[1.08] tracking-tight text-[#2D2433] xs:text-4xl sm:mt-2.5 sm:text-5xl lg:text-5xl xl:text-[3.75rem] 2xl:text-[4rem]">
                 Dorothea Alexandra{" "}
                 <span className="whitespace-nowrap">
@@ -157,10 +157,10 @@ export default function Hero() {
               <p className="mt-2 text-base font-bold tracking-wide text-pink-600 sm:text-lg lg:text-lg xl:text-xl">
                 {t("roleSubtitle")}
               </p>
-            </FadeUp>
+            </div>
 
             {/* Availability */}
-            <FadeUp delay={0.32}>
+            <div>
               <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-pink-200/80 bg-white/90 px-3.5 py-1 shadow-2xs backdrop-blur-md sm:mt-4 sm:px-4 sm:py-1.5 lg:mt-3 lg:px-3.5 lg:py-1">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-pink-400 opacity-75" />
@@ -171,17 +171,17 @@ export default function Hero() {
                   {t("availableStatus")}
                 </p>
               </div>
-            </FadeUp>
+            </div>
 
             {/* Value Proposition */}
-            <FadeUp delay={0.38}>
+            <div>
               <p className="mx-auto mt-3 max-w-[350px] text-xs leading-relaxed text-[#6B6570] sm:mt-4 sm:max-w-xl sm:text-base sm:leading-relaxed lg:mx-0 lg:max-w-lg lg:text-sm xl:text-base">
                 {t("heroDescription")}
               </p>
-            </FadeUp>
+            </div>
 
             {/* Information Rows */}
-            <FadeUp delay={0.44}>
+            <div>
               <div className="mt-3.5 flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs font-semibold text-[#6B6570] sm:gap-x-5 sm:text-sm lg:mt-3 lg:justify-start lg:gap-x-4 lg:gap-y-1 lg:text-xs">
                 <div className="inline-flex items-center gap-1.5">
                   <MapPin className="h-4 w-4 shrink-0 text-pink-500 lg:h-3.5 lg:w-3.5" />
@@ -198,10 +198,10 @@ export default function Hero() {
                   <span>{t("relocation")}</span>
                 </div>
               </div>
-            </FadeUp>
+            </div>
 
             {/* CTA — VIEW PROJECTS ONLY */}
-            <FadeUp delay={0.5}>
+            <div>
               <div className="mt-6 flex w-full items-center justify-center sm:mt-7 lg:mt-5 lg:w-auto lg:justify-start">
                 <Button
                   href="#portfolio"
@@ -210,10 +210,10 @@ export default function Hero() {
                   {t("viewProjects")}
                 </Button>
               </div>
-            </FadeUp>
+            </div>
 
             {/* STATISTICS */}
-            <FadeUp delay={0.58}>
+            <div>
               <div className="mt-8 flex w-full flex-nowrap items-center justify-center gap-2.5 sm:mt-10 sm:gap-4 lg:mt-6 lg:gap-3">
                 {[
                   { n: 50, l: t("statProjects") },
@@ -235,13 +235,13 @@ export default function Hero() {
                   </div>
                 ))}
               </div>
-            </FadeUp>
+            </div>
           </div>
         </div>
       </div>
 
       {/* SCROLL CUE */}
-      <FadeUp delay={0.68}>
+      <div>
         <div className="mt-6 flex flex-col items-center justify-center lg:mt-2">
           <button
             onClick={() => scrollToSection("portfolio")}
@@ -263,7 +263,7 @@ export default function Hero() {
             </div>
           </button>
         </div>
-      </FadeUp>
+      </div>
     </section>
   );
 }

@@ -62,7 +62,7 @@ export const socialSections: SectionData[] = [
   {
     title: "Pelkat PA GPIB Immanuel Pekanbaru",
     username: "pelkatpa.pku",
-    bio: "Ruang ceria anak-anak kreatif & penuh kasih Tuhan 🙏✨ GPIB Immanuel Pekanbaru.",
+    bio: "Ibadah Hari Minggu Pelayanan Anak",
     avatarImage: "/portfolio/pa-logo.jpg",
     avatarText: "P",
     avatarBg: "from-blue-500 to-indigo-400",
@@ -88,7 +88,7 @@ export const socialSections: SectionData[] = [
   {
     title: "UKSW",
     username: "uksw_salatiga",
-    bio: "Official visual feed for UKSW Salatiga 🎓 Shaping futures through creative campus stories.",
+    bio: "Creative Minority",
     avatarImage: "/portfolio/uksw-logo.jpg",
     avatarText: "U",
     avatarBg: "from-pink-500 to-rose-400",
@@ -258,7 +258,7 @@ export const brandSections: SectionData[] = [
   {
     title: "Jendela Finansial",
     username: "jendelafinansial",
-    bio: "Smart financial tips & wealth education brand identity 💡",
+    bio: "Smart financial tips & wealth education",
     avatarImage: "/portfolio/jendela-finansial.jpg",
     avatarText: "JF",
     avatarBg: "from-emerald-500 to-teal-400",
@@ -315,7 +315,7 @@ export const brandSections: SectionData[] = [
   {
     title: "Consistrade",
     username: "consistrade",
-    bio: "Professional corporate and trading brand identity design 📈",
+    bio: "Financial & Trading Education",
     avatarImage: "/portfolio/consistrade-thumb.jpg",
     avatarText: "C",
     avatarBg: "from-purple-500 to-pink-500",
