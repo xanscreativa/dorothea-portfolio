@@ -33,8 +33,10 @@ function VideoCardWrapper({
         }}
         tabIndex={0}
         role="button"
-        aria-label={`${t("viewDetailsForProject")}: ${project.title || t("portfolioItem")}`}
-        className="group relative flex flex-col h-full cursor-pointer outline-none transition-all duration-500 ease-out hover:-translate-y-2 focus-visible:ring-2 focus-visible:ring-pink-400 focus-visible:ring-offset-4 focus-visible:ring-offset-[#FFFDFC] rounded-3xl"
+        aria-label={`${t("viewDetailsForProject")}: ${
+          project.title || t("portfolioItem")
+        }`}
+        className="group relative flex h-full cursor-pointer flex-col rounded-3xl outline-none transition-all duration-500 ease-out hover:-translate-y-2 focus-visible:ring-2 focus-visible:ring-pink-400 focus-visible:ring-offset-4 focus-visible:ring-offset-[#FFFDFC]"
       >
         <VideoCard project={project} />
       </div>
@@ -53,17 +55,22 @@ export default function CreativeFilms() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-[#FFFDFC] py-10 sm:py-16 lg:py-20 selection:bg-pink-500 selection:text-white">
+    <section
+      id="reels"
+      className="relative overflow-hidden bg-[#FFFDFC] py-10 selection:bg-pink-500 selection:text-white sm:py-16 lg:py-20"
+    >
       {/* LUXURY AMBIENT BACKGROUND GLOWS & ACCENTS */}
       <div className="pointer-events-none absolute -left-32 top-1/4 -z-10 h-80 w-80 rounded-full bg-gradient-to-tr from-pink-300/30 to-rose-200/20 blur-[140px] sm:h-[480px] sm:w-[480px]" />
+
       <div className="pointer-events-none absolute -right-32 bottom-10 -z-10 h-96 w-96 rounded-full bg-gradient-to-bl from-pink-200/25 via-rose-100/30 to-transparent blur-[160px] sm:h-[550px] sm:w-[550px]" />
-      
+
       {/* Subtle Micro-Grid Pattern Overlay */}
-      <div 
-        className="pointer-events-none absolute inset-0 opacity-[0.025] mix-blend-overlay -z-10"
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.025] mix-blend-overlay"
         style={{
-          backgroundImage: `radial-gradient(#2D2433 1px, transparent 1px)`,
-          backgroundSize: '32px 32px'
+          backgroundImage:
+            "radial-gradient(#2D2433 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
         }}
       />
 
@@ -72,24 +79,27 @@ export default function CreativeFilms() {
         <FadeUp>
           <div className="mx-auto max-w-3xl text-center">
             {/* Live Indicator Badge */}
-            <div className="inline-flex items-center gap-2.5 rounded-full bg-white/90 px-4 py-1.5 border border-pink-200/70 shadow-[0_4px_20px_rgba(244,114,182,0.08)] backdrop-blur-md mb-4 sm:mb-5">
+            <div className="mb-4 inline-flex items-center gap-2.5 rounded-full border border-pink-200/70 bg-white/90 px-4 py-1.5 shadow-[0_4px_20px_rgba(244,114,182,0.08)] backdrop-blur-md sm:mb-5">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-500"></span>
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-pink-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-pink-500" />
               </span>
+
               <span className="text-[10px] font-mono font-extrabold uppercase tracking-[0.3em] text-pink-600 sm:text-xs">
                 {t("filmsBadge")}
               </span>
             </div>
 
             <h2 className="text-3xl font-black leading-[1.15] tracking-tight text-[#2D2433] sm:text-5xl lg:text-6xl">
-              {t("filmsTitlePrefix")} <br className="hidden sm:inline" />
+              {t("filmsTitlePrefix")}
+              <br className="hidden sm:inline" />
+
               <span className="bg-gradient-to-r from-pink-500 via-rose-500 to-pink-600 bg-clip-text text-transparent">
                 {t("filmsTitleHighlight")}
               </span>
             </h2>
 
-            <p className="mx-auto mt-4 max-w-xl text-sm sm:text-base leading-relaxed text-[#6B6570] font-normal">
+            <p className="mx-auto mt-4 max-w-xl text-sm font-normal leading-relaxed text-[#6B6570] sm:text-base">
               {t("filmsDescription")}
             </p>
           </div>
@@ -98,37 +108,42 @@ export default function CreativeFilms() {
         {/* Minimal cinematic divider */}
         <div className="mx-auto my-8 flex max-w-2xl items-center gap-3 sm:my-10">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-pink-200 to-pink-300/70" />
+
           <span className="inline-flex shrink-0 items-center gap-2 rounded-full border border-pink-200/70 bg-white/80 px-3 py-1 text-[9px] font-mono font-bold tracking-[0.2em] text-pink-500 shadow-[0_4px_16px_rgba(233,106,152,0.08)] backdrop-blur-sm sm:px-4 sm:text-[10px]">
             <span aria-hidden="true">✨</span>
             {t("cinematicHighlight")}
           </span>
+
           <div className="h-px flex-1 bg-gradient-to-l from-transparent via-pink-200 to-pink-300/70" />
         </div>
 
         {/* SELECTED VIDEO WORKS GRID SECTION */}
         <div className="mt-8 sm:mt-12 lg:mt-14">
           {/* Subheader with Premium Counter Badge */}
-          <div className="mb-5 sm:mb-8 flex items-center justify-between border-b border-pink-100/80 pb-3 sm:pb-4">
+          <div className="mb-5 flex items-center justify-between border-b border-pink-100/80 pb-3 sm:mb-8 sm:pb-4">
             <div className="flex items-center gap-3">
-              <h3 className="text-lg sm:text-2xl font-black tracking-tight text-[#2D2433]">
+              <h3 className="text-lg font-black tracking-tight text-[#2D2433] sm:text-2xl">
                 {t("selectedVideoWorks")}
               </h3>
+
               {films && films.length > 0 && (
-                <span className="rounded-full bg-gradient-to-r from-pink-50 to-rose-50 px-3 py-1 text-xs font-mono font-extrabold text-pink-600 border border-pink-200/60 shadow-xs">
-                  {films.length < 10 ? `0${films.length}` : films.length}
+                <span className="rounded-full border border-pink-200/60 bg-gradient-to-r from-pink-50 to-rose-50 px-3 py-1 text-xs font-mono font-extrabold text-pink-600 shadow-xs">
+                  {films.length < 10
+                    ? `0${films.length}`
+                    : films.length}
                 </span>
               )}
             </div>
-            
-            <div className="hidden sm:flex items-center gap-2 text-xs font-mono font-medium text-[#9D94A5]">
+
+            <div className="hidden items-center gap-2 text-xs font-mono font-medium text-[#9D94A5] sm:flex">
               <span>{t("hoverToPreview")}</span>
-              <span className="h-1 w-1 rounded-full bg-pink-400"></span>
+              <span className="h-1 w-1 rounded-full bg-pink-400" />
               <span>{t("clickForCaseStudy")}</span>
             </div>
           </div>
 
-          {/* Cards Grid: 2 columns on mobile, 2 columns on medium, 4 columns on xl */}
-          <div className="grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-2 xl:grid-cols-4 items-stretch">
+          {/* Cards Grid */}
+          <div className="grid grid-cols-2 items-stretch gap-3 sm:gap-6 md:grid-cols-2 xl:grid-cols-4">
             {films && films.length > 0 ? (
               films.map((film: Film, index: number) => {
                 const isGPIB =
