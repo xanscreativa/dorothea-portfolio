@@ -81,7 +81,7 @@ export const videoPortfolioData: Record<string, VideoProject> = {
     duration: '0:18[cite: 12]',
     platform: 'TikTok & Reels[cite: 12]',
     aspectRatio: '9:16 Portrait[cite: 12]',
-    heroThumbnail: '/images/films/data-wak-atom.jpg',
+    heroThumbnail: '/images/films/data-wak-atom.avif',
     videoUrl: '/videos/previews/data-wak-atom.mp4',
     videoType: 'mp4',
     overview: {
@@ -131,7 +131,7 @@ export const videoPortfolioData: Record<string, VideoProject> = {
       slug: 'sinyal-ordal',
       title: 'Sinyal Ordal',
       category: 'Financial Education',
-      thumbnail: '/images/films/sinyal-ordal.jpg'
+      thumbnail: '/images/films/sinyal-ordal.avif'
     }
   },
   'sinyal-ordal': {
@@ -146,7 +146,7 @@ export const videoPortfolioData: Record<string, VideoProject> = {
     duration: '0:26[cite: 12]',
     platform: 'Instagram Reels & TikTok[cite: 12]',
     aspectRatio: '9:16 Portrait[cite: 12]',
-    heroThumbnail: '/images/films/sinyal-ordal.jpg',
+    heroThumbnail: '/images/films/sinyal-ordal.avif',
     videoUrl: '/videos/previews/sinyal-ordal.mp4',
     videoType: 'mp4',
     overview: {
@@ -194,7 +194,7 @@ export const videoPortfolioData: Record<string, VideoProject> = {
       slug: 'raka-trabas',
       title: 'Raka Trabas',
       category: 'Trading Education',
-      thumbnail: '/images/films/raka-trabas.jpg'
+      thumbnail: '/images/films/raka-trabas.avif'
     }
   },
   'raka-trabas': {
@@ -209,7 +209,7 @@ export const videoPortfolioData: Record<string, VideoProject> = {
     duration: '0:31[cite: 12]',
     platform: 'YouTube Shorts & TikTok[cite: 12]',
     aspectRatio: '9:16 Portrait[cite: 12]',
-    heroThumbnail: '/images/films/raka-trabas.jpg',
+    heroThumbnail: '/images/films/raka-trabas.avif',
     videoUrl: '/videos/previews/raka-trabas.mp4',
     videoType: 'mp4',
     overview: {
@@ -257,7 +257,7 @@ export const videoPortfolioData: Record<string, VideoProject> = {
       slug: 'gte',
       title: 'GTE',
       category: 'Gold Trading Education',
-      thumbnail: '/images/films/gte.jpg'
+      thumbnail: '/images/films/gte.avif'
     }
   },
   'gte': {
@@ -272,7 +272,7 @@ export const videoPortfolioData: Record<string, VideoProject> = {
     duration: '0:24[cite: 12]',
     platform: 'Digital Campaigns[cite: 12]',
     aspectRatio: '9:16 Portrait[cite: 12]',
-    heroThumbnail: '/images/films/gte.jpg',
+    heroThumbnail: '/images/films/gte.avif',
     videoUrl: '/videos/previews/gte.mp4',
     videoType: 'mp4',
     overview: {
@@ -320,7 +320,7 @@ export const videoPortfolioData: Record<string, VideoProject> = {
       slug: 'gpib-immanuel-pekanbaru',
       title: 'GPIB Immanuel Pekanbaru',
       category: 'Church Media',
-      thumbnail: '/images/films/gpib.jpg'
+      thumbnail: '/images/films/gpib.avif'
     }
   },
   'gpib-immanuel-pekanbaru': {
@@ -335,7 +335,7 @@ export const videoPortfolioData: Record<string, VideoProject> = {
     duration: '0:20[cite: 12]',
     platform: 'YouTube & Social Media[cite: 12]',
     aspectRatio: '16:9 Landscape[cite: 12]',
-    heroThumbnail: '/images/films/gpib.jpg',
+    heroThumbnail: '/images/films/gpib.avif',
     videoUrl: '/videos/previews/gpib.mp4',
     videoType: 'mp4',
     overview: {
@@ -383,7 +383,7 @@ export const videoPortfolioData: Record<string, VideoProject> = {
       slug: 'data-wak-atom',
       title: 'Data Wak Atom',
       category: 'Trading Campaign',
-      thumbnail: '/images/films/data-wak-atom.jpg'
+      thumbnail: '/images/films/data-wak-atom.avif'
     }
   }
 };

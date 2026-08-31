@@ -11,8 +11,8 @@ export const projects: Project[] = [
 
     category: "Motion Design",
 
-    cover: "/portfolio/ezsquad.jpg",
-    hero: "/portfolio/ezsquad.jpg",
+    cover: "/portfolio/ezsquad.avif",
+    hero: "/portfolio/ezsquad.avif",
 
     client: "EZ Squad",
 
@@ -58,10 +58,10 @@ export const projects: Project[] = [
     ],
 
     gallery: [
-      "/portfolio/uksw.jpg",
-      "/portfolio/jendela-finansial.jpg",
-      "/portfolio/pelkatpa.jpg",
-      "/portfolio/ezsquad.jpg",
+      "/portfolio/uksw.avif",
+      "/portfolio/jendela-finansial.avif",
+      "/portfolio/pelkatpa.avif",
+      "/portfolio/ezsquad.avif",
     ],
   },
 
@@ -75,8 +75,8 @@ export const projects: Project[] = [
 
     category: "Brand Identity",
 
-    cover: "/portfolio/jendela-finansial.jpg",
-    hero: "/portfolio/jendela-finansial.jpg",
+    cover: "/portfolio/jendela-finansial.avif",
+    hero: "/portfolio/jendela-finansial.avif",
 
     client: "Jendela Finansial",
 
@@ -122,9 +122,9 @@ export const projects: Project[] = [
     ],
 
     gallery: [
-      "/portfolio/mark.jpg",
-      "/portfolio/character.jpg",
-      "/portfolio/jendela-finansial.jpg",
+      "/portfolio/mark.avif",
+      "/portfolio/character.avif",
+      "/portfolio/jendela-finansial.avif",
     ],
   },
 ];

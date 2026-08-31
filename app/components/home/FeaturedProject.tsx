@@ -40,7 +40,7 @@ export default function FeaturedProject() {
               className="overflow-hidden order-1 lg:order-2 h-full"
             >
               <Image
-                src="/portfolio/jendela-finansial.jpg"
+                src="/portfolio/jendela-finansial.avif"
                 alt="Jendela Finansial"
                 width={1200}
                 height={1200}
