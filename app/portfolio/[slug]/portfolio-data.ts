@@ -26,37 +26,111 @@ export interface SectionData {
   details: SectionDetails;
   overview: string;
   challenge: string;
+
+  // Brand project detail page
+  slug?: string;
+  category?: string;
+  bigIdea?: string;
+  projectImages?: GalleryItem[];
 }
 
 export const desainLainItems: GalleryItem[] = [
-  { src: "/portfolio/backdrop-fa.avif", alt: "Backdrop Forum Anak", caption: "Backdrop Forum Anak" },
-  { src: "/portfolio/billboard-uksw.avif", alt: "Billboard UKSW", caption: "Billboard UKSW" },
-  { src: "/portfolio/spanduk-pelkatpa.avif", alt: "Spanduk Pelkat PA", caption: "Spanduk Pelkat PA" },
-  { src: "/portfolio/campaign.avif", alt: "Campaign Design", caption: "Campaign Design" },
+  {
+    src: "/portfolio/backdrop-fa.avif",
+    alt: "Backdrop Forum Anak",
+    caption: "Backdrop Forum Anak",
+  },
+  {
+    src: "/portfolio/billboard-uksw.avif",
+    alt: "Billboard UKSW",
+    caption: "Billboard UKSW",
+  },
+  {
+    src: "/portfolio/spanduk-pelkatpa.avif",
+    alt: "Spanduk Pelkat PA",
+    caption: "Spanduk Pelkat PA",
+  },
+  {
+    src: "/portfolio/campaign.avif",
+    alt: "Campaign Design",
+    caption: "Campaign Design",
+  },
 ];
 
 export const liveStreamItems: GalleryItem[] = [
-  { src: "/portfolio/live-anya.webm", alt: "Anya Zona Layer", caption: "Anya Zona Layer Live Stream Design", isVideo: true },
-  { src: "/portfolio/live-ez.webm", alt: "EZ Squad", caption: "EZ Squad Live Stream Design", isVideo: true },
-  { src: "/portfolio/live-raka.webm", alt: "Raka Trabas", caption: "Raka Trabas Live Stream Design", isVideo: true },
-  { src: "/portfolio/live-reno.webm", alt: "Sinyal Ordal", caption: "Sinyal Ordal Live Stream Design", isVideo: true },
+  {
+    src: "/portfolio/live-anya.webm",
+    alt: "Anya Zona Layer",
+    caption: "Anya Zona Layer Live Stream Design",
+    isVideo: true,
+  },
+  {
+    src: "/portfolio/live-ez.webm",
+    alt: "EZ Squad",
+    caption: "EZ Squad Live Stream Design",
+    isVideo: true,
+  },
+  {
+    src: "/portfolio/live-raka.webm",
+    alt: "Raka Trabas",
+    caption: "Raka Trabas Live Stream Design",
+    isVideo: true,
+  },
+  {
+    src: "/portfolio/live-reno.webm",
+    alt: "Sinyal Ordal",
+    caption: "Sinyal Ordal Live Stream Design",
+    isVideo: true,
+  },
 ];
 
 export const liveProfiles = [
-  { title: "Anya Zona Layer", username: "anya", avatarImage: "/portfolio/anya.avif", avatarText: "A", avatarBg: "from-pink-400 to-rose-500" },
-  { title: "EZ Squad", username: "ezsquad", avatarImage: "/portfolio/ez.avif", avatarText: "EZ", avatarBg: "from-purple-400 to-violet-600" },
-  { title: "Raka Trabas", username: "rakatrabas", avatarImage: "/portfolio/raka.avif", avatarText: "RT", avatarBg: "from-orange-400 to-red-500" },
-  { title: "Sinyal Ordal", username: "sinyalordal", avatarImage: "/portfolio/sinyalordal.avif", avatarText: "SO", avatarBg: "from-blue-400 to-cyan-500" },
+  {
+    title: "Anya Zona Layer",
+    username: "anya",
+    avatarImage: "/portfolio/anya.avif",
+    avatarText: "A",
+    avatarBg: "from-pink-400 to-rose-500",
+  },
+  {
+    title: "EZ Squad",
+    username: "ezsquad",
+    avatarImage: "/portfolio/ez.avif",
+    avatarText: "EZ",
+    avatarBg: "from-purple-400 to-violet-600",
+  },
+  {
+    title: "Raka Trabas",
+    username: "rakatrabas",
+    avatarImage: "/portfolio/raka.avif",
+    avatarText: "RT",
+    avatarBg: "from-orange-400 to-red-500",
+  },
+  {
+    title: "Sinyal Ordal",
+    username: "sinyalordal",
+    avatarImage: "/portfolio/sinyalordal.avif",
+    avatarText: "SO",
+    avatarBg: "from-blue-400 to-cyan-500",
+  },
 ];
 
-export const defaultThumbnailGrid: GalleryItem[] = Array.from({ length: 9 }, (_, index) => {
-  const num = index + 1;
-  return {
-    src: `/portfolio/thumbnail-${num}.avif`,
-    alt: `Thumbnail ${num}`,
-    caption: `Thumbnail ${num}`,
-  };
-});
+export const defaultThumbnailGrid: GalleryItem[] = Array.from(
+  { length: 9 },
+  (_, index) => {
+    const num = index + 1;
+
+    return {
+      src: `/portfolio/thumbnail-${num}.avif`,
+      alt: `Thumbnail ${num}`,
+      caption: `Thumbnail ${num}`,
+    };
+  }
+);
+
+// ==========================================
+// SOCIAL MEDIA
+// ==========================================
 
 export const socialSections: SectionData[] = [
   {
@@ -67,12 +141,12 @@ export const socialSections: SectionData[] = [
     avatarText: "P",
     avatarBg: "from-blue-500 to-indigo-400",
     posts: [
-      { src: "/portfolio/pa-1.avif"},
-      { src: "/portfolio/pa-2.avif"},
-      { src: "/portfolio/pa-3.avif"},
-      { src: "/portfolio/pa-4.avif"},
-      { src: "/portfolio/pa-5.avif"},
-      { src: "/portfolio/pa-6.avif"},
+      { src: "/portfolio/pa-1.avif" },
+      { src: "/portfolio/pa-2.avif" },
+      { src: "/portfolio/pa-3.avif" },
+      { src: "/portfolio/pa-4.avif" },
+      { src: "/portfolio/pa-5.avif" },
+      { src: "/portfolio/pa-6.avif" },
     ],
     details: {
       client: "Pelkat PA GPIB Immanuel Pekanbaru",
@@ -82,9 +156,12 @@ export const socialSections: SectionData[] = [
       deliverables: "Event Assets, Social Media Story Templates",
       tools: "Adobe Illustrator, Canva",
     },
-    overview: "Created joyful and engaging visual content for children's ministry events and daily spiritual communication. The designs were developed to feel vibrant, warm, and approachable while maintaining a clear and consistent visual identity.",
-    challenge: "The main challenge was balancing a playful, child-friendly aesthetic with the established branding and visual guidelines of the church.",
+    overview:
+      "Created joyful and engaging visual content for children's ministry events and daily spiritual communication. The designs were developed to feel vibrant, warm, and approachable while maintaining a clear and consistent visual identity.",
+    challenge:
+      "The main challenge was balancing a playful, child-friendly aesthetic with the established branding and visual guidelines of the church.",
   },
+
   {
     title: "UKSW",
     username: "uksw_salatiga",
@@ -93,35 +170,63 @@ export const socialSections: SectionData[] = [
     avatarText: "U",
     avatarBg: "from-pink-500 to-rose-400",
     posts: [
-      { src: "/portfolio/uksw-1.avif", alt: "UKSW Mendunia", caption: "UKSW Mendunia" },
+      {
+        src: "/portfolio/uksw-1.avif",
+        alt: "UKSW Mendunia",
+        caption: "UKSW Mendunia",
+      },
       {
         src: "/portfolio/uksw-2.avif",
         alt: "Kampus Tour",
         caption: "Kampus Tour",
         subSlides: [
-          { src: "/portfolio/uksw-2.avif"},
-          { src: "/portfolio/uksw-2a.avif"},
-          { src: "/portfolio/uksw-2b.avif"},
-          { src: "/portfolio/uksw-2c.avif"},
+          { src: "/portfolio/uksw-2.avif" },
+          { src: "/portfolio/uksw-2a.avif" },
+          { src: "/portfolio/uksw-2b.avif" },
+          { src: "/portfolio/uksw-2c.avif" },
         ],
       },
-      { src: "/portfolio/uksw-3.avif", alt: "PMB 2026", caption: "Rumah Noto" },
-      { src: "/portfolio/uksw-4.avif", alt: "Akreditasi Unggul", caption: "Passover Poster" },
-      { src: "/portfolio/uksw-5.avif", alt: "UKSW Menyapa", caption: "Passover Poster" },
-      { src: "/portfolio/uksw-6.avif", alt: "Creative Minority", caption: "Quotes" },
+      {
+        src: "/portfolio/uksw-3.avif",
+        alt: "PMB 2026",
+        caption: "Rumah Noto",
+      },
+      {
+        src: "/portfolio/uksw-4.avif",
+        alt: "Akreditasi Unggul",
+        caption: "Passover Poster",
+      },
+      {
+        src: "/portfolio/uksw-5.avif",
+        alt: "UKSW Menyapa",
+        caption: "Passover Poster",
+      },
+      {
+        src: "/portfolio/uksw-6.avif",
+        alt: "Creative Minority",
+        caption: "Quotes",
+      },
       {
         src: "/portfolio/uksw-7.avif",
         alt: "Campus Life",
         caption: "Campus Life",
         subSlides: [
-          { src: "/portfolio/uksw-7.avif"},
-          { src: "/portfolio/uksw-7a.avif"},
-          { src: "/portfolio/uksw-7b.avif"},
-          { src: "/portfolio/uksw-7c.avif"},
+          { src: "/portfolio/uksw-7.avif" },
+          { src: "/portfolio/uksw-7a.avif" },
+          { src: "/portfolio/uksw-7b.avif" },
+          { src: "/portfolio/uksw-7c.avif" },
         ],
       },
-      { src: "/portfolio/uksw-8.avif", alt: "Research & Innovation", caption: "Research & Innovation" },
-      { src: "/portfolio/uksw-9.avif", alt: "Graduation Moment", caption: "Graduation Moment" },
+      {
+        src: "/portfolio/uksw-8.avif",
+        alt: "Research & Innovation",
+        caption: "Research & Innovation",
+      },
+      {
+        src: "/portfolio/uksw-9.avif",
+        alt: "Graduation Moment",
+        caption: "Graduation Moment",
+      },
     ],
     details: {
       client: "UKSW Salatiga",
@@ -131,9 +236,12 @@ export const socialSections: SectionData[] = [
       deliverables: "Social Media Content, Thumbnails, Photography",
       tools: "Adobe Photoshop, Adobe Illustrator",
     },
-    overview: "Created engaging visual content for the university's social media platforms, including promotional posts, video thumbnails, and photography to support various campus activities and communications.",
-    challenge: "Creating visually engaging and consistent content for different campus communications while adapting to a variety of formats, audiences, and creative needs.",
+    overview:
+      "Created engaging visual content for the university's social media platforms, including promotional posts, video thumbnails, and photography to support various campus activities and communications.",
+    challenge:
+      "Creating visually engaging and consistent content for different campus communications while adapting to a variety of formats, audiences, and creative needs.",
   },
+
   {
     title: "Jendela Finansial",
     username: "jendelafinansial",
@@ -147,12 +255,12 @@ export const socialSections: SectionData[] = [
         alt: "jendela-1",
         caption: "jendela-1",
         subSlides: [
-          { src: "/portfolio/jendela-1.avif"},
-          { src: "/portfolio/jendela-1a.avif"},
-          { src: "/portfolio/jendela-1b.avif"},
-          { src: "/portfolio/jendela-1c.avif"},
-          { src: "/portfolio/jendela-1d.avif"},
-          { src: "/portfolio/jendela-1e.avif"},
+          { src: "/portfolio/jendela-1.avif" },
+          { src: "/portfolio/jendela-1a.avif" },
+          { src: "/portfolio/jendela-1b.avif" },
+          { src: "/portfolio/jendela-1c.avif" },
+          { src: "/portfolio/jendela-1d.avif" },
+          { src: "/portfolio/jendela-1e.avif" },
         ],
       },
       {
@@ -160,11 +268,11 @@ export const socialSections: SectionData[] = [
         alt: "jendela-2",
         caption: "jendela-2",
         subSlides: [
-          { src: "/portfolio/jendela-2.avif"},
-          { src: "/portfolio/jendela-2a.avif"},
-          { src: "/portfolio/jendela-2b.avif"},
-          { src: "/portfolio/jendela-2c.avif"},
-          { src: "/portfolio/jendela-2d.avif"},
+          { src: "/portfolio/jendela-2.avif" },
+          { src: "/portfolio/jendela-2a.avif" },
+          { src: "/portfolio/jendela-2b.avif" },
+          { src: "/portfolio/jendela-2c.avif" },
+          { src: "/portfolio/jendela-2d.avif" },
         ],
       },
       {
@@ -172,12 +280,12 @@ export const socialSections: SectionData[] = [
         alt: "jendela-3",
         caption: "jendela-3",
         subSlides: [
-          { src: "/portfolio/jendela-3.avif"},
-          { src: "/portfolio/jendela-3a.avif"},
-          { src: "/portfolio/jendela-3b.avif"},
-          { src: "/portfolio/jendela-3c.avif"},
-          { src: "/portfolio/jendela-3d.avif"},
-          { src: "/portfolio/jendela-3e.avif"},
+          { src: "/portfolio/jendela-3.avif" },
+          { src: "/portfolio/jendela-3a.avif" },
+          { src: "/portfolio/jendela-3b.avif" },
+          { src: "/portfolio/jendela-3c.avif" },
+          { src: "/portfolio/jendela-3d.avif" },
+          { src: "/portfolio/jendela-3e.avif" },
         ],
       },
       {
@@ -185,30 +293,34 @@ export const socialSections: SectionData[] = [
         alt: "jendela-4",
         caption: "jendela-4",
         subSlides: [
-          { src: "/portfolio/jendela-4.avif"},
-          { src: "/portfolio/jendela-4a.avif"},
-          { src: "/portfolio/jendela-4b.avif"},
-          { src: "/portfolio/jendela-4c.avif"},
-          { src: "/portfolio/jendela-4d.avif"},
-          { src: "/portfolio/jendela-4e.avif"},
-          { src: "/portfolio/jendela-4f.avif"},
-          { src: "/portfolio/jendela-4g.avif"},
-          { src: "/portfolio/jendela-4h.avif", alt: "jendela-4h", caption: "jendela-4h" },
+          { src: "/portfolio/jendela-4.avif" },
+          { src: "/portfolio/jendela-4a.avif" },
+          { src: "/portfolio/jendela-4b.avif" },
+          { src: "/portfolio/jendela-4c.avif" },
+          { src: "/portfolio/jendela-4d.avif" },
+          { src: "/portfolio/jendela-4e.avif" },
+          { src: "/portfolio/jendela-4f.avif" },
+          { src: "/portfolio/jendela-4g.avif" },
+          {
+            src: "/portfolio/jendela-4h.avif",
+            alt: "jendela-4h",
+            caption: "jendela-4h",
+          },
         ],
       },
-      { src: "/portfolio/jendela-5.avif"},
+      { src: "/portfolio/jendela-5.avif" },
       {
         src: "/portfolio/jendela-6.avif",
         alt: "jendela-6",
         caption: "jendela-6",
         subSlides: [
-          { src: "/portfolio/jendela-6.avif"},
-          { src: "/portfolio/jendela-6a.avif"},
-          { src: "/portfolio/jendela-6b.avif"},
-          { src: "/portfolio/jendela-6c.avif"},
-          { src: "/portfolio/jendela-6d.avif"},
-          { src: "/portfolio/jendela-6e.avif"},
-          { src: "/portfolio/jendela-6f.avif"},
+          { src: "/portfolio/jendela-6.avif" },
+          { src: "/portfolio/jendela-6a.avif" },
+          { src: "/portfolio/jendela-6b.avif" },
+          { src: "/portfolio/jendela-6c.avif" },
+          { src: "/portfolio/jendela-6d.avif" },
+          { src: "/portfolio/jendela-6e.avif" },
+          { src: "/portfolio/jendela-6f.avif" },
         ],
       },
     ],
@@ -217,12 +329,16 @@ export const socialSections: SectionData[] = [
       industry: "Financial Education",
       role: "Lead Visual Designer",
       year: "2024",
-      deliverables: "Social Media Content, Character Design, Branding Assets, Educational Campaigns",
+      deliverables:
+        "Social Media Content, Character Design, Branding Assets, Educational Campaigns",
       tools: "Adobe Photoshop, Adobe Illustrator",
     },
-    overview: "Developed visual content and branding assets for a financial education platform focused on helping Gen Z become more financially aware. The work included creating social media content, original character designs, and engaging visuals for financial challenges, news, and educational content.",
-    challenge: "Making financial topics approachable and engaging for Gen Z while building a distinctive visual identity that could communicate educational content, financial news, and interactive challenges in a clear, relatable, and visually appealing way.",
+    overview:
+      "Developed visual content and branding assets for a financial education platform focused on helping Gen Z become more financially aware. The work included creating social media content, original character designs, and engaging visuals for financial challenges, news, and educational content.",
+    challenge:
+      "Making financial topics approachable and engaging for Gen Z while building a distinctive visual identity that could communicate educational content, financial news, and interactive challenges in a clear, relatable, and visually appealing way.",
   },
+
   {
     title: "Consistrade",
     username: "consistrade",
@@ -231,57 +347,92 @@ export const socialSections: SectionData[] = [
     avatarText: "C",
     avatarBg: "from-purple-500 to-pink-500",
     posts: [
-      { src: "/portfolio/consistrade-1.avif"},
-      { src: "/portfolio/consistrade-2.avif"},
-      { src: "/portfolio/consistrade-3.avif"},
-      { src: "/portfolio/consistrade-4.avif"},
-      { src: "/portfolio/consistrade-5.avif"},
-      { src: "/portfolio/consistrade-6.avif"},
-      { src: "/portfolio/consistrade-7.avif"},
-      { src: "/portfolio/consistrade-8.avif"},
-      { src: "/portfolio/consistrade-9.avif"},
+      { src: "/portfolio/consistrade-1.avif" },
+      { src: "/portfolio/consistrade-2.avif" },
+      { src: "/portfolio/consistrade-3.avif" },
+      { src: "/portfolio/consistrade-4.avif" },
+      { src: "/portfolio/consistrade-5.avif" },
+      { src: "/portfolio/consistrade-6.avif" },
+      { src: "/portfolio/consistrade-7.avif" },
+      { src: "/portfolio/consistrade-8.avif" },
+      { src: "/portfolio/consistrade-9.avif" },
     ],
     details: {
       client: "Consistrade",
       industry: "Financial & Trading Education",
       role: "Graphic Designer & Brand Designer",
       year: "2025",
-      deliverables: "Brand Identity, Social Media Content, Character Design, Digital Learning Assets",
+      deliverables:
+        "Brand Identity, Social Media Content, Character Design, Digital Learning Assets",
       tools: "Adobe Photoshop, Adobe Illustrator, Canva",
     },
-    overview: "Developed visual and branding assets for Consistrade, a financial education platform focused on helping traders—from beginners to professionals—learn and grow consistently. The work included building a cohesive brand identity, creating character designs, and developing engaging visual assets for digital products, trading modules, educational classes, and community-based content.",
-    challenge: "Creating a visual identity that feels approachable for beginner traders while maintaining credibility and relevance for more experienced audiences. The challenge was to transform complex trading and financial concepts into clear, engaging, and visually consistent content that supports learning, community engagement, and Consistrade's digital education ecosystem.",
+    overview:
+      "Developed visual and branding assets for Consistrade, a financial education platform focused on helping traders—from beginners to professionals—learn and grow consistently. The work included building a cohesive brand identity, creating character designs, and developing engaging visual assets for digital products, trading modules, educational classes, and community-based content.",
+    challenge:
+      "Creating a visual identity that feels approachable for beginner traders while maintaining credibility and relevance for more experienced audiences. The challenge was to transform complex trading and financial concepts into clear, engaging, and visually consistent content that supports learning, community engagement, and Consistrade's digital education ecosystem.",
   },
 ];
 
+// ==========================================
+// BRAND IDENTITY
+// ==========================================
+
 export const brandSections: SectionData[] = [
   {
+    slug: "jendela-finansial",
+    category: "BRAND IDENTITY",
     title: "Jendela Finansial",
     username: "jendelafinansial",
     bio: "Smart financial tips & wealth education",
     avatarImage: "/portfolio/jendela-finansial.avif",
     avatarText: "JF",
     avatarBg: "from-emerald-500 to-teal-400",
-    posts: [{ src: "/portfolio/jendela-finansial.avif", alt: "Jendela Finansial Logo", caption: "Jendela Finansial Logo" }],
+    posts: [
+      {
+        src: "/portfolio/jendela-finansial.avif",
+        alt: "Jendela Finansial Logo",
+        caption: "Jendela Finansial Logo",
+      },
+    ],
     details: {
       client: "Jendela Finansial",
       industry: "Financial Education",
       role: "Lead Visual Designer",
       year: "2024",
-      deliverables: "Social Media Content, Character Design, Branding Assets, Educational Campaigns",
+      deliverables:
+        "Social Media Content, Character Design, Branding Assets, Educational Campaigns",
       tools: "Adobe Photoshop, Adobe Illustrator",
     },
-    overview: "Developed visual content and branding assets for a financial education platform focused on helping Gen Z become more financially aware. The work included creating social media content, original character designs, and engaging visuals for financial challenges, news, and educational content.",
-    challenge: "Making financial topics approachable and engaging for Gen Z while building a distinctive visual identity that could communicate educational content, financial news, and interactive challenges in a clear, relatable, and visually appealing way.",
+    overview:
+      "Developed visual content and branding assets for a financial education platform focused on helping Gen Z become more financially aware. The work included creating social media content, original character designs, and engaging visuals for financial challenges, news, and educational content.",
+    challenge:
+      "Making financial topics approachable and engaging for Gen Z while building a distinctive visual identity that could communicate educational content, financial news, and interactive challenges in a clear, relatable, and visually appealing way.",
+    bigIdea:
+      "Creating a modern and approachable financial identity that transforms complex financial topics into a clear, engaging, and relatable experience.",
+    projectImages: [
+      {
+        src: "/portfolio/branding-jendela.avif",
+        alt: "Jendela Finansial Brand Identity",
+      },
+    ],
   },
+
   {
+    slug: "pelkat-pa-gpib-immanuel-pekanbaru",
+    category: "BRAND IDENTITY",
     title: "Pelkat PA GPIB Immanuel Pekanbaru",
     username: "gpib_immanuel_pku",
     bio: "Official church branding and visual identity system 🙏🕊️",
     avatarImage: "/portfolio/pelkatpa.avif",
     avatarText: "G",
     avatarBg: "from-amber-500 to-orange-400",
-    posts: [{ src: "/portfolio/pelkatpa.avif", alt: "GPIB Immanuel Pekanbaru", caption: "GPIB Immanuel Pekanbaru" }],
+    posts: [
+      {
+        src: "/portfolio/pelkatpa.avif",
+        alt: "GPIB Immanuel Pekanbaru",
+        caption: "GPIB Immanuel Pekanbaru",
+      },
+    ],
     details: {
       client: "GPIB Immanuel Pekanbaru",
       industry: "Religious Organization",
@@ -290,17 +441,28 @@ export const brandSections: SectionData[] = [
       deliverables: "Visual Identity, Stationery",
       tools: "Illustrator, Figma",
     },
-    overview: "Establishing a dignified and welcoming brand presence for the congregation.",
-    challenge: "Reflecting traditional ecclesiastical values through modern, clean graphic standards.",
+    overview:
+      "Establishing a dignified and welcoming brand presence for the congregation.",
+    challenge:
+      "Reflecting traditional ecclesiastical values through modern, clean graphic standards.",
   },
+
   {
+    slug: "gpib-immanuel-pekanbaru",
+    category: "BRAND IDENTITY",
     title: "GPIB Immanuel Pekanbaru",
     username: "gpibimmanuelpku",
     bio: "Official church branding and visual identity system 🙏🕊️",
     avatarImage: "/portfolio/gpib-sinode.avif",
     avatarText: "G",
     avatarBg: "from-amber-500 to-orange-400",
-    posts: [{ src: "/portfolio/gpib-thumb.avif", alt: "GPIB Immanuel Pekanbaru", caption: "GPIB Immanuel Pekanbaru" }],
+    posts: [
+      {
+        src: "/portfolio/gpib-thumb.avif",
+        alt: "GPIB Immanuel Pekanbaru",
+        caption: "GPIB Immanuel Pekanbaru",
+      },
+    ],
     details: {
       client: "GPIB Immanuel Pekanbaru",
       industry: "Religious Organization",
@@ -309,36 +471,59 @@ export const brandSections: SectionData[] = [
       deliverables: "Visual Identity, Stationery",
       tools: "Illustrator, Figma",
     },
-    overview: "Establishing a dignified and welcoming brand presence for the congregation.",
-    challenge: "Reflecting traditional ecclesiastical values through modern, clean graphic standards.",
+    overview:
+      "Establishing a dignified and welcoming brand presence for the congregation.",
+    challenge:
+      "Reflecting traditional ecclesiastical values through modern, clean graphic standards.",
   },
+
   {
+    slug: "consistrade-brand",
+    category: "BRAND IDENTITY",
     title: "Consistrade",
     username: "consistrade",
     bio: "Financial & Trading Education",
     avatarImage: "/portfolio/consistrade-thumb.avif",
     avatarText: "C",
     avatarBg: "from-purple-500 to-pink-500",
-    posts: [{ src: "/portfolio/consistrade-thumb.avif", alt: "Consistrade", caption: "Consistrade" }],
+    posts: [
+      {
+        src: "/portfolio/consistrade-thumb.avif",
+        alt: "Consistrade",
+        caption: "Consistrade",
+      },
+    ],
     details: {
       client: "Consistrade",
       industry: "Financial & Trading Education",
       role: "Graphic Designer & Brand Designer",
       year: "2025",
-      deliverables: "Brand Identity, Social Media Content, Character Design, Digital Learning Assets",
+      deliverables:
+        "Brand Identity, Social Media Content, Character Design, Digital Learning Assets",
       tools: "Adobe Photoshop, Adobe Illustrator, Canva",
     },
-    overview: "Developed visual and branding assets for Consistrade, a financial education platform focused on helping traders—from beginners to professionals—learn and grow consistently. The work included building a cohesive brand identity, creating character designs, and developing engaging visual assets for digital products, trading modules, educational classes, and community-based content.",
-    challenge: "Creating a visual identity that feels approachable for beginner traders while maintaining credibility and relevance for more experienced audiences. The challenge was to transform complex trading and financial concepts into clear, engaging, and visually consistent content that supports learning, community engagement, and Consistrade's digital education ecosystem.",
+    overview:
+      "Developed visual and branding assets for Consistrade, a financial education platform focused on helping traders—from beginners to professionals—learn and grow consistently. The work included building a cohesive brand identity, creating character designs, and developing engaging visual assets for digital products, trading modules, educational classes, and community-based content.",
+    challenge:
+      "Creating a visual identity that feels approachable for beginner traders while maintaining credibility and relevance for more experienced audiences. The challenge was to transform complex trading and financial concepts into clear, engaging, and visually consistent content that supports learning, community engagement, and Consistrade's digital education ecosystem.",
   },
+
   {
+    slug: "hut-63-pelkat-pa",
+    category: "BRAND IDENTITY",
     title: "HUT 63 Pelkat PA GPIB",
     username: "pelkatpa.pku",
     bio: "Winning logo design for the 63rd Anniversary of Pelkat PA GPIB 🏆",
     avatarImage: "/portfolio/hut63.avif",
     avatarText: "PA",
     avatarBg: "from-rose-500 to-pink-500",
-    posts: [{ src: "/portfolio/hut63.avif", alt: "PA Logo HUT 63", caption: "PA Logo HUT 63" }],
+    posts: [
+      {
+        src: "/portfolio/hut63.avif",
+        alt: "PA Logo HUT 63",
+        caption: "PA Logo HUT 63",
+      },
+    ],
     details: {
       client: "Dewan Pelayanan Anak",
       industry: "Ministry",
@@ -347,17 +532,28 @@ export const brandSections: SectionData[] = [
       deliverables: "Logo Competition Entry",
       tools: "Illustrator",
     },
-    overview: "Winning design for the 63rd Pelkat PA GPIB Anniversary logo competition.",
-    challenge: "Capturing the spirit of 63 years of service within a concise, iconic mark.",
+    overview:
+      "Winning design for the 63rd Pelkat PA GPIB Anniversary logo competition.",
+    challenge:
+      "Capturing the spirit of 63 years of service within a concise, iconic mark.",
   },
+
   {
+    slug: "hut-67-pelkat-pa",
+    category: "BRAND IDENTITY",
     title: "HUT 67 Pelkat PA GPIB",
     username: "pelkatpa.pku",
     bio: "Official visual identity for the 67th Pelkat PA GPIB Anniversary 🕊️",
     avatarImage: "/portfolio/hut67.avif",
     avatarText: "PA",
     avatarBg: "from-blue-500 to-indigo-500",
-    posts: [{ src: "/portfolio/hut67.avif", alt: "Logo HUT Pelkat PA ke-67", caption: "Logo HUT Pelkat PA ke-67" }],
+    posts: [
+      {
+        src: "/portfolio/hut67.avif",
+        alt: "Logo HUT Pelkat PA ke-67",
+        caption: "Logo HUT Pelkat PA ke-67",
+      },
+    ],
     details: {
       client: "Logo HUT Pelkat PA ke-67",
       industry: "Ministry",
@@ -366,17 +562,28 @@ export const brandSections: SectionData[] = [
       deliverables: "Anniversary Logo",
       tools: "Illustrator, Photoshop",
     },
-    overview: "Developing a celebratory and meaningful identity for the 67th anniversary.",
-    challenge: "Creating a distinct mark that aligns with church branding while signifying longevity.",
+    overview:
+      "Developing a celebratory and meaningful identity for the 67th anniversary.",
+    challenge:
+      "Creating a distinct mark that aligns with church branding while signifying longevity.",
   },
+
   {
+    slug: "soleste-brand",
+    category: "BRAND IDENTITY",
     title: "Soleste",
     username: "soleste_official",
     bio: "Elegance and modern lifestyle brand identity design ✨",
     avatarImage: "/portfolio/soleste.avif",
     avatarText: "S",
     avatarBg: "from-amber-400 to-yellow-600",
-    posts: [{ src: "/portfolio/soleste.avif", alt: "Soleste Brand", caption: "Soleste Brand Identity" }],
+    posts: [
+      {
+        src: "/portfolio/soleste.avif",
+        alt: "Soleste Brand",
+        caption: "Soleste Brand Identity",
+      },
+    ],
     details: {
       client: "Soleste",
       industry: "Lifestyle & Fashion",
@@ -385,10 +592,17 @@ export const brandSections: SectionData[] = [
       deliverables: "Brand Strategy, Visual Identity",
       tools: "Illustrator, Figma",
     },
-    overview: "Crafting a refined, luxury-feeling brand identity for modern lifestyle products.",
-    challenge: "Encapsulating sophistication and minimalism while keeping the brand warm and accessible.",
+    overview:
+      "Crafting a refined, luxury-feeling brand identity for modern lifestyle products.",
+    challenge:
+      "Encapsulating sophistication and minimalism while keeping the brand warm and accessible.",
   },
 ];
+
+// ==========================================
+// LOGO DESIGN
+// TIDAK DIUBAH
+// ==========================================
 
 export const logoSections: SectionData[] = [
   {
@@ -398,7 +612,13 @@ export const logoSections: SectionData[] = [
     avatarImage: "/portfolio/hut63.avif",
     avatarText: "PA",
     avatarBg: "from-rose-500 to-pink-500",
-    posts: [{ src: "/portfolio/hut63.avif", alt: "PA Logo HUT 63", caption: "HUT 63 Pelkat PA Logo" }],
+    posts: [
+      {
+        src: "/portfolio/hut63.avif",
+        alt: "PA Logo HUT 63",
+        caption: "HUT 63 Pelkat PA Logo",
+      },
+    ],
     details: {
       client: "Dewan Pelayanan Anak",
       industry: "Religious & Youth",
@@ -407,8 +627,10 @@ export const logoSections: SectionData[] = [
       deliverables: "Competition Winner Emblem",
       tools: "Illustrator",
     },
-    overview: "Celebratory 63rd anniversary logo winning entry capturing faith and joy.",
-    challenge: "Merging numeric elements with church motifs into a unified circular mark.",
+    overview:
+      "Celebratory 63rd anniversary logo winning entry capturing faith and joy.",
+    challenge:
+      "Merging numeric elements with church motifs into a unified circular mark.",
   },
   {
     title: "HUT 67 Pelkat PA GPIB",
@@ -417,7 +639,13 @@ export const logoSections: SectionData[] = [
     avatarImage: "/portfolio/hut67.avif",
     avatarText: "PA",
     avatarBg: "from-blue-500 to-indigo-500",
-    posts: [{ src: "/portfolio/hut67.avif", alt: "Logo HUT Pelkat PA ke-67", caption: "HUT 67 Pelkat PA Logo" }],
+    posts: [
+      {
+        src: "/portfolio/hut67.avif",
+        alt: "Logo HUT Pelkat PA ke-67",
+        caption: "HUT 67 Pelkat PA Logo",
+      },
+    ],
     details: {
       client: "Pelkat PA GPIB",
       industry: "Religious & Youth",
@@ -426,8 +654,10 @@ export const logoSections: SectionData[] = [
       deliverables: "Official Anniversary Logo",
       tools: "Illustrator",
     },
-    overview: "Modern anniversary identity commemorating 67 years of service and spiritual growth.",
-    challenge: "Creating a fresh visual theme while respecting long-standing organizational identity.",
+    overview:
+      "Modern anniversary identity commemorating 67 years of service and spiritual growth.",
+    challenge:
+      "Creating a fresh visual theme while respecting long-standing organizational identity.",
   },
   {
     title: "GPIB Immanuel Pekanbaru",
@@ -436,7 +666,13 @@ export const logoSections: SectionData[] = [
     avatarImage: "/portfolio/gpib.avif",
     avatarText: "G",
     avatarBg: "from-amber-500 to-orange-400",
-    posts: [{ src: "/portfolio/gpib.avif", alt: "GPIB Immanuel Pekanbaru Logo", caption: "GPIB Immanuel Pekanbaru Logo Design" }],
+    posts: [
+      {
+        src: "/portfolio/gpib.avif",
+        alt: "GPIB Immanuel Pekanbaru Logo",
+        caption: "GPIB Immanuel Pekanbaru Logo Design",
+      },
+    ],
     details: {
       client: "GPIB Immanuel Pekanbaru",
       industry: "Religious Organization",
@@ -445,8 +681,10 @@ export const logoSections: SectionData[] = [
       deliverables: "Church Logo & Visual Mark",
       tools: "Illustrator",
     },
-    overview: "Establishing a dignified and welcoming brand presence for the congregation.",
-    challenge: "Reflecting traditional ecclesiastical values through modern, clean graphic standards.",
+    overview:
+      "Establishing a dignified and welcoming brand presence for the congregation.",
+    challenge:
+      "Reflecting traditional ecclesiastical values through modern, clean graphic standards.",
   },
   {
     title: "Joko Tuo",
@@ -455,7 +693,13 @@ export const logoSections: SectionData[] = [
     avatarImage: "/portfolio/jokotuo.avif",
     avatarText: "JT",
     avatarBg: "from-emerald-700 to-green-600",
-    posts: [{ src: "/portfolio/jokotuo.avif", alt: "Joko Tuo Logo", caption: "Joko Tuo Logo Design" }],
+    posts: [
+      {
+        src: "/portfolio/jokotuo.avif",
+        alt: "Joko Tuo Logo",
+        caption: "Joko Tuo Logo Design",
+      },
+    ],
     details: {
       client: "Joko Tuo",
       industry: "Culinary & Heritage",
@@ -464,8 +708,10 @@ export const logoSections: SectionData[] = [
       deliverables: "Vintage Monogram & Seal",
       tools: "Illustrator, Photoshop",
     },
-    overview: "A rich, heritage-inspired logo mark reflecting authentic cultural recipes and tradition.",
-    challenge: "Infusing traditional retro artwork while keeping the logo modern and scalable.",
+    overview:
+      "A rich, heritage-inspired logo mark reflecting authentic cultural recipes and tradition.",
+    challenge:
+      "Infusing traditional retro artwork while keeping the logo modern and scalable.",
   },
   {
     title: "Consistrade",
@@ -474,17 +720,26 @@ export const logoSections: SectionData[] = [
     avatarImage: "/portfolio/consistrade.avif",
     avatarText: "C",
     avatarBg: "from-indigo-600 to-blue-500",
-    posts: [{ src: "/portfolio/consistrade.avif", alt: "Consistrade Logo", caption: "Consistrade Logo Design" }],
+    posts: [
+      {
+        src: "/portfolio/consistrade.avif",
+        alt: "Consistrade Logo",
+        caption: "Consistrade Logo Design",
+      },
+    ],
     details: {
       client: "Consistrade",
       industry: "Financial & Trading Education",
       role: "Graphic Designer & Brand Designer",
       year: "2025",
-      deliverables: "Brand Identity, Social Media Content, Character Design, Digital Learning Assets",
+      deliverables:
+        "Brand Identity, Social Media Content, Character Design, Digital Learning Assets",
       tools: "Adobe Photoshop, Adobe Illustrator, Canva",
     },
-    overview: "Developed visual and branding assets for Consistrade, a financial education platform focused on helping traders—from beginners to professionals—learn and grow consistently. The work included building a cohesive brand identity, creating character designs, and developing engaging visual assets for digital products, trading modules, educational classes, and community-based content.",
-    challenge: "Creating a visual identity that feels approachable for beginner traders while maintaining credibility and relevance for more experienced audiences. The challenge was to transform complex trading and financial concepts into clear, engaging, and visually consistent content that supports learning, community engagement, and Consistrade's digital education ecosystem.",
+    overview:
+      "Developed visual and branding assets for Consistrade, a financial education platform focused on helping traders—from beginners to professionals—learn and grow consistently. The work included building a cohesive brand identity, creating character designs, and developing engaging visual assets for digital products, trading modules, educational classes, and community-based content.",
+    challenge:
+      "Creating a visual identity that feels approachable for beginner traders while maintaining credibility and relevance for more experienced audiences. The challenge was to transform complex trading and financial concepts into clear, engaging, and visually consistent content that supports learning, community engagement, and Consistrade's digital education ecosystem.",
   },
   {
     title: "Minci",
@@ -493,7 +748,13 @@ export const logoSections: SectionData[] = [
     avatarImage: "/portfolio/minci.avif",
     avatarText: "M",
     avatarBg: "from-pink-400 to-rose-400",
-    posts: [{ src: "/portfolio/minci.avif", alt: "Minci Logo", caption: "Minci Logo Design" }],
+    posts: [
+      {
+        src: "/portfolio/minci.avif",
+        alt: "Minci Logo",
+        caption: "Minci Logo Design",
+      },
+    ],
     details: {
       client: "Minci",
       industry: "Consumer Goods",
@@ -502,8 +763,10 @@ export const logoSections: SectionData[] = [
       deliverables: "Character Logo & Packaging Badge",
       tools: "Illustrator",
     },
-    overview: "Warm and inviting character-based logo design built for high brand recall.",
-    challenge: "Balancing cute mascot elements with scalable graphic typography.",
+    overview:
+      "Warm and inviting character-based logo design built for high brand recall.",
+    challenge:
+      "Balancing cute mascot elements with scalable graphic typography.",
   },
   {
     title: "Nona Kirana",
@@ -512,7 +775,13 @@ export const logoSections: SectionData[] = [
     avatarImage: "/portfolio/kirana.avif",
     avatarText: "NK",
     avatarBg: "from-pink-300 to-purple-400",
-    posts: [{ src: "/portfolio/kirana.avif", alt: "Nona Kirana Logo", caption: "Nona Kirana Logo Design" }],
+    posts: [
+      {
+        src: "/portfolio/kirana.avif",
+        alt: "Nona Kirana Logo",
+        caption: "Nona Kirana Logo Design",
+      },
+    ],
     details: {
       client: "Nona Kirana",
       industry: "Beauty & Beauty Care",
@@ -521,8 +790,10 @@ export const logoSections: SectionData[] = [
       deliverables: "Wordmark & Monogram",
       tools: "Illustrator, Font Self",
     },
-    overview: "Elegant typographic and monogram design crafted for personal branding and beauty.",
-    challenge: "Designing delicate line work that maintains clarity across small digital icons.",
+    overview:
+      "Elegant typographic and monogram design crafted for personal branding and beauty.",
+    challenge:
+      "Designing delicate line work that maintains clarity across small digital icons.",
   },
   {
     title: "Sinyal Ordal",
@@ -531,7 +802,13 @@ export const logoSections: SectionData[] = [
     avatarImage: "/portfolio/sinyalordal.avif",
     avatarText: "SO",
     avatarBg: "from-cyan-500 to-blue-600",
-    posts: [{ src: "/portfolio/sinyalordal.avif", alt: "Sinyal Ordal Logo", caption: "Sinyal Ordal Logo Design" }],
+    posts: [
+      {
+        src: "/portfolio/sinyalordal.avif",
+        alt: "Sinyal Ordal Logo",
+        caption: "Sinyal Ordal Logo Design",
+      },
+    ],
     details: {
       client: "Sinyal Ordal",
       industry: "Technology & Community",
@@ -540,8 +817,10 @@ export const logoSections: SectionData[] = [
       deliverables: "Digital Logo Suite",
       tools: "Illustrator, Figma",
     },
-    overview: "A sharp, futuristic logo design symbolising signal flow and exclusive networking.",
-    challenge: "Crafting an abstract signal icon that feels both tech-forward and trustworthy.",
+    overview:
+      "A sharp, futuristic logo design symbolising signal flow and exclusive networking.",
+    challenge:
+      "Crafting an abstract signal icon that feels both tech-forward and trustworthy.",
   },
   {
     title: "Soleste",
@@ -550,7 +829,13 @@ export const logoSections: SectionData[] = [
     avatarImage: "/portfolio/soleste.avif",
     avatarText: "S",
     avatarBg: "from-amber-400 to-yellow-600",
-    posts: [{ src: "/portfolio/soleste.avif", alt: "Soleste Logo", caption: "Soleste Logo Design" }],
+    posts: [
+      {
+        src: "/portfolio/soleste.avif",
+        alt: "Soleste Logo",
+        caption: "Soleste Logo Design",
+      },
+    ],
     details: {
       client: "Soleste",
       industry: "Lifestyle & Fashion",
@@ -559,8 +844,10 @@ export const logoSections: SectionData[] = [
       deliverables: "Logo Mark, Identity System",
       tools: "Illustrator, Vector",
     },
-    overview: "A refined and luxury-feeling brand mark tailored for modern lifestyle products.",
-    challenge: "Creating a simple yet memorable emblem that conveys elegance and durability.",
+    overview:
+      "A refined and luxury-feeling brand mark tailored for modern lifestyle products.",
+    challenge:
+      "Creating a simple yet memorable emblem that conveys elegance and durability.",
   },
   {
     title: "Pivot Point by Mark Liem",
@@ -569,7 +856,13 @@ export const logoSections: SectionData[] = [
     avatarImage: "/portfolio/pivot.avif",
     avatarText: "PP",
     avatarBg: "from-slate-700 to-zinc-900",
-    posts: [{ src: "/portfolio/pivot.avif", alt: "Pivot Point Logo", caption: "Pivot Point Logo Design" }],
+    posts: [
+      {
+        src: "/portfolio/pivot.avif",
+        alt: "Pivot Point Logo",
+        caption: "Pivot Point Logo Design",
+      },
+    ],
     details: {
       client: "Mark Liem",
       industry: "Consulting & Executive Coaching",
@@ -578,8 +871,10 @@ export const logoSections: SectionData[] = [
       deliverables: "Personal Branding Logo",
       tools: "Illustrator, Figma",
     },
-    overview: "Minimalist monogram emblem designed for high-level personal executive branding.",
-    challenge: "Distilling strategic transformation and direction into a sleek geometric monogram.",
+    overview:
+      "Minimalist monogram emblem designed for high-level personal executive branding.",
+    challenge:
+      "Distilling strategic transformation and direction into a sleek geometric monogram.",
   },
   {
     title: "Raka Trabas",
@@ -588,7 +883,13 @@ export const logoSections: SectionData[] = [
     avatarImage: "/portfolio/raka.avif",
     avatarText: "RT",
     avatarBg: "from-orange-500 to-red-500",
-    posts: [{ src: "/portfolio/raka.avif", alt: "Raka Trabas Logo", caption: "Raka Trabas Logo Design" }],
+    posts: [
+      {
+        src: "/portfolio/raka.avif",
+        alt: "Raka Trabas Logo",
+        caption: "Raka Trabas Logo Design",
+      },
+    ],
     details: {
       client: "Raka Trabas",
       industry: "Outdoor & Sports",
@@ -597,7 +898,42 @@ export const logoSections: SectionData[] = [
       deliverables: "Community Logo, Apparel Badge",
       tools: "Illustrator, Photoshop",
     },
-    overview: "Bold and high-energy logo mark created for off-road & adventure sports enthusiasts.",
-    challenge: "Blending ruggedness with clean, modern vector lines for print on merchandise.",
+    overview:
+      "Bold and high-energy logo mark created for off-road & adventure sports enthusiasts.",
+    challenge:
+      "Blending ruggedness with clean, modern vector lines for print on merchandise.",
   },
 ];
+
+// ==========================================
+// BRAND PROJECT CASE STUDIES ONLY
+// ==========================================
+
+export const projectCaseStudies: SectionData[] = brandSections.map(
+  (project) => ({
+    ...project,
+
+    category: project.category ?? "BRAND IDENTITY",
+
+    slug:
+      project.slug ??
+      project.title
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)/g, ""),
+
+    bigIdea: project.bigIdea ?? project.overview,
+
+    projectImages: project.projectImages ?? project.posts,
+  })
+);
+
+// ==========================================
+// GET BRAND PROJECT BY SLUG
+// ==========================================
+
+export function getProjectBySlug(slug: string) {
+  return projectCaseStudies.find(
+    (project) => project.slug === slug
+  );
+}

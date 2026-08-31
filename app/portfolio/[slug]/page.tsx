@@ -321,20 +321,8 @@ export default function PortfolioDetailPage() {
 
                   const post = section.posts[0];
 
-                  return (
-
-                    <div
-                      key={sIndex}
-                      onClick={() =>
-                        openPostModal(
-                          section.title,
-                          post,
-                          false
-                        )
-                      }
-                      className="group cursor-pointer overflow-hidden rounded-2xl border border-pink-200/80 bg-white p-3.5 shadow-[0_10px_30px_-10px_rgba(233,106,152,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(233,106,152,0.18)] active:scale-95 sm:p-5"
-                    >
-
+                  const content = (
+                    <>
                       <div
                         className={`relative w-full overflow-hidden rounded-xl border border-pink-100 bg-pink-50/50 ${
                           isBrandIdentity
@@ -342,7 +330,6 @@ export default function PortfolioDetailPage() {
                             : "aspect-square"
                         }`}
                       >
-
                         <Image
                           src={post.src}
                           alt={section.title}
@@ -352,13 +339,10 @@ export default function PortfolioDetailPage() {
                         />
 
                         <div className="absolute inset-0 bg-[#2D2433]/10 opacity-0 backdrop-blur-[1px] transition-opacity duration-300 group-hover:opacity-100" />
-
                       </div>
 
                       <div className="mt-3.5 space-y-1 sm:mt-4">
-
                         <div className="flex items-center justify-between">
-
                           <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-pink-600">
                             {section.details.industry}
                           </span>
@@ -366,17 +350,40 @@ export default function PortfolioDetailPage() {
                           <span className="text-[10px] font-mono text-[#6B6570]">
                             {section.details.year}
                           </span>
-
                         </div>
 
                         <h3 className="text-sm font-bold text-[#2D2433] transition-colors group-hover:text-pink-600 sm:text-base">
                           {section.title}
                         </h3>
-
                       </div>
+                    </>
+                  );
 
+                  const cardClass =
+                    "group cursor-pointer overflow-hidden rounded-2xl border border-pink-200/80 bg-white p-3.5 shadow-[0_10px_30px_-10px_rgba(233,106,152,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(233,106,152,0.18)] active:scale-95 sm:p-5";
+
+                  return isBrandIdentity ? (
+                    <Link
+                      key={sIndex}
+                      href={`/portfolio/project/${section.slug}`}
+                      className={cardClass}
+                    >
+                      {content}
+                    </Link>
+                  ) : (
+                    <div
+                      key={sIndex}
+                      onClick={() =>
+                        openPostModal(
+                          section.title,
+                          post,
+                          false
+                        )
+                      }
+                      className={cardClass}
+                    >
+                      {content}
                     </div>
-
                   );
                 })}
 
