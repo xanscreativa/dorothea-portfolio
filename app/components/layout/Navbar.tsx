@@ -57,6 +57,7 @@ export default function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -70,13 +71,27 @@ export default function Navbar() {
 
     if (pathname !== "/") {
       router.push(href);
-    } else {
-      document
-        .getElementById(sectionId)
-        ?.scrollIntoView({
-          behavior: "smooth",
-        });
+      return;
     }
+
+    document.getElementById(sectionId)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
+  const handleBrandClick = () => {
+    setMobileMenuOpen(false);
+
+    if (pathname !== "/") {
+      router.push("/#hero");
+      return;
+    }
+
+    document.getElementById("hero")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   const NavLink = ({
@@ -87,8 +102,8 @@ export default function Navbar() {
     isMobile?: boolean;
   }) => {
     const baseClasses = isMobile
-      ? "text-left text-base font-semibold text-[#6B6570] hover:text-[#2D2433] transition-colors py-1 cursor-pointer"
-      : "text-sm font-semibold text-[#6B6570] hover:text-[#2D2433] transition-colors cursor-pointer";
+      ? "cursor-pointer py-1 text-left text-base font-semibold text-[#6B6570] transition-colors hover:text-[#2D2433]"
+      : "cursor-pointer text-sm font-semibold text-[#6B6570] transition-colors hover:text-[#2D2433]";
 
     /* External Link */
     if (item.isExternal) {
@@ -113,6 +128,7 @@ export default function Navbar() {
     if (item.isAnchor) {
       return (
         <button
+          type="button"
           onClick={() => handleAnchorClick(item.href)}
           className={baseClasses}
         >
@@ -145,25 +161,23 @@ export default function Navbar() {
         left-0
         right-0
         z-50
-        transition-all
-        duration-300
-        bg-[#FFFDFC]
         border-b
         border-pink-100/60
+        bg-[#FFFDFC]
         py-2.5
+        transition-all
+        duration-300
         ${scrolledPastHero ? "shadow-sm" : ""}
       `}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-
-        {/* =====================================================
-            LEFT : BRAND / RESUME TITLE
-        ====================================================== */}
-        <div className="flex items-center flex-shrink-0">
-
-          <Link
-            href="/"
-            className="relative flex items-center h-8"
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        {/* LEFT : BRAND / RESUME TITLE */}
+        <div className="flex flex-shrink-0 items-center">
+          <button
+            type="button"
+            onClick={handleBrandClick}
+            aria-label="Back to hero section"
+            className="relative flex h-8 cursor-pointer items-center text-left"
             style={{
               width:
                 pathname === "/resume"
@@ -173,24 +187,21 @@ export default function Navbar() {
                     : "200px",
             }}
           >
-
-            {/* =================================================
-                KHUSUS HALAMAN RESUME
-            ================================================== */}
+            {/* KHUSUS HALAMAN RESUME */}
             {pathname === "/resume" ? (
               <span
                 className="
                   absolute
                   inset-0
+                  z-20
                   flex
                   items-center
-                  z-20
                   whitespace-nowrap
                   text-sm
-                  sm:text-base
                   font-black
                   tracking-tight
                   text-pink-400
+                  sm:text-base
                 "
               >
                 My Resume
@@ -202,22 +213,22 @@ export default function Navbar() {
                   className={`
                     absolute
                     inset-0
+                    z-20
                     flex
                     items-center
-                    z-20
-                    transition-all
-                    duration-700
-                    ease-in-out
                     whitespace-nowrap
                     text-sm
-                    sm:text-base
                     font-black
                     tracking-tight
                     text-pink-400
+                    transition-all
+                    duration-700
+                    ease-in-out
+                    sm:text-base
                     ${
                       scrolledPastHero
-                        ? "opacity-0 -translate-y-full pointer-events-none"
-                        : "opacity-100 translate-y-0"
+                        ? "pointer-events-none -translate-y-full opacity-0"
+                        : "translate-y-0 opacity-100"
                     }
                   `}
                 >
@@ -229,22 +240,22 @@ export default function Navbar() {
                   className={`
                     absolute
                     inset-0
+                    z-20
                     flex
                     items-center
-                    z-20
-                    transition-all
-                    duration-700
-                    ease-in-out
                     whitespace-nowrap
                     text-sm
-                    sm:text-base
                     font-black
                     tracking-tight
                     text-pink-400
+                    transition-all
+                    duration-700
+                    ease-in-out
+                    sm:text-base
                     ${
                       scrolledPastHero
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-full pointer-events-none"
+                        ? "translate-y-0 opacity-100"
+                        : "pointer-events-none translate-y-full opacity-0"
                     }
                   `}
                 >
@@ -252,69 +263,48 @@ export default function Navbar() {
                 </span>
               </>
             )}
-
-          </Link>
-
+          </button>
         </div>
 
-        {/* =====================================================
-            CENTER : DESKTOP NAVIGATION
-        ====================================================== */}
-        <nav className="hidden md:flex items-center justify-center flex-grow px-8">
-
+        {/* CENTER : DESKTOP NAVIGATION */}
+        <nav className="hidden flex-grow items-center justify-center px-8 md:flex">
           <div className="flex items-center space-x-10">
-
             {navItems.map((item) => (
-              <NavLink
-                key={item.labelKey}
-                item={item}
-              />
+              <NavLink key={item.labelKey} item={item} />
             ))}
-
           </div>
-
         </nav>
 
-        {/* =====================================================
-            RIGHT : LANGUAGE TOGGLE
-            DOWNLOAD BUTTON DIHAPUS
-        ====================================================== */}
-        <div className="hidden md:flex items-center flex-shrink-0">
-
+        {/* RIGHT : LANGUAGE TOGGLE */}
+        <div className="hidden flex-shrink-0 items-center md:flex">
           <LanguageToggle />
-
         </div>
 
-        {/* =====================================================
-            MOBILE MENU TOGGLE
-        ====================================================== */}
+        {/* MOBILE MENU TOGGLE */}
         <button
+          type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={t(
-            mobileMenuOpen
-              ? "closeMenuAria"
-              : "openMenuAria"
+            mobileMenuOpen ? "closeMenuAria" : "openMenuAria"
           )}
           className="
-            md:hidden
-            p-1.5
-            cursor-pointer
             z-30
+            flex
             flex-shrink-0
+            cursor-pointer
+            p-1.5
+            md:hidden
           "
         >
           {mobileMenuOpen ? (
-            <X className="w-6 h-6" />
+            <X className="h-6 w-6" />
           ) : (
-            <Menu className="w-6 h-6" />
+            <Menu className="h-6 w-6" />
           )}
         </button>
-
       </div>
 
-      {/* =======================================================
-          MOBILE DROPDOWN MENU
-      ======================================================== */}
+      {/* MOBILE DROPDOWN MENU */}
       {mobileMenuOpen && (
         <div
           className="
@@ -322,20 +312,19 @@ export default function Navbar() {
             top-full
             left-0
             right-0
-            bg-[#FFFDFC]/95
-            backdrop-blur-xl
-            border-b
-            border-pink-100/80
-            shadow-lg
-            px-6
-            py-5
-            md:hidden
             flex
             flex-col
             space-y-4
+            border-b
+            border-pink-100/80
+            bg-[#FFFDFC]/95
+            px-6
+            py-5
+            shadow-lg
+            backdrop-blur-xl
+            md:hidden
           "
         >
-
           {/* Navigation Items */}
           {navItems.map((item) => (
             <NavLink
@@ -348,12 +337,12 @@ export default function Navbar() {
           {/* Language */}
           <div
             className="
-              pt-3
-              border-t
-              border-pink-100/60
               flex
               items-center
               justify-between
+              border-t
+              border-pink-100/60
+              pt-3
             "
           >
             <span
@@ -370,10 +359,8 @@ export default function Navbar() {
 
             <LanguageToggle />
           </div>
-
         </div>
       )}
-
     </header>
   );
 }

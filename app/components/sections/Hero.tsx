@@ -22,7 +22,10 @@ export default function Hero() {
     const element = document.getElementById(id);
 
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
   };
 
@@ -51,9 +54,11 @@ export default function Hero() {
       {/* MAIN CONTAINER */}
       <div className="relative z-10 mx-auto my-auto w-full max-w-7xl px-6 sm:px-8 lg:px-10">
         <div className="flex flex-col items-center text-center lg:grid lg:grid-cols-12 lg:items-center lg:gap-8 lg:text-left xl:gap-10">
+
           {/* VISUAL PROFILE */}
           <div className="relative mb-6 w-full max-w-[285px] pt-4 sm:max-w-[320px] sm:pt-8 md:max-w-md lg:order-2 lg:col-span-5 lg:mb-0 lg:max-w-none lg:pt-0">
             <div className="relative mx-auto">
+
               {/* Portrait Glow */}
               <div className="pointer-events-none absolute left-1/2 top-1/2 -z-20 h-[250px] w-[250px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-pink-300/40 via-pink-200/30 to-pink-100/20 blur-[55px] sm:h-[400px] sm:w-[400px] sm:blur-[80px]" />
 
@@ -141,6 +146,7 @@ export default function Hero() {
 
           {/* MAIN CONTENT AREA */}
           <div className="mt-2 flex w-full max-w-[360px] flex-col items-center lg:order-1 lg:col-span-7 lg:mt-0 lg:max-w-none lg:items-start">
+
             {/* Heading & Role */}
             <div>
               <h1 className="mt-1 text-3xl font-black leading-[1.08] tracking-tight text-[#2D2433] xs:text-4xl sm:mt-2.5 sm:text-5xl lg:text-5xl xl:text-[3.75rem] 2xl:text-[4rem]">
@@ -196,6 +202,7 @@ export default function Hero() {
             {/* CTA */}
             <div className="mt-6 w-full sm:mt-7 lg:mt-5 lg:w-auto">
               <div className="flex w-full items-center justify-center gap-3 lg:justify-start">
+
                 {/* VIEW DESIGN */}
                 <Button
                   href="#portfolio"
@@ -213,7 +220,7 @@ export default function Hero() {
 
                 {/* VIEW REELS */}
                 <Button
-                  href="#reels"
+                  onClick={() => scrollToSection("reels")}
                   className="!flex !w-full !max-w-[170px] !items-center !justify-center !gap-2 !rounded-2xl !border !border-[#8B4B68] !bg-[#8B4B68] !px-3 !py-3 text-xs !text-white shadow-md shadow-[#8B4B68]/10 transition-all duration-300 hover:-translate-y-0.5 hover:!bg-[#753D57] hover:shadow-lg active:scale-[0.98] sm:!max-w-[190px] sm:!px-5 sm:!py-3.5 sm:!text-sm lg:!max-w-[170px] lg:!px-5 lg:!py-3 lg:!text-xs xl:!max-w-[190px] xl:!text-sm"
                 >
                   <Clapperboard
@@ -225,6 +232,7 @@ export default function Hero() {
                     View Reels
                   </span>
                 </Button>
+
               </div>
             </div>
 
@@ -254,6 +262,7 @@ export default function Hero() {
                 ))}
               </div>
             </div>
+
           </div>
         </div>
       </div>
