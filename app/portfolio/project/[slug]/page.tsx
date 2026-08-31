@@ -25,11 +25,13 @@ export default function ProjectDetailPage() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-white text-[#2D2433] selection:bg-pink-100 selection:text-pink-900">
 
-      {/* HEADER */}
-      <div className="mx-auto max-w-6xl px-6 pb-10 pt-24 sm:px-8 sm:pb-14 sm:pt-28 lg:px-10 lg:pt-32">
+      {/* =========================
+          HEADER
+      ========================== */}
+      <div className="mx-auto max-w-6xl px-6 pb-6 pt-24 sm:px-8 sm:pb-8 sm:pt-28 lg:px-10 lg:pt-32">
 
         {/* BACK */}
-        <div className="mb-10 sm:mb-12">
+        <div className="mb-8 sm:mb-10">
           <Link
             href="/portfolio/brand-identity"
             className="inline-flex items-center gap-2 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-[#6B6570] transition-colors hover:text-pink-600 sm:text-xs"
@@ -39,48 +41,50 @@ export default function ProjectDetailPage() {
           </Link>
         </div>
 
+        {/* CATEGORY */}
+        <span className="inline-flex rounded-full border border-pink-200 bg-pink-50 px-3 py-1.5 text-[9px] font-mono font-bold uppercase tracking-[0.16em] text-pink-600 sm:px-3.5 sm:py-2 sm:text-[10px]">
+          {project.category}
+        </span>
+
         {/* TITLE */}
-        <div className="max-w-4xl">
+        <h1 className="mt-4 max-w-4xl text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-[#2D2433] sm:mt-5 sm:text-6xl lg:text-7xl">
+          {project.title}
+        </h1>
 
-          <p className="text-[10px] font-mono font-bold uppercase tracking-[0.18em] text-pink-600 sm:text-xs">
-            {project.category}
-          </p>
+        {/* =========================
+            PROJECT INFO
+        ========================== */}
+        <div className="mt-8 grid grid-cols-3 border-y border-pink-100 sm:mt-10">
 
-          <h1 className="mt-3 text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-[#2D2433] sm:mt-4 sm:text-6xl lg:text-7xl">
-            {project.title}
-          </h1>
-
-        </div>
-
-        {/* INFO */}
-        <div className="mt-10 grid grid-cols-1 gap-5 border-t border-pink-100 pt-6 sm:mt-12 sm:grid-cols-3 sm:gap-8 sm:pt-7">
-
-          <div>
-            <p className="text-[9px] font-mono font-bold uppercase tracking-[0.16em] text-pink-500">
+          {/* CLIENT */}
+          <div className="border-r border-pink-100 py-4 pr-3 sm:py-5 sm:pr-6">
+            <p className="text-[9px] font-mono font-bold uppercase tracking-[0.16em] text-pink-500 sm:text-[10px]">
               Client
             </p>
 
-            <p className="mt-1.5 text-xs font-semibold text-[#2D2433] sm:text-sm">
+            <p className="mt-1.5 text-xs font-semibold leading-relaxed text-[#2D2433] sm:text-sm">
               {project.details.client}
             </p>
           </div>
 
-          <div>
-            <p className="text-[9px] font-mono font-bold uppercase tracking-[0.16em] text-pink-500">
+          {/* INDUSTRY */}
+          <div className="border-r border-pink-100 px-3 py-4 sm:px-6 sm:py-5">
+            <p className="text-[9px] font-mono font-bold uppercase tracking-[0.16em] text-pink-500 sm:text-[10px]">
               Industry
             </p>
 
-            <p className="mt-1.5 text-xs font-semibold text-[#2D2433] sm:text-sm">
+            <p className="mt-1.5 text-xs font-semibold leading-relaxed text-[#2D2433] sm:text-sm">
               {project.details.industry}
             </p>
           </div>
 
-          <div>
-            <p className="text-[9px] font-mono font-bold uppercase tracking-[0.16em] text-pink-500">
+          {/* ROLE */}
+          <div className="py-4 pl-3 sm:py-5 sm:pl-6">
+            <p className="text-[9px] font-mono font-bold uppercase tracking-[0.16em] text-pink-500 sm:text-[10px]">
               Role
             </p>
 
-            <p className="mt-1.5 text-xs font-semibold text-[#2D2433] sm:text-sm">
+            <p className="mt-1.5 text-xs font-semibold leading-relaxed text-[#2D2433] sm:text-sm">
               {project.details.role}
             </p>
           </div>
@@ -89,27 +93,80 @@ export default function ProjectDetailPage() {
 
       </div>
 
-      {/* BIG IDEA */}
-      <section className="mx-auto max-w-6xl px-6 py-8 sm:px-8 sm:py-10 lg:px-10">
+
+      {/* =========================
+          BIG IDEA
+      ========================== */}
+      <section className="mx-auto max-w-6xl px-6 pb-5 pt-2 sm:px-8 sm:pb-7 sm:pt-3 lg:px-10">
 
         <div className="max-w-3xl">
 
-          <p className="text-[10px] font-mono font-bold uppercase tracking-[0.18em] text-pink-600 sm:text-xs">
-            Big Idea
-          </p>
+          {/* SECTION TITLE */}
+          <span className="inline-flex rounded-full border border-pink-200 bg-pink-50 px-3 py-1.5 text-[9px] font-mono font-bold uppercase tracking-[0.16em] text-pink-600 sm:px-3.5 sm:py-2 sm:text-[10px]">
+            BIG IDEA
+          </span>
 
-          <p className="mt-4 text-sm leading-relaxed text-[#6B6570] sm:mt-5 sm:text-lg">
-            {project.bigIdea ?? project.overview}
+          {/* BIG IDEA TEXT */}
+          <p className="mt-3 text-base leading-relaxed text-[#6B6570] sm:mt-4 sm:text-lg lg:text-xl">
+            Making financial education feel clearer, friendlier, and more
+            approachable.
           </p>
 
         </div>
 
       </section>
 
-      {/* FULL WIDTH IMAGE */}
-      <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-8 sm:pb-24 lg:px-10">
 
-        <div className="space-y-6 sm:space-y-10">
+      {/* =========================
+          DESIGN APPROACH
+      ========================== */}
+      <section className="mx-auto max-w-6xl px-6 py-5 sm:px-8 sm:py-7 lg:px-10">
+
+        <div className="max-w-3xl">
+
+          {/* SECTION TITLE */}
+          <span className="inline-flex rounded-full border border-pink-200 bg-pink-50 px-3 py-1.5 text-[9px] font-mono font-bold uppercase tracking-[0.16em] text-pink-600 sm:px-3.5 sm:py-2 sm:text-[10px]">
+            DESIGN APPROACH
+          </span>
+
+          {/* DESCRIPTION */}
+          <p className="mt-3 text-sm leading-relaxed text-[#6B6570] sm:mt-4 sm:text-base lg:text-lg">
+            A friendly and structured visual direction that makes financial
+            information feel more accessible, trustworthy, and easy to
+            understand.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      {/* =========================
+          BRAND DEVELOPMENT
+      ========================== */}
+      <section className="mx-auto max-w-6xl px-4 pb-12 pt-5 sm:px-8 sm:pb-20 sm:pt-6 lg:px-10">
+
+        {/* SECTION HEADER */}
+        <div className="mb-4 flex items-center justify-between sm:mb-6">
+
+          {/* SECTION TITLE */}
+          <span className="inline-flex rounded-full border border-pink-200 bg-pink-50 px-3 py-1.5 text-[9px] font-mono font-bold uppercase tracking-[0.16em] text-pink-600 sm:px-3.5 sm:py-2 sm:text-[10px]">
+            BRAND DEVELOPMENT
+          </span>
+
+          {/* IMAGE COUNT */}
+          <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-[#A39BA4] sm:text-[10px]">
+            {images.length.toString().padStart(2, "0")}{" "}
+            {images.length === 1 ? "IMAGE" : "IMAGES"}
+          </span>
+
+        </div>
+
+
+        {/* =========================
+            IMAGES
+        ========================== */}
+        <div className="space-y-5 sm:space-y-8">
 
           {images.map((image, index) => (
 
