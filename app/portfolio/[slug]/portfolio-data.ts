@@ -36,10 +36,10 @@ export const desainLainItems: GalleryItem[] = [
 ];
 
 export const liveStreamItems: GalleryItem[] = [
-  { src: "/portfolio/live-anya.mp4", alt: "Anya Zona Layer", caption: "Anya Zona Layer Live Stream Design", isVideo: true },
-  { src: "/portfolio/live-ez.mp4", alt: "EZ Squad", caption: "EZ Squad Live Stream Design", isVideo: true },
-  { src: "/portfolio/live-raka.mp4", alt: "Raka Trabas", caption: "Raka Trabas Live Stream Design", isVideo: true },
-  { src: "/portfolio/live-reno.mp4", alt: "Sinyal Ordal", caption: "Sinyal Ordal Live Stream Design", isVideo: true },
+  { src: "/portfolio/live-anya.webm", alt: "Anya Zona Layer", caption: "Anya Zona Layer Live Stream Design", isVideo: true },
+  { src: "/portfolio/live-ez.webm", alt: "EZ Squad", caption: "EZ Squad Live Stream Design", isVideo: true },
+  { src: "/portfolio/live-raka.webm", alt: "Raka Trabas", caption: "Raka Trabas Live Stream Design", isVideo: true },
+  { src: "/portfolio/live-reno.webm", alt: "Sinyal Ordal", caption: "Sinyal Ordal Live Stream Design", isVideo: true },
 ];
 
 export const liveProfiles = [
@@ -67,7 +67,7 @@ export const socialSections: SectionData[] = [
     avatarText: "P",
     avatarBg: "from-blue-500 to-indigo-400",
     posts: [
-      { src: "/portfolio/pa-1.png"},
+      { src: "/portfolio/pa-1.avif"},
       { src: "/portfolio/pa-2.avif"},
       { src: "/portfolio/pa-3.avif"},
       { src: "/portfolio/pa-4.avif"},
