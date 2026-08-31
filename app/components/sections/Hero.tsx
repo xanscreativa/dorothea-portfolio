@@ -51,11 +51,9 @@ export default function Hero() {
       {/* MAIN CONTAINER */}
       <div className="relative z-10 mx-auto my-auto w-full max-w-7xl px-6 sm:px-8 lg:px-10">
         <div className="flex flex-col items-center text-center lg:grid lg:grid-cols-12 lg:items-center lg:gap-8 lg:text-left xl:gap-10">
-
           {/* VISUAL PROFILE */}
           <div className="relative mb-6 w-full max-w-[285px] pt-4 sm:max-w-[320px] sm:pt-8 md:max-w-md lg:order-2 lg:col-span-5 lg:mb-0 lg:max-w-none lg:pt-0">
             <div className="relative mx-auto">
-
               {/* Portrait Glow */}
               <div className="pointer-events-none absolute left-1/2 top-1/2 -z-20 h-[250px] w-[250px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-pink-300/40 via-pink-200/30 to-pink-100/20 blur-[55px] sm:h-[400px] sm:w-[400px] sm:blur-[80px]" />
 
@@ -120,7 +118,7 @@ export default function Hero() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="absolute bottom-0 left-[-5px] z-25 w-[88%] max-w-[190px] rounded-2xl border border-white/85 bg-white/80 p-3 shadow-[0_12px_32px_rgba(229,135,176,0.15)] backdrop-blur-xl sm:bottom-8 sm:left-[-20px] sm:max-w-[250px] sm:p-4.5 lg:bottom-4 lg:max-w-[220px] lg:p-3 xl:max-w-[235px]"
+                className="absolute bottom-0 left-[-5px] z-25 w-[88%] max-w-[190px] rounded-2xl border border-white/85 bg-white/80 p-3 shadow-[0_12px_32px_rgba(229,135,176,0.15)] backdrop-blur-xl sm:bottom-8 sm:left-[-20px] sm:max-w-[250px] sm:p-4 lg:bottom-4 lg:max-w-[220px] lg:p-3 xl:max-w-[235px]"
               >
                 <p className="text-[11px] font-medium leading-relaxed text-[#6B6570] sm:text-xs sm:leading-relaxed">
                   <span className="text-xs font-bold text-pink-500 sm:text-base">
@@ -143,7 +141,6 @@ export default function Hero() {
 
           {/* MAIN CONTENT AREA */}
           <div className="mt-2 flex w-full max-w-[360px] flex-col items-center lg:order-1 lg:col-span-7 lg:mt-0 lg:max-w-none lg:items-start">
-
             {/* Heading & Role */}
             <div>
               <h1 className="mt-1 text-3xl font-black leading-[1.08] tracking-tight text-[#2D2433] xs:text-4xl sm:mt-2.5 sm:text-5xl lg:text-5xl xl:text-[3.75rem] 2xl:text-[4rem]">
@@ -196,10 +193,9 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* CTA — VIEW DESIGN + VIEW REELS */}
+            {/* CTA */}
             <div className="mt-6 w-full sm:mt-7 lg:mt-5 lg:w-auto">
               <div className="flex w-full items-center justify-center gap-3 lg:justify-start">
-
                 {/* VIEW DESIGN */}
                 <Button
                   href="#portfolio"
@@ -229,14 +225,12 @@ export default function Hero() {
                     View Reels
                   </span>
                 </Button>
-
               </div>
             </div>
 
             {/* STATISTICS */}
             <div className="mt-8 w-full sm:mt-10 lg:mt-6">
               <div className="flex w-full flex-nowrap items-center justify-center gap-2.5 sm:gap-4 lg:justify-start lg:gap-3">
-
                 {[
                   { n: 50, l: t("statProjects") },
                   { n: 8, l: t("statBrands") },
@@ -247,13 +241,9 @@ export default function Hero() {
                     key={s.l}
                     className="relative flex aspect-square w-[72px] shrink-0 flex-col items-center justify-center rounded-[18px] bg-gradient-to-br from-[#D92F75] via-[#E85D8E] to-[#F6A6C3] p-[2.5px] shadow-[0_8px_26px_rgba(232,93,142,0.18)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(232,93,142,0.28)] sm:w-[88px] lg:w-[82px] xl:w-[88px]"
                   >
-                    {/* Gradient Border */}
                     <div className="flex h-full w-full flex-col items-center justify-center rounded-[16px] bg-[#FDF1F6] px-2">
                       <h3 className="text-lg font-extrabold tracking-tight text-[#B04F78] sm:text-xl lg:text-xl xl:text-2xl">
-                        <Counter
-                          end={s.n}
-                          suffix="+"
-                        />
+                        <Counter end={s.n} suffix="+" />
                       </h3>
 
                       <p className="mt-1 whitespace-nowrap text-[8px] font-bold uppercase tracking-tight text-[#B04F78] sm:text-[9px] lg:text-[9px] xl:text-[10px]">
@@ -262,10 +252,8 @@ export default function Hero() {
                     </div>
                   </div>
                 ))}
-
               </div>
             </div>
-
           </div>
         </div>
       </div>
