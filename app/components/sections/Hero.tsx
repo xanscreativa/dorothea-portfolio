@@ -3,10 +3,15 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
-import FadeUp from "@/components/animation/FadeUp";
 import Counter from "@/components/ui/Counter";
 import useParallax from "@/components/animation/useParallax";
-import { MapPin, Briefcase, Globe } from "lucide-react";
+import {
+  MapPin,
+  Briefcase,
+  Globe,
+  Palette,
+  Clapperboard,
+} from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Hero() {
@@ -55,87 +60,84 @@ export default function Hero() {
               <div className="pointer-events-none absolute left-1/2 top-1/2 -z-20 h-[250px] w-[250px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-pink-300/40 via-pink-200/30 to-pink-100/20 blur-[55px] sm:h-[400px] sm:w-[400px] sm:blur-[80px]" />
 
               {/* Brush Graphic */}
-              <FadeUp delay={0.05}>
-                <div className="pointer-events-none absolute -right-3 top-1 -z-10 w-full max-w-[420px] select-none opacity-20 blur-[0.5px] sm:-right-8 sm:-top-2 sm:max-w-[600px] lg:max-w-[520px]">
-                  <Image
-                    src="/hero/brush.png"
-                    alt=""
-                    width={900}
-                    height={900}
-                    priority
-                    className="w-full object-contain"
-                  />
-                </div>
-              </FadeUp>
+              <div className="pointer-events-none absolute -right-3 top-1 -z-10 w-full max-w-[420px] select-none opacity-20 blur-[0.5px] sm:-right-8 sm:-top-2 sm:max-w-[600px] lg:max-w-[520px]">
+                <Image
+                  src="/hero/brush.png"
+                  alt=""
+                  width={900}
+                  height={900}
+                  loading="lazy"
+                  className="w-full object-contain"
+                />
+              </div>
 
               {/* Flowers */}
-              <FadeUp delay={0.1}>
-                <div className="pointer-events-none absolute -right-3 top-2 -z-10 w-[108%] max-w-[440px] select-none sm:-right-10 sm:-top-2 sm:max-w-[630px] lg:max-w-[550px]">
-                  <motion.div
-                    animate={{ rotate: [-0.6, 0.6, -0.6] }}
-                    transition={{
-                      duration: 18,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <Image
-                      src="/hero/flowers.png"
-                      alt=""
-                      width={2048}
-                      height={2048}
-                      className="w-full object-contain opacity-95"
-                    />
-                  </motion.div>
-                </div>
-              </FadeUp>
-
-              {/* Main Portrait */}
-              <FadeUp delay={0.15}>
+              <div className="pointer-events-none absolute -right-3 top-2 -z-10 w-[108%] max-w-[440px] select-none sm:-right-10 sm:-top-2 sm:max-w-[630px] lg:max-w-[550px]">
                 <motion.div
-                  animate={{ y: [0, -5, 0] }}
+                  animate={{ rotate: [-0.6, 0.6, -0.6] }}
                   transition={{
-                    duration: 7,
+                    duration: 18,
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
-                  className="relative z-10 mx-auto w-[104%] sm:w-[102%] lg:w-[88%] xl:w-[92%]"
                 >
                   <Image
-                    src="/hero/profile.png"
-                    alt={t("profileImageAlt")}
-                    width={1000}
-                    height={1300}
-                    priority
-                    className="h-auto w-full object-contain drop-shadow-[0_16px_28px_rgba(229,135,176,0.2)] transition-transform duration-500 hover:scale-[1.01]"
+                    src="/hero/flowers.png"
+                    alt=""
+                    width={2048}
+                    height={2048}
+                    loading="lazy"
+                    className="w-full object-contain opacity-95"
                   />
                 </motion.div>
-              </FadeUp>
+              </div>
+
+              {/* Main Portrait */}
+              <motion.div
+                animate={{ y: [0, -5, 0] }}
+                transition={{
+                  duration: 7,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="relative z-10 mx-auto w-[104%] sm:w-[102%] lg:w-[88%] xl:w-[92%]"
+              >
+                <Image
+                  src="/hero/profile.png"
+                  alt={t("profileImageAlt")}
+                  width={1000}
+                  height={1300}
+                  priority
+                  className="h-auto w-full object-contain drop-shadow-[0_16px_28px_rgba(229,135,176,0.2)] transition-transform duration-500 hover:scale-[1.01]"
+                />
+              </motion.div>
 
               {/* Quote Card */}
-              <FadeUp delay={0.22}>
-                <motion.div
-                  animate={{ y: [0, -4, 0] }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute bottom-0 left-[-5px] z-25 w-[88%] max-w-[190px] rounded-2xl border border-white/85 bg-white/80 p-3 shadow-[0_12px_32px_rgba(229,135,176,0.15)] backdrop-blur-xl sm:bottom-8 sm:left-[-20px] sm:max-w-[250px] sm:p-4.5 lg:bottom-4 lg:max-w-[220px] lg:p-3 xl:max-w-[235px]"
-                >
-                  <p className="text-[11px] font-medium leading-relaxed text-[#6B6570] sm:text-xs sm:leading-relaxed">
-                    <span className="text-xs font-bold text-pink-500 sm:text-base">
-                      “
-                    </span>
-                    {t("quote1")}
-                    <br />
-                    {t("quote2")}
-                    <span className="text-xs font-bold text-pink-500 sm:text-base">
-                      ”
-                    </span>
-                  </p>
-                </motion.div>
-              </FadeUp>
+              <motion.div
+                animate={{ y: [0, -4, 0] }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute bottom-0 left-[-5px] z-25 w-[88%] max-w-[190px] rounded-2xl border border-white/85 bg-white/80 p-3 shadow-[0_12px_32px_rgba(229,135,176,0.15)] backdrop-blur-xl sm:bottom-8 sm:left-[-20px] sm:max-w-[250px] sm:p-4.5 lg:bottom-4 lg:max-w-[220px] lg:p-3 xl:max-w-[235px]"
+              >
+                <p className="text-[11px] font-medium leading-relaxed text-[#6B6570] sm:text-xs sm:leading-relaxed">
+                  <span className="text-xs font-bold text-pink-500 sm:text-base">
+                    “
+                  </span>
+
+                  {t("quote1")}
+
+                  <br />
+
+                  {t("quote2")}
+
+                  <span className="text-xs font-bold text-pink-500 sm:text-base">
+                    ”
+                  </span>
+                </p>
+              </motion.div>
             </div>
           </div>
 
@@ -143,7 +145,7 @@ export default function Hero() {
           <div className="mt-2 flex w-full max-w-[360px] flex-col items-center lg:order-1 lg:col-span-7 lg:mt-0 lg:max-w-none lg:items-start">
 
             {/* Heading & Role */}
-            <FadeUp delay={0.25}>
+            <div>
               <h1 className="mt-1 text-3xl font-black leading-[1.08] tracking-tight text-[#2D2433] xs:text-4xl sm:mt-2.5 sm:text-5xl lg:text-5xl xl:text-[3.75rem] 2xl:text-[4rem]">
                 Dorothea Alexandra{" "}
                 <span className="whitespace-nowrap">
@@ -157,64 +159,84 @@ export default function Hero() {
               <p className="mt-2 text-base font-bold tracking-wide text-pink-600 sm:text-lg lg:text-lg xl:text-xl">
                 {t("roleSubtitle")}
               </p>
-            </FadeUp>
+            </div>
 
             {/* Availability */}
-            <FadeUp delay={0.32}>
-              <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-pink-200/80 bg-white/90 px-3.5 py-1 shadow-2xs backdrop-blur-md sm:mt-4 sm:px-4 sm:py-1.5 lg:mt-3 lg:px-3.5 lg:py-1">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-pink-400 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-pink-500" />
-                </span>
+            <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-pink-200/80 bg-white/90 px-3.5 py-1 shadow-2xs backdrop-blur-md sm:mt-4 sm:px-4 sm:py-1.5 lg:mt-3 lg:px-3.5 lg:py-1">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-pink-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-pink-500" />
+              </span>
 
-                <p className="text-[11px] font-bold tracking-wide text-pink-600 sm:text-xs lg:text-[11px]">
-                  {t("availableStatus")}
-                </p>
-              </div>
-            </FadeUp>
+              <p className="text-[11px] font-bold tracking-wide text-pink-600 sm:text-xs lg:text-[11px]">
+                {t("availableStatus")}
+              </p>
+            </div>
 
             {/* Value Proposition */}
-            <FadeUp delay={0.38}>
-              <p className="mx-auto mt-3 max-w-[350px] text-xs leading-relaxed text-[#6B6570] sm:mt-4 sm:max-w-xl sm:text-base sm:leading-relaxed lg:mx-0 lg:max-w-lg lg:text-sm xl:text-base">
-                {t("heroDescription")}
-              </p>
-            </FadeUp>
+            <p className="mx-auto mt-3 max-w-[350px] text-xs leading-relaxed text-[#6B6570] sm:mt-4 sm:max-w-xl sm:text-base sm:leading-relaxed lg:mx-0 lg:max-w-lg lg:text-sm xl:text-base">
+              {t("heroDescription")}
+            </p>
 
             {/* Information Rows */}
-            <FadeUp delay={0.44}>
-              <div className="mt-3.5 flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs font-semibold text-[#6B6570] sm:gap-x-5 sm:text-sm lg:mt-3 lg:justify-start lg:gap-x-4 lg:gap-y-1 lg:text-xs">
-                <div className="inline-flex items-center gap-1.5">
-                  <MapPin className="h-4 w-4 shrink-0 text-pink-500 lg:h-3.5 lg:w-3.5" />
-                  <span>{t("location")}</span>
-                </div>
-
-                <div className="inline-flex items-center gap-1.5">
-                  <Briefcase className="h-4 w-4 shrink-0 text-pink-500 lg:h-3.5 lg:w-3.5" />
-                  <span>{t("remoteWork")}</span>
-                </div>
-
-                <div className="inline-flex items-center gap-1.5">
-                  <Globe className="h-4 w-4 shrink-0 text-pink-500 lg:h-3.5 lg:w-3.5" />
-                  <span>{t("relocation")}</span>
-                </div>
+            <div className="mt-3.5 flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs font-semibold text-[#6B6570] sm:gap-x-5 sm:text-sm lg:mt-3 lg:justify-start lg:gap-x-4 lg:gap-y-1 lg:text-xs">
+              <div className="inline-flex items-center gap-1.5">
+                <MapPin className="h-4 w-4 shrink-0 text-pink-500 lg:h-3.5 lg:w-3.5" />
+                <span>{t("location")}</span>
               </div>
-            </FadeUp>
 
-            {/* CTA — VIEW PROJECTS ONLY */}
-            <FadeUp delay={0.5}>
-              <div className="mt-6 flex w-full items-center justify-center sm:mt-7 lg:mt-5 lg:w-auto lg:justify-start">
+              <div className="inline-flex items-center gap-1.5">
+                <Briefcase className="h-4 w-4 shrink-0 text-pink-500 lg:h-3.5 lg:w-3.5" />
+                <span>{t("remoteWork")}</span>
+              </div>
+
+              <div className="inline-flex items-center gap-1.5">
+                <Globe className="h-4 w-4 shrink-0 text-pink-500 lg:h-3.5 lg:w-3.5" />
+                <span>{t("relocation")}</span>
+              </div>
+            </div>
+
+            {/* CTA — VIEW DESIGN + VIEW REELS */}
+            <div className="mt-6 w-full sm:mt-7 lg:mt-5 lg:w-auto">
+              <div className="flex w-full items-center justify-center gap-3 lg:justify-start">
+
+                {/* VIEW DESIGN */}
                 <Button
                   href="#portfolio"
-                  className="!w-[calc(100vw-48px)] !max-w-[340px] !px-8 !py-3 text-xs shadow-md shadow-pink-500/10 transition-transform active:scale-[0.98] sm:!w-auto sm:!max-w-none sm:!px-8 sm:!py-3.5 sm:!text-sm lg:!px-7 lg:!py-3 lg:!text-xs xl:!px-8 xl:!text-sm"
+                  className="!flex !w-full !max-w-[170px] !items-center !justify-center !gap-2 !rounded-2xl !px-3 !py-3 text-xs shadow-md shadow-pink-500/10 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-pink-500/15 active:scale-[0.98] sm:!max-w-[190px] sm:!px-5 sm:!py-3.5 sm:!text-sm lg:!max-w-[170px] lg:!px-5 lg:!py-3 lg:!text-xs xl:!max-w-[190px] xl:!text-sm"
                 >
-                  {t("viewProjects")}
+                  <Palette
+                    className="h-4 w-4 shrink-0 sm:h-5 sm:w-5"
+                    strokeWidth={2.2}
+                  />
+
+                  <span className="whitespace-nowrap">
+                    View Design
+                  </span>
                 </Button>
+
+                {/* VIEW REELS */}
+                <Button
+                  href="#reels"
+                  className="!flex !w-full !max-w-[170px] !items-center !justify-center !gap-2 !rounded-2xl !border !border-[#8B4B68] !bg-[#8B4B68] !px-3 !py-3 text-xs !text-white shadow-md shadow-[#8B4B68]/10 transition-all duration-300 hover:-translate-y-0.5 hover:!bg-[#753D57] hover:shadow-lg active:scale-[0.98] sm:!max-w-[190px] sm:!px-5 sm:!py-3.5 sm:!text-sm lg:!max-w-[170px] lg:!px-5 lg:!py-3 lg:!text-xs xl:!max-w-[190px] xl:!text-sm"
+                >
+                  <Clapperboard
+                    className="h-4 w-4 shrink-0 sm:h-5 sm:w-5"
+                    strokeWidth={2.2}
+                  />
+
+                  <span className="whitespace-nowrap">
+                    View Reels
+                  </span>
+                </Button>
+
               </div>
-            </FadeUp>
+            </div>
 
             {/* STATISTICS */}
-            <FadeUp delay={0.58}>
-              <div className="mt-8 flex w-full flex-nowrap items-center justify-center gap-2.5 sm:mt-10 sm:gap-4 lg:mt-6 lg:gap-3">
+            <div className="mt-8 w-full sm:mt-10 lg:mt-6">
+              <div className="flex w-full flex-nowrap items-center justify-center gap-2.5 sm:gap-4 lg:justify-start lg:gap-3">
+
                 {[
                   { n: 50, l: t("statProjects") },
                   { n: 8, l: t("statBrands") },
@@ -223,47 +245,53 @@ export default function Hero() {
                 ].map((s) => (
                   <div
                     key={s.l}
-                    className="flex aspect-square w-[72px] shrink-0 flex-col items-center justify-center rounded-[17px] border border-[#F1C6D9] bg-[#F9E4EE] px-2 shadow-[0_8px_24px_rgba(190,83,126,0.08)] transition-all duration-300 hover:border-[#E7AFC8] hover:bg-[#F7DCE8] hover:shadow-[0_10px_28px_rgba(190,83,126,0.14)] sm:w-[88px] lg:w-[82px] xl:w-[88px]"
+                    className="relative flex aspect-square w-[72px] shrink-0 flex-col items-center justify-center rounded-[18px] bg-gradient-to-br from-[#D92F75] via-[#E85D8E] to-[#F6A6C3] p-[2.5px] shadow-[0_8px_26px_rgba(232,93,142,0.18)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(232,93,142,0.28)] sm:w-[88px] lg:w-[82px] xl:w-[88px]"
                   >
-                    <h3 className="text-sm font-extrabold tracking-tight text-[#B04F78] sm:text-lg lg:text-lg xl:text-xl">
-                      <Counter end={s.n} suffix="+" />
-                    </h3>
+                    {/* Gradient Border */}
+                    <div className="flex h-full w-full flex-col items-center justify-center rounded-[16px] bg-[#FDF1F6] px-2">
+                      <h3 className="text-lg font-extrabold tracking-tight text-[#B04F78] sm:text-xl lg:text-xl xl:text-2xl">
+                        <Counter
+                          end={s.n}
+                          suffix="+"
+                        />
+                      </h3>
 
-                    <p className="mt-1 whitespace-nowrap text-[8px] font-bold uppercase tracking-tight text-[#B04F78] sm:text-[9px] lg:text-[9px] xl:text-[10px]">
-                      {s.l}
-                    </p>
+                      <p className="mt-1 whitespace-nowrap text-[8px] font-bold uppercase tracking-tight text-[#B04F78] sm:text-[9px] lg:text-[9px] xl:text-[10px]">
+                        {s.l}
+                      </p>
+                    </div>
                   </div>
                 ))}
+
               </div>
-            </FadeUp>
+            </div>
+
           </div>
         </div>
       </div>
 
       {/* SCROLL CUE */}
-      <FadeUp delay={0.68}>
-        <div className="mt-6 flex flex-col items-center justify-center lg:mt-2">
-          <button
-            onClick={() => scrollToSection("portfolio")}
-            className="group flex cursor-pointer flex-col items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.25em] text-[#8B8590] transition-colors hover:text-pink-600"
-            aria-label={t("scrollToPortfolioAria")}
-          >
-            <span>{t("scroll")}</span>
+      <div className="mt-6 flex flex-col items-center justify-center lg:mt-2">
+        <button
+          onClick={() => scrollToSection("portfolio")}
+          className="group flex cursor-pointer flex-col items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.25em] text-[#8B8590] transition-colors hover:text-pink-600"
+          aria-label={t("scrollToPortfolioAria")}
+        >
+          <span>{t("scroll")}</span>
 
-            <div className="flex h-7 w-4.5 items-start justify-center rounded-full border border-pink-200/90 bg-white/80 p-1 shadow-2xs backdrop-blur-xs">
-              <motion.div
-                animate={{ y: [0, 8, 0] }}
-                transition={{
-                  duration: 1.8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="h-1.5 w-1.5 rounded-full bg-pink-500"
-              />
-            </div>
-          </button>
-        </div>
-      </FadeUp>
+          <div className="flex h-7 w-4.5 items-start justify-center rounded-full border border-pink-200/90 bg-white/80 p-1 shadow-2xs backdrop-blur-xs">
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{
+                duration: 1.8,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="h-1.5 w-1.5 rounded-full bg-pink-500"
+            />
+          </div>
+        </button>
+      </div>
     </section>
   );
 }
