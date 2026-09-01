@@ -37,23 +37,23 @@ export interface SectionData {
 export const desainLainItems: GalleryItem[] = [
   {
     src: "/portfolio/backdrop-fa.avif",
-    alt: "Backdrop Forum Anak",
-    caption: "Backdrop Forum Anak",
+    alt: "Children's forum backdrop",
+    caption: "Children's forum backdrop",
   },
   {
     src: "/portfolio/billboard-uksw.avif",
-    alt: "Billboard UKSW",
-    caption: "Billboard UKSW",
+    alt: "UKSW billboard",
+    caption: "UKSW billboard",
   },
   {
     src: "/portfolio/spanduk-pelkatpa.avif",
-    alt: "Spanduk Pelkat PA",
-    caption: "Spanduk Pelkat PA",
+    alt: "Pelkat PA banner",
+    caption: "Pelkat PA banner",
   },
   {
     src: "/portfolio/campaign.avif",
-    alt: "Campaign Design",
-    caption: "Campaign Design",
+    alt: "Campaign design",
+    caption: "Campaign design",
   },
 ];
 
@@ -61,25 +61,25 @@ export const liveStreamItems: GalleryItem[] = [
   {
     src: "/portfolio/live-anya.webm",
     alt: "Anya Zona Layer",
-    caption: "Anya Zona Layer Live Stream Design",
+    caption: "Anya Zona Layer live stream design",
     isVideo: true,
   },
   {
     src: "/portfolio/live-ez.webm",
     alt: "EZ Squad",
-    caption: "EZ Squad Live Stream Design",
+    caption: "EZ Squad live stream design",
     isVideo: true,
   },
   {
     src: "/portfolio/live-raka.webm",
     alt: "Raka Trabas",
-    caption: "Raka Trabas Live Stream Design",
+    caption: "Raka Trabas live stream design",
     isVideo: true,
   },
   {
     src: "/portfolio/live-reno.webm",
     alt: "Sinyal Ordal",
-    caption: "Sinyal Ordal Live Stream Design",
+    caption: "Sinyal Ordal live stream design",
     isVideo: true,
   },
 ];
@@ -136,7 +136,7 @@ export const socialSections: SectionData[] = [
   {
     title: "Pelkat PA GPIB Immanuel Pekanbaru",
     username: "pelkatpa.pku",
-    bio: "Ibadah Hari Minggu Pelayanan Anak",
+    bio: "Children's ministry Sunday service.",
     avatarImage: "/portfolio/pa-logo.avif",
     avatarText: "P",
     avatarBg: "from-blue-500 to-indigo-400",
@@ -153,7 +153,7 @@ export const socialSections: SectionData[] = [
       industry: "Community & Ministry",
       role: "Visual Designer",
       year: "2024",
-      deliverables: "Event Assets, Social Media Story Templates",
+      deliverables: "Event assets, social media story templates",
       tools: "Adobe Illustrator, Canva",
     },
     overview:
@@ -165,20 +165,20 @@ export const socialSections: SectionData[] = [
   {
     title: "UKSW",
     username: "uksw_salatiga",
-    bio: "Creative Minority",
+    bio: "Creative minority.",
     avatarImage: "/portfolio/uksw-logo.avif",
     avatarText: "U",
     avatarBg: "from-pink-500 to-rose-400",
     posts: [
       {
         src: "/portfolio/uksw-1.avif",
-        alt: "UKSW Mendunia",
-        caption: "UKSW Mendunia",
+        alt: "UKSW goes global",
+        caption: "UKSW goes global",
       },
       {
         src: "/portfolio/uksw-2.avif",
-        alt: "Kampus Tour",
-        caption: "Kampus Tour",
+        alt: "Campus tour",
+        caption: "Campus tour",
         subSlides: [
           { src: "/portfolio/uksw-2.avif" },
           { src: "/portfolio/uksw-2a.avif" },
@@ -188,28 +188,28 @@ export const socialSections: SectionData[] = [
       },
       {
         src: "/portfolio/uksw-3.avif",
-        alt: "PMB 2026",
+        alt: "New student admission 2026",
         caption: "Rumah Noto",
       },
       {
         src: "/portfolio/uksw-4.avif",
-        alt: "Akreditasi Unggul",
-        caption: "Passover Poster",
+        alt: "Excellence accreditation",
+        caption: "Passover poster",
       },
       {
         src: "/portfolio/uksw-5.avif",
-        alt: "UKSW Menyapa",
-        caption: "Passover Poster",
+        alt: "UKSW greets",
+        caption: "Passover poster",
       },
       {
         src: "/portfolio/uksw-6.avif",
-        alt: "Creative Minority",
+        alt: "Creative minority",
         caption: "Quotes",
       },
       {
         src: "/portfolio/uksw-7.avif",
-        alt: "Campus Life",
-        caption: "Campus Life",
+        alt: "Campus life",
+        caption: "Campus life",
         subSlides: [
           { src: "/portfolio/uksw-7.avif" },
           { src: "/portfolio/uksw-7a.avif" },
@@ -219,13 +219,13 @@ export const socialSections: SectionData[] = [
       },
       {
         src: "/portfolio/uksw-8.avif",
-        alt: "Research & Innovation",
-        caption: "Research & Innovation",
+        alt: "Research & innovation",
+        caption: "Research & innovation",
       },
       {
         src: "/portfolio/uksw-9.avif",
-        alt: "Graduation Moment",
-        caption: "Graduation Moment",
+        alt: "Graduation moment",
+        caption: "Graduation moment",
       },
     ],
     details: {
@@ -233,7 +233,7 @@ export const socialSections: SectionData[] = [
       industry: "Education",
       role: "Visual Design Intern",
       year: "2022",
-      deliverables: "Social Media Content, Thumbnails, Photography",
+      deliverables: "Social media content, thumbnails, photography",
       tools: "Adobe Photoshop, Adobe Illustrator",
     },
     overview:
@@ -245,15 +245,15 @@ export const socialSections: SectionData[] = [
   {
     title: "Jendela Finansial",
     username: "jendelafinansial",
-    bio: "Smart financial tips & wealth education made simple 💡 Grow your future with us.",
+    bio: "Smart financial tips and wealth education made simple 💡 Grow your future with us.",
     avatarImage: "/portfolio/jendela-finansial-logo.avif",
     avatarText: "JF",
     avatarBg: "from-emerald-500 to-teal-400",
     posts: [
       {
         src: "/portfolio/jendela-1.avif",
-        alt: "jendela-1",
-        caption: "jendela-1",
+        alt: "Jendela 1",
+        caption: "Jendela 1",
         subSlides: [
           { src: "/portfolio/jendela-1.avif" },
           { src: "/portfolio/jendela-1a.avif" },
@@ -265,8 +265,8 @@ export const socialSections: SectionData[] = [
       },
       {
         src: "/portfolio/jendela-2.avif",
-        alt: "jendela-2",
-        caption: "jendela-2",
+        alt: "Jendela 2",
+        caption: "Jendela 2",
         subSlides: [
           { src: "/portfolio/jendela-2.avif" },
           { src: "/portfolio/jendela-2a.avif" },
@@ -277,8 +277,8 @@ export const socialSections: SectionData[] = [
       },
       {
         src: "/portfolio/jendela-3.avif",
-        alt: "jendela-3",
-        caption: "jendela-3",
+        alt: "Jendela 3",
+        caption: "Jendela 3",
         subSlides: [
           { src: "/portfolio/jendela-3.avif" },
           { src: "/portfolio/jendela-3a.avif" },
@@ -290,8 +290,8 @@ export const socialSections: SectionData[] = [
       },
       {
         src: "/portfolio/jendela-4.avif",
-        alt: "jendela-4",
-        caption: "jendela-4",
+        alt: "Jendela 4",
+        caption: "Jendela 4",
         subSlides: [
           { src: "/portfolio/jendela-4.avif" },
           { src: "/portfolio/jendela-4a.avif" },
@@ -303,16 +303,16 @@ export const socialSections: SectionData[] = [
           { src: "/portfolio/jendela-4g.avif" },
           {
             src: "/portfolio/jendela-4h.avif",
-            alt: "jendela-4h",
-            caption: "jendela-4h",
+            alt: "Jendela 4h",
+            caption: "Jendela 4h",
           },
         ],
       },
       { src: "/portfolio/jendela-5.avif" },
       {
         src: "/portfolio/jendela-6.avif",
-        alt: "jendela-6",
-        caption: "jendela-6",
+        alt: "Jendela 6",
+        caption: "Jendela 6",
         subSlides: [
           { src: "/portfolio/jendela-6.avif" },
           { src: "/portfolio/jendela-6a.avif" },
@@ -330,7 +330,7 @@ export const socialSections: SectionData[] = [
       role: "Lead Visual Designer",
       year: "2024",
       deliverables:
-        "Social Media Content, Character Design, Branding Assets, Educational Campaigns",
+        "Social media content, character design, branding assets, educational campaigns",
       tools: "Adobe Photoshop, Adobe Illustrator",
     },
     overview:
@@ -363,7 +363,7 @@ export const socialSections: SectionData[] = [
       role: "Graphic Designer & Brand Designer",
       year: "2025",
       deliverables:
-        "Brand Identity, Social Media Content, Character Design, Digital Learning Assets",
+        "Brand identity, social media content, character design, digital learning assets",
       tools: "Adobe Photoshop, Adobe Illustrator, Canva",
     },
     overview:
@@ -383,15 +383,15 @@ export const brandSections: SectionData[] = [
     category: "BRAND IDENTITY",
     title: "Jendela Finansial",
     username: "jendelafinansial",
-    bio: "Smart financial tips & wealth education",
+    bio: "Smart financial tips and wealth education. 💡📈",
     avatarImage: "/portfolio/jendela-finansial.avif",
     avatarText: "JF",
     avatarBg: "from-emerald-500 to-teal-400",
     posts: [
       {
         src: "/portfolio/jendela-finansial.avif",
-        alt: "Jendela Finansial Logo",
-        caption: "Jendela Finansial Logo",
+        alt: "Jendela Finansial logo",
+        caption: "Jendela Finansial logo",
       },
     ],
     details: {
@@ -399,20 +399,19 @@ export const brandSections: SectionData[] = [
       industry: "Financial Education",
       role: "Lead Visual Designer",
       year: "2024",
-      deliverables:
-        "Social Media Content, Character Design, Branding Assets, Educational Campaigns",
+      deliverables: "Character design, branding, social media design",
       tools: "Adobe Photoshop, Adobe Illustrator",
     },
     overview:
-      "Developed visual content and branding assets for a financial education platform focused on helping Gen Z become more financially aware. The work included creating social media content, original character designs, and engaging visuals for financial challenges, news, and educational content.",
+      "A financial education brand that addresses financial literacy using a visual approach tailored to Gen Z. Responsibilities included designing brand mascots, establishing the visual branding, and crafting social media content.",
     challenge:
-      "Making financial topics approachable and engaging for Gen Z while building a distinctive visual identity that could communicate educational content, financial news, and interactive challenges in a clear, relatable, and visually appealing way.",
+      "Communicating complex financial concepts to make them approachable, relevant, and engaging for a younger audience through a fresh visual strategy.",
     bigIdea:
-      "Creating a modern and approachable financial identity that transforms complex financial topics into a clear, engaging, and relatable experience.",
+      "Creating mascots Jeni & Jeno to represent Gen Z eager to learn and improve their financial literacy, turning financial education into a friendly and interactive visual experience.",
     projectImages: [
       {
         src: "/portfolio/branding-jendela.avif",
-        alt: "Jendela Finansial Brand Identity",
+        alt: "Jendela Finansial brand identity",
       },
     ],
   },
@@ -421,30 +420,37 @@ export const brandSections: SectionData[] = [
     slug: "pelkat-pa-gpib-immanuel-pekanbaru",
     category: "BRAND IDENTITY",
     title: "Pelkat PA GPIB Immanuel Pekanbaru",
-    username: "gpib_immanuel_pku",
-    bio: "Official church branding and visual identity system 🙏🕊️",
+    username: "pelkatpa.pku",
+    bio: "Official Pelayanan Anak GPIB Immanuel Pekanbaru. 🙏🕊️",
     avatarImage: "/portfolio/pelkatpa.avif",
-    avatarText: "G",
+    avatarText: "PA",
     avatarBg: "from-amber-500 to-orange-400",
     posts: [
       {
         src: "/portfolio/pelkatpa.avif",
-        alt: "GPIB Immanuel Pekanbaru",
-        caption: "GPIB Immanuel Pekanbaru",
+        alt: "Pelkat PA GPIB Immanuel Pekanbaru",
+        caption: "Pelkat PA GPIB Immanuel Pekanbaru",
       },
     ],
     details: {
       client: "GPIB Immanuel Pekanbaru",
-      industry: "Religious Organization",
-      role: "Lead Brand Designer",
-      year: "2024",
-      deliverables: "Visual Identity, Stationery",
-      tools: "Illustrator, Figma",
+      industry: "Children Ministry",
+      role: "Visual Designer",
+      year: "2025",
+      deliverables:
+        "Character design, video editing, poster design, event design, branding, social media design",
+      tools: "Illustrator, Photoshop, Premiere Pro / CapCut",
     },
     overview:
-      "Establishing a dignified and welcoming brand presence for the congregation.",
+      "Children's Ministry (Pelkat PA) serving elementary school children at GPIB Immanuel Pekanbaru. Responsible for developing visual characters, creating worship and event posters, editing videos, building visual branding, and designing social media content.",
     challenge:
-      "Reflecting traditional ecclesiastical values through modern, clean graphic standards.",
+      "Establishing a cheerful and attractive visual consistency for elementary-aged children while upholding core church ministry values.",
+    projectImages: [
+      {
+        src: "/portfolio/branding-pelkatpa.avif",
+        alt: "Pelkat PA GPIB Immanuel Pekanbaru brand identity",
+      },
+    ],
   },
 
   {
@@ -452,7 +458,7 @@ export const brandSections: SectionData[] = [
     category: "BRAND IDENTITY",
     title: "GPIB Immanuel Pekanbaru",
     username: "gpibimmanuelpku",
-    bio: "Official church branding and visual identity system 🙏🕊️",
+    bio: "Official church branding and visual identity system. 🙏🕊️",
     avatarImage: "/portfolio/gpib-sinode.avif",
     avatarText: "G",
     avatarBg: "from-amber-500 to-orange-400",
@@ -465,22 +471,23 @@ export const brandSections: SectionData[] = [
     ],
     details: {
       client: "GPIB Immanuel Pekanbaru",
-      industry: "Religious Organization",
-      role: "Lead Brand Designer",
-      year: "2024",
-      deliverables: "Visual Identity, Stationery",
-      tools: "Illustrator, Figma",
+      industry: "Church",
+      role: "Visual Designer",
+      year: "2025",
+      deliverables:
+        "Logo design, branding, character design, social media design, video editing",
+      tools: "Illustrator, Figma, Photoshop",
     },
     overview:
-      "Establishing a dignified and welcoming brand presence for the congregation.",
+      "Designed internal logos, developed visual branding, created brand mascots, crafted social media content, and handled video editing for GPIB Immanuel Pekanbaru.",
     challenge:
-      "Reflecting traditional ecclesiastical values through modern, clean graphic standards.",
+      "Building a cohesive visual identity that bridges the church's long standing ministry heritage with a modern, approachable aesthetic for the whole congregation.",
     bigIdea:
-      "Creating a modern and approachable financial identity that transforms complex financial topics into a clear, engaging, and relatable experience.",
+      "Introducing 'Elof', a mascot inspired by Rudolf Knierim (the first missionary and pastor of GPIB). The name Immanuel Rudolf is abbreviated to Elof with the philosophy: E (ImmanuEl - God with us), L (Light - living in God's light), O (Obedience - walking in His path), and F (Faith - moving forward in faith). Core Philosophy: Walking together with God in light, obedience, and faith.",
     projectImages: [
       {
         src: "/portfolio/branding-gpib.avif",
-        alt: "GPIB Immanuel Pekanbaru Brand Identity",
+        alt: "GPIB Immanuel Pekanbaru brand identity",
       },
     ],
   },
@@ -490,7 +497,7 @@ export const brandSections: SectionData[] = [
     category: "BRAND IDENTITY",
     title: "Consistrade",
     username: "consistrade",
-    bio: "Financial & Trading Education",
+    bio: "Financial and trading education. 📊📉",
     avatarImage: "/portfolio/consistrade-thumb.avif",
     avatarText: "C",
     avatarBg: "from-purple-500 to-pink-500",
@@ -504,22 +511,21 @@ export const brandSections: SectionData[] = [
     details: {
       client: "Consistrade",
       industry: "Financial & Trading Education",
-      role: "Graphic Designer & Brand Designer",
+      role: "Visual Designer",
       year: "2025",
-      deliverables:
-        "Brand Identity, Social Media Content, Character Design, Digital Learning Assets",
-      tools: "Adobe Photoshop, Adobe Illustrator, Canva",
+      deliverables: "Logo design, character design, social media design",
+      tools: "Adobe Photoshop, Adobe Illustrator",
     },
     overview:
-      "Developed visual and branding assets for Consistrade, a financial education platform focused on helping traders—from beginners to professionals—learn and grow consistently. The work included building a cohesive brand identity, creating character designs, and developing engaging visual assets for digital products, trading modules, educational classes, and community-based content.",
+      "A financial and trading education brand providing digital learning modules for users ranging from beginners to professionals. Responsible for logo design, brand character development, and social media content design.",
     challenge:
-      "Creating a visual identity that feels approachable for beginner traders while maintaining credibility and relevance for more experienced audiences. The challenge was to transform complex trading and financial concepts into clear, engaging, and visually consistent content that supports learning, community engagement, and Consistrade's digital education ecosystem.",
+      "Crafting a professional trading identity that feels welcoming and approachable for beginner traders without being intimidating.",
     bigIdea:
-      "Creating a modern and approachable financial identity that transforms complex financial topics into a clear, engaging, and relatable experience.",
+      "Introducing 'Teddy', a mascot representing financially savvy youth who enjoys sharing trading knowledge in a relatable and inspiring manner.",
     projectImages: [
       {
-        src: "/portfolio/branding-jendela.avif",
-        alt: "Jendela Finansial Brand Identity",
+        src: "/portfolio/branding-consistrade.avif",
+        alt: "Consistrade brand identity",
       },
     ],
   },
@@ -527,37 +533,35 @@ export const brandSections: SectionData[] = [
   {
     slug: "hut-63-pelkat-pa",
     category: "BRAND IDENTITY",
-    title: "HUT 63 Pelkat PA GPIB",
-    username: "pelkatpa.pku",
-    bio: "Winning logo design for the 63rd Anniversary of Pelkat PA GPIB 🏆",
+    title: "63rd Anniversary of Pelkat PA GPIB Synod",
+    username: "pelkatpa.sinode",
+    bio: "Winning logo design for the 63rd Anniversary of Pelkat PA GPIB. 🏆",
     avatarImage: "/portfolio/hut63.avif",
     avatarText: "PA",
     avatarBg: "from-rose-500 to-pink-500",
     posts: [
       {
         src: "/portfolio/hut63.avif",
-        alt: "PA Logo HUT 63",
-        caption: "PA Logo HUT 63",
+        alt: "PA logo 63rd anniversary",
+        caption: "PA logo 63rd anniversary",
       },
     ],
     details: {
-      client: "Dewan Pelayanan Anak",
-      industry: "Ministry",
-      role: "Graphic Designer",
-      year: "2023",
-      deliverables: "Logo Competition Entry",
+      client: "GPIB Synod Children's Ministry Board",
+      industry: "Children Ministry",
+      role: "Logo Designer",
+      year: "2022",
+      deliverables: "Logo design (competition entry)",
       tools: "Illustrator",
     },
     overview:
-      "Winning design for the 63rd Pelkat PA GPIB Anniversary logo competition.",
+      "Winning logo design entry for the 63rd Anniversary of Pelkat PA GPIB organized by the GPIB Synod Children's Ministry Board. The design was selected nationwide and featured across all official 63rd-anniversary celebrations.",
     challenge:
-      "Capturing the spirit of 63 years of service within a concise, iconic mark.",
-    bigIdea:
-      "Creating a modern and approachable financial identity that transforms complex financial topics into a clear, engaging, and relatable experience.",
+      "Encapsulating children's ministry values and the celebration's 63-year milestone into an iconic, versatile visual symbol for various media formats.",
     projectImages: [
       {
         src: "/portfolio/branding-hut63.avif",
-        alt: "HUT 63 Pelkat PA GPIB Brand Identity",
+        alt: "63rd Anniversary of Pelkat PA GPIB brand identity",
       },
     ],
   },
@@ -565,75 +569,35 @@ export const brandSections: SectionData[] = [
   {
     slug: "hut-67-pelkat-pa",
     category: "BRAND IDENTITY",
-    title: "HUT 67 Pelkat PA GPIB",
-    username: "pelkatpa.pku",
-    bio: "Official visual identity for the 67th Pelkat PA GPIB Anniversary 🕊️",
+    title: "67th Anniversary of Pelkat PA GPIB Synod",
+    username: "pelkatpa.sinode",
+    bio: "Official visual identity for the 67th Pelkat PA GPIB Anniversary. 🕊️",
     avatarImage: "/portfolio/hut67.avif",
     avatarText: "PA",
     avatarBg: "from-blue-500 to-indigo-500",
     posts: [
       {
         src: "/portfolio/hut67.avif",
-        alt: "Logo HUT Pelkat PA ke-67",
-        caption: "Logo HUT Pelkat PA ke-67",
+        alt: "Pelkat PA 67th anniversary logo",
+        caption: "Pelkat PA 67th anniversary logo",
       },
     ],
     details: {
-      client: "Logo HUT Pelkat PA ke-67",
-      industry: "Ministry",
-      role: "Lead Brand Designer",
-      year: "2024",
-      deliverables: "Anniversary Logo",
+      client: "GPIB Synod Children's Ministry Board",
+      industry: "Children Ministry",
+      role: "Logo Designer",
+      year: "2026",
+      deliverables: "Logo design",
       tools: "Illustrator, Photoshop",
     },
     overview:
-      "Developing a celebratory and meaningful identity for the 67th anniversary.",
+      "Official anniversary logo design for the 67th Anniversary of Pelkat PA GPIB organized by the GPIB Synod Children's Ministry Board, utilized nationwide across all commemoration events.",
     challenge:
-      "Creating a distinct mark that aligns with church branding while signifying longevity.",
-    bigIdea:
-      "Creating a modern and approachable financial identity that transforms complex financial topics into a clear, engaging, and relatable experience.",
+      "Designing a meaningful celebration emblem that captures the nationwide history and mission of the GPIB children's ministry.",
     projectImages: [
       {
         src: "/portfolio/branding-hut67.avif",
-        alt: "HUT 67 Pelkat PA GPIB Brand Identity",
-      },
-    ],
-  },
-
-  {
-    slug: "soleste-brand",
-    category: "BRAND IDENTITY",
-    title: "Soleste",
-    username: "soleste_official",
-    bio: "Elegance and modern lifestyle brand identity design ✨",
-    avatarImage: "/portfolio/soleste.avif",
-    avatarText: "S",
-    avatarBg: "from-amber-400 to-yellow-600",
-    posts: [
-      {
-        src: "/portfolio/soleste.avif",
-        alt: "Soleste Brand",
-        caption: "Soleste Brand Identity",
-      },
-    ],
-    details: {
-      client: "Soleste",
-      industry: "Lifestyle & Fashion",
-      role: "Lead Brand Designer",
-      year: "2024",
-      deliverables: "Brand Strategy, Visual Identity",
-      tools: "Illustrator, Figma",
-    },
-    overview:
-      "Crafting a refined, luxury-feeling brand identity for modern lifestyle products.",
-    challenge:
-      "Encapsulating sophistication and minimalism while keeping the brand warm and accessible.",
-    bigIdea:
-      "Creating a modern and approachable financial identity that transforms complex financial topics into a clear, engaging, and relatable experience.",
-    projectImages: [
-      {
-        src: "/portfolio/branding-soleste.avif",
-        alt: "Soleste Brand Identity",
+        alt: "67th Anniversary of Pelkat PA GPIB brand identity",
       },
     ],
   },
@@ -641,307 +605,305 @@ export const brandSections: SectionData[] = [
 
 // ==========================================
 // LOGO DESIGN
-// TIDAK DIUBAH
 // ==========================================
 
 export const logoSections: SectionData[] = [
   {
-    title: "HUT 63 Pelkat PA GPIB",
+    title: "63rd Anniversary of Pelkat PA GPIB",
     username: "pelkatpa.pku",
-    bio: "Winning anniversary emblem for Pelkat PA GPIB 🏆",
+    bio: "Winning anniversary emblem for Pelkat PA GPIB. 🏆",
     avatarImage: "/portfolio/hut63.avif",
     avatarText: "PA",
     avatarBg: "from-rose-500 to-pink-500",
     posts: [
       {
         src: "/portfolio/hut63.avif",
-        alt: "PA Logo HUT 63",
-        caption: "HUT 63 Pelkat PA Logo",
+        alt: "PA logo 63rd anniversary",
+        caption: "63rd anniversary Pelkat PA logo",
       },
     ],
     details: {
-      client: "Dewan Pelayanan Anak",
-      industry: "Religious & Youth",
+      client: "Dewan Pelayanan Anak Sinode GPIB",
+      industry: "Children Ministry",
       role: "Logo Designer",
-      year: "2023",
-      deliverables: "Competition Winner Emblem",
+      year: "2022",
+      deliverables: "National Competition Winner Emblem",
       tools: "Illustrator",
     },
     overview:
-      "Celebratory 63rd anniversary logo winning entry capturing faith and joy.",
+      "Sayembara desain logo HUT ke-63 Pelkat PA GPIB yang diselenggarakan oleh Dewan Pelayanan Anak Sinode GPIB. Logo terpilih sebagai juara dan digunakan secara nasional.",
     challenge:
-      "Merging numeric elements with church motifs into a unified circular mark.",
+      "Merging numeric elements with church motifs into a unified, celebratory circular mark used nationwide.",
   },
   {
-    title: "HUT 67 Pelkat PA GPIB",
+    title: "67th Anniversary of Pelkat PA GPIB",
     username: "pelkatpa.pku",
-    bio: "Official 67th anniversary visual mark 🕊️",
+    bio: "Official 67th anniversary visual mark. 🕊️",
     avatarImage: "/portfolio/hut67.avif",
     avatarText: "PA",
     avatarBg: "from-blue-500 to-indigo-500",
     posts: [
       {
         src: "/portfolio/hut67.avif",
-        alt: "Logo HUT Pelkat PA ke-67",
-        caption: "HUT 67 Pelkat PA Logo",
+        alt: "Pelkat PA 67th anniversary logo",
+        caption: "67th anniversary Pelkat PA logo",
       },
     ],
     details: {
-      client: "Pelkat PA GPIB",
-      industry: "Religious & Youth",
+      client: "Dewan Pelayanan Anak Sinode GPIB",
+      industry: "Children Ministry",
       role: "Logo Designer",
-      year: "2024",
-      deliverables: "Official Anniversary Logo",
+      year: "2026",
+      deliverables: "Official National Anniversary Logo",
       tools: "Illustrator",
     },
     overview:
-      "Modern anniversary identity commemorating 67 years of service and spiritual growth.",
+      "Desain logo peringatan HUT ke-67 Pelkat PA GPIB yang digunakan secara nasional untuk menggambarkan pelayanan dan pertumbuhan spiritual anak.",
     challenge:
-      "Creating a fresh visual theme while respecting long-standing organizational identity.",
+      "Creating a fresh visual theme while respecting long-standing organizational identity and national application standards.",
   },
   {
     title: "GPIB Immanuel Pekanbaru",
     username: "gpib_immanuel_pku",
-    bio: "Official church emblem and logo mark 🙏🕊️",
+    bio: "Official church emblem and visual branding. 🙏🕊️",
     avatarImage: "/portfolio/gpib.avif",
     avatarText: "G",
     avatarBg: "from-amber-500 to-orange-400",
     posts: [
       {
         src: "/portfolio/gpib.avif",
-        alt: "GPIB Immanuel Pekanbaru Logo",
-        caption: "GPIB Immanuel Pekanbaru Logo Design",
+        alt: "GPIB Immanuel Pekanbaru logo",
+        caption: "GPIB Immanuel Pekanbaru logo design",
       },
     ],
     details: {
       client: "GPIB Immanuel Pekanbaru",
-      industry: "Religious Organization",
-      role: "Logo Designer",
-      year: "2024",
-      deliverables: "Church Logo & Visual Mark",
-      tools: "Illustrator",
+      industry: "Church",
+      role: "Visual Designer",
+      year: "2025",
+      deliverables: "Logo Design, Branding, Mascot (Elof), Social Media & Video Editing",
+      tools: "Illustrator, Photoshop, Premiere Pro",
     },
     overview:
-      "Establishing a dignified and welcoming brand presence for the congregation.",
+      "Mendesain logo internal, mengembangkan branding visual, membuat karakter maskot Elof, serta memproduksi konten media sosial dan video untuk gereja.",
     challenge:
-      "Reflecting traditional ecclesiastical values through modern, clean graphic standards.",
+      "Reflecting traditional ecclesiastical values through modern graphic standards while introducing a friendly mascot.",
   },
   {
-    title: "Joko Tuo",
-    username: "jokotuo_heritage",
-    bio: "Traditional heritage & authentic culinary mark 🌿",
+    title: "Joko Tuo Resort",
+    username: "jokotuo_resort",
+    bio: "Whale shark bone inspired resort logo & identity. 🌿🌊",
     avatarImage: "/portfolio/jokotuo.avif",
     avatarText: "JT",
     avatarBg: "from-emerald-700 to-green-600",
     posts: [
       {
         src: "/portfolio/jokotuo.avif",
-        alt: "Joko Tuo Logo",
-        caption: "Joko Tuo Logo Design",
+        alt: "Joko Tuo Resort logo",
+        caption: "Joko Tuo Resort logo design",
       },
     ],
     details: {
-      client: "Joko Tuo",
-      industry: "Culinary & Heritage",
+      client: "Joko Tuo Resort",
+      industry: "Hospitality & Resort",
       role: "Logo Designer",
-      year: "2024",
-      deliverables: "Vintage Monogram & Seal",
+      year: "2022",
+      deliverables: "Resort Logo & Visual Identity",
       tools: "Illustrator, Photoshop",
     },
     overview:
-      "A rich, heritage-inspired logo mark reflecting authentic cultural recipes and tradition.",
+      "Desain logo dan identitas visual untuk resort di Jepara dengan konsep visual yang terinspirasi dari struktur tulang hiu paus.",
     challenge:
-      "Infusing traditional retro artwork while keeping the logo modern and scalable.",
+      "Translating abstract whale shark bone structures into a luxury, serene, and iconic hospitality brand mark.",
   },
   {
     title: "Consistrade",
     username: "consistrade",
-    bio: "Sleek & authoritative corporate trading mark 📈",
+    bio: "Sleek financial & trading education logo mark. 📈",
     avatarImage: "/portfolio/consistrade.avif",
     avatarText: "C",
     avatarBg: "from-indigo-600 to-blue-500",
     posts: [
       {
         src: "/portfolio/consistrade.avif",
-        alt: "Consistrade Logo",
-        caption: "Consistrade Logo Design",
+        alt: "Consistrade logo",
+        caption: "Consistrade logo design",
       },
     ],
     details: {
       client: "Consistrade",
       industry: "Financial & Trading Education",
-      role: "Graphic Designer & Brand Designer",
+      role: "Visual Designer",
       year: "2025",
-      deliverables:
-        "Brand Identity, Social Media Content, Character Design, Digital Learning Assets",
-      tools: "Adobe Photoshop, Adobe Illustrator, Canva",
+      deliverables: "Logo Design, Character Design (Teddy), Social Media Assets",
+      tools: "Illustrator, Photoshop, Canva",
     },
     overview:
-      "Developed visual and branding assets for Consistrade, a financial education platform focused on helping traders—from beginners to professionals—learn and grow consistently. The work included building a cohesive brand identity, creating character designs, and developing engaging visual assets for digital products, trading modules, educational classes, and community-based content.",
+      "Mendesain logo, mengembangkan karakter brand (Teddy), serta merancang konten media sosial untuk platform edukasi trading.",
     challenge:
-      "Creating a visual identity that feels approachable for beginner traders while maintaining credibility and relevance for more experienced audiences. The challenge was to transform complex trading and financial concepts into clear, engaging, and visually consistent content that supports learning, community engagement, and Consistrade's digital education ecosystem.",
+      "Balancing professional corporate trading credibility with an accessible, friendly character-driven education style.",
   },
   {
     title: "Minci",
     username: "minci_brand",
-    bio: "Playful & friendly mascot-driven brand logo 🐱",
+    bio: "Personal brand logo for link owner & creator. 🐱✨",
     avatarImage: "/portfolio/minci.avif",
     avatarText: "M",
     avatarBg: "from-pink-400 to-rose-400",
     posts: [
       {
         src: "/portfolio/minci.avif",
-        alt: "Minci Logo",
-        caption: "Minci Logo Design",
+        alt: "Minci logo",
+        caption: "Minci personal brand logo",
       },
     ],
     details: {
       client: "Minci",
-      industry: "Consumer Goods",
+      industry: "Personal Brand / Content Creator",
       role: "Logo Designer",
-      year: "2024",
-      deliverables: "Character Logo & Packaging Badge",
+      year: "2025",
+      deliverables: "Personal Brand Logo & Monogram",
       tools: "Illustrator",
     },
     overview:
-      "Warm and inviting character-based logo design built for high brand recall.",
+      "Mendesain logo personal brand milik Minci (istri Ko Mark dari Pivot Point), seorang link owner dan kreator konten vlog harian.",
     challenge:
-      "Balancing cute mascot elements with scalable graphic typography.",
+      "Capturing a friendly, approachable, and engaging creator personality within a scalable vector mark.",
   },
   {
     title: "Nona Kirana",
     username: "nonakirana",
-    bio: "Charming & feminine aesthetic visual identity 🌸",
+    bio: "Sophisticated trading & lifestyle community mark. 🌸",
     avatarImage: "/portfolio/kirana.avif",
     avatarText: "NK",
     avatarBg: "from-pink-300 to-purple-400",
     posts: [
       {
         src: "/portfolio/kirana.avif",
-        alt: "Nona Kirana Logo",
-        caption: "Nona Kirana Logo Design",
+        alt: "Nona Kirana logo",
+        caption: "Nona Kirana logo design",
       },
     ],
     details: {
       client: "Nona Kirana",
-      industry: "Beauty & Beauty Care",
+      industry: "Trading Education & Lifestyle",
       role: "Logo Designer",
-      year: "2024",
-      deliverables: "Wordmark & Monogram",
-      tools: "Illustrator, Font Self",
+      year: "2026",
+      deliverables: "Logo Design & Visual Identity",
+      tools: "Illustrator",
     },
     overview:
-      "Elegant typographic and monogram design crafted for personal branding and beauty.",
+      "Mendesain logo dan identitas visual untuk komunitas trading yang menggabungkan edukasi finansial, trading, dan lifestyle dengan gaya dewasa serta elegan.",
     challenge:
-      "Designing delicate line work that maintains clarity across small digital icons.",
+      "Crafting a sophisticated and feminine aesthetic that still communicates financial strength and education.",
   },
   {
     title: "Sinyal Ordal",
     username: "sinyalordal",
-    bio: "Tech & insider signals community mark 📡",
+    bio: "Bold & masculine trading community mark. 📡",
     avatarImage: "/portfolio/sinyalordal.avif",
     avatarText: "SO",
     avatarBg: "from-cyan-500 to-blue-600",
     posts: [
       {
         src: "/portfolio/sinyalordal.avif",
-        alt: "Sinyal Ordal Logo",
-        caption: "Sinyal Ordal Logo Design",
+        alt: "Sinyal Ordal logo",
+        caption: "Sinyal Ordal logo design",
       },
     ],
     details: {
       client: "Sinyal Ordal",
-      industry: "Technology & Community",
+      industry: "Trading Education & Community",
       role: "Logo Designer",
-      year: "2024",
-      deliverables: "Digital Logo Suite",
-      tools: "Illustrator, Figma",
+      year: "2025",
+      deliverables: "Logo Design & Brand Identity",
+      tools: "Illustrator",
     },
     overview:
-      "A sharp, futuristic logo design symbolising signal flow and exclusive networking.",
+      "Mendesain logo dan identitas visual komunitas edukasi finansial, trading, dan lifestyle dengan arahan visual yang bebas, maskulin, dan berkarakter.",
     challenge:
-      "Crafting an abstract signal icon that feels both tech-forward and trustworthy.",
+      "Combining high-tech signal metaphors with a strong, confident, and edgy community visual identity.",
   },
   {
     title: "Soleste",
     username: "soleste_official",
-    bio: "Modern & elegant lifestyle brand mark ✨",
+    bio: "Promotional & lifestyle skincare brand mark. ✨",
     avatarImage: "/portfolio/soleste.avif",
     avatarText: "S",
     avatarBg: "from-amber-400 to-yellow-600",
     posts: [
       {
         src: "/portfolio/soleste.avif",
-        alt: "Soleste Logo",
-        caption: "Soleste Logo Design",
+        alt: "Soleste logo",
+        caption: "Soleste logo design",
       },
     ],
     details: {
       client: "Soleste",
-      industry: "Lifestyle & Fashion",
-      role: "Logo Designer",
+      industry: "Skincare & Beauty",
+      role: "Brand Designer",
       year: "2024",
-      deliverables: "Logo Mark, Identity System",
-      tools: "Illustrator, Vector",
+      deliverables: "Logo Design, Branding, Social Media Design",
+      tools: "Illustrator, Photoshop",
     },
     overview:
-      "A refined and luxury-feeling brand mark tailored for modern lifestyle products.",
+      "Mendesain logo, membangun identitas visual, serta merancang komunikasi media sosial yang memadukan konten promosi, lifestyle, dan beauty.",
     challenge:
-      "Creating a simple yet memorable emblem that conveys elegance and durability.",
+      "Balancing aesthetic elegance with commercial promotional flexibility across digital skincare channels.",
   },
   {
     title: "Pivot Point by Mark Liem",
     username: "pivotpoint_markliem",
-    bio: "Executive coaching & strategic consulting logo 🎯",
+    bio: "Smart & professional trader community rebranding. 🎯",
     avatarImage: "/portfolio/pivot.avif",
     avatarText: "PP",
     avatarBg: "from-slate-700 to-zinc-900",
     posts: [
       {
         src: "/portfolio/pivot.avif",
-        alt: "Pivot Point Logo",
-        caption: "Pivot Point Logo Design",
+        alt: "Pivot Point logo",
+        caption: "Pivot Point logo redesign",
       },
     ],
     details: {
       client: "Mark Liem",
-      industry: "Consulting & Executive Coaching",
-      role: "Logo Designer",
-      year: "2024",
-      deliverables: "Personal Branding Logo",
-      tools: "Illustrator, Figma",
+      industry: "Trading Education & Community",
+      role: "Brand Designer",
+      year: "2026",
+      deliverables: "Logo Redesign & Rebranding System",
+      tools: "Illustrator, Photoshop",
     },
     overview:
-      "Minimalist monogram emblem designed for high-level personal executive branding.",
+      "Melakukan rebranding dan redesign logo untuk memperkuat positioning sebagai komunitas trader yang cerdas, profesional, dan berorientasi edukasi.",
     challenge:
-      "Distilling strategic transformation and direction into a sleek geometric monogram.",
+      "Evolving an existing trading mark into a modern, high-level corporate identity that appeals to modern traders.",
   },
   {
-    title: "Raka Trabas",
+    title: "Raka Trabas SNR",
     username: "rakatrabas",
-    bio: "Dynamic & energetic adventure community logo 🚵‍♂️",
+    bio: "Strong & dynamic trading community logo. 🚴‍♂️",
     avatarImage: "/portfolio/raka.avif",
     avatarText: "RT",
     avatarBg: "from-orange-500 to-red-500",
     posts: [
       {
         src: "/portfolio/raka.avif",
-        alt: "Raka Trabas Logo",
-        caption: "Raka Trabas Logo Design",
+        alt: "Raka Trabas SNR logo",
+        caption: "Raka Trabas SNR logo design",
       },
     ],
     details: {
-      client: "Raka Trabas",
-      industry: "Outdoor & Sports",
+      client: "Raka Trabas SNR",
+      industry: "Trading Education & Community",
       role: "Logo Designer",
-      year: "2024",
-      deliverables: "Community Logo, Apparel Badge",
+      year: "2025",
+      deliverables: "Logo Design & Visual Identity",
       tools: "Illustrator, Photoshop",
     },
     overview:
-      "Bold and high-energy logo mark created for off-road & adventure sports enthusiasts.",
+      "Mendesain logo dan identitas visual komunitas trading yang berfokus pada edukasi finansial dan lifestyle dengan konsep maskulin dan kuat.",
     challenge:
-      "Blending ruggedness with clean, modern vector lines for print on merchandise.",
+      "Translating high-energy, powerful community traits into a sleek, recognizable visual logo mark.",
   },
 ];
 
@@ -973,7 +935,5 @@ export const projectCaseStudies: SectionData[] = brandSections.map(
 // ==========================================
 
 export function getProjectBySlug(slug: string) {
-  return projectCaseStudies.find(
-    (project) => project.slug === slug
-  );
+  return projectCaseStudies.find((project) => project.slug === slug);
 }
