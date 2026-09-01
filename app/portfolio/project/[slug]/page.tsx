@@ -30,7 +30,7 @@ export default function ProjectDetailPage() {
       ========================== */}
       <div className="mx-auto max-w-6xl px-6 pb-6 pt-24 sm:px-8 sm:pb-8 sm:pt-28 lg:px-10 lg:pt-32">
 
-        {/* BACK */}
+        {/* BACK BUTTON */}
         <div className="mb-8 sm:mb-10">
           <Link
             href="/portfolio/brand-identity"
@@ -108,8 +108,7 @@ export default function ProjectDetailPage() {
 
           {/* BIG IDEA TEXT */}
           <p className="mt-3 text-base leading-relaxed text-[#6B6570] sm:mt-4 sm:text-lg lg:text-xl">
-            Making financial education feel clearer, friendlier, and more
-            approachable.
+            {project.bigIdea || project.overview}
           </p>
 
         </div>
@@ -118,23 +117,35 @@ export default function ProjectDetailPage() {
 
 
       {/* =========================
-          DESIGN APPROACH
+          DESIGN APPROACH & CHALLENGE
       ========================== */}
       <section className="mx-auto max-w-6xl px-6 py-5 sm:px-8 sm:py-7 lg:px-10">
 
-        <div className="max-w-3xl">
+        <div className="max-w-3xl space-y-6">
 
-          {/* SECTION TITLE */}
-          <span className="inline-flex rounded-full border border-pink-200 bg-pink-50 px-3 py-1.5 text-[9px] font-mono font-bold uppercase tracking-[0.16em] text-pink-600 sm:px-3.5 sm:py-2 sm:text-[10px]">
-            DESIGN APPROACH
-          </span>
+          {/* DESIGN APPROACH (OVERVIEW) */}
+          <div>
+            <span className="inline-flex rounded-full border border-pink-200 bg-pink-50 px-3 py-1.5 text-[9px] font-mono font-bold uppercase tracking-[0.16em] text-pink-600 sm:px-3.5 sm:py-2 sm:text-[10px]">
+              DESIGN APPROACH
+            </span>
 
-          {/* DESCRIPTION */}
-          <p className="mt-3 text-sm leading-relaxed text-[#6B6570] sm:mt-4 sm:text-base lg:text-lg">
-            A friendly and structured visual direction that makes financial
-            information feel more accessible, trustworthy, and easy to
-            understand.
-          </p>
+            <p className="mt-3 text-sm leading-relaxed text-[#6B6570] sm:mt-4 sm:text-base lg:text-lg">
+              {project.overview}
+            </p>
+          </div>
+
+          {/* CHALLENGE */}
+          {project.challenge && (
+            <div className="pt-2">
+              <span className="inline-flex rounded-full border border-pink-200 bg-pink-50 px-3 py-1.5 text-[9px] font-mono font-bold uppercase tracking-[0.16em] text-pink-600 sm:px-3.5 sm:py-2 sm:text-[10px]">
+                CHALLENGE
+              </span>
+
+              <p className="mt-3 text-sm leading-relaxed text-[#6B6570] sm:mt-4 sm:text-base lg:text-lg">
+                {project.challenge}
+              </p>
+            </div>
+          )}
 
         </div>
 
@@ -164,7 +175,7 @@ export default function ProjectDetailPage() {
 
 
         {/* =========================
-            IMAGES
+            IMAGES GALLERY
         ========================== */}
         <div className="space-y-5 sm:space-y-8">
 
