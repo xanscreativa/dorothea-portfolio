@@ -2,17 +2,51 @@
 "use client";
 
 import React, { createContext, useContext, useEffect, useState, ReactNode } from "react";
-import { translations } from "@/data/translations";
+import { Locale, translations } from "@/data/translations";
 
-type Language = "en" | "id";
+type Language = Locale;
 
 interface LanguageContextType {
   lang: Language;
   toggleLang: () => void;
-  t: (key: keyof typeof translations.en, values?: Record<string, string | number>) => string;
+  t: (key: string, values?: Record<string, string | number>) => string;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+
+function resolveTranslation(locale: Language, key: string): string | undefined {
+  const path = key.split(".");
+
+  const lookupByPath = (value: unknown, segments: string[]): string | undefined => {
+    if (!value || typeof value !== "object") return undefined;
+
+    let current: any = value;
+    for (const segment of segments) {
+      if (!current || typeof current !== "object" || !(segment in current)) return undefined;
+      current = current[segment];
+    }
+
+    return typeof current === "string" ? current : undefined;
+  };
+
+  const lookupByName = (value: unknown, target: string): string | undefined => {
+    if (!value || typeof value !== "object") return undefined;
+
+    if (target in (value as Record<string, unknown>)) {
+      const candidate = (value as Record<string, unknown>)[target];
+      if (typeof candidate === "string") return candidate;
+    }
+
+    for (const child of Object.values(value as Record<string, unknown>)) {
+      const found = lookupByName(child, target);
+      if (found) return found;
+    }
+
+    return undefined;
+  };
+
+  return lookupByPath(translations[locale], path) ?? lookupByName(translations[locale], key) ?? undefined;
+}
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Language>("en");
@@ -31,8 +65,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     setLang((prev) => (prev === "en" ? "id" : "en"));
   };
 
-  const t = (key: keyof typeof translations.en, values?: Record<string, string | number>) => {
-    const template = translations[lang][key] || translations.en[key] || String(key);
+  const t = (key: string, values?: Record<string, string | number>) => {
+    const template =
+      resolveTranslation(lang, key) ??
+      resolveTranslation("en", key) ??
+      String(key);
 
     return values
       ? template.replace(/\{(\w+)\}/g, (_, name: string) => String(values[name] ?? `{${name}}`))
