@@ -49,7 +49,7 @@ export default function ProjectDetailHero({ project }: Props) {
             {project.title}
           </h1>
 
-          <p className="mt-8 max-w-3xl text-xl leading-10 text-[#6B6570]">
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[#6B6570] sm:mt-4 sm:text-base">
             {project.description}
           </p>
 

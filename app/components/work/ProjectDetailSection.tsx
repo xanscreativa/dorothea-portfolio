@@ -21,7 +21,7 @@ export default function ProjectDetailSection({
       <h2 className="mt-6 text-3xl font-black leading-tight text-[#2D2433] sm:text-4xl">
         {title}
       </h2>
-      <div className="mt-6 text-base leading-8 text-[#6B6570] sm:text-lg">
+      <div className="mt-3 text-sm leading-relaxed text-[#6B6570] sm:mt-4 sm:text-base">
         {children}
       </div>
     </section>

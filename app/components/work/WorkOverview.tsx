@@ -24,7 +24,7 @@ export default function WorkOverview({
           visual identity.
         </h2>
 
-        <p className="mt-8 max-w-3xl text-lg leading-9 text-[#6B6570]">
+        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[#6B6570] sm:mt-4 sm:text-base">
           {project.overview}
         </p>
 
@@ -38,7 +38,7 @@ export default function WorkOverview({
           Challenge
         </p>
 
-        <p className="mt-8 max-w-3xl text-lg leading-9 text-[#6B6570]">
+        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[#6B6570] sm:mt-4 sm:text-base">
           {project.challenge}
         </p>
 
@@ -52,7 +52,7 @@ export default function WorkOverview({
           Solution
         </p>
 
-        <p className="mt-8 max-w-3xl text-lg leading-9 text-[#6B6570]">
+        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[#6B6570] sm:mt-4 sm:text-base">
           {project.solution}
         </p>
 

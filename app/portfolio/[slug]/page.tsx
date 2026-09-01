@@ -558,7 +558,7 @@ export default function PortfolioDetailPage() {
                           {t("overview")}
                         </h3>
 
-                        <p className="text-xs leading-relaxed text-[#6B6570] sm:text-sm">
+                        <p className="mt-3 text-sm leading-relaxed text-[#6B6570] sm:mt-4 sm:text-base">
                           {section.overview}
                         </p>
 
@@ -570,7 +570,7 @@ export default function PortfolioDetailPage() {
                           {t("challenge")}
                         </h3>
 
-                        <p className="text-xs leading-relaxed text-[#6B6570] sm:text-sm">
+                        <p className="mt-3 text-sm leading-relaxed text-[#6B6570] sm:mt-4 sm:text-base">
                           {section.challenge}
                         </p>
 

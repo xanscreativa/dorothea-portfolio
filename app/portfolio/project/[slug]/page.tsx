@@ -107,7 +107,7 @@ export default function ProjectDetailPage() {
           </span>
 
           {/* BIG IDEA TEXT */}
-          <p className="mt-3 text-base leading-relaxed text-[#6B6570] sm:mt-4 sm:text-lg lg:text-xl">
+          <p className="mt-3 text-sm leading-relaxed text-[#6B6570] sm:mt-4 sm:text-base">
             {project.bigIdea || project.overview}
           </p>
 
@@ -129,7 +129,7 @@ export default function ProjectDetailPage() {
               DESIGN APPROACH
             </span>
 
-            <p className="mt-3 text-sm leading-relaxed text-[#6B6570] sm:mt-4 sm:text-base lg:text-lg">
+            <p className="mt-3 text-sm leading-relaxed text-[#6B6570] sm:mt-4 sm:text-base">
               {project.overview}
             </p>
           </div>
@@ -141,7 +141,7 @@ export default function ProjectDetailPage() {
                 CHALLENGE
               </span>
 
-              <p className="mt-3 text-sm leading-relaxed text-[#6B6570] sm:mt-4 sm:text-base lg:text-lg">
+              <p className="mt-3 text-sm leading-relaxed text-[#6B6570] sm:mt-4 sm:text-base">
                 {project.challenge}
               </p>
             </div>
