@@ -475,6 +475,14 @@ export const brandSections: SectionData[] = [
       "Establishing a dignified and welcoming brand presence for the congregation.",
     challenge:
       "Reflecting traditional ecclesiastical values through modern, clean graphic standards.",
+    bigIdea:
+      "Creating a modern and approachable financial identity that transforms complex financial topics into a clear, engaging, and relatable experience.",
+    projectImages: [
+      {
+        src: "/portfolio/branding-gpib.avif",
+        alt: "GPIB Immanuel Pekanbaru Brand Identity",
+      },
+    ],
   },
 
   {
@@ -506,6 +514,14 @@ export const brandSections: SectionData[] = [
       "Developed visual and branding assets for Consistrade, a financial education platform focused on helping traders—from beginners to professionals—learn and grow consistently. The work included building a cohesive brand identity, creating character designs, and developing engaging visual assets for digital products, trading modules, educational classes, and community-based content.",
     challenge:
       "Creating a visual identity that feels approachable for beginner traders while maintaining credibility and relevance for more experienced audiences. The challenge was to transform complex trading and financial concepts into clear, engaging, and visually consistent content that supports learning, community engagement, and Consistrade's digital education ecosystem.",
+    bigIdea:
+      "Creating a modern and approachable financial identity that transforms complex financial topics into a clear, engaging, and relatable experience.",
+    projectImages: [
+      {
+        src: "/portfolio/branding-jendela.avif",
+        alt: "Jendela Finansial Brand Identity",
+      },
+    ],
   },
 
   {
@@ -536,6 +552,14 @@ export const brandSections: SectionData[] = [
       "Winning design for the 63rd Pelkat PA GPIB Anniversary logo competition.",
     challenge:
       "Capturing the spirit of 63 years of service within a concise, iconic mark.",
+    bigIdea:
+      "Creating a modern and approachable financial identity that transforms complex financial topics into a clear, engaging, and relatable experience.",
+    projectImages: [
+      {
+        src: "/portfolio/branding-hut63.avif",
+        alt: "HUT 63 Pelkat PA GPIB Brand Identity",
+      },
+    ],
   },
 
   {
@@ -566,6 +590,14 @@ export const brandSections: SectionData[] = [
       "Developing a celebratory and meaningful identity for the 67th anniversary.",
     challenge:
       "Creating a distinct mark that aligns with church branding while signifying longevity.",
+    bigIdea:
+      "Creating a modern and approachable financial identity that transforms complex financial topics into a clear, engaging, and relatable experience.",
+    projectImages: [
+      {
+        src: "/portfolio/branding-hut67.avif",
+        alt: "HUT 67 Pelkat PA GPIB Brand Identity",
+      },
+    ],
   },
 
   {
@@ -596,6 +628,14 @@ export const brandSections: SectionData[] = [
       "Crafting a refined, luxury-feeling brand identity for modern lifestyle products.",
     challenge:
       "Encapsulating sophistication and minimalism while keeping the brand warm and accessible.",
+    bigIdea:
+      "Creating a modern and approachable financial identity that transforms complex financial topics into a clear, engaging, and relatable experience.",
+    projectImages: [
+      {
+        src: "/portfolio/branding-soleste.avif",
+        alt: "Soleste Brand Identity",
+      },
+    ],
   },
 ];
 
